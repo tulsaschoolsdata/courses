@@ -1,19 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SchoolIcon from '@mui/icons-material/School';
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Container from '@mui/material/Container'
+import CssBaseline from '@mui/material/CssBaseline'
+import Divider from '@mui/material/Divider'
+import FormControl from '@mui/material/FormControl'
+import Grid from '@mui/material/Grid'
+import InputLabel from '@mui/material/InputLabel'
+import Link from '@mui/material/Link'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import Stack from '@mui/material/Stack'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import SchoolIcon from '@mui/icons-material/School'
 
 function LearnMore() {
   return (
@@ -24,7 +30,7 @@ function LearnMore() {
         target="_blank"
       >Click here</Link> to learn more about TPS.
     </Typography>
-  );
+  )
 }
 
 function Copyright() {
@@ -41,12 +47,38 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-  );
+  )
 }
 
-const theme = createTheme();
+const theme = createTheme()
 
-export default function Courses({ courses }) {
+export default function Courses({ categories, courses, departments }) {
+  const [filters, setFilters] = useState({
+    category: '',
+    department: ''
+  })
+
+  const handleOption = (attribute, val) => {
+    const newFilters = {...filters, [attribute]: val}
+    setFilters(newFilters)
+    localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      category: '',
+      department: ''
+    })
+    localStorage.removeItem('courseCatalogFilters')
+  }
+
+  useEffect(() => {
+    const existingFilters = localStorage.getItem('courseCatalogFilters')
+    if (existingFilters) {
+      setFilters(JSON.parse(existingFilters))
+    }
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -65,22 +97,34 @@ export default function Courses({ courses }) {
             pt: 2,
             pb: 2
           }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h4"
-              variant="h4"
-              align="center"
-              color="text.primary"
-            >
-              Courses
-            </Typography>
-          </Container>
-        </Box>
+        />
         <Container maxWidth="md">
-          <Grid container spacing={4}>
+          <Grid container spacing={2} direction="row">
+            <Grid item xs={12} sm={4}>
+              <Stack spacing={1}>
+                <Typography variant="">Filters</Typography>
+                <FormControl fullWidth>
+                  <InputLabel>Select a department</InputLabel>
+                  <Select label="Select a department" value={filters.department} onChange={option => handleOption('department', option.target.value)}>
+                    {departments.map(department => (
+                      <MenuItem key={department.name} value={department.name}>{department.name}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <FormControl fullWidth>
+                  <InputLabel>Select a school category</InputLabel>
+                  <Select label="Select a school category" value={filters.category} onChange={option => handleOption('category', option.target.value)}>
+                    {categories.map(category => (
+                      <MenuItem key={category} value={category}>{category}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                <Button onClick={() => clearFilters()}>Clear Filters</Button>
+              </Stack>
+            </Grid>
+            <Grid item xs={12} sm={8}>
             {courses.map((course) => (
-              <Grid item key={course.number} xs={12} sm={6} md={4}>
+              <Grid item key={course.number}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -101,6 +145,7 @@ export default function Courses({ courses }) {
                 </Card>
               </Grid>
             ))}
+            </Grid>
           </Grid>
         </Container>
       </main>
@@ -123,10 +168,11 @@ export default function Courses({ courses }) {
         </Typography>
       </Box>
     </ThemeProvider>
-  );
+  )
 }
 
 Courses.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string.isRequired),
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -134,10 +180,19 @@ Courses.propTypes = {
       number: PropTypes.number.isRequired,
       url: PropTypes.string.isRequired
     })
+  ),
+  departments: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      number: PropTypes.number.isRequired
+    })
   )
 }
 
 export async function getStaticProps() {
+  const categories = ['Early Childhood', 'Elementary', 'Middle', 'High']
+
   const courses = [...Array(10).keys()].map(n => (
     {
       name: `Course ${n}`,
@@ -147,9 +202,19 @@ export async function getStaticProps() {
     }
   ))
 
+  const departments = [...Array(4).keys()].map(n => (
+    {
+      name: `Department ${n}`,
+      description: `Department ${n} description goes here.`,
+      number: n,
+    }
+  ))
+
   return {
     props: {
-      courses
+      categories,
+      courses,
+      departments
     }
   }
 }
