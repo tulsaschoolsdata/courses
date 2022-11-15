@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
-import Container from '@mui/material/Container'
 import Course from './course/show'
 import CourseCard from './course/card'
 import createTheme from '@mui/material/styles/CreateTheme'
@@ -8,11 +7,13 @@ import CssBaseline from '@mui/material/CssBaseline'
 import Filters from './filters'
 import Footer from './footer'
 import Grid from '@mui/material/Grid'
+import PageContainer from './shared/page-container'
 import PropTypes from 'prop-types'
 import SchoolIcon from '@mui/icons-material/School'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import { courseShape, departmentShape, gradeLevelShape } from './prop-types'
 
 const theme = createTheme()
 
@@ -74,69 +75,36 @@ export default function Courses({ gradeLevels, courses, departments }) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>
-        <Container
-          maxWidth="md"
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 2,
-            pb: 2
-          }}
-        >
-          {showCourse ? (
-            <Course
-              course={showCourse}
-              onHide={hideCourse}
-            />
-          ) : (
-            <Grid container spacing={2} direction="row">
-              <Grid item xs={12} sm={4}>
-                <Filters clearFilters={clearFilters} departments={departments} filters={filters} gradeLevels={gradeLevels} handleChange={handleChange} />
-              </Grid>
-              <Grid item xs={12} sm={8}>
-                {filteredCourses.map((course) => (
-                  <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
-                    <CourseCard course={course} setShowCourse={setShowCourse} />
-                  </Grid>
-                ))}
-              </Grid>
+      <PageContainer>
+        {showCourse ? (
+          <Course
+            course={showCourse}
+            onHide={hideCourse}
+          />
+        ) : (
+          <Grid container spacing={2} direction="row">
+            <Grid item xs={12} sm={4}>
+              <Filters clearFilters={clearFilters} departments={departments} filters={filters} gradeLevels={gradeLevels} handleChange={handleChange} />
             </Grid>
-          )}
-        </Container>
-      </main>
-
+            <Grid item xs={12} sm={8}>
+              {filteredCourses.map((course) => (
+                <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
+                  <CourseCard course={course} setShowCourse={setShowCourse} />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        )}
+      </PageContainer>
       <Footer />
     </ThemeProvider>
   )
 }
 
 Courses.propTypes = {
-  gradeLevels: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired
-    })
-  ),
-  courses: PropTypes.arrayOf(
-    PropTypes.shape({
-      course_name: PropTypes.string.isRequired,
-      prerequisites: PropTypes.string.isRequired,
-      credit_types: PropTypes.string.isRequired,
-      state_course_number: PropTypes.string.isRequired,
-      tps_course_number: PropTypes.string.isRequired,
-      credit_hours: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      course_notes: PropTypes.string.isRequired,
-      grade_levels: PropTypes.arrayOf(PropTypes.number.isRequired),
-      department: PropTypes.string.isRequired
-    })
-  ),
-  departments: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    })
-  )
+  gradeLevels: PropTypes.arrayOf(gradeLevelShape),
+  courses: PropTypes.arrayOf(courseShape),
+  departments: PropTypes.arrayOf(departmentShape)
 }
 
 export async function getStaticProps() {
