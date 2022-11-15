@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import Course from './course/show'
 import CourseCard from './course/card'
 import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
+import Filters from './filters'
 import Footer from './footer'
-import FormControl from '@mui/material/FormControl'
 import Grid from '@mui/material/Grid'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
 import PropTypes from 'prop-types'
 import SchoolIcon from '@mui/icons-material/School'
-import Select from '@mui/material/Select'
-import Stack from '@mui/material/Stack'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
@@ -29,7 +24,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [showCourse, setShowCourse] = useState(null)
 
-  const handleOption = (attribute, val) => {
+  const handleChange = (attribute, val) => {
     const newFilters = {...filters, [attribute]: val}
     setFilters(newFilters)
     localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
@@ -96,33 +91,14 @@ export default function Courses({ gradeLevels, courses, departments }) {
           ) : (
             <Grid container spacing={2} direction="row">
               <Grid item xs={12} sm={4}>
-                <Stack spacing={1}>
-                  <Typography variant="">Filters</Typography>
-                  <FormControl fullWidth>
-                    <InputLabel>Select a department</InputLabel>
-                    <Select label="Select a department" value={filters.department} onChange={option => handleOption('department', option.target.value)}>
-                      {departments.map(department => (
-                        <MenuItem key={department.name} value={department.name}>{department.name}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Select a grade level</InputLabel>
-                    <Select label="Select a grade level" value={filters.gradeLevel} onChange={option => handleOption('gradeLevel', option.target.value)}>
-                      {gradeLevels.map(gradeLevel => (
-                        <MenuItem key={gradeLevel.label} value={gradeLevel.value}>{gradeLevel.label}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                  <Button onClick={() => clearFilters()}>Clear Filters</Button>
-                </Stack>
+                <Filters clearFilters={clearFilters} departments={departments} filters={filters} gradeLevels={gradeLevels} handleChange={handleChange} />
               </Grid>
               <Grid item xs={12} sm={8}>
-              {filteredCourses.map((course) => (
-                <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
-                  <CourseCard course={course} setShowCourse={setShowCourse} />
-                </Grid>
-              ))}
+                {filteredCourses.map((course) => (
+                  <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
+                    <CourseCard course={course} setShowCourse={setShowCourse} />
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
           )}
@@ -134,7 +110,6 @@ export default function Courses({ gradeLevels, courses, departments }) {
   )
 }
 
-// NOTE: Many of the following proptypes are guesses - will change based on source data.
 Courses.propTypes = {
   gradeLevels: PropTypes.arrayOf(
     PropTypes.shape({
@@ -150,7 +125,6 @@ Courses.propTypes = {
       state_course_number: PropTypes.string.isRequired,
       tps_course_number: PropTypes.string.isRequired,
       credit_hours: PropTypes.string.isRequired,
-      // advisory: PropTypes.string.isRequired, unclear on this one
       description: PropTypes.string.isRequired,
       course_notes: PropTypes.string.isRequired,
       grade_levels: PropTypes.arrayOf(PropTypes.number.isRequired),
@@ -174,7 +148,6 @@ export async function getStaticProps() {
       state_course_number: `${n}`,
       tps_course_number: `${n}${String.fromCharCode(65+Math.floor(Math.random() * 2))}`,
       credit_hours: '0.5',
-      // advisory: PropTypes.string.isRequired, unclear on this one
       description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
       course_notes: `Course ${n} notes go here.`,
       grade_levels: [Math.floor(Math.random() * 12)],
