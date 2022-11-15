@@ -15,7 +15,7 @@ export default function CourseCard({ course, setShowCourse }) {
     >
       <CardMedia
         component="img"
-        image="https://source.unsplash.com/random"
+        image="https://source.unsplash.com/random?Education"
         alt="random"
         height={50}
       />
