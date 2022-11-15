@@ -21,6 +21,8 @@ import Typography from '@mui/material/Typography'
 import createTheme from '@mui/material/styles/CreateTheme'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import SchoolIcon from '@mui/icons-material/School'
+import { truncate } from 'lodash'
+import Course from './course'
 
 function LearnMore() {
   return (
@@ -59,6 +61,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
     department: ''
   })
   const [filteredCourses, setFilteredCourses] = useState(courses)
+  const [showCourse, setShowCourse] = useState(null)
 
   const handleOption = (attribute, val) => {
     const newFilters = {...filters, [attribute]: val}
@@ -95,6 +98,10 @@ export default function Courses({ gradeLevels, courses, departments }) {
     setFilteredCourses(output)
   }, [filters])
 
+  const hideCourse = () => {
+    setShowCourse(null)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -107,62 +114,73 @@ export default function Courses({ gradeLevels, courses, departments }) {
         </Toolbar>
       </AppBar>
       <main>
-        <Box
+        <Container
+          maxWidth="md"
           sx={{
             bgcolor: 'background.paper',
             pt: 2,
             pb: 2
           }}
-        />
-        <Container maxWidth="md">
-          <Grid container spacing={2} direction="row">
-            <Grid item xs={12} sm={4}>
-              <Stack spacing={1}>
-                <Typography variant="">Filters</Typography>
-                <FormControl fullWidth>
-                  <InputLabel>Select a department</InputLabel>
-                  <Select label="Select a department" value={filters.department} onChange={option => handleOption('department', option.target.value)}>
-                    {departments.map(department => (
-                      <MenuItem key={department.name} value={department.name}>{department.name}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                <FormControl fullWidth>
-                  <InputLabel>Select a grade level</InputLabel>
-                  <Select label="Select a grade level" value={filters.gradeLevel} onChange={option => handleOption('gradeLevel', option.target.value)}>
-                    {gradeLevels.map(gradeLevel => (
-                      <MenuItem key={gradeLevel.label} value={gradeLevel.value}>{gradeLevel.label}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                <Button onClick={() => clearFilters()}>Clear Filters</Button>
-              </Stack>
-            </Grid>
-            <Grid item xs={12} sm={8}>
-            {filteredCourses.map((course) => (
-              <Grid item key={course.tps_course_number}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="img"
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                    height={50}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {course.name}
-                    </Typography>
-                    <Typography>
-                      {course.description} - Grades: {course.grade_levels.map(g => `${g}, `)} - Department: {course.department}
-                    </Typography>
-                  </CardContent>
-                </Card>
+        >
+          {showCourse ? (
+            <Course
+              course={showCourse}
+              onHide={hideCourse}
+            />
+          ) : (
+            <Grid container spacing={2} direction="row">
+              <Grid item xs={12} sm={4}>
+                <Stack spacing={1}>
+                  <Typography variant="">Filters</Typography>
+                  <FormControl fullWidth>
+                    <InputLabel>Select a department</InputLabel>
+                    <Select label="Select a department" value={filters.department} onChange={option => handleOption('department', option.target.value)}>
+                      {departments.map(department => (
+                        <MenuItem key={department.name} value={department.name}>{department.name}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth>
+                    <InputLabel>Select a grade level</InputLabel>
+                    <Select label="Select a grade level" value={filters.gradeLevel} onChange={option => handleOption('gradeLevel', option.target.value)}>
+                      {gradeLevels.map(gradeLevel => (
+                        <MenuItem key={gradeLevel.label} value={gradeLevel.value}>{gradeLevel.label}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <Button onClick={() => clearFilters()}>Clear Filters</Button>
+                </Stack>
               </Grid>
-            ))}
+              <Grid item xs={12} sm={8}>
+              {filteredCourses.map((course) => (
+                <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
+                  <Card
+                    sx={{ height: 250, display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="img"
+                      image="https://source.unsplash.com/random"
+                      alt="random"
+                      height={50}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {course.course_name}
+                      </Typography>
+                      <Typography>
+                        {truncate(course.description, {
+                          length: 75
+                        })}
+                        <Divider />
+                        <Button onClick={() => setShowCourse(course)}>Read More</Button>
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+              </Grid>
             </Grid>
-          </Grid>
+          )}
         </Container>
       </main>
 
@@ -228,7 +246,7 @@ export async function getStaticProps() {
       tps_course_number: `${n}${String.fromCharCode(65+Math.floor(Math.random() * 2))}`,
       credit_hours: '0.5',
       // advisory: PropTypes.string.isRequired, unclear on this one
-      description: `Course ${n} description goes here.`,
+      description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
       course_notes: `Course ${n} notes go here.`,
       grade_levels: [Math.floor(Math.random() * 12)],
       department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][Math.floor(Math.random() * 6)]
