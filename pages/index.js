@@ -18,7 +18,8 @@ import Select from '@mui/material/Select'
 import Stack from '@mui/material/Stack'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import createTheme from '@mui/material/styles/CreateTheme'
+import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import SchoolIcon from '@mui/icons-material/School'
 
 function LearnMore() {
@@ -52,11 +53,12 @@ function Copyright() {
 
 const theme = createTheme()
 
-export default function Courses({ categories, courses, departments }) {
+export default function Courses({ gradeLevels, courses, departments }) {
   const [filters, setFilters] = useState({
-    category: '',
+    gradeLevel: '',
     department: ''
   })
+  const [filteredCourses, setFilteredCourses] = useState(courses)
 
   const handleOption = (attribute, val) => {
     const newFilters = {...filters, [attribute]: val}
@@ -66,7 +68,7 @@ export default function Courses({ categories, courses, departments }) {
 
   const clearFilters = () => {
     setFilters({
-      category: '',
+      gradeLevel: '',
       department: ''
     })
     localStorage.removeItem('courseCatalogFilters')
@@ -78,6 +80,20 @@ export default function Courses({ categories, courses, departments }) {
       setFilters(JSON.parse(existingFilters))
     }
   }, [])
+
+  useEffect(() => {
+    let output = courses
+
+    if (filters.department) {
+      output = output.filter(course => course.department === filters.department)
+    }
+
+    if (filters.gradeLevel) { // does not work on Kindergarten because of 0.
+      output = output.filter(course => course.grade_levels.includes(filters.gradeLevel))
+    }
+
+    setFilteredCourses(output)
+  }, [filters])
 
   return (
     <ThemeProvider theme={theme}>
@@ -112,10 +128,10 @@ export default function Courses({ categories, courses, departments }) {
                   </Select>
                 </FormControl>
                 <FormControl fullWidth>
-                  <InputLabel>Select a school category</InputLabel>
-                  <Select label="Select a school category" value={filters.category} onChange={option => handleOption('category', option.target.value)}>
-                    {categories.map(category => (
-                      <MenuItem key={category} value={category}>{category}</MenuItem>
+                  <InputLabel>Select a grade level</InputLabel>
+                  <Select label="Select a grade level" value={filters.gradeLevel} onChange={option => handleOption('gradeLevel', option.target.value)}>
+                    {gradeLevels.map(gradeLevel => (
+                      <MenuItem key={gradeLevel.label} value={gradeLevel.value}>{gradeLevel.label}</MenuItem>
                     ))}
                   </Select>
                 </FormControl>
@@ -123,14 +139,14 @@ export default function Courses({ categories, courses, departments }) {
               </Stack>
             </Grid>
             <Grid item xs={12} sm={8}>
-            {courses.map((course) => (
-              <Grid item key={course.number}>
+            {filteredCourses.map((course) => (
+              <Grid item key={course.tps_course_number}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
-                    image={course.url}
+                    image="https://source.unsplash.com/random"
                     alt="random"
                     height={50}
                   />
@@ -139,7 +155,7 @@ export default function Courses({ categories, courses, departments }) {
                       {course.name}
                     </Typography>
                     <Typography>
-                      {course.description}
+                      {course.description} - Grades: {course.grade_levels.map(g => `${g}, `)} - Department: {course.department}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -171,50 +187,84 @@ export default function Courses({ categories, courses, departments }) {
   )
 }
 
+// NOTE: Many of the following proptypes are guesses - will change based on source data.
 Courses.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.string.isRequired),
+  gradeLevels: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })
+  ),
   courses: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      course_name: PropTypes.string.isRequired,
+      prerequisites: PropTypes.string.isRequired,
+      credit_types: PropTypes.string.isRequired,
+      state_course_number: PropTypes.string.isRequired,
+      tps_course_number: PropTypes.string.isRequired,
+      credit_hours: PropTypes.string.isRequired,
+      // advisory: PropTypes.string.isRequired, unclear on this one
       description: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired
+      course_notes: PropTypes.string.isRequired,
+      grade_levels: PropTypes.arrayOf(PropTypes.number.isRequired),
+      department: PropTypes.string.isRequired
     })
   ),
   departments: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired
+      description: PropTypes.string.isRequired
     })
   )
 }
 
 export async function getStaticProps() {
-  const categories = ['Early Childhood', 'Elementary', 'Middle', 'High']
-
   const courses = [...Array(10).keys()].map(n => (
     {
-      name: `Course ${n}`,
+      course_name: `Course ${n}`,
+      prerequisites: `Course ${n - 1} must be taken before this course.`,
+      credit_types: 'ELEC;WFC',
+      state_course_number: `${n}`,
+      tps_course_number: `${n}${String.fromCharCode(65+Math.floor(Math.random() * 2))}`,
+      credit_hours: '0.5',
+      // advisory: PropTypes.string.isRequired, unclear on this one
       description: `Course ${n} description goes here.`,
-      number: n,
-      url: 'https://source.unsplash.com/random'
+      course_notes: `Course ${n} notes go here.`,
+      grade_levels: [Math.floor(Math.random() * 12)],
+      department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][Math.floor(Math.random() * 6)]
     }
   ))
 
-  const departments = [...Array(4).keys()].map(n => (
+  const departments = ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'].map(d => (
     {
-      name: `Department ${n}`,
-      description: `Department ${n} description goes here.`,
-      number: n,
+      name: d,
+      description: 'Description goes here.'
     }
   ))
+
+  const gradeLevels = [
+    { label: "pre-k (3)", value: -2 },
+    { label: "pre-k", value: -1 },
+    { label: "k", value: 0 },
+    { label: "1st", value: 1 },
+    { label: "2nd", value: 2 },
+    { label: "3rd", value: 3 },
+    { label: "4th", value: 4 },
+    { label: "5th", value: 5 },
+    { label: "6th", value: 6 },
+    { label: "7th", value: 7 },
+    { label: "8th", value: 8 },
+    { label: "9th", value: 9 },
+    { label: "10th", value: 10 },
+    { label: "11th", value: 11 },
+    { label: "12th", value: 12 }
+  ]
 
   return {
     props: {
-      categories,
       courses,
-      departments
+      departments,
+      gradeLevels
     }
   }
 }
