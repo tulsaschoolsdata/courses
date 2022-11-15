@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import Course from './course/show'
 import CourseCard from './course/card'
 import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
-import Divider from '@mui/material/Divider'
+import Footer from './footer'
 import FormControl from '@mui/material/FormControl'
 import Grid from '@mui/material/Grid'
 import InputLabel from '@mui/material/InputLabel'
-import Link from '@mui/material/Link'
 import MenuItem from '@mui/material/MenuItem'
 import PropTypes from 'prop-types'
 import SchoolIcon from '@mui/icons-material/School'
@@ -20,35 +18,6 @@ import Stack from '@mui/material/Stack'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-
-function LearnMore() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      <Link
-        color="inherit"
-        href="https://www.tulsaschools.org/about"
-        target="_blank"
-      >Click here</Link> to learn more about TPS.
-    </Typography>
-  )
-}
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link
-        color="inherit"
-        href="https://courses.tulsaschools.org/"
-        target="_blank"
-      >
-        Tulsa Public Schools
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
 
 const theme = createTheme()
 
@@ -160,23 +129,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
         </Container>
       </main>
 
-      <Box sx={{ bgcolor: 'background.paper', pt: 16, pb: 1 }} component="footer">
-        <Divider />
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-        >
-          <LearnMore />
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-        >
-          <Copyright />
-        </Typography>
-      </Box>
+      <Footer />
     </ThemeProvider>
   )
 }
