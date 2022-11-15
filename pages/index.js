@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
 import Container from '@mui/material/Container'
+import Course from './course/show'
+import CourseCard from './course/card'
+import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import FormControl from '@mui/material/FormControl'
@@ -14,15 +13,13 @@ import Grid from '@mui/material/Grid'
 import InputLabel from '@mui/material/InputLabel'
 import Link from '@mui/material/Link'
 import MenuItem from '@mui/material/MenuItem'
+import PropTypes from 'prop-types'
+import SchoolIcon from '@mui/icons-material/School'
 import Select from '@mui/material/Select'
 import Stack from '@mui/material/Stack'
+import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import createTheme from '@mui/material/styles/CreateTheme'
-import ThemeProvider from '@mui/material/styles/ThemeProvider'
-import SchoolIcon from '@mui/icons-material/School'
-import { truncate } from 'lodash'
-import Course from './course'
 
 function LearnMore() {
   return (
@@ -154,28 +151,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
               <Grid item xs={12} sm={8}>
               {filteredCourses.map((course) => (
                 <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
-                  <Card
-                    sx={{ height: 250, display: 'flex', flexDirection: 'column' }}
-                  >
-                    <CardMedia
-                      component="img"
-                      image="https://source.unsplash.com/random"
-                      alt="random"
-                      height={50}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {course.course_name}
-                      </Typography>
-                      <Typography>
-                        {truncate(course.description, {
-                          length: 75
-                        })}
-                        <Divider />
-                        <Button onClick={() => setShowCourse(course)}>Read More</Button>
-                      </Typography>
-                    </CardContent>
-                  </Card>
+                  <CourseCard course={course} setShowCourse={setShowCourse} />
                 </Grid>
               ))}
               </Grid>

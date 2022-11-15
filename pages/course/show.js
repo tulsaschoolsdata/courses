@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
-import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
+
 export default function Course({ course, onHide }) {
   return (
     <Stack spacing={1}>
