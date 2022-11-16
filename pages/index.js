@@ -6,6 +6,7 @@ import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
 import Filters from './filters'
 import Footer from './footer'
+import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
 import PageContainer from './shared/page-container'
 import PropTypes from 'prop-types'
@@ -20,7 +21,8 @@ const theme = createTheme()
 export default function Courses({ gradeLevels, courses, departments }) {
   const [filters, setFilters] = useState({
     gradeLevel: '',
-    department: ''
+    department: '',
+    search: ''
   })
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [showCourse, setShowCourse] = useState(null)
@@ -34,7 +36,8 @@ export default function Courses({ gradeLevels, courses, departments }) {
   const clearFilters = () => {
     setFilters({
       gradeLevel: '',
-      department: ''
+      department: '',
+      search: ''
     })
     localStorage.removeItem('courseCatalogFilters')
   }
@@ -55,6 +58,18 @@ export default function Courses({ gradeLevels, courses, departments }) {
 
     if (filters.gradeLevel) { // does not work on Kindergarten because of 0.
       output = output.filter(course => course.grade_levels.includes(filters.gradeLevel))
+    }
+
+    if (filters.search) {
+      const options = {
+        keys: [
+          "course_name",
+          "description"
+        ]
+      }
+      const fuse = new Fuse(output, options)
+      const searchResults = fuse.search(filters.search)
+      output = searchResults.map(result => result.item)
     }
 
     setFilteredCourses(output)
@@ -84,6 +99,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
         ) : (
           <Grid container spacing={2} direction="row">
             <Grid item xs={12} sm={4}>
+
               <Filters clearFilters={clearFilters} departments={departments} filters={filters} gradeLevels={gradeLevels} handleChange={handleChange} />
             </Grid>
             <Grid item xs={12} sm={8}>

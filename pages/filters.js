@@ -6,12 +6,14 @@ import MenuItem from '@mui/material/MenuItem'
 import PropTypes from 'prop-types'
 import Select from '@mui/material/Select'
 import Stack from '@mui/material/Stack'
+import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
 export default function Filters({ clearFilters, departments, filters, gradeLevels, handleChange }) {
   return (
     <Stack spacing={1}>
       <Typography variant="">Filters</Typography>
+      <TextField id="search" label="Search" variant="outlined" value={filters.search} onChange={val => handleChange('search', val.target.value)} />
       <FormControl fullWidth>
         <InputLabel>Select a department</InputLabel>
         <Select label="Select a department" value={filters.department} onChange={option => handleChange('department', option.target.value)}>
