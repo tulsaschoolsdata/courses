@@ -7,8 +7,9 @@ import Divider from '@mui/material/Divider'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
+import Link from 'next/link'
 
-export default function CourseCard({ course, setShowCourse }) {
+export default function CourseCard({ course }) {
   const { course_name, description } = course
   return (
     <Card sx={{ height: 250, display: 'flex', flexDirection: 'column' }}>
@@ -28,7 +29,7 @@ export default function CourseCard({ course, setShowCourse }) {
           })}
         </Typography>
         <Divider />
-        <Button onClick={() => setShowCourse(course)}>Read More</Button>
+        <Link href={`/course/${course.tps_course_number}`}>Read More</Link>
       </CardContent>
     </Card>
   )
@@ -36,5 +37,4 @@ export default function CourseCard({ course, setShowCourse }) {
 
 CourseCard.propTypes = {
   course: PropTypes.object.isRequired,
-  setShowCourse: PropTypes.func.isRequired,
 }
