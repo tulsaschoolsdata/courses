@@ -4,7 +4,7 @@ import Course from './course/show'
 import CourseCard from './course/card'
 import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
-import Filters from './filters'
+import Filters from '../lib/filters'
 import Footer from './footer'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
@@ -14,7 +14,7 @@ import SchoolIcon from '@mui/icons-material/School'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { courseShape, departmentShape, gradeLevelShape } from './prop-types'
+import { courseShape, departmentShape, gradeLevelShape } from '../lib/prop-types'
 
 const theme = createTheme()
 
