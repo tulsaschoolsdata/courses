@@ -9,16 +9,11 @@ export const courseShape = PropTypes.shape({
   credit_hours: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   course_notes: PropTypes.string.isRequired,
-  grade_levels: PropTypes.arrayOf(PropTypes.number.isRequired),
+  school_name: PropTypes.string.isRequired,
   department: PropTypes.string.isRequired
 })
 
 export const departmentShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
-})
-
-export const gradeLevelShape = PropTypes.shape({
-  label: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired
 })

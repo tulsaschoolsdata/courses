@@ -14,14 +14,14 @@ import SchoolIcon from '@mui/icons-material/School'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { courseShape, departmentShape, gradeLevelShape } from '../lib/prop-types'
+import { courseShape, departmentShape } from '../lib/prop-types'
 
 const theme = createTheme()
 
-export default function Courses({ gradeLevels, courses, departments }) {
+export default function Courses({ courses, departments, schools }) {
   const [filters, setFilters] = useState({
-    gradeLevel: '',
-    department: '',
+    departments: [],
+    schools: [],
     search: ''
   })
   const [filteredCourses, setFilteredCourses] = useState(courses)
@@ -35,8 +35,8 @@ export default function Courses({ gradeLevels, courses, departments }) {
 
   const clearFilters = () => {
     setFilters({
-      gradeLevel: '',
-      department: '',
+      departments: [],
+      schools: [],
       search: ''
     })
     localStorage.removeItem('courseCatalogFilters')
@@ -52,12 +52,12 @@ export default function Courses({ gradeLevels, courses, departments }) {
   useEffect(() => {
     let output = courses
 
-    if (filters.department) {
-      output = output.filter(course => course.department === filters.department)
+    if (filters.departments.length > 0) {
+      output = output.filter(course => filters.departments.includes(course.department))
     }
 
-    if (filters.gradeLevel) { // does not work on Kindergarten because of 0.
-      output = output.filter(course => course.grade_levels.includes(filters.gradeLevel))
+    if (filters.schools.length > 0) {
+      output = output.filter(course => filters.schools.includes(course.school_name))
     }
 
     if (filters.search) {
@@ -100,7 +100,7 @@ export default function Courses({ gradeLevels, courses, departments }) {
           <Grid container spacing={2} direction="row">
             <Grid item xs={12} sm={4}>
 
-              <Filters clearFilters={clearFilters} departments={departments} filters={filters} gradeLevels={gradeLevels} handleChange={handleChange} />
+              <Filters clearFilters={clearFilters} departments={departments} filters={filters} schools={schools} handleChange={handleChange} />
             </Grid>
             <Grid item xs={12} sm={8}>
               {filteredCourses.map((course) => (
@@ -118,9 +118,9 @@ export default function Courses({ gradeLevels, courses, departments }) {
 }
 
 Courses.propTypes = {
-  gradeLevels: PropTypes.arrayOf(gradeLevelShape),
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(departmentShape)
+  departments: PropTypes.arrayOf(departmentShape),
+  schools: PropTypes.arrayOf(PropTypes.string.isRequired)
 }
 
 export async function getStaticProps() {
@@ -134,7 +134,7 @@ export async function getStaticProps() {
       credit_hours: '0.5',
       description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
       course_notes: `Course ${n} notes go here.`,
-      grade_levels: [Math.floor(Math.random() * 12)],
+      school_name: `School ${n}`,
       department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][Math.floor(Math.random() * 6)]
     }
   ))
@@ -145,30 +145,14 @@ export async function getStaticProps() {
       description: 'Description goes here.'
     }
   ))
-
-  const gradeLevels = [
-    { label: "pre-k (3)", value: -2 },
-    { label: "pre-k", value: -1 },
-    { label: "k", value: 0 },
-    { label: "1st", value: 1 },
-    { label: "2nd", value: 2 },
-    { label: "3rd", value: 3 },
-    { label: "4th", value: 4 },
-    { label: "5th", value: 5 },
-    { label: "6th", value: 6 },
-    { label: "7th", value: 7 },
-    { label: "8th", value: 8 },
-    { label: "9th", value: 9 },
-    { label: "10th", value: 10 },
-    { label: "11th", value: 11 },
-    { label: "12th", value: 12 }
-  ]
+  
+  const schools = [...new Set(courses.map(course => course.school_name))]
 
   return {
     props: {
       courses,
       departments,
-      gradeLevels
+      schools,
     }
   }
 }

@@ -16,7 +16,7 @@ export default function Course({ course, onHide }) {
     tps_course_number,
     credit_hours,
     course_notes,
-    grade_levels,
+    school_name,
     department,
   } = course
   return (
@@ -58,10 +58,6 @@ export default function Course({ course, onHide }) {
         {startCase('course_notes')}
       </Typography>
       <Typography variant="subtitle1">{course_notes}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('grade_levels')}
-      </Typography>
-      <Typography variant="subtitle1">{grade_levels}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('department')}
       </Typography>
