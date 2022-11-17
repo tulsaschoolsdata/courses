@@ -47,7 +47,7 @@ export default function Courses({ courses, departments, schools }) {
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
     }
-  }, [])
+  })
 
   useEffect(() => {
     let output = courses
