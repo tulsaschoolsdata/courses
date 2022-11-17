@@ -9,10 +9,9 @@ import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
 
 export default function CourseCard({ course, setShowCourse }) {
+  const { course_name, description } = course
   return (
-    <Card
-      sx={{ height: 250, display: 'flex', flexDirection: 'column' }}
-    >
+    <Card sx={{ height: 250, display: 'flex', flexDirection: 'column' }}>
       <CardMedia
         component="img"
         image="https://source.unsplash.com/random?Education"
@@ -21,15 +20,15 @@ export default function CourseCard({ course, setShowCourse }) {
       />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="h2">
-          {course.course_name}
+          {course_name}
         </Typography>
         <Typography>
-          {truncate(course.description, {
-            length: 75
+          {truncate(description, {
+            length: 75,
           })}
-          <Divider />
-          <Button onClick={() => setShowCourse(course)}>Read More</Button>
         </Typography>
+        <Divider />
+        <Button onClick={() => setShowCourse(course)}>Read More</Button>
       </CardContent>
     </Card>
   )
@@ -37,5 +36,5 @@ export default function CourseCard({ course, setShowCourse }) {
 
 CourseCard.propTypes = {
   course: PropTypes.object.isRequired,
-  setShowCourse: PropTypes.func.isRequired
+  setShowCourse: PropTypes.func.isRequired,
 }
