@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import AppBar from '@mui/material/AppBar'
 import CourseCard from '../components/card'
 import createTheme from '@mui/material/styles/CreateTheme'
@@ -14,6 +14,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { courseShape, departmentShape } from '../lib/prop-types'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 const theme = createTheme()
 
@@ -23,6 +24,8 @@ export default function Courses({ courses, departments, schools }) {
     schools: [],
     search: '',
   })
+
+  const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
   const [filteredCourses, setFilteredCourses] = useState(courses)
 
   const handleChange = (attribute, val) => {
@@ -96,7 +99,7 @@ export default function Courses({ courses, departments, schools }) {
               handleChange={handleChange}
             />
           </Grid>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={8} ref={parent}>
             {filteredCourses.map((course) => (
               <Grid
                 item
