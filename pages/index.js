@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import CourseCard from '../components/card'
+import { createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
-import Toolbar from '@mui/material/Toolbar'
 import { courseShape, departmentShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
@@ -142,3 +143,4 @@ export async function getStaticProps() {
     },
   }
 }
+
