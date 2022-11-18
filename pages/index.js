@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
-import Course from './course/show'
-import CourseCard from './course/card'
+import CourseCard from '../components/card'
 import createTheme from '@mui/material/styles/CreateTheme'
 import CssBaseline from '@mui/material/CssBaseline'
 import Filters from '../lib/filters'
@@ -22,13 +21,12 @@ export default function Courses({ courses, departments, schools }) {
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
-    search: ''
+    search: '',
   })
   const [filteredCourses, setFilteredCourses] = useState(courses)
-  const [showCourse, setShowCourse] = useState(null)
 
   const handleChange = (attribute, val) => {
-    const newFilters = {...filters, [attribute]: val}
+    const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
     localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
   }
@@ -37,7 +35,7 @@ export default function Courses({ courses, departments, schools }) {
     setFilters({
       departments: [],
       schools: [],
-      search: ''
+      search: '',
     })
     localStorage.removeItem('courseCatalogFilters')
   }
@@ -53,31 +51,28 @@ export default function Courses({ courses, departments, schools }) {
     let output = courses
 
     if (filters.departments.length > 0) {
-      output = output.filter(course => filters.departments.includes(course.department))
+      output = output.filter((course) =>
+        filters.departments.includes(course.department)
+      )
     }
 
     if (filters.schools.length > 0) {
-      output = output.filter(course => filters.schools.includes(course.school_name))
+      output = output.filter((course) =>
+        filters.schools.includes(course.school_name)
+      )
     }
 
     if (filters.search) {
       const options = {
-        keys: [
-          "course_name",
-          "description"
-        ]
+        keys: ['course_name', 'description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
-      output = searchResults.map(result => result.item)
+      output = searchResults.map((result) => result.item)
     }
 
     setFilteredCourses(output)
   }, [filters])
-
-  const hideCourse = () => {
-    setShowCourse(null)
-  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -91,26 +86,30 @@ export default function Courses({ courses, departments, schools }) {
         </Toolbar>
       </AppBar>
       <PageContainer>
-        {showCourse ? (
-          <Course
-            course={showCourse}
-            onHide={hideCourse}
-          />
-        ) : (
-          <Grid container spacing={2} direction="row">
-            <Grid item xs={12} sm={4}>
-
-              <Filters clearFilters={clearFilters} departments={departments} filters={filters} schools={schools} handleChange={handleChange} />
-            </Grid>
-            <Grid item xs={12} sm={8}>
-              {filteredCourses.map((course) => (
-                <Grid item key={course.tps_course_number} xs={12} sm={6} sx={{ p: 2, display: 'inline-block' }}>
-                  <CourseCard course={course} setShowCourse={setShowCourse} />
-                </Grid>
-              ))}
-            </Grid>
+        <Grid container spacing={2} direction="row">
+          <Grid item xs={12} sm={4}>
+            <Filters
+              clearFilters={clearFilters}
+              departments={departments}
+              filters={filters}
+              schools={schools}
+              handleChange={handleChange}
+            />
           </Grid>
-        )}
+          <Grid item xs={12} sm={8}>
+            {filteredCourses.map((course) => (
+              <Grid
+                item
+                key={course.tps_course_number}
+                xs={12}
+                sm={6}
+                sx={{ p: 2, display: 'inline-block' }}
+              >
+                <CourseCard course={course} />
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
       </PageContainer>
       <Footer />
     </ThemeProvider>
@@ -120,39 +119,47 @@ export default function Courses({ courses, departments, schools }) {
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
   departments: PropTypes.arrayOf(departmentShape),
-  schools: PropTypes.arrayOf(PropTypes.string.isRequired)
+  schools: PropTypes.arrayOf(PropTypes.string.isRequired),
 }
 
 export async function getStaticProps() {
-  const courses = [...Array(10).keys()].map(n => (
-    {
-      course_name: `Course ${n}`,
-      prerequisites: `Course ${n - 1} must be taken before this course.`,
-      credit_types: 'ELEC;WFC',
-      state_course_number: `${n}`,
-      tps_course_number: `${n}${String.fromCharCode(65+Math.floor(Math.random() * 2))}`,
-      credit_hours: '0.5',
-      description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
-      course_notes: `Course ${n} notes go here.`,
-      school_name: `School ${n}`,
-      department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][Math.floor(Math.random() * 6)]
-    }
-  ))
+  const courses = [...Array(10).keys()].map((n) => ({
+    course_name: `Course ${n}`,
+    prerequisites: `Course ${n - 1} must be taken before this course.`,
+    credit_types: 'ELEC;WFC',
+    state_course_number: `${n}`,
+    tps_course_number: `${n}${String.fromCharCode(
+      65 + Math.floor(Math.random() * 2)
+    )}`,
+    credit_hours: '0.5',
+    description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
+    course_notes: `Course ${n} notes go here.`,
+    school_name: `School ${n}`,
+    department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][
+      Math.floor(Math.random() * 6)
+    ],
+  }))
 
-  const departments = ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'].map(d => (
-    {
-      name: d,
-      description: 'Description goes here.'
-    }
-  ))
-  
-  const schools = [...new Set(courses.map(course => course.school_name))]
+  const departments = [
+    'Math',
+    'Reading',
+    'History',
+    'Science',
+    'Art',
+    'PE',
+    'Music',
+  ].map((d) => ({
+    name: d,
+    description: 'Description goes here.',
+  }))
+
+  const schools = [...new Set(courses.map((course) => course.school_name))]
 
   return {
     props: {
       courses,
       departments,
       schools,
-    }
+    },
   }
 }
