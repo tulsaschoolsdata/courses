@@ -1,5 +1,9 @@
-function CourseCatalog({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+import Layout from '../components/layout'
 
-export default CourseCatalog
+export default function CourseCatalog({ Component, pageProps }) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}

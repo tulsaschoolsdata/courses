@@ -1,22 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
-import AppBar from '@mui/material/AppBar'
 import CourseCard from '../components/card'
-import createTheme from '@mui/material/styles/CreateTheme'
-import CssBaseline from '@mui/material/CssBaseline'
 import Filters from '../lib/filters'
-import Footer from './footer'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
-import PageContainer from './shared/page-container'
 import PropTypes from 'prop-types'
-import SchoolIcon from '@mui/icons-material/School'
-import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import { courseShape, departmentShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-
-const theme = createTheme()
 
 export default function Courses({ courses, departments, schools }) {
   const [filters, setFilters] = useState({
@@ -78,44 +68,30 @@ export default function Courses({ courses, departments, schools }) {
   }, [filters])
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <SchoolIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Course Catalog - Tulsa Public Schools
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <PageContainer>
-        <Grid container spacing={2} direction="row">
-          <Grid item xs={12} sm={4}>
-            <Filters
-              clearFilters={clearFilters}
-              departments={departments}
-              filters={filters}
-              schools={schools}
-              handleChange={handleChange}
-            />
+    <Grid container spacing={2} direction="row">
+      <Grid item xs={12} sm={4}>
+        <Filters
+          clearFilters={clearFilters}
+          departments={departments}
+          filters={filters}
+          schools={schools}
+          handleChange={handleChange}
+        />
+      </Grid>
+      <Grid item xs={12} sm={8} ref={parent}>
+        {filteredCourses.map((course) => (
+          <Grid
+            item
+            key={course.tps_course_number}
+            xs={12}
+            sm={6}
+            sx={{ p: 2, display: 'inline-block' }}
+          >
+            <CourseCard course={course} />
           </Grid>
-          <Grid item xs={12} sm={8} ref={parent}>
-            {filteredCourses.map((course) => (
-              <Grid
-                item
-                key={course.tps_course_number}
-                xs={12}
-                sm={6}
-                sx={{ p: 2, display: 'inline-block' }}
-              >
-                <CourseCard course={course} />
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-      </PageContainer>
-      <Footer />
-    </ThemeProvider>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 
