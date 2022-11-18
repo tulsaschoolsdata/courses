@@ -5,8 +5,10 @@ import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
+import { useRouter } from 'next/router'
 
 export default function Course({ course }) {
+  const router = useRouter()
   const {
     course_name,
     description,
@@ -22,7 +24,9 @@ export default function Course({ course }) {
   return (
     <Stack spacing={1}>
       <Grid item xs={2}>
-        <Button variant="contained">Go Back</Button>
+        <Button variant="contained" onClick={() => router.back()}>
+          Go Back
+        </Button>
       </Grid>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('course_name')}
@@ -83,17 +87,18 @@ const courses = [...Array(10).keys()].map((n) => ({
 
 export async function getStaticPaths() {
   const paths = [
-    ...new Set(courses.map((course) => `/course/${course.tps_course_number}`)),
+    ...new Set(courses.map((course) => `/course/${course.state_course_number}`)),
   ]
+
   return {
     paths: paths,
     fallback: false,
   }
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({params}) {
   // TODO: We need a uuid for each course to make this work
-  // so we can do courses[course_id]
+  // so we can do courses[params.course_id]
   const course = courses[0]
 
   return {
