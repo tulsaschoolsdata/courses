@@ -89,7 +89,7 @@ export default function Courses({ courses, departments, schools }) {
         </Toolbar>
       </AppBar>
       <PageContainer>
-          <Grid container spacing={2} direction="row" >
+        <Grid container spacing={2} direction="row">
           <Grid item xs={12} sm={4}>
             <Filters
               clearFilters={clearFilters}
