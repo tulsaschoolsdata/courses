@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import AppBar from '@mui/material/AppBar'
 import CourseCard from '../components/card'
-import createTheme from '@mui/material/styles/CreateTheme'
+import { createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import Filters from '../lib/filters'
 import Footer from './footer'
