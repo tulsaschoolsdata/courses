@@ -29,7 +29,7 @@ export default function CourseCard({ course }) {
           })}
         </Typography>
         <Divider />
-        <Link href={`/course/${course.tps_course_number}`}>Read More</Link>
+        <Link href={`/course/${course.state_course_number}`}>Read More</Link>
       </CardContent>
     </Card>
   )
