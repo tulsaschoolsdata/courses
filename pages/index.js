@@ -1,39 +1,82 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SchoolIcon from '@mui/icons-material/School';
+import React, { useEffect, useState, useRef } from 'react'
+import AppBar from '@mui/material/AppBar'
+import CourseCard from '../components/card'
+import createTheme from '@mui/material/styles/CreateTheme'
+import CssBaseline from '@mui/material/CssBaseline'
+import Filters from '../lib/filters'
+import Footer from './footer'
+import Fuse from 'fuse.js'
+import Grid from '@mui/material/Grid'
+import PageContainer from './shared/page-container'
+import PropTypes from 'prop-types'
+import SchoolIcon from '@mui/icons-material/School'
+import ThemeProvider from '@mui/material/styles/ThemeProvider'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import { courseShape, departmentShape } from '../lib/prop-types'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://courses.tulsaschools.org/">
-        Tulsa Public Schools
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+const theme = createTheme()
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export default function Courses({ courses, departments, schools }) {
+  const [filters, setFilters] = useState({
+    departments: [],
+    schools: [],
+    search: '',
+  })
 
-const theme = createTheme();
+  const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
+  const [filteredCourses, setFilteredCourses] = useState(courses)
 
-export default function Album() {
+  const handleChange = (attribute, val) => {
+    const newFilters = { ...filters, [attribute]: val }
+    setFilters(newFilters)
+    localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      departments: [],
+      schools: [],
+      search: '',
+    })
+    localStorage.removeItem('courseCatalogFilters')
+  }
+
+  useEffect(() => {
+    const existingFilters = localStorage.getItem('courseCatalogFilters')
+    if (existingFilters) {
+      setFilters(JSON.parse(existingFilters))
+    }
+  })
+
+  useEffect(() => {
+    let output = courses
+
+    if (filters.departments.length > 0) {
+      output = output.filter((course) =>
+        filters.departments.includes(course.department)
+      )
+    }
+
+    if (filters.schools.length > 0) {
+      output = output.filter((course) =>
+        filters.schools.includes(course.school_name)
+      )
+    }
+
+    if (filters.search) {
+      const options = {
+        keys: ['course_name', 'description'],
+      }
+      const fuse = new Fuse(output, options)
+      const searchResults = fuse.search(filters.search)
+      output = searchResults.map((result) => result.item)
+    }
+
+    setFilteredCourses(output)
+  }, [filters])
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -45,93 +88,81 @@ export default function Album() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Courses
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
+      <PageContainer>
+        <Grid container spacing={2} direction="row">
+          <Grid item xs={12} sm={4}>
+            <Filters
+              clearFilters={clearFilters}
+              departments={departments}
+              filters={filters}
+              schools={schools}
+              handleChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={8} ref={parent}>
+            {filteredCourses.map((course) => (
+              <Grid
+                item
+                key={course.tps_course_number}
+                xs={12}
+                sm={6}
+                sx={{ p: 2, display: 'inline-block' }}
+              >
+                <CourseCard course={course} />
               </Grid>
             ))}
           </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
+        </Grid>
+      </PageContainer>
+      <Footer />
     </ThemeProvider>
-  );
+  )
+}
+
+Courses.propTypes = {
+  courses: PropTypes.arrayOf(courseShape),
+  departments: PropTypes.arrayOf(departmentShape),
+  schools: PropTypes.arrayOf(PropTypes.string.isRequired),
+}
+
+export async function getStaticProps() {
+  const courses = [...Array(10).keys()].map((n) => ({
+    course_name: `Course ${n}`,
+    prerequisites: `Course ${n - 1} must be taken before this course.`,
+    credit_types: 'ELEC;WFC',
+    state_course_number: `${n}`,
+    tps_course_number: `${n}${String.fromCharCode(
+      65 + Math.floor(Math.random() * 2)
+    )}`,
+    credit_hours: '0.5',
+    description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
+    course_notes: `Course ${n} notes go here.`,
+    school_name: `School ${n}`,
+    department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][
+      Math.floor(Math.random() * 6)
+    ],
+  }))
+
+  const departments = [
+    'Math',
+    'Reading',
+    'History',
+    'Science',
+    'Art',
+    'PE',
+    'Music',
+  ].map((d) => ({
+    name: d,
+    description: 'Description goes here.',
+  }))
+
+  const schools = [...new Set(courses.map((course) => course.school_name))]
+
+  return {
+    props: {
+      courses,
+      departments,
+      schools,
+    },
+  }
 }
