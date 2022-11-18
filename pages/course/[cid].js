@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
+import Link from 'next/link'
 
 export default function Course({ course }) {
   const {
@@ -22,7 +23,9 @@ export default function Course({ course }) {
   return (
     <Stack spacing={1}>
       <Grid item xs={2}>
-        <Button variant="contained">Go Back</Button>
+        <Link href="/" style={{ textDecoration: 'none' }} passHref>
+          <Button variant="contained">Go Back</Button>
+        </Link>
       </Grid>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('course_name')}
