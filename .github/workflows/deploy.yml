@@ -1,5 +1,6 @@
-#https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
 name: Deploy Next.js site to Pages
+
+concurrency: production
 
 on:
   # Runs on pushes targeting the default branch
