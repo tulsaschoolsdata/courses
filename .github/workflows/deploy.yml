@@ -1,6 +1,5 @@
 name: Deploy Next.js site to Pages
 
-concurrency: production
 
 on:
   # Runs on pushes targeting the default branch
