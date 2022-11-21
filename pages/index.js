@@ -7,10 +7,9 @@ import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
 import { courseShape, departmentShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { uniq } from 'lodash'
+import { sortBy, uniq } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
-  debugger
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
@@ -65,7 +64,6 @@ export default function Courses({ courses, departments, schools }) {
       const searchResults = fuse.search(filters.search)
       output = searchResults.map((result) => result.item)
     }
-    debugger
 
     setFilteredCourses(output)
   }, [filters])
@@ -105,11 +103,11 @@ Courses.propTypes = {
 }
 
 export async function getStaticProps() {
-  const schools = Object.values(data['schools'])
+  const schools = sortBy(Object.values(data['schools']), 'name')
 
   const courses = Object.values(data['courses'])
 
-  const departments = uniq(Object.values(data['courses']).filter(course => course.department !== null).map(course => course.department))
+  const departments = sortBy(uniq(Object.values(data['courses']).filter(course => course.department !== null).map(course => course.department)))
 
   return {
     props: {
