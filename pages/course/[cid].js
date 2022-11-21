@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
-import data from './../../course-export.json'
+import data from './../../courses.json'
 
 export default function Course({ course }) {
   const router = useRouter()
@@ -66,34 +66,31 @@ export default function Course({ course }) {
   )
 }
 
-const schools = data.map(course => ({
-  'SCHOOL_CATEGORY': course.SCHOOL_CATEGORY,
-  'SCHOOL_ID': course.SCHOOL_ID,
-  'SCHOOL_NAME': course.SCHOOL_NAME
-}))
+const schools = data['schools']
 
-const courses = data.map(course => ({
-  'ALT_COURSE_NUMBER': course.ALT_COURSE_NUMBER,
-  'BUILDID': course.BUILDID,
-  'CATALOG_ID': course.CATALOG_ID,
-  'CATALOG_NAME': course.CATALOG_NAME,
-  'COURSE_CREDIT_HOURS': course.COURSE_CREDIT_HOURS,
-  'COURSE_CREDIT_TYPE': course.COURSE_CREDIT_TYPE,
-  'COURSE_NAME': course.COURSE_NAME,
-  'COURSE_NUMBER': course.COURSE_NUMBER,
-  'COURSE_SCHEDULED': course.COURSE_SCHEDULED,
-  'DATE_LAST_LOADED': course.DATE_LAST_LOADED,
-  'DESCRIPTION': course.DESCRIPTION,
-  'PRE_REQ_NOTE': course.PRE_REQ_NOTE
-}))
+const courses = data['courses']
+// .map(course => ({
+//   'ALT_COURSE_NUMBER': course.ALT_COURSE_NUMBER,
+//   'BUILDID': course.BUILDID,
+//   'CATALOG_ID': course.CATALOG_ID,
+//   'CATALOG_NAME': course.CATALOG_NAME,
+//   'COURSE_CREDIT_HOURS': course.COURSE_CREDIT_HOURS,
+//   'COURSE_CREDIT_TYPE': course.COURSE_CREDIT_TYPE,
+//   'COURSE_NAME': course.COURSE_NAME,
+//   'COURSE_NUMBER': course.COURSE_NUMBER,
+//   'COURSE_SCHEDULED': course.COURSE_SCHEDULED,
+//   'DATE_LAST_LOADED': course.DATE_LAST_LOADED,
+//   'DESCRIPTION': course.DESCRIPTION,
+//   'PRE_REQ_NOTE': course.PRE_REQ_NOTE
+// }))
 
 export async function getStaticPaths() {
-  const paths = [
-    ...new Set(courses.map((course) => `/course/${course.ALT_COURSE_NUMBER}`)),
-  ]
+  // const paths = [
+  //   ...new Set(courses.map((course) => `/course/${course.ALT_COURSE_NUMBER}`)),
+  // ]
 
   return {
-    paths: paths,
+    paths: [],
     fallback: false,
   }
 }

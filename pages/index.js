@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
 import CourseCard from '../components/card'
-import data from './../course-export.json'
+import data from './../courses.json'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
 import { courseShape, departmentShape } from '../lib/prop-types'
-import { uniqBy } from 'lodash'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { uniq } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
+  debugger
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
@@ -43,14 +44,14 @@ export default function Courses({ courses, departments, schools }) {
 
   useEffect(() => {
     let output = courses
-
-    if (filters.departments.length > 0) {
+    
+    if (filters.departments?.length > 0) {
       output = output.filter((course) =>
         filters.departments.includes(course.department)
       )
     }
 
-    if (filters.schools.length > 0) {
+    if (filters.schools?.length > 0) {
       output = output.filter((course) =>
         filters.schools.includes(course.school_name)
       )
@@ -64,6 +65,7 @@ export default function Courses({ courses, departments, schools }) {
       const searchResults = fuse.search(filters.search)
       output = searchResults.map((result) => result.item)
     }
+    debugger
 
     setFilteredCourses(output)
   }, [filters])
@@ -103,18 +105,11 @@ Courses.propTypes = {
 }
 
 export async function getStaticProps() {
-  const schools = uniqBy(data.map(course => ({
-    'SCHOOL_CATEGORY': course.SCHOOL_CATEGORY,
-    'SCHOOL_ID': course.SCHOOL_ID,
-    'SCHOOL_NAME': course.SCHOOL_NAME
-  }), 'SCHOOL_ID'))
+  const schools = Object.values(data['schools'])
 
-  const courses = data.map(course => ({
-    'ALT_COURSE_NUMBER': course.ALT_COURSE_NUMBER,
-    'COURSE_NAME': course.COURSE_NAME
-  }))
+  const courses = Object.values(data['courses'])
 
-  const departments = []
+  const departments = uniq(Object.values(data['courses']).filter(course => course.department !== null).map(course => course.department))
 
   return {
     props: {
