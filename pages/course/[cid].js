@@ -6,20 +6,18 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
+import data from './../../course-export.json'
 
 export default function Course({ course }) {
   const router = useRouter()
   const {
-    course_name,
-    description,
-    prerequisites,
-    credit_types,
-    state_course_number,
-    tps_course_number,
-    credit_hours,
-    course_notes,
-    school_name,
-    department,
+    ALT_COURSE_NUMBER,
+    COURSE_CREDIT_HOURS,
+    COURSE_CREDIT_TYPE,
+    COURSE_NAME,
+    COURSE_NUMBER,
+    DESCRIPTION,
+    PRE_REQ_NOTE
   } = course
   return (
     <Stack spacing={1}>
@@ -31,63 +29,67 @@ export default function Course({ course }) {
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('course_name')}
       </Typography>
-      <Typography variant="subtitle1">{course_name}</Typography>
+      <Typography variant="subtitle1">{COURSE_NAME}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('description')}
       </Typography>
-      <Typography variant="subtitle1">{description}</Typography>
+      <Typography variant="subtitle1">{DESCRIPTION}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('prerequisites')}
       </Typography>
-      <Typography variant="subtitle1">{prerequisites}</Typography>
+      <Typography variant="subtitle1">{PRE_REQ_NOTE}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('credit_types')}
       </Typography>
-      <Typography variant="subtitle1">{credit_types}</Typography>
+      <Typography variant="subtitle1">{COURSE_CREDIT_TYPE}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('state_course_number')}
       </Typography>
-      <Typography variant="subtitle1">{state_course_number}</Typography>
+      <Typography variant="subtitle1">{ALT_COURSE_NUMBER}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('tps_course_number')}
       </Typography>
-      <Typography variant="subtitle1">{tps_course_number}</Typography>
+      <Typography variant="subtitle1">{COURSE_NUMBER}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('credit_hours')}
       </Typography>
-      <Typography variant="subtitle1">{credit_hours}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+      <Typography variant="subtitle1">{COURSE_CREDIT_HOURS}</Typography>
+      {/* <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('course_notes')}
       </Typography>
       <Typography variant="subtitle1">{course_notes}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('department')}
       </Typography>
-      <Typography variant="subtitle1">{department}</Typography>
+      <Typography variant="subtitle1">{department}</Typography> */}
     </Stack>
   )
 }
 
-const courses = [...Array(10).keys()].map((n) => ({
-  course_name: `Course ${n}`,
-  prerequisites: `Course ${n - 1} must be taken before this course.`,
-  credit_types: 'ELEC;WFC',
-  state_course_number: `${n}`,
-  tps_course_number: `${n}${String.fromCharCode(
-    65 + Math.floor(Math.random() * 2)
-  )}`,
-  credit_hours: '0.5',
-  description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
-  course_notes: `Course ${n} notes go here.`,
-  school_name: `School ${n}`,
-  department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][
-    Math.floor(Math.random() * 6)
-  ],
+const schools = data.map(course => ({
+  'SCHOOL_CATEGORY': course.SCHOOL_CATEGORY,
+  'SCHOOL_ID': course.SCHOOL_ID,
+  'SCHOOL_NAME': course.SCHOOL_NAME
+}))
+
+const courses = data.map(course => ({
+  'ALT_COURSE_NUMBER': course.ALT_COURSE_NUMBER,
+  'BUILDID': course.BUILDID,
+  'CATALOG_ID': course.CATALOG_ID,
+  'CATALOG_NAME': course.CATALOG_NAME,
+  'COURSE_CREDIT_HOURS': course.COURSE_CREDIT_HOURS,
+  'COURSE_CREDIT_TYPE': course.COURSE_CREDIT_TYPE,
+  'COURSE_NAME': course.COURSE_NAME,
+  'COURSE_NUMBER': course.COURSE_NUMBER,
+  'COURSE_SCHEDULED': course.COURSE_SCHEDULED,
+  'DATE_LAST_LOADED': course.DATE_LAST_LOADED,
+  'DESCRIPTION': course.DESCRIPTION,
+  'PRE_REQ_NOTE': course.PRE_REQ_NOTE
 }))
 
 export async function getStaticPaths() {
   const paths = [
-    ...new Set(courses.map((course) => `/course/${course.state_course_number}`)),
+    ...new Set(courses.map((course) => `/course/${course.ALT_COURSE_NUMBER}`)),
   ]
 
   return {
@@ -96,11 +98,12 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // TODO: We need a uuid for each course to make this work
   // so we can do courses[params.course_id]
-  const course = courses[0]
-
+  const course = courses.filter(c => c.ALT_COURSE_NUMBER === params.cid)[0]
+  console.log(course)
+  console.log(params)
   return {
     props: {
       course,
