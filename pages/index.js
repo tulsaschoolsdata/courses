@@ -9,7 +9,7 @@ import { courseShape, departmentShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { sortBy, uniq } from 'lodash'
 
-export default function Courses({ courses, departments, schools }) {
+export default function Courses({ courses, departments, schoolCourses, schools }) {
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
@@ -43,7 +43,7 @@ export default function Courses({ courses, departments, schools }) {
 
   useEffect(() => {
     let output = courses
-    
+
     if (filters.departments?.length > 0) {
       output = output.filter((course) =>
         filters.departments.includes(course.department)
@@ -51,9 +51,8 @@ export default function Courses({ courses, departments, schools }) {
     }
 
     if (filters.schools?.length > 0) {
-      output = output.filter((course) =>
-        filters.schools.includes(course.school_name)
-      )
+      const courseNumbers = schoolCourses.filter(course => filters.schools.includes(course.school_number)).map(course => course.course_number)
+      output = output.filter((course) => courseNumbers.includes(course.number))
     }
 
     if (filters.search) {
@@ -99,6 +98,7 @@ export default function Courses({ courses, departments, schools }) {
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
   departments: PropTypes.arrayOf(departmentShape),
+  schoolCourses: PropTypes.arrayOf(PropTypes.object.isRequired),
   schools: PropTypes.arrayOf(PropTypes.string.isRequired)
 }
 
@@ -109,10 +109,13 @@ export async function getStaticProps() {
 
   const departments = sortBy(uniq(Object.values(data['courses']).filter(course => course.department !== null).map(course => course.department)))
 
+  const schoolCourses = Object.values(data['school_courses'])
+
   return {
     props: {
       courses,
       departments,
+      schoolCourses,
       schools
     },
   }
