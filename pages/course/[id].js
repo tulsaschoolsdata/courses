@@ -66,10 +66,10 @@ export default function Course({ course }) {
 const courses = Object.values(data['courses'])
 
 export async function getStaticPaths() {
-  const altNumbers = courses.map(c => c.alt_number)
+  const courseNumbers = courses.map(c => c.number)
 
-  const paths = altNumbers.map(altNumber => (
-    { params: { id: `${altNumber}` }}
+  const paths = courseNumbers.map(courseNumber => (
+    { params: { id: `${courseNumber}` }}
   ))
 
   return {
@@ -81,7 +81,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // TODO: We need a uuid for each course to make this work
   // so we can do courses[params.course_id]
-  const course = courses.filter(c => c.alt_number === params.id)[0]
+  const course = courses.filter(c => c.number === params.id)[0]
   
   return {
     props: {

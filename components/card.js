@@ -2,16 +2,16 @@ import React from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
-import Link from 'next/link'
 import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
   const {
-    alt_number,
     description,
-    name
+    name,
+    number
   } = course
 
   return (
@@ -31,7 +31,7 @@ export default function CourseCard({ course }) {
             length: 100,
           })}
         </Typography>
-        <Link href={`/course/${alt_number}`}>Read More</Link>
+        <Link href={`/course/${number}`}>Read More</Link>
       </CardContent>
     </Card>
   )
