@@ -16,7 +16,7 @@ export default function Courses({ courses, departments, schoolCourses, schools }
     search: '',
   })
 
-  const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
+  const [parent] = useAutoAnimate()
   const [filteredCourses, setFilteredCourses] = useState(courses)
 
   const handleChange = (attribute, val) => {
@@ -57,7 +57,7 @@ export default function Courses({ courses, departments, schoolCourses, schools }
 
     if (filters.search) {
       const options = {
-        keys: ['course_name', 'description'],
+        keys: ['name', 'description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
