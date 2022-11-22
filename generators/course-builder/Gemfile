@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem 'activesupport'
+gem 'dotenv', require: 'dotenv/load'
+gem 'nokogiri'
+gem 'pry'
+gem 'amazing_print'
+gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git', branch: 'nlc/failed-connection-nameerror'
