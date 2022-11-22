@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
-import data from './../../courses.json'
+import data from '../../courses.json'
 
 export default function Course({ course }) {
   const router = useRouter()
@@ -55,7 +55,6 @@ export default function Course({ course }) {
         {startCase('credit_hours')}
       </Typography>
       <Typography variant="subtitle1">{credit_hours}</Typography>
-      <Typography variant="subtitle1">{course_notes}</Typography>
       <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {startCase('department')}
       </Typography>
@@ -67,12 +66,14 @@ export default function Course({ course }) {
 const courses = Object.values(data['courses'])
 
 export async function getStaticPaths() {
-  const paths = [
-    ...new Set(courses.map((course) => `/course/${course.alt_number}`)),
-  ]
+  const altNumbers = courses.map(c => c.alt_number)
+
+  const paths = altNumbers.map(altNumber => (
+    { params: { id: `${altNumber}` }}
+  ))
 
   return {
-    paths: [],
+    paths: paths,
     fallback: false,
   }
 }
@@ -80,8 +81,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // TODO: We need a uuid for each course to make this work
   // so we can do courses[params.course_id]
-  const course = courses.filter(c => c.alt_number === params.cid)[0]
-
+  const course = courses.filter(c => c.alt_number === params.id)[0]
+  
   return {
     props: {
       course,
