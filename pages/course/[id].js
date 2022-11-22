@@ -11,7 +11,6 @@ import data from '../../courses.json'
 export default function Course({ course }) {
   const router = useRouter()
   const {
-    alt_number,
     credit_hours,
     credit_type,
     name,
@@ -20,6 +19,20 @@ export default function Course({ course }) {
     pre_requisites,
     department
   } = course
+
+  const renderSection = (title, attr) => {
+    if (attr) {
+      return (
+        <React.Fragment>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            {startCase(title)}
+          </Typography>
+          <Typography variant="subtitle1">{attr}</Typography>
+        </React.Fragment>
+      )
+    }
+  }
+
   return (
     <Stack spacing={1}>
       <Grid item xs={2}>
@@ -27,38 +40,13 @@ export default function Course({ course }) {
           Go Back
         </Button>
       </Grid>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('name')}
-      </Typography>
-      <Typography variant="subtitle1">{name}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('description')}
-      </Typography>
-      <Typography variant="subtitle1">{description}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('prerequisites')}
-      </Typography>
-      <Typography variant="subtitle1">{pre_requisites}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('credit_types')}
-      </Typography>
-      <Typography variant="subtitle1">{credit_type}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('state_course_number')}
-      </Typography>
-      <Typography variant="subtitle1">{alt_number}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('tps_course_number')}
-      </Typography>
-      <Typography variant="subtitle1">{number}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('credit_hours')}
-      </Typography>
-      <Typography variant="subtitle1">{credit_hours}</Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-        {startCase('department')}
-      </Typography>
-      <Typography variant="subtitle1">{department}</Typography>
+      {renderSection('name', name)}
+      {renderSection('description', description)}
+      {renderSection('prerequisites', pre_requisites)}
+      {renderSection('credit_types', credit_type)}
+      {renderSection('course_number', number)}
+      {renderSection('credit_hours', credit_hours)}
+      {renderSection('department', department)}
     </Stack>
   )
 }
@@ -69,7 +57,7 @@ export async function getStaticPaths() {
   const courseNumbers = courses.map(c => c.number)
 
   const paths = courseNumbers.map(courseNumber => (
-    { params: { id: `${courseNumber}` }}
+    { params: { id: `${courseNumber}` } }
   ))
 
   return {
@@ -79,9 +67,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // TODO: We need a uuid for each course to make this work
-  // so we can do courses[params.course_id]
-  const course = courses.filter(c => c.number === params.id)[0]
+  const course = courses.find(c => c.number === params.id)
   
   return {
     props: {
