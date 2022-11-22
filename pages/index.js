@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import CourseCard from '../components/card'
 import data from './../courses.json'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
-import { courseShape, departmentShape } from '../lib/prop-types'
+import { courseShape, schoolCourseShape, schoolShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { sortBy, uniq } from 'lodash'
 
@@ -97,19 +97,19 @@ export default function Courses({ courses, departments, schoolCourses, schools }
 
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(departmentShape),
-  schoolCourses: PropTypes.arrayOf(PropTypes.object.isRequired),
-  schools: PropTypes.arrayOf(PropTypes.string.isRequired)
+  departments: PropTypes.arrayOf(PropTypes.string.isRequired),
+  schoolCourses: PropTypes.arrayOf(schoolCourseShape),
+  schools: PropTypes.arrayOf(schoolShape)
 }
 
 export async function getStaticProps() {
-  const schools = sortBy(Object.values(data['schools']), 'name')
-
   const courses = Object.values(data['courses'])
 
   const departments = sortBy(uniq(Object.values(data['courses']).filter(course => course.department !== null).map(course => course.department)))
 
   const schoolCourses = Object.values(data['school_courses'])
+
+  const schools = sortBy(Object.values(data['schools']), 'name')
 
   return {
     props: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-import PropTypes from 'prop-types'
+import { courseShape } from '../../lib/prop-types'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
@@ -81,8 +81,7 @@ export async function getStaticProps({ params }) {
   // TODO: We need a uuid for each course to make this work
   // so we can do courses[params.course_id]
   const course = courses.filter(c => c.alt_number === params.cid)[0]
-  console.log(course)
-  console.log(params)
+
   return {
     props: {
       course,
@@ -91,5 +90,5 @@ export async function getStaticProps({ params }) {
 }
 
 Course.propTypes = {
-  course: PropTypes.object.isRequired,
+  course: courseShape,
 }
