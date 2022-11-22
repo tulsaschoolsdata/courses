@@ -39,7 +39,7 @@ export default function Courses({ courses, departments, schoolCourses, schools }
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
     }
-  })
+  }, [])
 
   useEffect(() => {
     let output = courses
@@ -82,7 +82,7 @@ export default function Courses({ courses, departments, schoolCourses, schools }
         {filteredCourses.map((course) => (
           <Grid
             item
-            key={course.tps_course_number}
+            key={course.number}
             xs={12}
             sm={6}
             sx={{ p: 2, display: 'inline-block' }}

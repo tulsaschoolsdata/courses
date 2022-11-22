@@ -4,7 +4,7 @@ export const courseShape = PropTypes.shape({
   dcid: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  alt_number: PropTypes.string.isRequired,
+  alt_number: PropTypes.string,
   department: PropTypes.string,
   description: PropTypes.string,
   credit_type: PropTypes.string,
@@ -17,11 +17,11 @@ export const schoolCourseShape = PropTypes.shape({
   course_number: PropTypes.string.isRequired,
   schedule_catalog_id: PropTypes.number.isRequired,
   school_number: PropTypes.string.isRequired,
-  term_duration: PropTypes.string.isRequired
+  term_duration: PropTypes.string
 })
 
 export const schoolShape = PropTypes.shape({
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired
 })
