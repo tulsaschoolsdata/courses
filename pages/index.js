@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useWindowSize } from 'react'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import CourseCard from '../components/card'
 import data from './../courses.json'
-import Drawer from '@mui/material/Drawer';
+import Drawer from '@mui/material/Drawer'
+import FilterListIcon from '@mui/icons-material/FilterList'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
-import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
 import { courseShape, schoolCourseShape, schoolShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -25,6 +26,7 @@ export default function Courses({
 
   const [parent] = useAutoAnimate()
   const [filteredCourses, setFilteredCourses] = useState(courses)
+  const [filtersOpen, setFiltersOpen] = useState(true)
 
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
@@ -78,37 +80,50 @@ export default function Courses({
 
   return (
     <Box>
-      <Drawer
-        sx={{
-          width: 240,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 240
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Filters
-          clearFilters={clearFilters}
-          departments={departments}
-          filters={filters}
-          schools={schools}
-          handleChange={handleChange}
-        />
-      </Drawer>
-      <Box>
-        {filteredCourses.map((course) => (
-          <Box
-            key={course.number}
-            xs={12}
-            sm={6}
-            sx={{ p: 1, display: 'inline-block' }}
+      {filtersOpen && (
+        <Drawer
+          hideBackdrop
+          open={filtersOpen}
+          sx={{
+            width: 240,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: 240
+            },
+          }}
+          variant="persistent"
+          anchor="left"
           >
-            <CourseCard course={course} />
-          </Box>
-        ))}
+          <Filters
+            clearFilters={clearFilters}
+            departments={departments}
+            filters={filters}
+            handleChange={handleChange}
+            setFiltersOpen={setFiltersOpen}
+            schools={schools}
+          />
+        </Drawer>
+      )}
+      <Box>
+        {!filtersOpen && (
+          <Button onClick={() => setFiltersOpen(true)}>
+            <FilterListIcon />
+            Filters
+          </Button>
+        )}
+        <Box sx={{ marginLeft: filtersOpen ? '240px' : '0px' }}>
+          {filteredCourses.map((course) => (
+            <Box
+              key={course.number}
+              xs={12}
+              sm={6}
+              sx={{ p: 1, display: 'inline-block' }}
+            >
+              <CourseCard course={course} />
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Box>
   )
