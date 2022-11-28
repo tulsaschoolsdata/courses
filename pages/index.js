@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Box from '@mui/material/Box'
 import CourseCard from '../components/card'
 import data from './../courses.json'
 import Filters from '../lib/filters'
@@ -87,15 +88,14 @@ export default function Courses({
       </Grid>
       <Grid item xs={12} sm={8} ref={parent}>
         {filteredCourses.map((course) => (
-          <Grid
-            item
+          <Box
             key={course.number}
             xs={12}
             sm={6}
-            sx={{ p: 2, display: 'inline-block' }}
+            sx={{ p: 1, display: 'inline-block' }}
           >
             <CourseCard course={course} />
-          </Grid>
+          </Box>
         ))}
       </Grid>
     </Grid>
