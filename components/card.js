@@ -9,16 +9,11 @@ import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
-  const {
-    department,
-    description,
-    name,
-    number
-  } = course
+  const { department, description, name, number } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
-  const handlePopoverOpen = event => {
+  const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -29,7 +24,14 @@ export default function CourseCard({ course }) {
   const isTruncatedTitle = name.length > 30
 
   return (
-    <Card sx={{ minHeight: 300, width: 250, display: 'flex', flexDirection: 'column' }}>
+    <Card
+      sx={{
+        minHeight: 300,
+        width: 250,
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           gutterBottom
@@ -43,7 +45,7 @@ export default function CourseCard({ course }) {
           <Popover
             sx={{
               pointerEvents: 'none',
-              width: '100%'
+              width: '100%',
             }}
             open={Boolean(anchorEl)}
             anchorEl={anchorEl}
@@ -61,15 +63,17 @@ export default function CourseCard({ course }) {
             <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
-        {department && (
-          <Chip label={department} sx={{ marginBottom: 1 }} />
-        )}
+        {department && <Chip label={department} sx={{ marginBottom: 1 }} />}
         <Typography>
-          {description ? truncate(description, {
-            length: 100,
-          }) : 'No description available.'}
+          {description
+            ? truncate(description, {
+                length: 100,
+              })
+            : 'No description available.'}
         </Typography>
-        <Link sx={{ position: 'fixed' }} href={`/course/${number}`}>Read More</Link>
+        <Link sx={{ position: 'fixed' }} href={`/course/${number}`}>
+          Read More
+        </Link>
       </CardContent>
     </Card>
   )
