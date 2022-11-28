@@ -26,7 +26,7 @@ export default function CourseCard({ course }) {
   return (
     <Card
       sx={{
-        minHeight: 300,
+        minHeight: 200,
         width: 250,
         display: 'flex',
         flexDirection: 'column',
@@ -43,6 +43,7 @@ export default function CourseCard({ course }) {
         </Typography>
         {isTruncatedTitle && (
           <Popover
+            disableScrollLock
             sx={{
               pointerEvents: 'none',
               width: '100%',
