@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import Chip from '@mui/material/Chip'
 import Link from 'next/link'
 import Popover from '@mui/material/Popover'
 import PropTypes from 'prop-types'
@@ -9,6 +10,7 @@ import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
   const {
+    department,
     description,
     name,
     number
@@ -58,6 +60,9 @@ export default function CourseCard({ course }) {
           >
             {name}
           </Popover>
+        )}
+        {department && (
+          <Chip label={department} sx={{ marginBottom: 1 }} />
         )}
         <Typography>
           {description ? truncate(description, {
