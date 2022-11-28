@@ -29,7 +29,7 @@ jobs:
         with:
           ruby-version: '3.0.4'
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - run: bundle exec ruby data/generators/catalog.rb
+      - run: bundle exec ruby data/generators/catalog
 
   # Build job
   build:
