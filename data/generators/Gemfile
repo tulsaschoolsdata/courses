@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gem 'activesupport'
+gem 'dotenv'
+gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git', branch: 'nlc/failed-connection-nameerror'
