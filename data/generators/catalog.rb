@@ -23,7 +23,7 @@ class CourseCatalog
     (1..page_count).map do |page|
       PowerSchool.powerquery(path: "course.catalog",
         page: page, pagesize: page_size).records
-    end
+    end.flatten
   end
 
   def data
@@ -80,9 +80,13 @@ class CourseCatalog
   end
 
   def to_json
-    File.write OUTPUT_FILE, data.to_json, mode: "w"
+    data.to_json
+  end
+
+  def to_json_file
+    File.write OUTPUT_FILE, to_json, mode: "w"
   end
 end
 
 catalog = CourseCatalog.new
-catalog.data.to_json
+catalog.to_json_file
