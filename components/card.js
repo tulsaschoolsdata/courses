@@ -58,7 +58,7 @@ export default function CourseCard({ course }) {
               horizontal: 'left',
             }}
           >
-            {name}
+            <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
         {department && (
