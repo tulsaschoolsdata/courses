@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import CourseCard from '../components/card'
 import data from './../courses.json'
+import Drawer from '@mui/material/Drawer';
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
@@ -76,8 +77,19 @@ export default function Courses({
   }, [filters])
 
   return (
-    <Grid container spacing={2} direction="row">
-      <Grid item xs={12} sm={4}>
+    <Box>
+      <Drawer
+        sx={{
+          width: 240,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: 240
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
         <Filters
           clearFilters={clearFilters}
           departments={departments}
@@ -85,8 +97,8 @@ export default function Courses({
           schools={schools}
           handleChange={handleChange}
         />
-      </Grid>
-      <Grid item xs={12} sm={8} ref={parent}>
+      </Drawer>
+      <Box>
         {filteredCourses.map((course) => (
           <Box
             key={course.number}
@@ -97,8 +109,8 @@ export default function Courses({
             <CourseCard course={course} />
           </Box>
         ))}
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   )
 }
 

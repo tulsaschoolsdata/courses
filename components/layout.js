@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar'
 import { createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import Footer from '../components/footer'
-import Grid from '@mui/material/Grid'
 import PageContainer from './page-container'
 import SchoolIcon from '@mui/icons-material/School'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
@@ -17,7 +16,7 @@ export default function Layout({ children }) {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppBar position="fixed">
+        <AppBar sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
             <SchoolIcon sx={{ mr: 2 }} />
             <Typography variant="h6" color="inherit" noWrap>
