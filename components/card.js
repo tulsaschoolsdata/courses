@@ -27,7 +27,7 @@ export default function CourseCard({ course }) {
     <Card
       sx={{
         minHeight: 200,
-        width: 250,
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
       }}

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useWindowSize } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import CourseCard from '../components/card'
 import data from './../courses.json'
 import Drawer from '@mui/material/Drawer'
+import Fab from '@mui/material/Fab'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
@@ -85,15 +85,14 @@ export default function Courses({
           hideBackdrop
           open={filtersOpen}
           sx={{
-            width: 240,
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: 240
+              width: '45%'
             },
           }}
           variant="persistent"
-          anchor="left"
+          anchor="right"
           >
           <Filters
             clearFilters={clearFilters}
@@ -107,18 +106,22 @@ export default function Courses({
       )}
       <Box>
         {!filtersOpen && (
-          <Button onClick={() => setFiltersOpen(true)}>
+          <Fab sx={{ position: 'fixed', bottom: '2%', right: '2%' }} onClick={() => setFiltersOpen(true)} variant="extended" color="secondary">
             <FilterListIcon />
             Filters
-          </Button>
+          </Fab>
         )}
-        <Box sx={{ marginLeft: filtersOpen ? '240px' : '0px' }}>
+        <Box sx={{ marginRight: '0px' }}>
           {filteredCourses.map((course) => (
             <Box
               key={course.number}
               xs={12}
               sm={6}
-              sx={{ p: 1, display: 'inline-block' }}
+              sx={{
+                p: 1,
+                display: 'inline-block',
+                width: '50%'
+              }}
             >
               <CourseCard course={course} />
             </Box>
