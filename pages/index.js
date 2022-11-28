@@ -1,22 +1,27 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import CourseCard from '../components/card'
-import { createTheme } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
+import data from './../courses.json'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import Grid from '@mui/material/Grid'
 import PropTypes from 'prop-types'
-import { courseShape, departmentShape } from '../lib/prop-types'
+import { courseShape, schoolCourseShape, schoolShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { sortBy, uniq } from 'lodash'
 
-export default function Courses({ courses, departments, schools }) {
+export default function Courses({
+  courses,
+  departments,
+  schoolCourses,
+  schools,
+}) {
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
     search: '',
   })
 
-  const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
+  const [parent] = useAutoAnimate()
   const [filteredCourses, setFilteredCourses] = useState(courses)
 
   const handleChange = (attribute, val) => {
@@ -39,26 +44,27 @@ export default function Courses({ courses, departments, schools }) {
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
     }
-  })
+  }, [])
 
   useEffect(() => {
     let output = courses
 
-    if (filters.departments.length > 0) {
+    if (filters.departments?.length > 0) {
       output = output.filter((course) =>
         filters.departments.includes(course.department)
       )
     }
 
-    if (filters.schools.length > 0) {
-      output = output.filter((course) =>
-        filters.schools.includes(course.school_name)
-      )
+    if (filters.schools?.length > 0) {
+      const courseNumbers = schoolCourses
+        .filter((course) => filters.schools.includes(course.school_number))
+        .map((course) => course.course_number)
+      output = output.filter((course) => courseNumbers.includes(course.number))
     }
 
     if (filters.search) {
       const options = {
-        keys: ['course_name', 'description'],
+        keys: ['name', 'description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
@@ -83,7 +89,7 @@ export default function Courses({ courses, departments, schools }) {
         {filteredCourses.map((course) => (
           <Grid
             item
-            key={course.tps_course_number}
+            key={course.number}
             xs={12}
             sm={6}
             sx={{ p: 2, display: 'inline-block' }}
@@ -98,49 +104,32 @@ export default function Courses({ courses, departments, schools }) {
 
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(departmentShape),
-  schools: PropTypes.arrayOf(PropTypes.string.isRequired),
+  departments: PropTypes.arrayOf(PropTypes.string.isRequired),
+  schoolCourses: PropTypes.arrayOf(schoolCourseShape),
+  schools: PropTypes.arrayOf(schoolShape),
 }
 
 export async function getStaticProps() {
-  const courses = [...Array(10).keys()].map((n) => ({
-    course_name: `Course ${n}`,
-    prerequisites: `Course ${n - 1} must be taken before this course.`,
-    credit_types: 'ELEC;WFC',
-    state_course_number: `${n}`,
-    tps_course_number: `${n}${String.fromCharCode(
-      65 + Math.floor(Math.random() * 2)
-    )}`,
-    credit_hours: '0.5',
-    description: `Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here. Course ${n} description goes here.`,
-    course_notes: `Course ${n} notes go here.`,
-    school_name: `School ${n}`,
-    department: ['Math', 'Reading', 'History', 'Science', 'Art', 'PE', 'Music'][
-      Math.floor(Math.random() * 6)
-    ],
-  }))
+  const courses = Object.values(data['courses'])
 
-  const departments = [
-    'Math',
-    'Reading',
-    'History',
-    'Science',
-    'Art',
-    'PE',
-    'Music',
-  ].map((d) => ({
-    name: d,
-    description: 'Description goes here.',
-  }))
+  const departments = sortBy(
+    uniq(
+      Object.values(data['courses'])
+        .filter((course) => course.department !== null)
+        .map((course) => course.department)
+    )
+  )
 
-  const schools = [...new Set(courses.map((course) => course.school_name))]
+  const schoolCourses = Object.values(data['school_courses'])
+
+  const schools = sortBy(Object.values(data['schools']), 'name')
 
   return {
     props: {
       courses,
       departments,
+      schoolCourses,
       schools,
     },
   }
 }
-

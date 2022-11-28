@@ -1,19 +1,27 @@
 import PropTypes from 'prop-types'
 
 export const courseShape = PropTypes.shape({
-  course_name: PropTypes.string.isRequired,
-  prerequisites: PropTypes.string.isRequired,
-  credit_types: PropTypes.string.isRequired,
-  state_course_number: PropTypes.string.isRequired,
-  tps_course_number: PropTypes.string.isRequired,
-  credit_hours: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  course_notes: PropTypes.string.isRequired,
-  school_name: PropTypes.string.isRequired,
-  department: PropTypes.string.isRequired
+  dcid: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  alt_number: PropTypes.string,
+  department: PropTypes.string,
+  description: PropTypes.string,
+  credit_type: PropTypes.string,
+  credit_hours: PropTypes.number.isRequired,
+  pre_requisites: PropTypes.string
 })
 
-export const departmentShape = PropTypes.shape({
+export const schoolCourseShape = PropTypes.shape({
+  catalog_name: PropTypes.string.isRequired,
+  course_number: PropTypes.string.isRequired,
+  schedule_catalog_id: PropTypes.number.isRequired,
+  school_number: PropTypes.string.isRequired,
+  term_duration: PropTypes.string
+})
+
+export const schoolShape = PropTypes.shape({
+  category: PropTypes.string,
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  number: PropTypes.string.isRequired
 })
