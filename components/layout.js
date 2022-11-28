@@ -17,7 +17,7 @@ export default function Layout({ children }) {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AppBar position="relative">
+        <AppBar position="fixed">
           <Toolbar>
             <SchoolIcon sx={{ mr: 2 }} />
             <Typography variant="h6" color="inherit" noWrap>
