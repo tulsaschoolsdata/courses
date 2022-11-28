@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-Dotenv.load(*Dir["#{__dir__}/.env*"])
+require "rubygems"
+require "bundler/setup"
 require_relative "lib/power_school"
+
+Bundler.require(:default)
+Dotenv.load(*Dir["#{__dir__}/.env*"])
 
 class CourseCatalog
   OUTPUT_FILE = "#{__dir__}/../catalog.json"
