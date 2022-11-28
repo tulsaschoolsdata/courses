@@ -21,21 +21,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-courses-json:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.4'
-      - run: ruby data/generators/catalog
-
   # Build job
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Generate catalog.json using ruby script
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0.4'
+        run: ruby data/generators/catalog
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -78,6 +74,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
+
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
@@ -86,6 +84,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
+
 
   # Deployment job
   deploy:
