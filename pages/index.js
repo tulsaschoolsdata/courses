@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import CourseCard from '../components/card'
-import data from './../courses.json'
+import catalog from './../data/catalog.json'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import Filters from '../lib/filters'
 import Fuse from 'fuse.js'
 import PropTypes from 'prop-types'
-import { courseShape, schoolCourseShape, schoolShape } from '../lib/prop-types'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { sortBy, uniq } from 'lodash'
+import { courseShape, schoolShape } from '../lib/prop-types'
+import { groupBy, sortBy } from 'lodash'
 import { useMediaQuery } from '@mui/material'
 
 export default function Courses({
   courses,
   departments,
-  schoolCourses,
   schools,
 }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -26,7 +24,6 @@ export default function Courses({
     search: '',
   })
 
-  const [parent] = useAutoAnimate()
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [filtersOpen, setFiltersOpen] = useState(false)
 
@@ -57,20 +54,17 @@ export default function Courses({
 
     if (filters.departments?.length > 0) {
       output = output.filter((course) =>
-        filters.departments.includes(course.department)
+        filters.departments.includes(course.course_department_name)
       )
     }
 
     if (filters.schools?.length > 0) {
-      const courseNumbers = schoolCourses
-        .filter((course) => filters.schools.includes(course.school_number))
-        .map((course) => course.course_number)
-      output = output.filter((course) => courseNumbers.includes(course.number))
+      output = output.filter((course) => course.school_ids.filter(id => filters.schools.includes(id)).length > 0)
     }
 
     if (filters.search) {
       const options = {
-        keys: ['name', 'description'],
+        keys: ['course_name', 'course_department_name', 'course_description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
@@ -115,13 +109,13 @@ export default function Courses({
             color="secondary"
           >
             <FilterListIcon />
-            Filters
+            Filters ({(filters.search ? 1 : 0) + filters.departments.length + filters.schools.length})
           </Fab>
         )}
         <Box sx={{ marginRight: '0px' }}>
           {filteredCourses.map((course) => (
             <Box
-              key={course.number}
+              key={course.course_number}
               xs={12}
               sm={6}
               sx={{
@@ -142,30 +136,31 @@ export default function Courses({
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
   departments: PropTypes.arrayOf(PropTypes.string.isRequired),
-  schoolCourses: PropTypes.arrayOf(schoolCourseShape),
-  schools: PropTypes.arrayOf(schoolShape),
+  schools: PropTypes.array.isRequired
 }
 
 export async function getStaticProps() {
-  const courses = Object.values(data['courses'])
-
-  const departments = sortBy(
-    uniq(
-      Object.values(data['courses'])
-        .filter((course) => course.department !== null)
-        .map((course) => course.department)
-    )
-  )
-
-  const schoolCourses = Object.values(data['school_courses'])
-
-  const schools = sortBy(Object.values(data['schools']), 'name')
+  const courseDepartments = catalog['course_departments']
+  const creditTypes = catalog['course_credit_types']
+  const courses = Object.values(catalog['courses']).map(course => ({
+    ...course,
+    course_department_name: courseDepartments[course['course_department']],
+    course_credit_type_name: creditTypes[course['course_credit_type']]
+  }))
+  const categories = catalog['school_categories']
+  const schools = Object.entries(groupBy(sortBy(
+    Object.values(catalog['schools']).map(school => ({
+      ...school,
+      school_category_name: categories[school['school_category']]
+    })),
+    'school_name'
+  ), 'school_category_name'))
+  const departments = sortBy(Object.values(courseDepartments))
 
   return {
     props: {
       courses,
       departments,
-      schoolCourses,
       schools,
     },
   }
