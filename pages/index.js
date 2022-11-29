@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import { courseShape, schoolCourseShape, schoolShape } from '../lib/prop-types'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { sortBy, uniq } from 'lodash'
+import { useMediaQuery } from '@mui/material'
 
 export default function Courses({
   courses,
@@ -18,6 +19,7 @@ export default function Courses({
   schoolCourses,
   schools,
 }) {
+  const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
@@ -26,7 +28,7 @@ export default function Courses({
 
   const [parent] = useAutoAnimate()
   const [filteredCourses, setFilteredCourses] = useState(courses)
-  const [filtersOpen, setFiltersOpen] = useState(true)
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
@@ -88,7 +90,7 @@ export default function Courses({
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: '45%'
+              width: largeScreen ? '45%' : '100%'
             },
           }}
           variant="persistent"
@@ -120,7 +122,7 @@ export default function Courses({
               sx={{
                 p: 1,
                 display: 'inline-block',
-                width: '50%'
+                width: largeScreen ? '50%' : '100%'
               }}
             >
               <CourseCard course={course} />
