@@ -24,6 +24,11 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      POWERSCHOOL_BASE_URI: ${{ secrets.POWERSCHOOL_BASE_URI }}
+      POWERSCHOOL_CLIENT_ID: ${{ secrets.POWERSCHOOL_CLIENT_ID }}
+      POWERSCHOOL_CLIENT_SECRET: ${{ secrets.POWERSCHOOL_CLIENT_SECRET }}
+      POWERSCHOOL_CLIENT_PLUGIN_NAMESPACE: ${{ secrets.POWERSCHOOL_CLIENT_PLUGIN_NAMESPACE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
