@@ -6,28 +6,31 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
-import data from '../../courses.json'
+import catalog from './../../data/catalog.json'
+import { isArray } from 'lodash'
 
 export default function Course({ course }) {
   const router = useRouter()
   const {
-    credit_hours,
-    credit_type,
-    name,
-    number,
-    description,
-    pre_requisites,
-    department
+    courses_credit_hours,
+    course_credit_type_name,
+    course_name,
+    course_number,
+    course_description,
+    pre_req_note,
+    course_department_name,
   } = course
 
   const renderSection = (title, attr) => {
+    const displayedVal = isArray(attr) ? attr.join(', ') : attr
+
     if (attr) {
       return (
         <React.Fragment>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {startCase(title)}
           </Typography>
-          <Typography variant="subtitle1">{attr}</Typography>
+          <Typography variant="subtitle1">{displayedVal}</Typography>
         </React.Fragment>
       )
     }
@@ -40,25 +43,31 @@ export default function Course({ course }) {
           Go Back
         </Button>
       </Grid>
-      {renderSection('name', name)}
-      {renderSection('description', description)}
-      {renderSection('prerequisites', pre_requisites)}
-      {renderSection('credit_types', credit_type)}
-      {renderSection('course_number', number)}
-      {renderSection('credit_hours', credit_hours)}
-      {renderSection('department', department)}
+      {renderSection('name', course_name)}
+      {renderSection('description', course_description)}
+      {renderSection('prerequisites', pre_req_note)}
+      {renderSection('credit_types', course_credit_type_name)}
+      {renderSection('course_number', course_number)}
+      {renderSection('credit_hours', courses_credit_hours)}
+      {renderSection('department', course_department_name)}
     </Stack>
   )
 }
 
-const courses = Object.values(data['courses'])
+const courseDepartments = catalog['course_departments']
+const creditTypes = catalog['course_credit_types']
+const courses = Object.values(catalog['courses']).map((course) => ({
+  ...course,
+  course_department_name: courseDepartments[course['course_department']],
+  course_credit_type_name: creditTypes[course['course_credit_type']],
+}))
 
 export async function getStaticPaths() {
-  const courseNumbers = courses.map(c => c.number)
+  const courseNumbers = courses.map((c) => c.course_number)
 
-  const paths = courseNumbers.map(courseNumber => (
-    { params: { id: `${courseNumber}` } }
-  ))
+  const paths = courseNumbers.map((courseNumber) => ({
+    params: { id: `${courseNumber}` },
+  }))
 
   return {
     paths: paths,
@@ -67,8 +76,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const course = courses.find(c => c.number === params.id)
-  
+  const course = courses.find((c) => c.course_number === params.id)
+
   return {
     props: {
       course,
