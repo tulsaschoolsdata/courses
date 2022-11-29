@@ -27,10 +27,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Generate catalog.json using ruby script
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0.4'
+      - name: Generate catalog.json
         run: ruby data/generators/catalog
       - name: Detect package manager
         id: detect-package-manager
