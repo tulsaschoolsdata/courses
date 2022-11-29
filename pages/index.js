@@ -106,7 +106,7 @@ export default function Courses({ courses, departments, schools }) {
             sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
             onClick={() => setFiltersOpen(true)}
             variant="extended"
-            color="secondary"
+            color="warning"
           >
             <FilterListIcon />
             Filters (
