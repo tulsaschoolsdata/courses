@@ -18,12 +18,12 @@ export default function Course({ course }) {
     course_number,
     course_description,
     pre_req_note,
-    course_department_name
+    course_department_name,
   } = course
 
   const renderSection = (title, attr) => {
     const displayedVal = isArray(attr) ? attr.join(', ') : attr
-    
+
     if (attr) {
       return (
         <React.Fragment>
@@ -56,18 +56,18 @@ export default function Course({ course }) {
 
 const courseDepartments = catalog['course_departments']
 const creditTypes = catalog['course_credit_types']
-const courses = Object.values(catalog['courses']).map(course => ({
+const courses = Object.values(catalog['courses']).map((course) => ({
   ...course,
   course_department_name: courseDepartments[course['course_department']],
-  course_credit_type_name: creditTypes[course['course_credit_type']]
+  course_credit_type_name: creditTypes[course['course_credit_type']],
 }))
 
 export async function getStaticPaths() {
-  const courseNumbers = courses.map(c => c.course_number)
+  const courseNumbers = courses.map((c) => c.course_number)
 
-  const paths = courseNumbers.map(courseNumber => (
-    { params: { id: `${courseNumber}` } }
-  ))
+  const paths = courseNumbers.map((courseNumber) => ({
+    params: { id: `${courseNumber}` },
+  }))
 
   return {
     paths: paths,
@@ -76,8 +76,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const course = courses.find(c => c.course_number === params.id)
-  
+  const course = courses.find((c) => c.course_number === params.id)
+
   return {
     props: {
       course,

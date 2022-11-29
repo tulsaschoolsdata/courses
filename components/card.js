@@ -9,7 +9,12 @@ import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
-  const { course_department_name, course_description, course_name, course_number } = course
+  const {
+    course_department_name,
+    course_description,
+    course_name,
+    course_number,
+  } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -64,7 +69,9 @@ export default function CourseCard({ course }) {
             <Typography sx={{ p: 1 }}>{course_name}</Typography>
           </Popover>
         )}
-        {course_department_name && <Chip label={course_department_name} sx={{ marginBottom: 1 }} />}
+        {course_department_name && (
+          <Chip label={course_department_name} sx={{ marginBottom: 1 }} />
+        )}
         <Typography>
           {course_description
             ? truncate(course_description, {

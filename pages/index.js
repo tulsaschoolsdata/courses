@@ -12,11 +12,7 @@ import { courseShape, schoolShape } from '../lib/prop-types'
 import { groupBy, sortBy } from 'lodash'
 import { useMediaQuery } from '@mui/material'
 
-export default function Courses({
-  courses,
-  departments,
-  schools,
-}) {
+export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
     departments: [],
@@ -59,7 +55,11 @@ export default function Courses({
     }
 
     if (filters.schools?.length > 0) {
-      output = output.filter((course) => course.school_ids.filter(id => filters.schools.includes(id)).length > 0)
+      output = output.filter(
+        (course) =>
+          course.school_ids.filter((id) => filters.schools.includes(id))
+            .length > 0
+      )
     }
 
     if (filters.search) {
@@ -109,7 +109,11 @@ export default function Courses({
             color="secondary"
           >
             <FilterListIcon />
-            Filters ({(filters.search ? 1 : 0) + filters.departments.length + filters.schools.length})
+            Filters (
+            {(filters.search ? 1 : 0) +
+              filters.departments.length +
+              filters.schools.length}
+            )
           </Fab>
         )}
         <Box sx={{ marginRight: '0px' }}>
@@ -136,25 +140,30 @@ export default function Courses({
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
   departments: PropTypes.arrayOf(PropTypes.string.isRequired),
-  schools: PropTypes.array.isRequired
+  schools: PropTypes.array.isRequired,
 }
 
 export async function getStaticProps() {
   const courseDepartments = catalog['course_departments']
   const creditTypes = catalog['course_credit_types']
-  const courses = Object.values(catalog['courses']).map(course => ({
+  const courses = Object.values(catalog['courses']).map((course) => ({
     ...course,
     course_department_name: courseDepartments[course['course_department']],
-    course_credit_type_name: creditTypes[course['course_credit_type']]
+    course_credit_type_name: creditTypes[course['course_credit_type']],
   }))
   const categories = catalog['school_categories']
-  const schools = Object.entries(groupBy(sortBy(
-    Object.values(catalog['schools']).map(school => ({
-      ...school,
-      school_category_name: categories[school['school_category']]
-    })),
-    'school_name'
-  ), 'school_category_name'))
+  const schools = Object.entries(
+    groupBy(
+      sortBy(
+        Object.values(catalog['schools']).map((school) => ({
+          ...school,
+          school_category_name: categories[school['school_category']],
+        })),
+        'school_name'
+      ),
+      'school_category_name'
+    )
+  )
   const departments = sortBy(Object.values(courseDepartments))
 
   return {
