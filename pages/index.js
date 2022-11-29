@@ -87,15 +87,15 @@ export default function Courses({
           hideBackdrop
           open={filtersOpen}
           sx={{
-            flexShrink: 0,
+            'flexShrink': 0,
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: largeScreen ? '45%' : '100%'
+              width: largeScreen ? '45%' : '100%',
             },
           }}
           variant="persistent"
           anchor="right"
-          >
+        >
           <Filters
             clearFilters={clearFilters}
             departments={departments}
@@ -108,7 +108,12 @@ export default function Courses({
       )}
       <Box>
         {!filtersOpen && (
-          <Fab sx={{ position: 'fixed', bottom: '2%', right: '2%' }} onClick={() => setFiltersOpen(true)} variant="extended" color="secondary">
+          <Fab
+            sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
+            onClick={() => setFiltersOpen(true)}
+            variant="extended"
+            color="secondary"
+          >
             <FilterListIcon />
             Filters
           </Fab>
@@ -122,7 +127,7 @@ export default function Courses({
               sx={{
                 p: 1,
                 display: 'inline-block',
-                width: largeScreen ? '50%' : '100%'
+                width: largeScreen ? '50%' : '100%',
               }}
             >
               <CourseCard course={course} />
