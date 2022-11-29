@@ -5,10 +5,12 @@ require 'bundler/inline'
 gemfile do
   source 'https://rubygems.org'
 
-  gem 'activesupport'
-  gem 'dotenv'
+  gem 'activesupport', '~> 7.0'
+  gem 'dotenv', "~> 2.8"
+
+  #ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
   gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git',
-                      branch: 'nlc/failed-connection-nameerror'
+                      ref: '07a029e'
 end
 
 Dotenv.load(*Dir["#{__dir__}/.env*"])
