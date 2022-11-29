@@ -42,7 +42,10 @@ export default function Course({ course }) {
     <React.Fragment>
       <Head>
         <title>{`${course.course_name} - Tulsa Public Schools`}</title>
-        <meta name="description" content={truncate(course.course_description, { length: 155 })} />
+        <meta
+          name="description"
+          content={truncate(course.course_description, { length: 155 })}
+        />
         <link rel="icon" href="/images/tps-logo-color.svg" />
       </Head>
       <Stack spacing={1}>
@@ -60,7 +63,6 @@ export default function Course({ course }) {
         {renderSection('department', course_department_name)}
       </Stack>
     </React.Fragment>
-   
   )
 }
 
