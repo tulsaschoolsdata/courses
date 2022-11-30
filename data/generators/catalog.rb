@@ -86,7 +86,37 @@ class CourseCatalog
   def to_json_file
     File.write OUTPUT_FILE, to_json, mode: "w"
   end
+
+  def to_fixture
+    d = data
+    schools = d[:schools]
+    new_course_ids = []
+
+    sampled_schools = schools.each_with_object({}) do | (school_id, school),obj |
+      sample_of_schools_course_ids = school[:course_ids].sample(5)
+      new_course_ids += sample_of_schools_course_ids
+      school[:course_ids] = sample_of_schools_course_ids
+      obj[school_id] = school
+    end
+
+    courses = d[:courses].select do |course_id, course|
+      new_course_ids.include?(course_id)
+    end
+
+    sampled_courses = courses.map do |course_id, course|
+      course[:course_description] = "Test Desc"
+      course
+    end
+
+    d[:schools] = sampled_schools
+    d[:courses] = sampled_courses.each_with_object({}) do | course, obj |
+      obj[course[:course_number]] = course
+    end
+
+    d
+  end
 end
 
 catalog = CourseCatalog.new
 catalog.to_json_file
+puts catalog.to_fixture.to_json
