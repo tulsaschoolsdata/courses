@@ -1,308 +1,278 @@
 {
-  "schools": [
-    {
+  "schools": {
+    "730": {
       "school_id": "730",
       "school_name": "ROGERS COLLEGE HIGH",
-      "course_ids": [
-        "101213",
-        "35412",
-        "30167",
-        "34501",
-        "101053"
-      ],
+      "course_ids": ["39010", "101116", "33701", "39912", "39013"],
       "school_category": 1
     },
-    {
+    "537": {
       "school_id": "537",
       "school_name": "EDISON MIDDLE SCHOOL",
-      "course_ids": [
-        "22035",
-        "25130",
-        "25120",
-        "25242",
-        "25229"
-      ],
+      "course_ids": ["25313", "23010", "21136", "21043", "24010"],
       "school_category": 2
     },
-    {
+    "712": {
       "school_id": "712",
       "school_name": "EDISON HIGH SCHOOL",
-      "course_ids": [
-        "34531",
-        "34141",
-        "32007",
-        "32323",
-        "35514"
-      ],
+      "course_ids": ["38159", "33911A", "34071", "33831A", "32311"],
       "school_category": 1
     },
-    {
+    "720": {
       "school_id": "720",
       "school_name": "MCLAIN HIGH SCHOOL",
-      "course_ids": [
-        "30503",
-        "30730",
-        "38153",
-        "34577",
-        "37285"
-      ],
+      "course_ids": ["111115", "102113", "32181", "112013", "32065"],
       "school_category": 1
     },
-    {
+    "558": {
       "school_id": "558",
       "school_name": "MEMORIAL MIDDLE SCHOOL",
-      "course_ids": [
-        "21040",
-        "48413",
-        "25237",
-        "25436",
-        "28911"
-      ],
+      "course_ids": ["25436", "25258", "21135", "23041", "21224"],
       "school_category": 2
     },
-    {
+    "563": {
       "school_id": "563",
       "school_name": "MONROE DEMONSTRATION MIDDLE SCHOOL",
-      "course_ids": [
-        "21032",
-        "25246",
-        "25136",
-        "25342",
-        "25140"
-      ],
+      "course_ids": ["25343", "23020", "25152", "23035", "25146"],
       "school_category": 2
     },
-    {
+    "740": {
       "school_id": "740",
       "school_name": "WEBSTER HIGH SCHOOL",
-      "course_ids": [
-        "30720",
-        "32033",
-        "34854",
-        "30632",
-        "30307"
-      ],
+      "course_ids": ["32468", "37147", "31416", "35377", "30783"],
       "school_category": 1
     },
-    {
+    "163": {
       "school_id": "163",
       "school_name": "FELICITAS MENDEZ INTERNATIONAL SCHOOL",
-      "course_ids": [
-        "11697",
-        "91055",
-        "11297",
-        "11451",
-        "11854"
-      ],
+      "course_ids": ["11215", "91053", "11223", "11011", "11855"],
       "school_category": 3
     },
-    {
+    "112": {
       "school_id": "112",
       "school_name": "ZARROW INTL ELEMENTARY",
-      "course_ids": [
-        "11051",
-        "11054",
-        "11463",
-        "11465",
-        "9000"
-      ],
+      "course_ids": ["11455", "11251", "11474", "13021", "91051"],
       "school_category": 3
     },
-    {
+    "735": {
       "school_id": "735",
       "school_name": "WASHINGTON HIGH SCHOOL",
-      "course_ids": [
-        "30234",
-        "34205",
-        "33851",
-        "35061",
-        "30034"
-      ],
+      "course_ids": ["34897", "32134", "32326", "37821", "101512"],
       "school_category": 1
     },
-    {
+    "578": {
       "school_id": "578",
       "school_name": "ROGERS COLLEGE MIDDLE SCHOOL",
-      "course_ids": [
-        "25983",
-        "25424",
-        "22051",
-        "21210",
-        "25448"
-      ],
+      "course_ids": ["24514", "25327", "21231", "25972", "23025"],
       "school_category": 2
     },
-    {
+    "710": {
       "school_id": "710",
       "school_name": "EAST CENTRAL HIGH SCHOOL",
-      "course_ids": [
-        "37731",
-        "36314",
-        "37541",
-        "30770",
-        "30622"
-      ],
+      "course_ids": ["30444", "30344", "38165", "30274", "37144"],
       "school_category": 1
     },
-    {
+    "518": {
       "school_id": "518",
       "school_name": "CENTRAL MIDDLE SCHOOL",
-      "course_ids": [
-        "22313",
-        "24653",
-        "22051",
-        "25150",
-        "25130"
-      ],
+      "course_ids": ["25246", "46511", "25236", "23035", "28925"],
       "school_category": 2
     },
-    {
+    "715": {
       "school_id": "715",
       "school_name": "HALE HIGH SCHOOL",
-      "course_ids": [
-        "30584",
-        "33971",
-        "38175",
-        "38377",
-        "30520"
-      ],
+      "course_ids": ["38179", "33644", "38868", "30153", "30717"],
       "school_category": 1
     },
-    {
+    "573": {
       "school_id": "573",
       "school_name": "THOREAU DEMONSTRATION ACADEMY",
-      "course_ids": [
-        "25456",
-        "25540",
-        "24015",
-        "25511",
-        "22035"
-      ],
+      "course_ids": ["24110", "25436", "25960", "21235", "25456"],
       "school_category": 2
     },
-    {
+    "645": {
       "school_id": "645",
       "school_name": "VIRTUAL HIGH SCHOOL",
-      "course_ids": [
-        "30019",
-        "25102",
-        "30230",
-        "30193",
-        "46512"
-      ],
+      "course_ids": ["34699", "28930", "31414", "31416", "34831"],
       "school_category": 1
     },
-    {
+    "532": {
       "school_id": "532",
       "school_name": "EAST CENTRAL MIDDLE SCHOOL",
-      "course_ids": [
-        "22020",
-        "25310",
-        "24020",
-        "25971",
-        "25311"
-      ],
+      "course_ids": ["21041", "21035", "23015", "22025", "21133"],
       "school_category": 2
     },
-    {
+    "577": {
       "school_id": "577",
       "school_name": "TULSA MET MS",
-      "course_ids": [
-        "25156",
-        "21132",
-        "25237",
-        "25486",
-        "25536"
-      ],
+      "course_ids": ["25245", "24315", "24898", "25148", "24896"],
       "school_category": 4
     },
-    {
+    "194": {
       "school_id": "194",
       "school_name": "GREENWOOD LEADERSHIP ACADEMY",
-      "course_ids": [
-        "11623",
-        "11256",
-        "11823",
-        "11255",
-        "11423"
-      ],
+      "course_ids": ["13080", "91011", "13020", "11854", "13010"],
       "school_category": 3
     },
-    {
+    "705": {
       "school_id": "705",
       "school_name": "CENTRAL HIGH SCHOOL",
-      "course_ids": [
-        "37371",
-        "34004",
-        "34641",
-        "32129",
-        "30556"
-      ],
+      "course_ids": ["32152", "30570", "30361", "102112", "32361"],
       "school_category": 1
     },
-    {
+    "725": {
       "school_id": "725",
       "school_name": "MEMORIAL HIGH SCHOOL",
-      "course_ids": [
-        "32254",
-        "32115",
-        "37471",
-        "30015",
-        "34586"
-      ],
+      "course_ids": ["112073", "37731", "30188", "34677", "30831"],
       "school_category": 1
     },
-    {
+    "530": {
       "school_id": "530",
       "school_name": "WEBSTER MIDDLE SCHOOL",
-      "course_ids": [
-        "25140",
-        "47313",
-        "22020",
-        "28924",
-        "28930"
-      ],
+      "course_ids": ["25310", "25248", "25227", "25237", "25481"],
       "school_category": 2
     },
-    {
+    "515": {
       "school_id": "515",
       "school_name": "CARVER MIDDLE SCHOOL",
-      "course_ids": [
-        "42020",
-        "41010",
-        "25254",
-        "45331",
-        "21135"
-      ],
+      "course_ids": ["25546", "44025", "45121", "42010", "42035"],
       "school_category": 2
     },
-    {
+    "542": {
       "school_id": "542",
       "school_name": "HALE MIDDLE SCHOOL",
-      "course_ids": [
-        "25247",
-        "25131",
-        "29071",
-        "24020",
-        "21137"
-      ],
+      "course_ids": ["25247", "25245", "23030", "21233", "24035"],
       "school_category": 2
     }
-  ],
-  "school_categories": {
-    "1": "HS",
-    "2": "MS",
-    "3": "EL",
-    "4": null
   },
-  "courses": [
-    {
-      "course_number": "32007",
-      "courses_dcid": 4563,
-      "course_name": "ADV BAND III",
-      "alt_course_number": "3003",
-      "course_description": "In this course, emphasis is on development of performance and listening skills at an advanced technical and artistic level. Music for study and performance is selected from standard and contemporary band literature representing many styles and periods. This is a continuation of Advanced Band II. Opportunities for performance include school assemblies, evening concerts, assemblies for feeder schools, as well as contests and civic activities approved by the administration.  Marching band activities will occur during the first semester and will include practices and activities outside of the school day. Students will be encouraged to audition for Tulsa Metro Honor Band or Metro Honor Orchestra and OMEA all state bands. Attendance, participation, marching band activities, and concert performance will constitute a major portion of the grade.  State objectives for music will be incorporated into this class. ",
-      "courses_credit_hours": 1,
+  "school_categories": { "1": "HS", "2": "MS", "3": "EL", "4": null },
+  "courses": {
+    "34831": {
+      "course_number": "34831",
+      "courses_dcid": 5136,
+      "course_name": "RUSSIAN I",
+      "alt_course_number": "3151",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 3
+    },
+    "30344": {
+      "course_number": "30344",
+      "courses_dcid": 4356,
+      "course_name": "TWHTV STUDIOS: VFX TRICKS \u0026 TECHNIQUES",
+      "alt_course_number": "8190",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "TWHTV STUDIOS | VFX TRICKS \u0026 TECHNIQUES",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "34071": {
+      "course_number": "34071",
+      "courses_dcid": 4921,
+      "course_name": "ENGLISH III",
+      "alt_course_number": "4051",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "730",
+        "712",
+        "712",
+        "712",
+        "720",
+        "740",
+        "710",
+        "715",
+        "645",
+        "705",
+        "725"
+      ],
+      "course_department": 5,
+      "course_credit_type": 6
+    },
+    "34699": {
+      "course_number": "34699",
+      "courses_dcid": 15805,
+      "course_name": "CREEK",
+      "alt_course_number": "3250",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 3
+    },
+    "33701": {
+      "course_number": "33701",
+      "courses_dcid": 4810,
+      "course_name": "ATHLETIC TRAINING (.5)",
+      "alt_course_number": "3320",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": "Must have Physical Education I to enroll - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": [
+        "730",
+        "712",
+        "712",
+        "712",
+        "720",
+        "740",
+        "735",
+        "710",
+        "705",
+        "725"
+      ],
+      "course_department": 5,
+      "course_credit_type": 18
+    },
+    "34897": {
+      "course_number": "34897",
+      "courses_dcid": 5176,
+      "course_name": "SPANISH IBSL II*",
+      "alt_course_number": "3168",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT  ",
+      "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 3
+    },
+    "30783": {
+      "course_number": "30783",
+      "courses_dcid": 9962,
+      "course_name": "VISUAL GRAPHIC DESIGN I",
+      "alt_course_number": "9133",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 3.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 33
+    },
+    "32152": {
+      "course_number": "32152",
+      "courses_dcid": 5942,
+      "course_name": "STAGE DSGN\u0026PROD",
+      "alt_course_number": "2857",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 12
+    },
+    "38165": {
+      "course_number": "38165",
+      "courses_dcid": 5652,
+      "course_name": "WORK STUDY III",
+      "alt_course_number": "2765",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "730",
@@ -317,653 +287,145 @@
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 14,
-      "description": "Test Desc"
+      "course_credit_type": 13
     },
-    {
-      "course_number": "34854",
-      "courses_dcid": 5145,
-      "course_name": "RUSSIAN IBSL I*",
-      "alt_course_number": "3153",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT          These courses are for the highly motivated and skilled student who wishes to participate in the International Baccalaureate program.  Students may earn college credit for successful scoring on the International Baccalaureate Examination. ",
-      "courses_credit_hours": 1,
+    "39912": {
+      "course_number": "39912",
+      "courses_dcid": 15655,
+      "course_name": "FITNESS FUNDAMENTALS 1 (.5)",
+      "alt_course_number": "3320",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 18
+    },
+    "32065": {
+      "course_number": "32065",
+      "courses_dcid": 8010,
+      "course_name": "INSTRUMNTL PERFORM III",
+      "alt_course_number": "3003",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 14
+    },
+    "35377": {
+      "course_number": "35377",
+      "courses_dcid": 19261,
+      "course_name": "OSSM HYBRID AP CALCULAS AB*",
+      "alt_course_number": "4612",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 1
+    },
+    "30188": {
+      "course_number": "30188",
+      "courses_dcid": 14801,
+      "course_name": "LINK CREW III",
+      "alt_course_number": "2760",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "31414": {
+      "course_number": "31414",
+      "courses_dcid": 8801,
+      "course_name": "PERSONAL FINANCIAL LITERACY (.5)",
+      "alt_course_number": "1451",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "715", "645", "725"],
+      "course_department": 5,
+      "course_credit_type": 41
+    },
+    "31416": {
+      "course_number": "31416",
+      "courses_dcid": 12001,
+      "course_name": "PERSONAL FINANCIAL LITERACY (1.0)",
+      "alt_course_number": "1451",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "715", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 41
+    },
+    "32468": {
+      "course_number": "32468",
+      "courses_dcid": 9655,
+      "course_name": "PHOTOGRAPHY III",
+      "alt_course_number": "2887",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 12
+    },
+    "34677": {
+      "course_number": "34677",
+      "courses_dcid": 5066,
+      "course_name": "GERMAN LANG AP*",
+      "alt_course_number": "3125",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT ",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
       "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
+      "course_credit_type": 3
     },
-    {
-      "course_number": "30034",
-      "courses_dcid": 8108,
-      "course_name": "TWHTV STUDIOS: THAT'S A WRAP",
-      "alt_course_number": "8194",
-      "course_description": "This course is designed for the student interested in writing, directing, and/or producing TV/film. Students will learn the principles of film editing, then write an original screenplay to direct. Students will earn the principles of a variety of film, including short films, documentaries, commercials and school broadcast.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "TWHTV STUDIOS: SCRIPT 2 SCREEN - TWHTV STUDIOS | THAT’S A WRAP",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
+    "30831": {
+      "course_number": "30831",
+      "courses_dcid": 13717,
+      "course_name": "PLTW HUMAN BODY SYSTEMS",
+      "alt_course_number": "8707",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "MUST BE SCHEDULED TO S1 OR S2 TERM - MUST BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
       "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
+      "course_credit_type": 23
     },
-    {
-      "course_number": "101053",
-      "courses_dcid": 9902,
-      "course_name": "ART HISTORY SURVEY I - TCC",
-      "alt_course_number": "2818",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 1,
+    "101116": {
+      "course_number": "101116",
+      "courses_dcid": 9937,
+      "course_name": "PUBLIC SPEAKING - TCC",
+      "alt_course_number": "4221",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": [
         "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "32254",
-      "courses_dcid": 4681,
-      "course_name": "ART II",
-      "alt_course_number": "2809",
-      "course_description": "This is a continuation of Art I and will provide students with a wider range of techniques in creating works of art with an expanded variety of media.  Understanding of the principles and elements of design will be heightened. Specific styles of art will be explored. ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
         "712",
         "712",
         "712",
         "720",
         "740",
         "735",
-        "710",
-        "645",
         "705",
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
+      "course_credit_type": 12
     },
-    {
-      "course_number": "34531",
-      "courses_dcid": 4989,
-      "course_name": "CHINESE II",
-      "alt_course_number": "3186",
-      "course_description": "In this course a constant review of the skills acquired in Chinese I is maintained. New vocabulary and grammatical structures are added widening the areas of comprehension. Students will continue to develop the fourth skills in listening, speaking, reading, and writing, as well as developing more cultural awareness. Students will also connect to other academic subjects such as math, science, and language arts using their knowledge of Chinese to access new information.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30167",
-      "courses_dcid": 14964,
-      "course_name": "ADVANCED BIOTECHNOLOGY II",
-      "alt_course_number": "8717",
-      "course_description": "This is a course that is intended for students who have excelled in Biotechnology I and II and have taken Advanced Biotechnology I. This course encompasses upper-level biochemistry, microbiology, and lab techniques. Lab reports are an integral part of this course, as well as bio-informatics. Students will be expected to do independent research projects.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "36314",
-      "courses_dcid": 5427,
-      "course_name": "ADVANCED CHEMISTRY",
-      "alt_course_number": "5051",
-      "course_description": "This course, formerly Pre-AP Chemistry I, is for highly motivated students who intend to pursue advanced study in science. It emphasizes the recognition of scientific methods, the use of the periodic chart as an important tool for the study of chemistry, the use of mathematics as the language and tool of science, and the development of skills, techniques, and attitudes related to laboratory procedures and activities in a laboratory setting. The content of the course includes laboratory safety, atomic structure, atomic bonding, inorganic nomenclature, equations, stoichiometry, solutions, gas laws, and oxidation reduction reactions. Organic chemistry may be included.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 24,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30520",
-      "courses_dcid": 4415,
-      "course_name": "AUTO SERVICE TECH I",
-      "alt_course_number": "9906",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "715",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "37371",
-      "courses_dcid": 5550,
-      "course_name": "SOCIOLOGY (.5)",
-      "alt_course_number": "5720",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM                          This one- or two-semester elective course investigates how the lives of the students are patterned by American cultural norms of family, religion, education, government, and economics. As students live in a time of rapid change and in a country of high urbanization, the problems and opportunities associated with these conditions are analyzed.",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "740",
-        "735",
-        "715",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30015",
-      "courses_dcid": 14133,
-      "course_name": "SOIL SCIENCE",
-      "alt_course_number": "8006",
-      "course_description": "This course introduces students to all areas of soil science and discusses agronomy, soil formation and structure.  Topics include world agronomy, plant structures and functions, soil formation and use, plant nutrition and soil fertility, tillage and conservation, crop improvement, seeding and planting practices, pest management, harvesting and marketing, and sustainable agriculture.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "577",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "37471",
-      "courses_dcid": 5568,
-      "course_name": "US HISTORY AP*",
-      "alt_course_number": "5415",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT                  The United States History AP course provides students with the analytic skills and factual knowledge necessary to critically analyze problems and materials in United States History. Students will assess historical materials and weigh the evidence and interpretations presented. This course requires extensive reading and writing. Students may earn college credit for this course depending on the qualifying scores his/her college requires.  ",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT  ",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "715",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 32,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "33851",
-      "courses_dcid": 4839,
-      "course_name": "VARSITY CROSS COUNTRY (.5)",
-      "alt_course_number": "3330",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 18,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "33971",
-      "courses_dcid": 4872,
-      "course_name": "VARSITY VOLLEYBALL (.5)",
-      "alt_course_number": "3330",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "715",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 18,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "32129",
-      "courses_dcid": 8006,
-      "course_name": "VISUAL ART II",
-      "alt_course_number": "2809",
-      "course_description": "This course is for students committed to serious study in art. Students, in addition to developing their technical and creative abilities, will explore in depth, the conceptual framework of design. The course will encourage creative as well as systematic investigation of formal and conceptual issues, emphasize making art as an ongoing process that involves the student in informed and critical decision-making, develop technical skills and familiarize students with the functions of the visual elements, encourage students to become independent   thinkers who will contribute inventively and critically to their culture through the making of art, and promote an understanding and enjoyment of architecture, sculpture, painting and other art forms within historical and cultural contexts. Emphasis is placed on the creation of works of art for exhibition and competition. ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30770",
-      "courses_dcid": 4496,
-      "course_name": "WELDING COMBINATION I",
-      "alt_course_number": "9707",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "35514",
-      "courses_dcid": 5337,
-      "course_name": "STATISTICS AP*",
-      "alt_course_number": "4760",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT      This course introduces students to the major concepts  and  tools  for  collecting,  analyzing,  and  drawing conclusions from data. Applications and problem-solving strategies are stressed. The following topics will be covered: display of data, frequency distributions; measures of central tendency, variability, and correlation; sampling and its role in statistical claims; design, conduct, and interpretation of a statistical experiment to study a problem; experimental and theoretical probability, simulations, random variables, and the discrete probability distributions.  The student may earn college credit for successful scoring on the Advanced Placement Examination.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 1,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34205",
-      "courses_dcid": 8803,
-      "course_name": "STRATEGIES FOR ACADEMIC SUCCESS",
-      "alt_course_number": "2725",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "37541",
-      "courses_dcid": 5577,
-      "course_name": "WORLD HISTORY SURVEY",
-      "alt_course_number": "5731",
-      "course_description": "This course will examine the enduring philosophical and religious contributions from the ancient and classical eras to the modern world. Students will examine the impact of the European Renaissance and Reformation, various movements, the Industrial Revolution, the world war eras, post-World War and contemporary events.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "715",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 34,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "38175",
-      "courses_dcid": 5660,
-      "course_name": "STUDY SKILLS",
+    "38159": {
+      "course_number": "38159",
+      "courses_dcid": 5646,
+      "course_name": "JOB TRAINING IV",
       "alt_course_number": "2765",
-      "course_description": "To be determined according to the student’s IEP Plan.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "715",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "37285",
-      "courses_dcid": 14123,
-      "course_name": "SUPERINTENDENT'S STUDENT CABINET",
-      "alt_course_number": "2760",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30730",
-      "courses_dcid": 4486,
-      "course_name": "NURSING OPTIONS",
-      "alt_course_number": "9301",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "715",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34586",
-      "courses_dcid": 8152,
-      "course_name": "FRENCH LANGUAGE & CULTURE AP*",
-      "alt_course_number": "3115",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT - This course emphasizes the use of language for active communication. Its objectives are the development of: 1. the ability to understand spoken French in various contexts 2. a French vocabulary sufficiently ample for reading newspaper and magazine articles, literary texts, and other non-technical writings without dependence on a dictionary 3. the ability to express oneself coherently, resourcefully, and with reasonable fluency and accuracy in both written and spoken French.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34641",
-      "courses_dcid": 5041,
-      "course_name": "FRENCH V",
-      "alt_course_number": "3114",
-      "course_description": "This course gives the student a genuine knowledge of the language, the people and their customs. Upon completing the course, the student will have reviewed all the tenses and moods presented in previous courses and should be able to conduct natural conversations with French speakers. In addition, the student will have been exposed to a great deal of literature and culture through the reading of selected books, poems, short stories through listening to various music compositions, and through researching information on various pieces of art. The students will also connect to other academic subjects, such as math, science, and language arts using their knowledge of French to access new information.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30584",
-      "courses_dcid": 12252,
-      "course_name": "INTRO TO CONSTRUCTION",
-      "alt_course_number": "9099",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "715",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30307",
-      "courses_dcid": 8860,
-      "course_name": "MARKETING CAPSTONE",
-      "alt_course_number": "8106",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT - internships, project-based instruction and additional industry certifications will be utilized in this course to reinforce skills obtained within any Marketing Career Major. Students will make final preparations for industry certifications as they master outlined competencies. Students will select from various project options to finalize portfolios that highlight skills and certifications. Students may also undertake special projects, cross-train, or participate in workplace learning opportunities to enhance skills in accordance with industry demands.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30632",
-      "courses_dcid": 7930,
-      "course_name": "PLTW COMPUTER INTEGRATED MANF (1.0)",
-      "alt_course_number": "8712",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "645",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 11,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30503",
-      "courses_dcid": 8601,
-      "course_name": "INTRODUCTION TO MANUFACTURING (1.0)",
-      "alt_course_number": "8953",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30622",
-      "courses_dcid": 9122,
-      "course_name": "MECHATRONICS SYSTEMS TECHNICIAN I",
-      "alt_course_number": "9723",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30720",
-      "courses_dcid": 4483,
-      "course_name": "MEDIUM/HEAVY DIESEL SERVICE TECHNICIAN I",
-      "alt_course_number": "9912",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "38153",
-      "courses_dcid": 5640,
-      "course_name": "JOB TRAINING I",
-      "alt_course_number": "2765",
-      "course_description": "In these courses, students learn job search skills. They experience completing job applications, doing mock interviews, and preparing for interviews including decisions about what to wear, what questions to ask, and how to answer questions. Students may only be enrolled in the course for their current grade level.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "730",
@@ -977,19 +439,33 @@
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
+      "course_credit_type": 13
     },
-    {
-      "course_number": "30556",
-      "courses_dcid": 4434,
-      "course_name": "MULTIMEDIA DESIGN ASSISTANT",
-      "alt_course_number": "9540",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT",
-      "courses_credit_hours": 3,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
+    "112013": {
+      "course_number": "112013",
+      "courses_dcid": 14655,
+      "course_name": "PRINCIPLES OF ECONOMICS - TU",
+      "alt_course_number": "5521",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 49
+    },
+    "37821": {
+      "course_number": "37821",
+      "courses_dcid": 5603,
+      "course_name": "JROTC LDRSHP II",
+      "alt_course_number": "2720",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
       "school_ids": [
         "730",
+        "712",
+        "712",
+        "712",
         "720",
         "740",
         "735",
@@ -997,16 +473,15 @@
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 16,
-      "description": "Test Desc"
+      "course_credit_type": 18
     },
-    {
+    "37731": {
       "course_number": "37731",
       "courses_dcid": 5594,
       "course_name": "JUNIOR ROTC III",
       "alt_course_number": "2720",
-      "course_description": "Air Force JROTC: Booker T. Washington - This third year JROTC leadership course is directed toward responsibility with students holding key leadership positions. Subjects taught include space exploration, Introduction to civics, management, ethics and physical education.  Co-curricular and service to the school are included. Army JROTC: East Central, Edison, Hale, McLain, Memorial, Rogers, Webster - In this, course students hold key leadership positions and must demonstrate organizational and planning skills and proficiency in managing individuals and groups in a structured environment. Studies include civics, more speaking and writing requirements, detailed first aid and physical education and Introduction to scholarship application and resume preparation. Co-curricular, school and community service are included. Navy JROTC: Central - This course provides advanced studies in civics and leadership with students occupying key position in the cadet corps. Students are introduced to meteorology, astronomy, basic electricity and maritime history from 1930 to the present.  Co-curricular, school and community service are included.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "730",
@@ -1021,16 +496,63 @@
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 18,
-      "description": "Test Desc"
+      "course_credit_type": 18
     },
-    {
-      "course_number": "30230",
-      "courses_dcid": 4312,
-      "course_name": "DESKTOP PUBLISHING & GRPHIC DESIGN",
-      "alt_course_number": "8149",
-      "course_description": "Students will acquire skills related to communicating through visual design with the primary emphasis of this course being desktop publishing and working with graphics.  This course meets the computer technology graduation requirement.",
-      "courses_credit_hours": 1,
+    "32181": {
+      "course_number": "32181",
+      "courses_dcid": 4651,
+      "course_name": "HUMANITIES I (.5)",
+      "alt_course_number": "2951",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "102113": {
+      "course_number": "102113",
+      "courses_dcid": 9925,
+      "course_name": "HUMANITIES I - TCC*",
+      "alt_course_number": "2409",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "735"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "102112": {
+      "course_number": "102112",
+      "courses_dcid": 14551,
+      "course_name": "HUMANITIES II - TCC (1.0)",
+      "alt_course_number": "2951",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "32361": {
+      "course_number": "32361",
+      "courses_dcid": 4724,
+      "course_name": "DEBATE II",
+      "alt_course_number": "4016",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 21
+    },
+    "32134": {
+      "course_number": "32134",
+      "courses_dcid": 4625,
+      "course_name": "CHORUS II",
+      "alt_course_number": "3072",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "730",
@@ -1040,154 +562,93 @@
         "720",
         "740",
         "735",
-        "710",
-        "645",
         "705",
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 11,
-      "description": "Test Desc"
+      "course_credit_type": 12
     },
-    {
-      "course_number": "34004",
-      "courses_dcid": 4881,
-      "course_name": "ADVANCED ENGLISH II",
-      "alt_course_number": "4048",
-      "course_description": "Students in a Advanced class will practice all of the same skills as students in non-Advanced classes, but Advanced students will move to a deeper level of complexity.  Any student willing to make the commitment to this level of work is welcome to enroll in the course.  Students will build and enhance their reading and analysis skills with complex fictional and informational texts. They will also conduct research and practice listening and speaking skills. Advanced students will have an awareness of the AP exam, through modified exam questions, practice tests, and discussion.  They will deepen their writing skills—including grammar, vocabulary, paragraphs, and revision—as they write in the same modes as other students.  The expectation is that the writing of Advanced students will increase in complexity as they near the AP course.  Work in the 10th grade Advanced English class will build on and deepen skills that were practiced in previous language arts as part of a continuum of skills that will lead toward successful participation in AP courses and other challenging work.  ",
-      "courses_credit_hours": 1,
+    "30274": {
+      "course_number": "30274",
+      "courses_dcid": 7155,
+      "course_name": "DIGITAL ELECTRONICS",
+      "alt_course_number": "8711",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "39010": {
+      "course_number": "39010",
+      "courses_dcid": 5724,
+      "course_name": "ADVISORY 10 (.25 PER SEMESTER)",
+      "alt_course_number": "2725",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": [
         "730",
         "712",
         "712",
         "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 5,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34577",
-      "courses_dcid": 5011,
-      "course_name": "ADVANCED FRENCH 1",
-      "alt_course_number": "3111",
-      "course_description": "This course, formerly Pre-AP French I, engages students in the development of proficiency in all four language skills: listening, speaking, reading, and writing. The course prepares students for Advanced Placement courses in French Language AP and French Literature AP.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "32033",
-      "courses_dcid": 4587,
-      "course_name": "ENSEMBLE II",
-      "alt_course_number": "3052",
-      "course_description": "This course is the second course a student takes as a specific ensemble.  The specific ensemble course titles will be added at the site where the course is offered. This course will consist of preparation and performance of music in specific musical groups such as a guitar class, piano class, wind ensemble, barbershop quartet, vocal duet, trio, larger ensemble or string trio.  The Ensemble II course will be either the continuation of the Ensemble I course, with the same type of musical group or more advanced literature and technique, or an ensemble with different instrumentation. Attendance, participation, and performance will constitute a major portion of the grade.  ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "35412",
-      "courses_dcid": 9459,
-      "course_name": "BIOENGINEERING RESEARCH*",
-      "alt_course_number": "5038",
-      "course_description": "This course is a highly rigorous science class, designed to provide students the knowledge, background, and opportunity to complete an independent research project in bioengineering. During the first semester, students will learn safety procedures, material handling, and instrument operation necessary to work in their research area. Students will review published research and participate in a basic research project. The second semester will be student-led research. Proposed student research projects will be reviewed and approved by a committee, made up of faculty members from within their home school and from advisors from local universities (TU, OU-Schusterman, and OSU-Tulsa). Once their proposal has been approved, students will design an independent research project. Students will be responsible for designing and completing their research. Students will be required to complete a formal write-up of their research and submit that to the Oklahoma Junior Academy of Science for presentation at the annual OJAS meeting. Students may also prepare a poster of their research for presentation at the OJAS meeting or at other professional scientific gatherings. The primary purpose of this course is to better prepare students interested in engineering or science majors in college by providing them with the skills and knowledge necessary to be successful in undergraduate research at the collegiate level.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 23,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "38377",
-      "courses_dcid": 5710,
-      "course_name": "COMM BASED EDUC",
-      "alt_course_number": "2775",
-      "course_description": "Community Based Education provides the development of various job training skills in the school setting. The pace of the course is guided by the success rate of the student.  Students are exposed to various job settings and skills in preparation for their participation in an actual work program. Students participate three hours of the day in either a morning or afternoon job. Students may or may not be compensated depending on their needs. Students may receive up to three credits for this course. In order for students to receive proper credit, they must be enrolled in a different section number for each scheduled class period.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
         "720",
         "740",
         "735",
         "710",
         "715",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30019",
-      "courses_dcid": 4243,
-      "course_name": "AGRICULTUR COMM",
-      "alt_course_number": "8022",
-      "course_description": "This course introduces the broad field of agricultural communications and provides for the development of knowledge and skill in specific areas related to communications theory and practice. Content includes the meaning and process of communication, the role and history of print and electronic media, legal aspects of agricultural communications, news and feature writing in agriculture, news photography, layout and design, and ethics in agricultural communications. Content may also include web design and broadcast journalism in agriculture. ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
         "645",
         "705",
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
+      "course_credit_type": 13
     },
-    {
-      "course_number": "32323",
-      "courses_dcid": 12353,
-      "course_name": "DRAMA III",
-      "alt_course_number": "4021",
-      "course_description": "Drama III will be open to third year drama students and provide students with increased opportunities for public performances of a play or musical. An in-depth study of advanced characterization, plot analysis and stage movement will be expected. School plays, or musical casts will primarily be taken from this class. A requirement for this class may include participation in a stage production.  This will fulfill a fine arts graduation requirement.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "AUDITION AND/OR ACTING II, DRAMA II OR SPEECH II",
+    "39013": {
+      "course_number": "39013",
+      "courses_dcid": 10657,
+      "course_name": "COLLEGE SUMMIT I",
+      "alt_course_number": "2725",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "38868": {
+      "course_number": "38868",
+      "courses_dcid": 5719,
+      "course_name": "COMMUNITY ART II",
+      "alt_course_number": "2809",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "715", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 12
+    },
+    "30361": {
+      "course_number": "30361",
+      "courses_dcid": 8968,
+      "course_name": "BIOTECHNOLOGY II",
+      "alt_course_number": "8703",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "32311": {
+      "course_number": "32311",
+      "courses_dcid": 4702,
+      "course_name": "DRAMA I",
+      "alt_course_number": "4019",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
       "school_ids": [
         "730",
         "712",
@@ -1201,171 +662,170 @@
         "725"
       ],
       "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
+      "course_credit_type": 12
     },
-    {
-      "course_number": "101213",
-      "courses_dcid": 9918,
-      "course_name": "COMPOSITION II - TCC* (1.0)",
+    "111115": {
+      "course_number": "111115",
+      "courses_dcid": 15451,
+      "course_name": "COMPOSITION I - RSU* (1.0)",
       "alt_course_number": "4054",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 51,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30234",
-      "courses_dcid": 11259,
-      "course_name": "E-COMMERCE MARKETING",
-      "alt_course_number": "8619",
-      "course_description": "This is a course of study in the development of communication and marketing strategies for effective electronic commerce to take place. The primary focus is how to: market products/services, use the Internet, identify markets, and communicate with them. This course provides an overview of the marketing activities businesses need to perform in order to maximize return and meet customer expectations with electronic purchases. Students will develop leadership traits and identify their leadership potential through participation in the DECA (an association of marketing students) student organization.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
       "course_department": 5,
-      "course_credit_type": 13,
-      "description": "Test Desc"
+      "course_credit_type": 51
     },
-    {
-      "course_number": "35061",
-      "courses_dcid": 5227,
-      "course_name": "ALGEBRA FUNDMTL",
-      "alt_course_number": "4431",
-      "course_description": "This course includes basic numerical operations and number sense, rational numbers, evaluating algebraic expressions with grouping symbols and exponents, solving multi-step equations and inequalities in one variable, and simplifying multi-variable expressions through the use of algebraic properties in the first semester. The second semester will begin the study of applying and justifying the laws of exponents, using absolute value as a measure of distance, rational expressions, radical expressions, polynomial addition, subtraction and multiplication, and graphing and writing linear functions. The geometric concepts of similarity, area, volume, as well as mastering the applications of ratios, proportions and statistical concepts of stem and leaf plots, tables, graphs, charts, and scatter plots will be integrated throughout the course. Real-world applications and problem solving are the foundations of this course. Visual and physical models, calculators, and other technologies are recommended when appropriate and should be used to enhance both instruction and assessment.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 8,
-      "course_credit_type": 13,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34501",
-      "courses_dcid": 4982,
-      "course_name": "AM SIGN LANG I",
-      "alt_course_number": "3171",
-      "course_description": "This course is designed to assist students in developing skills that are necessary in order to communicate with the deaf community. Students will learn how to use complete sentences to describe objects, express likes, dislikes and preferences. They will learn how to follow simple signed instructions and develop the ability to understand the principal message in signed messages and short conversations. Students will also gain familiarity of the deaf culture, along with various cultural activities.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "710",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "30193",
-      "courses_dcid": 19718,
-      "course_name": "COMPUTER SCIENCE II",
-      "alt_course_number": "2532",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "720",
-        "740",
-        "735",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 11,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "34141",
-      "courses_dcid": 4948,
-      "course_name": "ENG LIT COM AP*",
-      "alt_course_number": "4010",
-      "course_description": "POST SECONDARY OPPORTUNITIES REPORT         Students will become skilled in the careful reading and critical analysis of nonfiction and fiction literature. Through the close reading of selected texts, students will understand how writers use language to provide both meaning and pleasure for their readers. As they read, students will consider a work’s structure, style, and themes, as well as stylistic devices such as the use of figurative language, imagery, symbolism, and tone. They will learn how to implement the same devices in their own writing. The student may earn college credit for a qualifying score on the Advanced Placement Examination. Weighted credit is available for this course for all students who pass both semesters of the course with a “C” or higher.",
-      "courses_credit_hours": 1,
-      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "710",
-        "645",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 57,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "32115",
-      "courses_dcid": 4610,
-      "course_name": "ADV ORCHEST II",
-      "alt_course_number": "3006",
-      "course_description": "In this course, emphasis is on development of performance and listening skills at an advanced technical and artistic level.  This course is a continuation of the Advanced Orchestra I course. Opportunities for individual improvement are provided through the variety of music selected for study and performance to challenge the accomplished musical skills of each student. Music materials will include selections from standard orchestral literature of many styles and periods, as well as contemporary works. Opportunities for performance include school assemblies, evening concerts, assemblies for feeder schools, as well as contests and civic activities approved by the administration.  Students will be encouraged to audition for the Tulsa Metro Honor Orchestra.  Attendance, participation, and performance will constitute a major portion of the grade. State objectives for music will be incorporated into this class and will fulfill one of the fine arts graduation requirements.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "730",
-        "712",
-        "712",
-        "712",
-        "720",
-        "740",
-        "735",
-        "705",
-        "725"
-      ],
-      "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25342",
-      "courses_dcid": 4128,
-      "course_name": "COMPUTERS 2 (.5)",
-      "alt_course_number": "1324",
-      "course_description": "This course addresses the quick and correct operation of computers and software while allowing students to gain confidence and skills necessary for learning more advanced computer applications. Students will be introduced to various software packages and learn responsible Internet usage. Keyboarding and basic academic skills are included in each unit.",
+    "37147": {
+      "course_number": "37147",
+      "courses_dcid": 5509,
+      "course_name": "ECON-MACRO AP* (.5)",
+      "alt_course_number": "5525",
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
+      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - POST SECONDARY OPPORTUNITIES REPORT",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 35
+    },
+    "37144": {
+      "course_number": "37144",
+      "courses_dcid": 5507,
+      "course_name": "ECON-MICRO AP* (.5)",
+      "alt_course_number": "5526",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - POST SECONDARY OPPORTUNITIES REPORT",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 35
+    },
+    "112073": {
+      "course_number": "112073",
+      "courses_dcid": 10402,
+      "course_name": "CALCULUS III - TU*",
+      "alt_course_number": "4612",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 1
+    },
+    "33644": {
+      "course_number": "33644",
+      "courses_dcid": 7959,
+      "course_name": "CARDIO CONDITIONING I",
+      "alt_course_number": "3320",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "730",
+        "712",
+        "712",
+        "712",
+        "720",
+        "740",
+        "735",
+        "715",
+        "705",
+        "725"
+      ],
+      "course_department": 5,
+      "course_credit_type": 18
+    },
+    "30444": {
+      "course_number": "30444",
+      "courses_dcid": 13052,
+      "course_name": "CAREER EXPLOR THROUGH INTERNSHI II (1.0)",
+      "alt_course_number": "2791",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 13
+    },
+    "30153": {
+      "course_number": "30153",
+      "courses_dcid": 19254,
+      "course_name": "COMPUTER SCIENCE PRINCIPLES",
+      "alt_course_number": "8860",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "715", "645", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 11
+    },
+    "101512": {
+      "course_number": "101512",
+      "courses_dcid": 14556,
+      "course_name": "ANALYTIC GEOMETRY - TCC",
+      "alt_course_number": "4612",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["730", "720", "740", "735", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 58
+    },
+    "30717": {
+      "course_number": "30717",
+      "courses_dcid": 13720,
+      "course_name": "ANATOMY",
+      "alt_course_number": "5333",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "715", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 59
+    },
+    "38179": {
+      "course_number": "38179",
+      "courses_dcid": 8852,
+      "course_name": "CONCEPTS OF MUSIC II",
+      "alt_course_number": "3054",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["730", "720", "740", "735", "710", "715", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 12
+    },
+    "30570": {
+      "course_number": "30570",
+      "courses_dcid": 4444,
+      "course_name": "CARPENTRY I",
+      "alt_course_number": "9053",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 3.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 16
+    },
+    "32326": {
+      "course_number": "32326",
+      "courses_dcid": 4710,
+      "course_name": "ADV DRAMA IBHL*",
+      "alt_course_number": "2911",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT  ",
+      "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
+      "course_department": 5,
+      "course_credit_type": 12
+    },
+    "23010": {
+      "course_number": "23010",
+      "courses_dcid": 4048,
+      "course_name": "SCIENCE 1",
+      "alt_course_number": "2254",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1375,19 +835,74 @@
         "578",
         "578",
         "518",
+        "573",
+        "645",
+        "532",
         "577",
-        "530"
+        "530",
+        "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "23020": {
+      "course_number": "23020",
+      "courses_dcid": 4052,
+      "course_name": "SCIENCE 2",
+      "alt_course_number": "2276",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "573",
+        "645",
+        "532",
+        "577",
+        "530",
+        "542"
+      ],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "23030": {
+      "course_number": "23030",
+      "courses_dcid": 4056,
+      "course_name": "SCIENCE 3",
+      "alt_course_number": "2286",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "573",
+        "645",
+        "532",
+        "577",
+        "530",
+        "542"
+      ],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25310": {
       "course_number": "25310",
       "courses_dcid": 4110,
       "course_name": "ART 1 (.5)",
       "alt_course_number": "1173",
-      "course_description": "This course will engage students in the beginning understanding of the elements and principles of design. Students will produce original works of art using various media and materials by developing skills of creativity and observation. An introduction to art history and culture will include cultural and ethnic traditions, which have influenced the visual arts including European, American, Native American, African American, Hispanic, and Asian traditions. An emphasis on the appreciation of art will focus on discipline, thoughtfulness, and care of art works.",
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": [
@@ -1405,16 +920,15 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "22020",
-      "courses_dcid": 4037,
-      "course_name": "WORLD GEOGRAPHY: EASTERN HEMISPHERE",
-      "alt_course_number": "2318",
-      "course_description": "This course combines both World Cultures and World Geography focusing on the Eastern Hemisphere. Students will use geographic knowledge as a tool for understanding the concepts of economics and the impact of recent history on contemporary events. Students will focus on spatial patterns of human and physical characteristics of the world and its peoples, and will explore how these patterns form, change over time, and relate to one another in the Eastern Hemisphere. This is the second half of the middle level geographic studies program. The Western Hemisphere was the focus of the Grade 6 portion. For practical uses the traditional designations of Eastern and Western Hemispheres have been followed. The Eastern Hemisphere is treated as the areas of Africa, Asia, Europe, Australia, and Oceania.",
-      "courses_credit_hours": 1,
+    "25313": {
+      "course_number": "25313",
+      "courses_dcid": 4113,
+      "course_name": "CHORUS 1 (.5)",
+      "alt_course_number": "1187",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1424,67 +938,55 @@
         "578",
         "578",
         "518",
-        "573",
-        "645",
         "532",
+        "577",
+        "530"
+      ],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25327": {
+      "course_number": "25327",
+      "courses_dcid": 19705,
+      "course_name": "CHORUS 2 (1.0)",
+      "alt_course_number": "1187",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "578",
+        "578",
+        "518",
+        "645",
         "577",
         "530",
         "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "25237": {
       "course_number": "25237",
       "courses_dcid": 14104,
       "course_name": "YOUTH LEADERSHIP 3",
       "alt_course_number": "1385",
-      "course_description": "Do you like helping out in the middle school office? Do you like running passes for the counselors? Are you good at showing new students around our campus? Then this class is for you! This is for students who want to be office aids. You must have excellent grades, attendance, and manners. You will only be enrolled after a formal interview by office staff.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "577",
-        "530"
-      ],
+      "school_ids": ["537", "537", "558", "578", "578", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25486",
-      "courses_dcid": 15023,
-      "course_name": "DISCOVERY CHINESE 2 (1.0)",
-      "alt_course_number": "2172",
-      "course_description": "This course is designed to prepare middle school students to identify general topics and basic information and vocabulary in Chinese. It will focus on acquiring a variety of familiar vocabulary and phrases in the target language through visuals and informational texts. Students will develop basic speaking, reading, writing, and listening skills in the target language emphasizing the NCSSFL-ACTFL Interpretive Proficiency Benchmarks.   ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25229",
-      "courses_dcid": 19389,
-      "course_name": "LEADERSHIP 3 (1.0)",
+    "25227": {
+      "course_number": "25227",
+      "courses_dcid": 19387,
+      "course_name": "LEADERSHIP 1 (1.0)",
       "alt_course_number": "1383",
-      "course_description": "This eighth grade leadership course provides advanced studies in civics, leadership, and character education. Students will occupy key leadership positions and participate in more speaking and writing assignments. Life skills such as first aid, consumer education, and health are introduced. Cocurricular opportunities include color guards, drill competitions and physical challenge meets. Student council will also be run through this class.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1499,92 +1001,39 @@
         "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "22313",
-      "courses_dcid": 4045,
-      "course_name": "DRAMA HS/CR",
-      "alt_course_number": "4019",
-      "course_description": "This course constitutes an exploration of drama. All class members are involved in group or individual participation in pantomime, improvisation, scenes, oral interpretation, characterization, makeup, dramatic criticism, and movement. This course functions as an introduction to the study of drama and theatre and is a basic lecture, and laboratory study of the skills needed to perform in drama.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 12,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "24020",
-      "courses_dcid": 4064,
-      "course_name": "MATH 2",
-      "alt_course_number": "2204",
-      "course_description": "Once a student has completed his/her study of this course, he/she will - Analyze proportional relationships and use them to solve real-world and mathematical problems - Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers - Use properties of operations to generate equivalent expressions - Solve real-life and mathematical problems using numerical and algebraic expressions and equations. Solve real-life and mathematical problems involving angle measure, area, surface area, and volume. Draw, construct, and describe geometrical figures and describe the relationships between them. Use random sampling to draw inferences about a population. Draw informal comparative inferences about two populations. Investigate chance processes and develop, use, and evaluate probability models. The utilization of the computer lab is an extension of the mathematics curriculum. The Lab offers one-on-one instruction, small-group instruction, and technology-enhanced learning. Students will also be able to model the concepts taught in this course with a variety of tools. The specific standards are described in the Oklahoma Academic Standards for Mathematics| 7th Grade.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "573",
-        "645",
-        "532",
-        "577",
-        "530",
-        "542"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "21040",
-      "courses_dcid": 9858,
-      "course_name": "ENG LANG DEV LEVEL 1 & 2",
-      "alt_course_number": "1313",
-      "course_description": "This course is designed for students identified as English Language Learners at proficiency levels 1.0 and 2.0 to provide foundational English language instruction. The course strives to develop the four areas of literacy for the ELL student (reading, writing, speaking, and listening) through a variety of instructional methods. Oral communication, grammar, vocabulary, reading and writing development are emphasized. Note: Students placed in English Language Development for Levels 1.0 and 2.0 should also be placed in a general education English course to receive English credit.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "573",
-        "645",
-        "532",
-        "577",
-        "530",
-        "542"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "29071",
-      "courses_dcid": 8651,
-      "course_name": "MONITORING",
+    "21136": {
+      "course_number": "21136",
+      "courses_dcid": 15551,
+      "course_name": "LIBRARY RESOURCES",
       "alt_course_number": "1388",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "532",
+        "577",
+        "530",
+        "542"
+      ],
+      "course_department": 5,
+      "course_credit_type": 25
+    },
+    "24010": {
+      "course_number": "24010",
+      "courses_dcid": 4060,
+      "course_name": "MATH 1",
+      "alt_course_number": "2204",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1599,41 +1048,68 @@
         "532",
         "577",
         "530",
-        "515",
         "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25536",
-      "courses_dcid": 19380,
-      "course_name": "MUSICAL THEATER (1.0)",
-      "alt_course_number": "1189",
-      "course_description": "This course is an exploration of the American musical theater through the study of representative works. Students will engage in hands on activities in a variety of fine arts disciplines. Students will explore how song, dance, drama, and art all combine to tell a story. PASS objectives for drama and music will be incorporated into this class. Must get approval from Ms. Parnell.",
-      "courses_credit_hours": 1,
+    "21043": {
+      "course_number": "21043",
+      "courses_dcid": 9861,
+      "course_name": "ACADEMIC LANGUAGE DEVELOPMENT",
+      "alt_course_number": "1313",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
         "537",
         "558",
+        "563",
+        "578",
+        "578",
         "518",
         "645",
         "577",
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "24015",
-      "courses_dcid": 4061,
-      "course_name": "ADVANCED MATH 1",
-      "alt_course_number": "2204",
-      "course_description": "The units of study include algebraic concepts, common fractions, statistics, decimal operations, geometry and measurement. All concepts and skills are presented in the context of real-life problem-solving that requires the use of reasoning, communication, and logic. Students investigate mathematical concepts through a variety of experiences. This revised curriculum is based on preparing as many students as possible for Algebra I by eighth grade. Students will be required to produce interdisciplinary projects that will involve them in hands-on application of skills and concepts learned each quarter. Students will be able to use these projects to help answer essential questions.",
-      "courses_credit_hours": 1,
+    "21041": {
+      "course_number": "21041",
+      "courses_dcid": 9859,
+      "course_name": "ENG LANG DEV LEVEL 3 \u0026 4",
+      "alt_course_number": "1313",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "573",
+        "645",
+        "532",
+        "577",
+        "705",
+        "530",
+        "542"
+      ],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "21035": {
+      "course_number": "21035",
+      "courses_dcid": 4013,
+      "course_name": "ADVANCED LANG ARTS 3",
+      "alt_course_number": "1114",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1649,33 +1125,40 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25156",
-      "courses_dcid": 20262,
-      "course_name": "JUNIOR HIGH BASKETBALL (GIRLS') (.5)",
-      "alt_course_number": "1370",
-      "course_description": null,
-      "courses_credit_hours": 0.5,
+    "23015": {
+      "course_number": "23015",
+      "courses_dcid": 4049,
+      "course_name": "ADVANCED SCIENCE 1",
+      "alt_course_number": "2266",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
         "537",
-        "577"
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "573",
+        "645",
+        "532",
+        "577",
+        "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "25436": {
       "course_number": "25436",
       "courses_dcid": 15202,
       "course_name": "FRENCH LANGUAGE ARTS 1 HS/CR",
       "alt_course_number": "3260",
-      "course_description": "This class if for students in a French immersion program: Students will apply a variety of strategies to comprehend, interpret, evaluate, appreciate, and respond to various 6th grade French texts – both fictional and informational. They will express ideas effectively in writing in French for a variety of purposes and audiences. Through writing, they will practice and enhance skills in grammar, spelling, sentence and paragraph development, mechanics, editing and revising. They will demonstrate listening and speaking skills in French.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1690,65 +1173,15 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 61,
-      "description": "Test Desc"
+      "course_credit_type": 61
     },
-    {
-      "course_number": "25424",
-      "courses_dcid": 14401,
-      "course_name": "FRENCH LANGUAGE ARTS 2 HS/CR",
-      "alt_course_number": "3260",
-      "course_description": "This class is for students enrolled in a French immersion program: Students will apply a variety of strategies to comprehend, interpret, evaluate, appreciate, and respond to various 7th grade French texts – both fictional and informational. They will express ideas effectively in writing in French for a variety of purposes and audiences. Through writing, they will practice and enhance skills in grammar, spelling, sentence and paragraph development, mechanics, editing and revising. They will demonstrate listening and speaking skills in French.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "518",
-        "573",
-        "645",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 61,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25540",
-      "courses_dcid": 19381,
-      "course_name": "ORCHESTRA 1 (1.0)",
-      "alt_course_number": "1197",
-      "course_description": "This is the beginning level of a performing ensemble for students wishing to play a string instrument -violin, viola, cello, or bass. Students will gain a basic understanding and appreciation for classical music through lessons in basic theory, history, and playing techniques. Emphasis will be on basic playing and listening skills to foster each student’s capacity for self-expression in playing a string instrument in a group as well as alone. After school rehearsals and performances may be required of students.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "518",
-        "573",
-        "645",
-        "577",
-        "530",
-        "542"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "22035",
-      "courses_dcid": 4042,
-      "course_name": "ADVANCED US HISTORY 1754-1877",
-      "alt_course_number": "2319",
-      "course_description": "The course focus of this course is the same as United States History, 1754-1887, but Advanced students will move to a deeper level of complexity. Any student willing to make the commitment to this level of work is welcome to enroll in the course. The Advanced student will have an awareness of the various AP exams through open ended exam questions, historical discussion and practice with document analysis and essays. The focus in United States History for Grade 8 is the American Revolution through the Civil War and Reconstruction Eras (1754-1877). The student will describe and analyze the major causes, key events, and important personalities of the American Revolution. The student will examine in greater depth the factors, events, documents, significant individuals, and political ideas that led to the formation of the United States of America. These will be pursued through a chronological study of the early national period, westward expansion, and the Civil War and Reconstruction Eras. Citizenship skills will focus upon the historic development and understanding of constitutional government in the United States. The student will continue to develop and put to use a variety of Social Studies Process and Literacy Skills. The student will need to analyze primary and secondary sources and interpret timelines, maps, charts, graphs, pictures, photographs and political cartoons.  Research and writing play a pivotal role in this course.",
-      "courses_credit_hours": 1,
+    "23025": {
+      "course_number": "23025",
+      "courses_dcid": 4053,
+      "course_name": "ADVANCED SCIENCE 2",
+      "alt_course_number": "2276",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1759,70 +1192,21 @@
         "578",
         "518",
         "573",
+        "645",
         "532",
         "577",
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "21210",
-      "courses_dcid": 4020,
-      "course_name": "READING 1",
-      "alt_course_number": "1132",
-      "course_description": "The student will read, construct meaning, and respond to a wide variety of literary forms. Some of the strategies students will practice are preview, assessing prior knowledge, vocabulary development, and graphic organizers.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "532",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25511",
-      "courses_dcid": 4155,
-      "course_name": "GIFTED & TALENTED (.5)",
-      "alt_course_number": "1387",
-      "course_description": "In this course students identified as gifted or talented will develop their ability in creative thinking and their capacities for fluency, flexibility, originality and elaboration. Also students will develop their ability to use higher level and creative thinking skills.",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": null,
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "578",
-        "578",
-        "518",
-        "573",
-        "532",
-        "577",
-        "530",
-        "515"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25120",
-      "courses_dcid": 4098,
-      "course_name": "HEALTH & PHYSICAL EDUCATION 2 (.5)",
-      "alt_course_number": "1363",
-      "course_description": "Students will demonstrate competency in many movement forms and proficiency in a few movement forms. Students will apply movement concepts and principles to the learning and development of motor skills, and exhibit a physically active lifestyle. Students will achieve and maintain a health-enhancing level of physical fitness, demonstrate responsible personal and social behavior in physical activity settings, and demonstrate understanding and respect for differences among people in physical activity settings.",
-      "courses_credit_hours": 0.5,
+    "24035": {
+      "course_number": "24035",
+      "courses_dcid": 4069,
+      "course_name": "PRE-ALGEBRA 8TH GRADE",
+      "alt_course_number": "2217",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1840,16 +1224,38 @@
         "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "22025": {
+      "course_number": "22025",
+      "courses_dcid": 4038,
+      "course_name": "ADVANCED WORLD GEOGRAPHY: EASTERN HEMI",
+      "alt_course_number": "2318",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": [
+        "537",
+        "537",
+        "558",
+        "563",
+        "578",
+        "578",
+        "518",
+        "573",
+        "532",
+        "530"
+      ],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25246": {
       "course_number": "25246",
       "courses_dcid": 12360,
       "course_name": "TECHNOLOGY ENGINEERING 3",
       "alt_course_number": "8830",
-      "course_description": "This instructional program provides daily, hands-on experience which enables students to • Apply and reinforce math and science and become more technologically literate. •Explore career opportunities • Identify the education avenues to pursue their interests.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1865,16 +1271,15 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25242",
-      "courses_dcid": 14108,
-      "course_name": "TECHNOLOGY ENGINEERING 2",
-      "alt_course_number": "8830",
-      "course_description": "Students learn about invention and innovation. They have opportunities to study the history of inventions, including their impacts on society.  They learn about the core concepts of technology and about the various approaches to solving problems, including engineering design and experimentation. Students apply their creativity in the invention and innovation of new products, processes, or systems.  Finally, they learn about how various inventions and innovations impact their lives.",
-      "courses_credit_hours": 1,
+    "21224": {
+      "course_number": "21224",
+      "courses_dcid": 4025,
+      "course_name": "READING ENRICH",
+      "alt_course_number": "1132",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "537",
@@ -1889,67 +1294,67 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25130",
-      "courses_dcid": 4099,
-      "course_name": "HEALTH & PHYSICAL EDUCATION 3 (.5)",
-      "alt_course_number": "1363",
-      "course_description": "In this course, students will demonstrate competency in many movement forms and proficiency in a few movement forms. Students will apply movement concepts and principles to the learning and development of motor skills and exhibit a physically active lifestyle. Student will achieve and maintain a health-enhancing level of physical fitness, demonstrate responsible personal and social behavior in physical activity settings, and demonstrate understanding and respect for differences among people in physical activity settings.",
+    "33831A": {
+      "course_number": "33831A",
+      "courses_dcid": 18320,
+      "course_name": "VARSITY BASKETBALL BOYS 9TH (.5) - SEM 1",
+      "alt_course_number": "3330",
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "school_ids": [
-        "537",
-        "537",
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "573",
-        "645",
-        "532",
-        "577",
-        "530",
-        "542"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "school_ids": ["712", "712", "712"],
+      "course_department": 9,
+      "course_credit_type": 18
     },
-    {
-      "course_number": "24653",
-      "courses_dcid": 4080,
-      "course_name": "GERMAN I HS/CR",
-      "alt_course_number": "3121",
-      "course_description": "In this course, students will develop basic skills in listening, speaking, reading, and writing. Emphasis is on building a strong vocabulary base and on the introduction of grammar and structure. Cultural aspects are presented through videos, reading, and class presentations. Students will also connect to other academic subjects such as math, science, and language arts using their knowledge of German to access new information. Students will earn 1 unit of high school credit upon successful completion of this course.",
-      "courses_credit_hours": 1,
+    "33911A": {
+      "course_number": "33911A",
+      "courses_dcid": 18334,
+      "course_name": "VARSITY SOCCER GIRLS (.5) - SEM 1",
+      "alt_course_number": "3330",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "school_ids": ["712", "712", "712"],
+      "course_department": 5,
+      "course_credit_type": 18
+    },
+    "21235": {
+      "course_number": "21235",
+      "courses_dcid": 4030,
+      "course_name": "ADVANCED READING 3",
+      "alt_course_number": "1132",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "563", "578", "578", "518", "573", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 3,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "25456": {
       "course_number": "25456",
       "courses_dcid": 19707,
       "course_name": "DISCOVERY FRENCH 1 (.5)",
       "alt_course_number": "2122",
-      "course_description": null,
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "573", "645", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "23035": {
+      "course_number": "23035",
+      "courses_dcid": 10453,
+      "course_name": "ADVANCED SCIENCE 3",
+      "alt_course_number": "2286",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": [
         "558",
+        "563",
         "578",
         "578",
         "518",
@@ -1959,770 +1364,560 @@
         "530"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25102",
-      "courses_dcid": 4094,
-      "course_name": "HEALTH 2 (.5)",
-      "alt_course_number": "1343",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - In these courses, students will study the physical, chemical, and personality changes in the body caused by glands, hormones, stress, aging and puberty. They will study the methods and procedures involved in good decision-making. They will understand the importance of communication in dealing with the changes, the proper uses of over the counter and prescription drugs and the hazards associated with misuse and abuse. They will also understand the importance of proper dental care in maintaining health; and study different types of exercise and how they relate to overall health. They will also learn that there are certain nutritional requirements for the best growth and development of an individual.",
+    "25481": {
+      "course_number": "25481",
+      "courses_dcid": 15038,
+      "course_name": "DISCOVERY JAPANESE 2",
+      "alt_course_number": "2147",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "21133": {
+      "course_number": "21133",
+      "courses_dcid": 4018,
+      "course_name": "LIBRARY ASSIST",
+      "alt_course_number": "1145",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "24110": {
+      "course_number": "24110",
+      "courses_dcid": 6953,
+      "course_name": "MATH ENRICHMENT",
+      "alt_course_number": "1384",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "573", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25546": {
+      "course_number": "25546",
+      "courses_dcid": 19391,
+      "course_name": "SPEECH 2 (1.0)",
+      "alt_course_number": "1125",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530", "515"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "21233": {
+      "course_number": "21233",
+      "courses_dcid": 9658,
+      "course_name": "SYSTEM 44",
+      "alt_course_number": "1134",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "28925": {
+      "course_number": "28925",
+      "courses_dcid": 15017,
+      "course_name": "TRANSPORTATION EXPLORATION (.5)",
+      "alt_course_number": "8978",
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530",
-        "542"
-      ],
+      "school_ids": ["558", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25131",
-      "courses_dcid": 19392,
-      "course_name": "HEALTH AND PE 3 (1.0)",
-      "alt_course_number": "1363",
-      "course_description": null,
-      "courses_credit_hours": 1,
+    "25236": {
+      "course_number": "25236",
+      "courses_dcid": 14103,
+      "course_name": "YOUTH LEADERSHIP 2",
+      "alt_course_number": "1385",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "532",
-        "577",
-        "530",
-        "542"
-      ],
+      "school_ids": ["558", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "46512",
-      "courses_dcid": 15044,
-      "course_name": "MYP DISCOVERY CHINESE 2",
+    "24896": {
+      "course_number": "24896",
+      "courses_dcid": 15251,
+      "course_name": "HERITAGE SPANISH LITERACY I HS/CR",
+      "alt_course_number": "3169",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "577", "530", "542"],
+      "course_department": 5,
+      "course_credit_type": 3
+    },
+    "24315": {
+      "course_number": "24315",
+      "courses_dcid": 19369,
+      "course_name": "MATHEMATICS 2 IN SPANISH",
+      "alt_course_number": "2204",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "46511": {
+      "course_number": "46511",
+      "courses_dcid": 15043,
+      "course_name": "MYP DISCOVERY CHINESE 1",
       "alt_course_number": "2172",
-      "course_description": null,
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "47313",
-      "courses_dcid": 15052,
-      "course_name": "MYP DISCOVERY GERMAN 3",
-      "alt_course_number": "2142",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "48413",
-      "courses_dcid": 15064,
-      "course_name": "MYP DISCOVERY LATIN 3",
-      "alt_course_number": "2152",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25136",
-      "courses_dcid": 15653,
-      "course_name": "INTRO TO GROUP SPORTS 1 (.5)",
-      "alt_course_number": "1363",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": "MUST BE SCHEDULED TO S1 OR S2",
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "22051",
-      "courses_dcid": 14105,
-      "course_name": "INTRO TO NATIVE AMERICAN STUDIES (1.0)",
-      "alt_course_number": "1207",
-      "course_description": "This course offers a greater range of topics and more in-depth work than the 1 semester course. The students will continue to read fiction and non-fiction works of Native American literature which will lead to studying the history, culture, and languages of several tribes. The students will use pre-AP strategies to strengthen their reading and writing skills.  They will be taught through in-class hands-on experiences, out of class field trips, and Native American community members presenting in the classroom. ",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530",
-        "515"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25254",
-      "courses_dcid": 19354,
-      "course_name": "INTRODUCTION TO CODING",
-      "alt_course_number": "1328",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530",
-        "515"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
+    "21135": {
       "course_number": "21135",
       "courses_dcid": 15374,
       "course_name": "JOURNALISM (.5)",
       "alt_course_number": "1155",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
+      "course_description": "Test Desc",
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530",
-        "515"
-      ],
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530", "515"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "21132",
-      "courses_dcid": 4017,
-      "course_name": "JOURNALISM (1.0)",
-      "alt_course_number": "1155",
-      "course_description": "This course is a study of the mass media with emphasis on developing the journalistic style of writing through the daily practice of writing articles employing specific journalistic techniques. Included are the processes of newspaper makeup, techniques of copy reading and proofreading, the art of writing headlines, photographic techniques, and modern graphics. Students in this course often assist in producing the school newspaper.",
-      "courses_credit_hours": 1,
+    "23041": {
+      "course_number": "23041",
+      "courses_dcid": 19357,
+      "course_name": "PHYSICAL SCIENCE HS/CR IN SPANISH",
+      "alt_course_number": "5160",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "563", "578", "578", "518", "645", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 43
     },
-    {
-      "course_number": "25140",
-      "courses_dcid": 14001,
-      "course_name": "JUNIOR HIGH SOFTBALL",
+    "25146": {
+      "course_number": "25146",
+      "courses_dcid": 14055,
+      "course_name": "JUNIOR HIGH BASKETBALL (GIRLS')",
       "alt_course_number": "1370",
-      "course_description": "This course provides athletic-based activities that may be counted as a physical education credit if taught as part of the physical education program.  This course prepares students to compete at the junior high level in competitions.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25150",
-      "courses_dcid": 14059,
-      "course_name": "JUNIOR HIGH VOLLEYBALL",
+    "25152": {
+      "course_number": "25152",
+      "courses_dcid": 14061,
+      "course_name": "JUNIOR HIGH POM",
       "alt_course_number": "1370",
-      "course_description": "This course provides athletic-based activities that may be counted as a physical education credit if taught as part of the physical education program.  This course prepares students to compete at the junior high level in competitions.",
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "28924",
-      "courses_dcid": 15016,
-      "course_name": "RENEWABLE ENERGY (.5)",
-      "alt_course_number": "8872",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - An introduction to energy systems and renewable energy resources, with a scientific examination of the energy field and an emphasis on alternate energy sources and their technology and application. ",
-      "courses_credit_hours": 0.5,
+    "25148": {
+      "course_number": "25148",
+      "courses_dcid": 14057,
+      "course_name": "JUNIOR HIGH TENNIS (BOYS' AND GIRLS')",
+      "alt_course_number": "1370",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "25448",
-      "courses_dcid": 15036,
-      "course_name": "DISCOVERY RUSSIAN 3",
-      "alt_course_number": "2162",
-      "course_description": "This course is designed to prepare middle school students to present basic information on familiar and everyday topics in Russian using a variety of basic vocabulary, phrases, and simple sentences. Students will focus on practicing speaking, reading, writing, and listening skills in Latin emphasizing the NCSSFL-ACTFL Presentational Proficiency Benchmarks.   ",
-      "courses_credit_hours": 1,
+    "21231": {
+      "course_number": "21231",
+      "courses_dcid": 7407,
+      "course_name": "READING LAB 3",
+      "alt_course_number": "1132",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "578", "578", "518", "577", "530", "542"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "28930": {
       "course_number": "28930",
       "courses_dcid": 19393,
       "course_name": "AEROPONICS/HYDROPONICS (1.0)",
       "alt_course_number": "8868",
-      "course_description": null,
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25248": {
+      "course_number": "25248",
+      "courses_dcid": 19656,
+      "course_name": "EXPLORING INFORMATION TECHNOLOGY (.5)",
+      "alt_course_number": "1324",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "25245": {
+      "course_number": "25245",
+      "courses_dcid": 11351,
+      "course_name": "FUNDAMENTALS OF TECHNOLOGY  HS/CR",
+      "alt_course_number": "8169",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": "NONE",
       "school_ids": [
         "558",
+        "563",
         "578",
         "578",
         "518",
         "645",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "28911",
-      "courses_dcid": 15003,
-      "course_name": "ENGINEERING EXPLORATION (.5)",
-      "alt_course_number": "8830",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - This course allows students to explore a future in the engineering and technology pathway, students should study and apply principles from advanced mathematics, life sciences, physical science, earth and space science, and technology.",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "21032",
-      "courses_dcid": 4012,
-      "course_name": "ENGLISH ENRICHMENT 3",
-      "alt_course_number": "1114",
-      "course_description": "This course is an extension of the Language Arts course. Students will apply a variety of strategies to comprehend, interpret, evaluate, appreciate, and respond to a wide variety of texts. The student will also demonstrate knowledge of and appreciation for various forms of literature.",
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25311",
-      "courses_dcid": 4111,
-      "course_name": "BAND 1 (.5)",
-      "alt_course_number": "1195",
-      "course_description": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - In this course, attention is focused on introductory music fundamentals, technical achievement, and acquisition of performance and rehearsal skills through exposure to a variety of literature. Participation is open to all students who wish to extend their knowledge, understanding, and appreciation of music by learning to play a wind, string, or percussion instrument. No previous experience is required. Students enrolled should be capable of completing the requirement for Proficiency Level I. After school rehearsals and performances may be requires of students. The beginning student is usually expected to furnish his or her own instrument.",
-      "courses_credit_hours": 0.5,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "563",
-        "578",
-        "578",
-        "518",
-        "532",
-        "577",
-        "530"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "25971",
-      "courses_dcid": 12101,
-      "course_name": "BUSINESS FOUNDATIONS 2 (1.0)",
-      "alt_course_number": "8254",
-      "course_description": null,
-      "courses_credit_hours": 1,
-      "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
         "532",
         "577",
         "530",
         "542"
       ],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 11
     },
-    {
-      "course_number": "25983",
-      "courses_dcid": 15304,
-      "course_name": "GATEWAY III (1.0)",
-      "alt_course_number": "8838",
-      "course_description": null,
-      "courses_credit_hours": 1,
+    "25972": {
+      "course_number": "25972",
+      "courses_dcid": 19716,
+      "course_name": "BUSINESS FOUNDATIONS 2  (.5)",
+      "alt_course_number": "8254",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "645",
-        "577",
-        "530"
-      ],
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "25258": {
+      "course_number": "25258",
+      "courses_dcid": 19702,
+      "course_name": "CAREER EXPLORATIONS 2 (.5)",
+      "alt_course_number": "1354",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "24514": {
+      "course_number": "24514",
+      "courses_dcid": 13451,
+      "course_name": "CHINESE II HS/CR",
+      "alt_course_number": "3186",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["558", "578", "578", "518", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 3
+    },
+    "25247": {
       "course_number": "25247",
       "courses_dcid": 14956,
       "course_name": "COMPUTER SCIENCE DISCOVERIES HS/CR",
       "alt_course_number": "8867",
-      "course_description": null,
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "558",
-        "578",
-        "578",
-        "518",
-        "532",
-        "577",
-        "530",
-        "542"
-      ],
+      "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
       "course_department": 5,
-      "course_credit_type": 11,
-      "description": "Test Desc"
+      "course_credit_type": 11
     },
-    {
-      "course_number": "91055",
-      "courses_dcid": 6062,
-      "course_name": "FIFTH GR SELF PM",
-      "alt_course_number": "1055",
-      "course_description": null,
-      "courses_credit_hours": 0,
+    "25960": {
+      "course_number": "25960",
+      "courses_dcid": 4158,
+      "course_name": "GATEWAY TO TECHNOLOGY I (.5)",
+      "alt_course_number": "8838",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["558", "578", "578", "518", "573", "532", "577", "530"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11051",
-      "courses_dcid": 3908,
-      "course_name": "GR 1 HOMEROOM",
+    "25343": {
+      "course_number": "25343",
+      "courses_dcid": 4129,
+      "course_name": "COMPUTERS 3 (.5)",
+      "alt_course_number": "1324",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "91011": {
+      "course_number": "91011",
+      "courses_dcid": 6054,
+      "course_name": "EC SELF PM",
+      "alt_course_number": "1013",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
+      "pre_req_note": null,
+      "school_ids": ["163", "112", "194"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "91051": {
+      "course_number": "91051",
+      "courses_dcid": 6058,
+      "course_name": "FIRST GR SELF PM",
       "alt_course_number": "1051",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11054",
-      "courses_dcid": 3911,
-      "course_name": "GR 4 HOMEROOM",
-      "alt_course_number": "1054",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "9000",
-      "courses_dcid": 6451,
-      "course_name": "AM/PM ATTENDANCE",
-      "alt_course_number": "1388",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "11451",
-      "courses_dcid": 3923,
-      "course_name": "GR 1 READ",
+    "11215": {
+      "course_number": "11215",
+      "courses_dcid": 13653,
+      "course_name": "ADVANCED READING 1",
       "alt_course_number": "1132",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["163", "112"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11463",
-      "courses_dcid": 11757,
-      "course_name": "GR 3 READ (SPANISH)",
-      "alt_course_number": "1132",
-      "course_description": null,
-      "courses_credit_hours": 0,
+    "13010": {
+      "course_number": "13010",
+      "courses_dcid": 3965,
+      "course_name": "ART",
+      "alt_course_number": "1173",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
+    "13021": {
+      "course_number": "13021",
+      "courses_dcid": 9114,
+      "course_name": "BAND",
+      "alt_course_number": "1195",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
+      "pre_req_note": null,
+      "school_ids": ["163", "112"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "11011": {
+      "course_number": "11011",
+      "courses_dcid": 3904,
+      "course_name": "GR EC HOMEROOM",
+      "alt_course_number": "1013",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
+      "pre_req_note": null,
+      "school_ids": ["163", "112", "194"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "11251": {
+      "course_number": "11251",
+      "courses_dcid": 3914,
+      "course_name": "GR 1 MATH",
+      "alt_course_number": "2204",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
+      "pre_req_note": null,
+      "school_ids": ["163", "112", "194"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "11854": {
       "course_number": "11854",
       "courses_dcid": 3951,
       "course_name": "GR 4 SOCIAL STUDIES",
       "alt_course_number": "2305",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11255",
-      "courses_dcid": 3918,
-      "course_name": "GR 5 MATH",
-      "alt_course_number": "2204",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "11465",
-      "courses_dcid": 11759,
-      "course_name": "GR 5 READ (SPANISH)",
+    "11455": {
+      "course_number": "11455",
+      "courses_dcid": 3927,
+      "course_name": "GR 5 READ",
       "alt_course_number": "1132",
-      "course_description": null,
-      "courses_credit_hours": 1,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11256",
-      "courses_dcid": 9103,
-      "course_name": "GR 6 MATH",
+    "11223": {
+      "course_number": "11223",
+      "courses_dcid": 3913,
+      "course_name": "GR KG MATH",
       "alt_course_number": "2204",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 64
     },
-    {
-      "course_number": "11423",
-      "courses_dcid": 3922,
-      "course_name": "GR KG READ",
-      "alt_course_number": "1132",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 64,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "11623",
-      "courses_dcid": 3938,
-      "course_name": "GR KG SCIENCE",
-      "alt_course_number": "2254",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "11823",
-      "courses_dcid": 3947,
-      "course_name": "GR KG SOCIAL STUDIES",
+    "11855": {
+      "course_number": "11855",
+      "courses_dcid": 3952,
+      "course_name": "GR 5 SOCIAL STUDIES",
       "alt_course_number": "2305",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 64,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "11297",
-      "courses_dcid": 3919,
-      "course_name": "GR EC MATH",
-      "alt_course_number": "2204",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "11697",
-      "courses_dcid": 3944,
-      "course_name": "GR EC SCIENCE",
-      "alt_course_number": "2254",
-      "course_description": null,
-      "courses_credit_hours": 0,
-      "pre_req_note": null,
-      "school_ids": [
-        "163",
-        "112",
-        "194"
-      ],
-      "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
-    },
-    {
-      "course_number": "21137",
-      "courses_dcid": 20252,
-      "course_name": "ELD RESOURCES",
+    "13080": {
+      "course_number": "13080",
+      "courses_dcid": 3972,
+      "course_name": "LIBRARY RESOURCES",
       "alt_course_number": "1388",
-      "course_description": null,
-      "courses_credit_hours": 0,
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "577",
-        "542"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 25,
-      "description": "Test Desc"
+      "course_credit_type": 25
     },
-    {
-      "course_number": "42020",
-      "courses_dcid": 6732,
-      "course_name": "MYP WORLD GEOGRAPHY 7:EASTERN HEMISPHERE",
-      "alt_course_number": "2318",
-      "course_description": null,
-      "courses_credit_hours": 1,
+    "13020": {
+      "course_number": "13020",
+      "courses_dcid": 3966,
+      "course_name": "MUSIC",
+      "alt_course_number": "1184",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "515"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "41010",
-      "courses_dcid": 6651,
-      "course_name": "MYP LANGUAGE ARTS 1",
-      "alt_course_number": "1114",
-      "course_description": null,
-      "courses_credit_hours": 1,
+    "91053": {
+      "course_number": "91053",
+      "courses_dcid": 6060,
+      "course_name": "THIRD GR SELF PM",
+      "alt_course_number": "1053",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "515"
-      ],
+      "school_ids": ["163", "112", "194"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
     },
-    {
-      "course_number": "45331",
-      "courses_dcid": 7554,
-      "course_name": "MYP BAND 3",
-      "alt_course_number": "1195",
-      "course_description": null,
-      "courses_credit_hours": 1,
+    "11474": {
+      "course_number": "11474",
+      "courses_dcid": 14156,
+      "course_name": "GR 4 READ (FRENCH)",
+      "alt_course_number": "1132",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.0,
       "pre_req_note": null,
-      "school_ids": [
-        "515"
-      ],
+      "school_ids": ["112"],
       "course_department": 5,
-      "course_credit_type": 17,
-      "description": "Test Desc"
+      "course_credit_type": 17
+    },
+    "24898": {
+      "course_number": "24898",
+      "courses_dcid": 20357,
+      "course_name": "HERITAGE SPANISH LITERACY II HS/CR",
+      "alt_course_number": "3170",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["578", "578", "577", "542"],
+      "course_department": 3,
+      "course_credit_type": 3
+    },
+    "44025": {
+      "course_number": "44025",
+      "courses_dcid": 6756,
+      "course_name": "MYP PRE-ALGEBRA 7TH GRADE",
+      "alt_course_number": "2217",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["645", "515"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "42010": {
+      "course_number": "42010",
+      "courses_dcid": 6728,
+      "course_name": "MYP WORLD GEOGRAPHY:WESTERN HEMISPHERE",
+      "alt_course_number": "2317",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["515"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "42035": {
+      "course_number": "42035",
+      "courses_dcid": 6737,
+      "course_name": "ADVANCED MYP US HISTORY 1754-1877",
+      "alt_course_number": "2319",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 1.0,
+      "pre_req_note": null,
+      "school_ids": ["515"],
+      "course_department": 5,
+      "course_credit_type": 17
+    },
+    "45121": {
+      "course_number": "45121",
+      "courses_dcid": 19395,
+      "course_name": "MYP HEATH 2 (.5)",
+      "alt_course_number": "1343",
+      "course_description": "Test Desc",
+      "courses_credit_hours": 0.5,
+      "pre_req_note": null,
+      "school_ids": ["515"],
+      "course_department": 5,
+      "course_credit_type": 17
     }
-  ],
+  },
   "course_departments": {
     "1": "Mathematics",
     "2": "Science",
@@ -2755,308 +1950,72 @@
     "29": "Phy Ed/Ath"
   },
   "course_credit_types": {
-    "1": [
-      "MFC",
-      "AU",
-      "ELEC"
-    ],
-    "2": [
-      "BIO"
-    ],
-    "3": [
-      "WL",
-      "AU",
-      "ELEC"
-    ],
-    "4": [
-      "ENG1"
-    ],
-    "5": [
-      "ENG2"
-    ],
-    "6": [
-      "ENG3"
-    ],
-    "7": [
-      "ENG4"
-    ],
-    "8": [
-      "GEOM",
-      "COREMTH",
-      "ELEC"
-    ],
-    "9": [
-      "ALG1",
-      "AU",
-      "ELEC"
-    ],
-    "10": [
-      "ALG2",
-      "MFC",
-      "AU"
-    ],
-    "11": [
-      "CTE",
-      "AU",
-      "ELEC"
-    ],
-    "12": [
-      "FA",
-      "ELEC"
-    ],
-    "13": [
-      "ELEC"
-    ],
-    "14": [
-      "FA",
-      "PE",
-      "ELEC"
-    ],
-    "15": [
-      "CTE",
-      "ELEC"
-    ],
-    "16": [
-      "ELEC",
-      "COREMTH"
-    ],
+    "1": ["MFC", "AU", "ELEC"],
+    "2": ["BIO"],
+    "3": ["WL", "AU", "ELEC"],
+    "4": ["ENG1"],
+    "5": ["ENG2"],
+    "6": ["ENG3"],
+    "7": ["ENG4"],
+    "8": ["GEOM", "COREMTH", "ELEC"],
+    "9": ["ALG1", "AU", "ELEC"],
+    "10": ["ALG2", "MFC", "AU"],
+    "11": ["CTE", "AU", "ELEC"],
+    "12": ["FA", "ELEC"],
+    "13": ["ELEC"],
+    "14": ["FA", "PE", "ELEC"],
+    "15": ["CTE", "ELEC"],
+    "16": ["ELEC", "COREMTH"],
     "17": null,
-    "18": [
-      "PE",
-      "ELEC"
-    ],
-    "19": [
-      "WH",
-      "AU",
-      "ELEC",
-      "SSFC"
-    ],
-    "20": [
-      "GOV",
-      "AU",
-      "SSFC",
-      "ELEC"
-    ],
-    "21": [
-      "AU",
-      "ELEC"
-    ],
-    "22": [
-      "CTE",
-      "AU"
-    ],
-    "23": [
-      "SFC",
-      "AU",
-      "ELEC"
-    ],
-    "24": [
-      "CHEM",
-      "PHYSC",
-      "SFC",
-      "AU"
-    ],
-    "25": [
-      "STOREDGRADEDEL"
-    ],
-    "26": [
-      "CHEM",
-      "PHYSC",
-      "SFC",
-      "ELEC"
-    ],
-    "27": [
-      "CTE",
-      "AU",
-      "ELEC",
-      "COREMTH"
-    ],
-    "28": [
-      "ALG1",
-      "MFC",
-      "AU",
-      "ELEC"
-    ],
-    "29": [
-      "GOV"
-    ],
-    "30": [
-      "USHIS",
-      "SSFC",
-      "AU"
-    ],
-    "31": [
-      "USHIS"
-    ],
-    "32": [
-      "USHIS",
-      "AU"
-    ],
-    "33": [
-      "FA",
-      "ELEC",
-      "COREMTH"
-    ],
-    "34": [
-      "WH",
-      "AU",
-      "SSFC"
-    ],
-    "35": [
-      "AU",
-      "ELEC",
-      "SSFC"
-    ],
-    "36": [
-      "ENG4",
-      "ENG3",
-      "ENG2",
-      "AU"
-    ],
-    "37": [
-      "ELEC",
-      "AU",
-      "WH"
-    ],
-    "38": [
-      "OKHIS"
-    ],
-    "39": [
-      "BIO",
-      "SFC",
-      "AU",
-      "ELEC"
-    ],
-    "40": [
-      "PHY",
-      "PHYSC",
-      "SFC",
-      "AU"
-    ],
-    "41": [
-      "PFL",
-      "ELEC"
-    ],
-    "42": [
-      "SFC",
-      "AU",
-      "ELEC",
-      "COREMTH"
-    ],
-    "43": [
-      "PHYSC",
-      "SFC",
-      "AU",
-      "ELEC"
-    ],
-    "44": [
-      "SFC",
-      "PHY",
-      "AU"
-    ],
-    "45": [
-      "MFC",
-      "AU"
-    ],
-    "46": [
-      "ENG3",
-      "ENG4",
-      "AU",
-      "ELEC"
-    ],
-    "47": [
-      "SFC",
-      "ELEC"
-    ],
-    "48": [
-      "CHEM",
-      "SFC",
-      "ELEC"
-    ],
-    "49": [
-      "SSFC",
-      "ELEC"
-    ],
-    "50": [
-      "GOV",
-      "AU",
-      "ELEC"
-    ],
-    "51": [
-      "ENG3",
-      "ENG4",
-      "AU"
-    ],
-    "52": [
-      "CHEM",
-      "SFC",
-      "AU",
-      "ELEC"
-    ],
-    "53": [
-      "NC"
-    ],
-    "54": [
-      "BIO",
-      "SFC",
-      "AU"
-    ],
-    "55": [
-      "ALG2",
-      "MFC",
-      "AU",
-      "ELEC"
-    ],
-    "56": [
-      "USHIS",
-      "AU",
-      "ELEC"
-    ],
-    "57": [
-      "ENG3",
-      "ENG4"
-    ],
-    "58": [
-      "GEOM",
-      "MFC",
-      "AU",
-      "ELEC"
-    ],
-    "59": [
-      "SFC"
-    ],
-    "60": [
-      "PHY",
-      "SFC",
-      "AU",
-      "ELEC"
-    ],
-    "61": [
-      "WL",
-      "ELEC"
-    ],
-    "62": [
-      "FA"
-    ],
-    "63": [
-      "MFC",
-      "ELEC"
-    ],
-    "64": [
-      "STOREGRADEDEL"
-    ],
-    "65": [
-      "PFL",
-      "NC"
-    ],
-    "66": [
-      "ELEC",
-      "WH"
-    ],
-    "67": [
-      "ENG3",
-      "ENG4",
-      "ELEC"
-    ]
+    "18": ["PE", "ELEC"],
+    "19": ["WH", "AU", "ELEC", "SSFC"],
+    "20": ["GOV", "AU", "SSFC", "ELEC"],
+    "21": ["AU", "ELEC"],
+    "22": ["CTE", "AU"],
+    "23": ["SFC", "AU", "ELEC"],
+    "24": ["CHEM", "PHYSC", "SFC", "AU"],
+    "25": ["STOREDGRADEDEL"],
+    "26": ["CHEM", "PHYSC", "SFC", "ELEC"],
+    "27": ["CTE", "AU", "ELEC", "COREMTH"],
+    "28": ["ALG1", "MFC", "AU", "ELEC"],
+    "29": ["GOV"],
+    "30": ["USHIS", "SSFC", "AU"],
+    "31": ["USHIS"],
+    "32": ["USHIS", "AU"],
+    "33": ["FA", "ELEC", "COREMTH"],
+    "34": ["WH", "AU", "SSFC"],
+    "35": ["AU", "ELEC", "SSFC"],
+    "36": ["ENG4", "ENG3", "ENG2", "AU"],
+    "37": ["ELEC", "AU", "WH"],
+    "38": ["OKHIS"],
+    "39": ["BIO", "SFC", "AU", "ELEC"],
+    "40": ["PHY", "PHYSC", "SFC", "AU"],
+    "41": ["PFL", "ELEC"],
+    "42": ["SFC", "AU", "ELEC", "COREMTH"],
+    "43": ["PHYSC", "SFC", "AU", "ELEC"],
+    "44": ["SFC", "PHY", "AU"],
+    "45": ["MFC", "AU"],
+    "46": ["ENG3", "ENG4", "AU", "ELEC"],
+    "47": ["SFC", "ELEC"],
+    "48": ["CHEM", "SFC", "ELEC"],
+    "49": ["SSFC", "ELEC"],
+    "50": ["GOV", "AU", "ELEC"],
+    "51": ["ENG3", "ENG4", "AU"],
+    "52": ["CHEM", "SFC", "AU", "ELEC"],
+    "53": ["NC"],
+    "54": ["BIO", "SFC", "AU"],
+    "55": ["ALG2", "MFC", "AU", "ELEC"],
+    "56": ["USHIS", "AU", "ELEC"],
+    "57": ["ENG3", "ENG4"],
+    "58": ["GEOM", "MFC", "AU", "ELEC"],
+    "59": ["SFC"],
+    "60": ["PHY", "SFC", "AU", "ELEC"],
+    "61": ["WL", "ELEC"],
+    "62": ["FA"],
+    "63": ["MFC", "ELEC"],
+    "64": ["STOREGRADEDEL"],
+    "65": ["PFL", "NC"],
+    "66": ["ELEC", "WH"],
+    "67": ["ENG3", "ENG4", "ELEC"]
   }
 }
