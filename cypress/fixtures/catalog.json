@@ -145,7 +145,7 @@
       "school_category": 2
     }
   },
-  "school_categories": { "1": "HS", "2": "MS", "3": "EL", "4": null },
+  "school_categories": { "1": "HS", "2": "MS", "3": "EL", "4": "Null Cat" },
   "courses": {
     "34831": {
       "course_number": "34831",
@@ -1923,7 +1923,7 @@
     "2": "Science",
     "3": "World Lang",
     "4": "Language Art",
-    "5": null,
+    "5": "Null Dept",
     "6": "CTC - B/IT",
     "7": "FINE ARTS",
     "8": "Math",
@@ -1966,7 +1966,7 @@
     "14": ["FA", "PE", "ELEC"],
     "15": ["CTE", "ELEC"],
     "16": ["ELEC", "COREMTH"],
-    "17": null,
+    "17": ["FOO"],
     "18": ["PE", "ELEC"],
     "19": ["WH", "AU", "ELEC", "SSFC"],
     "20": ["GOV", "AU", "SSFC", "ELEC"],
