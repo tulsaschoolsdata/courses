@@ -1,0 +1,43 @@
+version: '3'
+
+x-base-img: &base-img
+  build:
+    context: .
+    args:
+      - APP_DIR
+  image: course-catalog:v1.0.0
+  environment:
+    - PATH="/home/node/course-catalog/node_modules/.bin/:$PATH"
+  volumes:
+    - ".:${APP_DIR}"
+    - "./.cache:/home/node/.cache"
+  working_dir: ${APP_DIR}
+
+services:
+  dev:
+    <<: *base-img
+    expose:
+      - ${PORT_DEV}
+    ports:
+      - "127.0.0.1:${PORT_DEV}:${PORT_DEV}"
+    environment:
+      - PORT=${PORT_DEV}
+      - HOST=0.0.0.0
+    command: ./node_modules/.bin/next dev
+
+  test-framework:
+    <<: *base-img
+    depends_on:
+      - dev
+    environment:
+      - CYPRESS_baseUrl=http://dev:${PORT_DEV}
+    command: ./node_modules/.bin/cypress run
+
+  staging:
+    <<: *base-img
+    expose:
+      - ${PORT_STAGING}
+    ports:
+      - "127.0.0.1:${PORT_STAGING}:${PORT_STAGING}"
+    working_dir: ${APP_DIR}/out
+    command: npx serve -l tcp://0.0.0.0:${PORT_STAGING}

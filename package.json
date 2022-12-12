@@ -11,7 +11,22 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "./node_modules/.bin/cypress run",
+    "docker": "docker compose run --rm dev",
+    "docker:npm": "docker compose run --rm dev npm",
+    "docker:build": "docker compose build",
+    "docker:up": "npm run docker:install && docker compose up -d && npm run docker:logs",
+    "docker:down": "docker compose down",
+    "docker:start": "docker compose start",
+    "docker:stop": "docker compose stop",
+    "docker:restart": "docker compose restart",
+    "docker:logs": "docker compose logs -f --tail=500",
+    "docker:next-export": "docker compose run --rm dev npm run export",
+    "docker:test": "docker compose run --rm test-framework ./node_modules/.bin/cypress run",
+    "docker:install": "docker compose build && npm run docker:npm-install && npm run docker:cypress-install",
+    "docker:npm-install": "docker compose run --rm dev npm install",
+    "docker:cypress-install": "docker compose run --rm dev ./node_modules/.bin/cypress install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
