@@ -70,7 +70,6 @@ export default function School({ school, courses }) {
           </Box>
         ))}
       </Box>
-
     </React.Fragment>
   )
 }

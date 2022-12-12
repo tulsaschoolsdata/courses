@@ -26,8 +26,7 @@ function CustomPagination() {
   )
 }
 
-export default function DataGridTable({ getRowId, rows, columns, pageSize}) {
-
+export default function DataGridTable({ getRowId, rows, columns, pageSize }) {
   return (
     <Box sx={{ height: 600, width: '100%' }}>
       <DataGrid
@@ -58,7 +57,7 @@ export async function getStaticProps() {
       getRowId,
       rows,
       columns,
-      pageSize
+      pageSize,
     },
   }
 }

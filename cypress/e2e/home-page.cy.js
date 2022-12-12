@@ -7,4 +7,3 @@ describe('home page for the app', () => {
     cy.get('body').last().should('contain.text', 'individual course offerings')
   })
 })
-

@@ -11,4 +11,3 @@ describe('schools show page', () => {
     cy.get('body').last().should('contain.text', 'SPEECH')
   })
 })
-

@@ -76,7 +76,7 @@ export default function Courses({ courses }) {
           }}
         />
       </Box>
-      <SortableTable columns={columns} rows={courses}/>
+      <SortableTable columns={columns} rows={courses} />
     </>
   )
 }
