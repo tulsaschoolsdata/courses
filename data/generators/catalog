@@ -6,9 +6,9 @@ gemfile do
   source 'https://rubygems.org'
 
   gem 'activesupport', '~> 7.0'
-  gem 'dotenv', "~> 2.8"
+  gem 'dotenv', '~> 2.8'
 
-  #ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
+  # ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
   gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git',
                       ref: '07a029e'
 end
