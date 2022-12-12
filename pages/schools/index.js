@@ -26,8 +26,8 @@ export default function Schools({ schools }) {
   ]
 
   return (
-    <Box sx={{ height: 600, width: '100%' }}>
-      <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
+    <>
+      <Typography variant="h1" color="inherit" noWrap>
         Schools
       </Typography>
 
@@ -37,7 +37,7 @@ export default function Schools({ schools }) {
         columns={columns}
         pageSize={100}
       />
-    </Box>
+    </>
   )
 }
 
