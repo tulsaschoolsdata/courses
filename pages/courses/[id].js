@@ -6,10 +6,10 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
-import catalog from './../../data/catalog.json'
 import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
+import { courses } from '/lib/models'
 
 export default function Course({ course }) {
   const router = useRouter()
@@ -65,14 +65,6 @@ export default function Course({ course }) {
     </React.Fragment>
   )
 }
-
-const courseDepartments = catalog['course_departments']
-const creditTypes = catalog['course_credit_types']
-const courses = Object.values(catalog['courses']).map((course) => ({
-  ...course,
-  course_department_name: courseDepartments[course['course_department']],
-  course_credit_type_name: creditTypes[course['course_credit_type']],
-}))
 
 export async function getStaticPaths() {
   const courseNumbers = courses.map((c) => c.course_number)

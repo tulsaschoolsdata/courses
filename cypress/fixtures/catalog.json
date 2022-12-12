@@ -156,7 +156,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 1,
       "course_credit_type": 3
     },
     "30344": {
@@ -168,7 +168,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "TWHTV STUDIOS | VFX TRICKS \u0026 TECHNIQUES",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 2,
       "course_credit_type": 13
     },
     "34071": {
@@ -192,7 +192,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 3,
       "course_credit_type": 6
     },
     "34699": {
@@ -204,7 +204,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 4,
       "course_credit_type": 3
     },
     "33701": {
@@ -227,7 +227,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 6,
       "course_credit_type": 18
     },
     "34897": {
@@ -239,7 +239,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT  ",
       "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 7,
       "course_credit_type": 3
     },
     "30783": {
@@ -251,7 +251,7 @@
       "courses_credit_hours": 3.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 8,
       "course_credit_type": 33
     },
     "32152": {
@@ -263,7 +263,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 9,
       "course_credit_type": 12
     },
     "38165": {
@@ -286,7 +286,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 10,
       "course_credit_type": 13
     },
     "39912": {
@@ -298,7 +298,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 11,
       "course_credit_type": 18
     },
     "32065": {
@@ -310,7 +310,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 12,
       "course_credit_type": 14
     },
     "35377": {
@@ -322,7 +322,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 13,
       "course_credit_type": 1
     },
     "30188": {
@@ -334,7 +334,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 14,
       "course_credit_type": 13
     },
     "31414": {
@@ -346,7 +346,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "715", "645", "725"],
-      "course_department": 5,
+      "course_department": 15,
       "course_credit_type": 41
     },
     "31416": {
@@ -358,7 +358,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "715", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 16,
       "course_credit_type": 41
     },
     "32468": {
@@ -370,7 +370,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 17,
       "course_credit_type": 12
     },
     "34677": {
@@ -382,7 +382,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT ",
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 18,
       "course_credit_type": 3
     },
     "30831": {
@@ -394,7 +394,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "MUST BE SCHEDULED TO S1 OR S2 TERM - MUST BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 19,
       "course_credit_type": 23
     },
     "101116": {
@@ -416,7 +416,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 20,
       "course_credit_type": 12
     },
     "38159": {
@@ -438,7 +438,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 21,
       "course_credit_type": 13
     },
     "112013": {
@@ -450,7 +450,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 22,
       "course_credit_type": 49
     },
     "37821": {
@@ -472,7 +472,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 23,
       "course_credit_type": 18
     },
     "37731": {
@@ -495,7 +495,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 24,
       "course_credit_type": 18
     },
     "32181": {
@@ -507,7 +507,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 25,
       "course_credit_type": 13
     },
     "102113": {
@@ -519,7 +519,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "735"],
-      "course_department": 5,
+      "course_department": 26,
       "course_credit_type": 13
     },
     "102112": {
@@ -531,7 +531,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 27,
       "course_credit_type": 13
     },
     "32361": {
@@ -543,7 +543,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 28,
       "course_credit_type": 21
     },
     "32134": {
@@ -565,7 +565,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 29,
       "course_credit_type": 12
     },
     "30274": {
@@ -577,7 +577,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 1,
       "course_credit_type": 13
     },
     "39010": {
@@ -602,7 +602,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 2,
       "course_credit_type": 13
     },
     "39013": {
@@ -614,7 +614,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740"],
-      "course_department": 5,
+      "course_department": 3,
       "course_credit_type": 13
     },
     "38868": {
@@ -626,7 +626,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "715", "705", "725"],
-      "course_department": 5,
+      "course_department": 4,
       "course_credit_type": 12
     },
     "30361": {
@@ -638,7 +638,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 6,
       "course_credit_type": 13
     },
     "32311": {
@@ -661,7 +661,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 7,
       "course_credit_type": 12
     },
     "111115": {
@@ -673,7 +673,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 8,
       "course_credit_type": 51
     },
     "37147": {
@@ -685,7 +685,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - POST SECONDARY OPPORTUNITIES REPORT",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 9,
       "course_credit_type": 35
     },
     "37144": {
@@ -697,7 +697,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM - POST SECONDARY OPPORTUNITIES REPORT",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 10,
       "course_credit_type": 35
     },
     "112073": {
@@ -709,7 +709,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 11,
       "course_credit_type": 1
     },
     "33644": {
@@ -732,7 +732,7 @@
         "705",
         "725"
       ],
-      "course_department": 5,
+      "course_department": 12,
       "course_credit_type": 18
     },
     "30444": {
@@ -744,7 +744,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 13,
       "course_credit_type": 13
     },
     "30153": {
@@ -756,7 +756,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "715", "645", "705", "725"],
-      "course_department": 5,
+      "course_department": 14,
       "course_credit_type": 11
     },
     "101512": {
@@ -768,7 +768,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT - SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["730", "720", "740", "735", "705", "725"],
-      "course_department": 5,
+      "course_department": 15,
       "course_credit_type": 58
     },
     "30717": {
@@ -780,7 +780,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "715", "705", "725"],
-      "course_department": 5,
+      "course_department": 16,
       "course_credit_type": 59
     },
     "38179": {
@@ -792,7 +792,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["730", "720", "740", "735", "710", "715", "705", "725"],
-      "course_department": 5,
+      "course_department": 17,
       "course_credit_type": 12
     },
     "30570": {
@@ -804,7 +804,7 @@
       "courses_credit_hours": 3.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 18,
       "course_credit_type": 16
     },
     "32326": {
@@ -816,7 +816,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": "POST SECONDARY OPPORTUNITIES REPORT  ",
       "school_ids": ["730", "720", "740", "735", "710", "705", "725"],
-      "course_department": 5,
+      "course_department": 19,
       "course_credit_type": 12
     },
     "23010": {
@@ -842,7 +842,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 20,
       "course_credit_type": 17
     },
     "23020": {
@@ -868,7 +868,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 21,
       "course_credit_type": 17
     },
     "23030": {
@@ -894,7 +894,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 22,
       "course_credit_type": 17
     },
     "25310": {
@@ -919,7 +919,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 23,
       "course_credit_type": 17
     },
     "25313": {
@@ -942,7 +942,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 24,
       "course_credit_type": 17
     },
     "25327": {
@@ -965,7 +965,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 25,
       "course_credit_type": 17
     },
     "25237": {
@@ -977,7 +977,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["537", "537", "558", "578", "578", "577", "530"],
-      "course_department": 5,
+      "course_department": 26,
       "course_credit_type": 17
     },
     "25227": {
@@ -1000,7 +1000,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 27,
       "course_credit_type": 17
     },
     "21136": {
@@ -1024,7 +1024,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 28,
       "course_credit_type": 25
     },
     "24010": {
@@ -1050,7 +1050,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 29,
       "course_credit_type": 17
     },
     "21043": {
@@ -1073,7 +1073,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 1,
       "course_credit_type": 17
     },
     "21041": {
@@ -1100,7 +1100,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 2,
       "course_credit_type": 17
     },
     "21035": {
@@ -1124,7 +1124,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 3,
       "course_credit_type": 17
     },
     "23015": {
@@ -1149,7 +1149,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 4,
       "course_credit_type": 17
     },
     "25436": {
@@ -1172,7 +1172,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 6,
       "course_credit_type": 61
     },
     "23025": {
@@ -1197,7 +1197,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 7,
       "course_credit_type": 17
     },
     "24035": {
@@ -1223,7 +1223,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 8,
       "course_credit_type": 17
     },
     "22025": {
@@ -1246,7 +1246,7 @@
         "532",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 9,
       "course_credit_type": 17
     },
     "25246": {
@@ -1270,7 +1270,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 10,
       "course_credit_type": 17
     },
     "21224": {
@@ -1293,7 +1293,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 11,
       "course_credit_type": 17
     },
     "33831A": {
@@ -1305,7 +1305,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["712", "712", "712"],
-      "course_department": 9,
+      "course_department": 12,
       "course_credit_type": 18
     },
     "33911A": {
@@ -1317,7 +1317,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": "SHOULD BE SCHEDULED TO S1 OR S2 TERM",
       "school_ids": ["712", "712", "712"],
-      "course_department": 5,
+      "course_department": 13,
       "course_credit_type": 18
     },
     "21235": {
@@ -1329,7 +1329,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "573", "577", "530"],
-      "course_department": 5,
+      "course_department": 14,
       "course_credit_type": 17
     },
     "25456": {
@@ -1341,7 +1341,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "573", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 15,
       "course_credit_type": 17
     },
     "23035": {
@@ -1363,7 +1363,7 @@
         "577",
         "530"
       ],
-      "course_department": 5,
+      "course_department": 16,
       "course_credit_type": 17
     },
     "25481": {
@@ -1375,7 +1375,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 17,
       "course_credit_type": 17
     },
     "21133": {
@@ -1387,7 +1387,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
-      "course_department": 5,
+      "course_department": 18,
       "course_credit_type": 17
     },
     "24110": {
@@ -1399,7 +1399,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "573", "530"],
-      "course_department": 5,
+      "course_department": 19,
       "course_credit_type": 17
     },
     "25546": {
@@ -1411,7 +1411,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530", "515"],
-      "course_department": 5,
+      "course_department": 20,
       "course_credit_type": 17
     },
     "21233": {
@@ -1423,7 +1423,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
-      "course_department": 5,
+      "course_department": 21,
       "course_credit_type": 17
     },
     "28925": {
@@ -1435,7 +1435,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 22,
       "course_credit_type": 17
     },
     "25236": {
@@ -1447,7 +1447,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 23,
       "course_credit_type": 17
     },
     "24896": {
@@ -1459,7 +1459,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530", "542"],
-      "course_department": 5,
+      "course_department": 24,
       "course_credit_type": 3
     },
     "24315": {
@@ -1471,7 +1471,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 25,
       "course_credit_type": 17
     },
     "46511": {
@@ -1483,7 +1483,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 26,
       "course_credit_type": 17
     },
     "21135": {
@@ -1495,7 +1495,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530", "515"],
-      "course_department": 5,
+      "course_department": 27,
       "course_credit_type": 17
     },
     "23041": {
@@ -1507,7 +1507,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 28,
       "course_credit_type": 43
     },
     "25146": {
@@ -1519,7 +1519,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 29,
       "course_credit_type": 17
     },
     "25152": {
@@ -1531,7 +1531,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 1,
       "course_credit_type": 17
     },
     "25148": {
@@ -1543,7 +1543,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 2,
       "course_credit_type": 17
     },
     "21231": {
@@ -1555,7 +1555,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530", "542"],
-      "course_department": 5,
+      "course_department": 3,
       "course_credit_type": 17
     },
     "28930": {
@@ -1567,7 +1567,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 4,
       "course_credit_type": 17
     },
     "25248": {
@@ -1579,7 +1579,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 6,
       "course_credit_type": 17
     },
     "25245": {
@@ -1602,7 +1602,7 @@
         "530",
         "542"
       ],
-      "course_department": 5,
+      "course_department": 7,
       "course_credit_type": 11
     },
     "25972": {
@@ -1614,7 +1614,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 8,
       "course_credit_type": 17
     },
     "25258": {
@@ -1626,7 +1626,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "645", "577", "530"],
-      "course_department": 5,
+      "course_department": 9,
       "course_credit_type": 17
     },
     "24514": {
@@ -1638,7 +1638,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 10,
       "course_credit_type": 3
     },
     "25247": {
@@ -1650,7 +1650,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "532", "577", "530", "542"],
-      "course_department": 5,
+      "course_department": 11,
       "course_credit_type": 11
     },
     "25960": {
@@ -1662,7 +1662,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "578", "578", "518", "573", "532", "577", "530"],
-      "course_department": 5,
+      "course_department": 12,
       "course_credit_type": 17
     },
     "25343": {
@@ -1674,7 +1674,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["558", "563", "578", "578", "518", "577", "530"],
-      "course_department": 5,
+      "course_department": 13,
       "course_credit_type": 17
     },
     "91011": {
@@ -1686,7 +1686,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 14,
       "course_credit_type": 17
     },
     "91051": {
@@ -1698,7 +1698,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 15,
       "course_credit_type": 17
     },
     "11215": {
@@ -1710,7 +1710,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["163", "112"],
-      "course_department": 5,
+      "course_department": 16,
       "course_credit_type": 17
     },
     "13010": {
@@ -1722,7 +1722,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 17,
       "course_credit_type": 17
     },
     "13021": {
@@ -1734,7 +1734,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112"],
-      "course_department": 5,
+      "course_department": 18,
       "course_credit_type": 17
     },
     "11011": {
@@ -1746,7 +1746,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 19,
       "course_credit_type": 17
     },
     "11251": {
@@ -1758,7 +1758,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 20,
       "course_credit_type": 17
     },
     "11854": {
@@ -1770,7 +1770,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 21,
       "course_credit_type": 17
     },
     "11455": {
@@ -1782,7 +1782,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 22,
       "course_credit_type": 17
     },
     "11223": {
@@ -1794,7 +1794,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 23,
       "course_credit_type": 64
     },
     "11855": {
@@ -1806,7 +1806,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 24,
       "course_credit_type": 17
     },
     "13080": {
@@ -1818,7 +1818,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 25,
       "course_credit_type": 25
     },
     "13020": {
@@ -1830,7 +1830,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 26,
       "course_credit_type": 17
     },
     "91053": {
@@ -1842,7 +1842,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["163", "112", "194"],
-      "course_department": 5,
+      "course_department": 27,
       "course_credit_type": 17
     },
     "11474": {
@@ -1854,7 +1854,7 @@
       "courses_credit_hours": 0.0,
       "pre_req_note": null,
       "school_ids": ["112"],
-      "course_department": 5,
+      "course_department": 28,
       "course_credit_type": 17
     },
     "24898": {
@@ -1866,7 +1866,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["578", "578", "577", "542"],
-      "course_department": 3,
+      "course_department": 29,
       "course_credit_type": 3
     },
     "44025": {
@@ -1878,7 +1878,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["645", "515"],
-      "course_department": 5,
+      "course_department": 1,
       "course_credit_type": 17
     },
     "42010": {
@@ -1890,7 +1890,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["515"],
-      "course_department": 5,
+      "course_department": 2,
       "course_credit_type": 17
     },
     "42035": {
@@ -1902,7 +1902,7 @@
       "courses_credit_hours": 1.0,
       "pre_req_note": null,
       "school_ids": ["515"],
-      "course_department": 5,
+      "course_department": 3,
       "course_credit_type": 17
     },
     "45121": {
@@ -1914,7 +1914,7 @@
       "courses_credit_hours": 0.5,
       "pre_req_note": null,
       "school_ids": ["515"],
-      "course_department": 5,
+      "course_department": 4,
       "course_credit_type": 17
     }
   },
@@ -2019,3 +2019,4 @@
     "67": ["ENG3", "ENG4", "ELEC"]
   }
 }
+

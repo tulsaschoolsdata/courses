@@ -79,7 +79,7 @@ export default function CourseCard({ course }) {
               })
             : 'No description available.'}
         </Typography>
-        <Link sx={{ position: 'fixed' }} href={`/course/${course_number}`}>
+        <Link sx={{ position: 'fixed' }} href={`/courses/${course_number}`}>
           Read More
         </Link>
       </CardContent>
