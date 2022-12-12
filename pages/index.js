@@ -31,7 +31,6 @@ export default function HomePage({}) {
       </Typography>
 
       <Stack>
-        <Link href={`/courses/cards`}>Courses Card View</Link>
         <Link href={`/courses`}>Courses Table View</Link>
         <Link href={`/schools`}>Schools Table View</Link>
       </Stack>
