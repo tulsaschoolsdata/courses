@@ -10,7 +10,11 @@ module PowerSchool
   POWERQUERY_QUERY_STRING_PARAMETERS = %i[pagesize page order count dofor].freeze
 
   def self.powerquery(path:, body: {}, **options)
-    options = (options || {}).symbolize_keys.merge(body: body.to_json)
+    options = (options || {}).symbolize_keys
+    body['projection'] = Array(options.delete(:only)).join(';') if options.key? :only
+    body['$q'] = options.delete(:matching).map { |field, value| "#{field}==#{value}" }.join(';') if options.key? :matching
+
+    options.merge! body: body.to_json
     query_string = options.slice(*POWERQUERY_QUERY_STRING_PARAMETERS).compact.to_query
     options = options.except(*POWERQUERY_QUERY_STRING_PARAMETERS)
 
