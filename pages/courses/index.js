@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { courseShape } from '/lib/prop-types'
 import Typography from '@mui/material/Typography'
@@ -6,8 +6,15 @@ import Link from 'next/link'
 import { courses } from '/lib/models'
 import DataGridTable from '../../components/datagrid-table'
 import Chip from '@mui/material/Chip'
+import Grid from '@mui/material/Grid'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import GridViewIcon from '@mui/icons-material/GridView'
+import TableChartIcon from '@mui/icons-material/TableChart'
 
 export default function Courses({ courses }) {
+  const [view, setView] = useState('table')
+
   const columns = [
     {
       field: 'course_number',
@@ -45,16 +52,29 @@ export default function Courses({ courses }) {
 
   return (
     <>
-      <Typography variant="h4" color="inherit" noWrap sx={{ pb: 2 }}>
-        Courses
-      </Typography>
-
-      <DataGridTable
-        getRowId={(row) => row.course_number}
-        rows={courses}
-        columns={columns}
-        pageSize={10}
-      />
+      <Grid container justifyContent={'space-between'} flexDirection={'row'}>
+        <Grid item xs={9}>
+          <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
+            Courses
+          </Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Tabs value={view} onChange={(_e, val) => setView(val)} sx={{ cursor: 'pointer' }}>
+            <Tab label={<><TableChartIcon /> Table</>} value={'table'} />
+            <Tab label={<><GridViewIcon /> Grid</>} value={'grid'} />
+          </Tabs>
+        </Grid>
+      </Grid>
+      {view === 'table' ? (
+        <DataGridTable
+          getRowId={(row) => row.course_number}
+          rows={courses}
+          columns={columns}
+          pageSize={10}
+        />
+      ) : (
+        "Grid view of courses goes here."
+      )}
     </>
   )
 }
