@@ -29,6 +29,11 @@ export default function Courses({ courses, departments, schools }) {
     search: '',
   })
 
+  const handleTabChange = (val) => {
+    localStorage.setItem('preferredView', val)
+    setTabOpen(val)
+  }
+
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [filtersOpen, setFiltersOpen] = useState(false)
 
@@ -87,6 +92,11 @@ export default function Courses({ courses, departments, schools }) {
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
     }
+
+    const preferredView = localStorage.getItem('preferredView')
+    if (preferredView) {
+      setTabOpen(preferredView)
+    }
   }, [])
 
   useEffect(() => {
@@ -127,7 +137,7 @@ export default function Courses({ courses, departments, schools }) {
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Tabs value={tabOpen} onChange={(_e, val) => setTabOpen(val)} sx={{ cursor: 'pointer' }}>
+          <Tabs value={tabOpen} onChange={(_e, val) => handleTabChange(val)} sx={{ cursor: 'pointer' }}>
             <Tab label={<><TableChartIcon /> Table</>} value={'table'} />
             <Tab label={<><GridViewIcon /> Grid</>} value={'grid'} />
           </Tabs>
