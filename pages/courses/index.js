@@ -1,35 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { courseShape } from '/lib/prop-types'
-import Box from '@mui/material/Box'
-import Pagination from '@mui/material/Pagination'
-import {
-  DataGrid,
-  GridToolbar,
-  gridPageCountSelector,
-  gridPageSelector,
-  useGridApiContext,
-  useGridSelector,
-} from '@mui/x-data-grid'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { courses } from '/lib/models'
-import SortableTable from '/components/sortable-table'
-
-function CustomPagination() {
-  const apiRef = useGridApiContext()
-  const page = useGridSelector(apiRef, gridPageSelector)
-  const pageCount = useGridSelector(apiRef, gridPageCountSelector)
-
-  return (
-    <Pagination
-      color="primary"
-      count={pageCount}
-      page={page + 1}
-      onChange={(event, value) => apiRef.current.setPage(value - 1)}
-    />
-  )
-}
+import DataGridTable from '../../components/datagrid-table'
+import Chip from '@mui/material/Chip'
 
 export default function Courses({ courses }) {
   const columns = [
@@ -48,7 +24,18 @@ export default function Courses({ courses }) {
     },
     { field: 'course_department_name', headerName: 'Department', width: 130 },
     { field: 'course_name', headerName: 'Course Name', width: 230 },
-    { field: 'course_credit_type', headerName: 'Credit Type', width: 130 },
+    {
+      field: 'course_credit_type_name',
+      headerName: 'Credit Type',
+      width: 200,
+      renderCell: (cellValues) => {
+        if (cellValues.row.course_credit_type_name) {
+          return cellValues.row.course_credit_type_name.map(creditTypeName => <Chip label={creditTypeName} sx={{ mr: 0.5 }} />)
+        } else {
+          return null
+        }
+      }
+    },
     {
       field: 'courses_credit_hours',
       type: 'number',
@@ -58,25 +45,16 @@ export default function Courses({ courses }) {
 
   return (
     <>
-      <Typography variant="h1" color="inherit" noWrap>
-        Courses Data Grid
+      <Typography variant="h4" color="inherit" noWrap sx={{ pb: 2 }}>
+        Courses
       </Typography>
 
-      <Box sx={{ height: 600, width: '100%' }}>
-        <DataGrid
-          getRowId={(row) => row.course_number}
-          rows={courses}
-          columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[10]}
-          disableSelectionOnClick
-          components={{
-            Toolbar: GridToolbar,
-            Pagination: CustomPagination,
-          }}
-        />
-      </Box>
-      <SortableTable columns={columns} rows={courses} />
+      <DataGridTable
+        getRowId={(row) => row.course_number}
+        rows={courses}
+        columns={columns}
+        pageSize={10}
+      />
     </>
   )
 }
