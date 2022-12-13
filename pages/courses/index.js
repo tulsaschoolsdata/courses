@@ -74,11 +74,19 @@ export default function Courses({ courses, departments, schools }) {
       width: 200,
       renderCell: (cellValues) => {
         if (cellValues.row.course_credit_type_name) {
-          return cellValues.row.course_credit_type_name.map(creditTypeName => <Chip key={creditTypeName} label={creditTypeName} sx={{ mr: 0.5 }} />)
+          return cellValues.row.course_credit_type_name.map(
+            (creditTypeName) => (
+              <Chip
+                key={creditTypeName}
+                label={creditTypeName}
+                sx={{ mr: 0.5 }}
+              />
+            )
+          )
         } else {
           return null
         }
-      }
+      },
     },
     {
       field: 'courses_credit_hours',
@@ -137,9 +145,27 @@ export default function Courses({ courses, departments, schools }) {
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Tabs value={tabOpen} onChange={(_e, val) => handleTabChange(val)} sx={{ cursor: 'pointer' }}>
-            <Tab label={<><TableChartIcon /> Table</>} value={'table'} />
-            <Tab label={<><GridViewIcon /> Grid</>} value={'grid'} />
+          <Tabs
+            value={tabOpen}
+            onChange={(_e, val) => handleTabChange(val)}
+            sx={{ cursor: 'pointer' }}
+          >
+            <Tab
+              label={
+                <>
+                  <TableChartIcon /> Table
+                </>
+              }
+              value={'table'}
+            />
+            <Tab
+              label={
+                <>
+                  <GridViewIcon /> Grid
+                </>
+              }
+              value={'grid'}
+            />
           </Tabs>
         </Grid>
       </Grid>
@@ -214,7 +240,7 @@ export default function Courses({ courses, departments, schools }) {
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
   departments: PropTypes.arrayOf(PropTypes.string.isRequired),
-  schools: PropTypes.array.isRequired
+  schools: PropTypes.array.isRequired,
 }
 
 export async function getStaticProps() {
@@ -224,7 +250,7 @@ export async function getStaticProps() {
     props: {
       courses,
       departments,
-      schools
+      schools,
     },
   }
 }
