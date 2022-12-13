@@ -74,7 +74,7 @@ export default function Courses({ courses, departments, schools }) {
       width: 200,
       renderCell: (cellValues) => {
         if (cellValues.row.course_credit_type_name) {
-          return cellValues.row.course_credit_type_name.map(creditTypeName => <Chip label={creditTypeName} sx={{ mr: 0.5 }} />)
+          return cellValues.row.course_credit_type_name.map(creditTypeName => <Chip key={creditTypeName} label={creditTypeName} sx={{ mr: 0.5 }} />)
         } else {
           return null
         }
