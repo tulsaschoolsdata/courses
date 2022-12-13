@@ -10,19 +10,19 @@ import DataGridTable from '/components/datagrid-table'
 export default function Schools({ schools }) {
   const columns = [
     {
-      field: 'school_id',
+      field: 'school_number',
       renderCell: (cellValues) => {
         return (
-          <Link href={`/schools/${cellValues.row.school_id}`}>
-            {cellValues.row.school_id}
+          <Link href={`/schools/${cellValues.row.school_number}`}>
+            {cellValues.row.school_number}
           </Link>
         )
       },
       headerName: 'id',
       width: 70,
     },
-    { field: 'school_category_name', headerName: 'Type', width: 60 },
-    { field: 'school_name', headerName: 'School', width: 430 },
+    { field: 'school_category_name', headerName: 'Category', width: 60 },
+    { field: 'name', headerName: 'School', width: 430 },
   ]
 
   return (
@@ -32,7 +32,7 @@ export default function Schools({ schools }) {
       </Typography>
 
       <DataGridTable
-        getRowId={(row) => row.school_id}
+        getRowId={(row) => row.school_number}
         rows={schools}
         columns={columns}
         pageSize={100}

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { courseShape } from '/lib/prop-types'
 import Box from '@mui/material/Box'
 import Pagination from '@mui/material/Pagination'
 import {
@@ -14,7 +13,7 @@ import {
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { courses } from '/lib/models'
-import SortableTable from '/components/sortable-table'
+import { courseShape } from '/lib/prop-types'
 
 function CustomPagination() {
   const apiRef = useGridApiContext()
@@ -46,11 +45,11 @@ export default function Courses({ courses }) {
       headerName: 'Course #',
       width: 70,
     },
-    { field: 'course_department_name', headerName: 'Department', width: 130 },
-    { field: 'course_name', headerName: 'Course Name', width: 230 },
-    { field: 'course_credit_type', headerName: 'Credit Type', width: 130 },
+    { field: 'department', headerName: 'Department', width: 130 },
+    { field: 'name', headerName: 'Course Name', width: 230 },
+    { field: 'credit_types', headerName: 'Credit Type', width: 130 },
     {
-      field: 'courses_credit_hours',
+      field: 'credit_hours',
       type: 'number',
       headerName: 'Credit Hours',
     },
@@ -76,7 +75,6 @@ export default function Courses({ courses }) {
           }}
         />
       </Box>
-      <SortableTable columns={columns} rows={courses}/>
     </>
   )
 }

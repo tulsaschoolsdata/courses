@@ -49,21 +49,21 @@ export default function Courses({ courses, departments, schools }) {
 
     if (filters.departments?.length > 0) {
       output = output.filter((course) =>
-        filters.departments.includes(course.course_department_name)
+        filters.departments.includes(course.department)
       )
     }
 
     if (filters.schools?.length > 0) {
       output = output.filter(
         (course) =>
-          course.school_ids.filter((id) => filters.schools.includes(id))
+          course.school_numbers.filter((id) => filters.schools.includes(id))
             .length > 0
       )
     }
 
     if (filters.search) {
       const options = {
-        keys: ['course_name', 'course_department_name', 'course_description'],
+        keys: ['course_name', 'department', 'course_description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
@@ -138,7 +138,6 @@ export default function Courses({ courses, departments, schools }) {
 
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(PropTypes.string.isRequired),
   schools: PropTypes.array.isRequired,
 }
 
@@ -148,7 +147,6 @@ export async function getStaticProps() {
   return {
     props: {
       courses,
-      departments,
       schools,
     },
   }

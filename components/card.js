@@ -10,9 +10,9 @@ import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
   const {
-    course_department_name,
+    department,
     course_description,
-    course_name,
+    name,
     course_number,
   } = course
 
@@ -26,7 +26,7 @@ export default function CourseCard({ course }) {
     setAnchorEl(null)
   }
 
-  const isTruncatedTitle = course_name.length > 30
+  const isTruncatedTitle = name.length > 30
 
   return (
     <Card
@@ -44,7 +44,7 @@ export default function CourseCard({ course }) {
           onMouseEnter={isTruncatedTitle ? handlePopoverOpen : null}
           onMouseLeave={isTruncatedTitle ? handlePopoverClose : null}
         >
-          {truncate(course_name, { length: 30 })}
+          {truncate(name, { length: 30 })}
         </Typography>
         {isTruncatedTitle && (
           <Popover
@@ -66,11 +66,11 @@ export default function CourseCard({ course }) {
               horizontal: 'left',
             }}
           >
-            <Typography sx={{ p: 1 }}>{course_name}</Typography>
+            <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
-        {course_department_name && (
-          <Chip label={course_department_name} sx={{ marginBottom: 1 }} />
+        {department && (
+          <Chip label={department} sx={{ marginBottom: 1 }} />
         )}
         <Typography>
           {course_description
