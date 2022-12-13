@@ -27,7 +27,7 @@ export default function Schools({ schools }) {
 
   return (
     <Box sx={{ height: 600, width: '100%' }}>
-      <Typography variant="h1" color="inherit" noWrap>
+      <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
         Schools
       </Typography>
 
