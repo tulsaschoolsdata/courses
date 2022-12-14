@@ -36,7 +36,7 @@ function CustomToolbar() {
       <GridToolbarDensitySelector />
       <GridToolbarExport />
     </GridToolbarContainer>
-  );
+  )
 }
 
 export default function DataGridTable({ getRowId, rows, columns, pageSize }) {
