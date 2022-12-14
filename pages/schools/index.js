@@ -27,7 +27,7 @@ export default function Schools({ schools }) {
 
   return (
     <>
-      <Typography variant="h1" color="inherit" noWrap>
+      <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
         Schools
       </Typography>
 

@@ -119,7 +119,7 @@ export default function Courses({ courses, departments, schools }) {
     if (filters.schools?.length > 0) {
       output = output.filter(
         (course) =>
-          course.school_ids.filter((id) => filters.schools.includes(id))
+          course.school_numbers.filter((id) => filters.schools.includes(id))
             .length > 0
       )
     }
@@ -139,12 +139,12 @@ export default function Courses({ courses, departments, schools }) {
   return (
     <>
       <Grid container justifyContent={'space-between'} flexDirection={'row'}>
-        <Grid item xs={9}>
+        <Grid item xs={12} md={9}>
           <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
             Courses
           </Typography>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <Tabs
             value={tabOpen}
             onChange={(_e, val) => handleTabChange(val)}
