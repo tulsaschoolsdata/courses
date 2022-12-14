@@ -5,6 +5,5 @@ describe('courses show page', () => {
 
   it('displays course information', () => {
     cy.get('body').last().should('contain.text', 'ADVANCED READING')
-    cy.get('body').last().should('contain.text', 'Test Desc')
   })
 })

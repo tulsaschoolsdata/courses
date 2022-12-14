@@ -15,12 +15,12 @@ export default function Course({ course }) {
   const router = useRouter()
   const {
     courses_credit_hours,
-    course_credit_type_name,
-    course_name,
+    credit_types,
+    name,
     course_number,
-    course_description,
+    description,
     pre_req_note,
-    course_department_name,
+    department,
   } = course
 
   const renderSection = (title, attr) => {
@@ -41,7 +41,7 @@ export default function Course({ course }) {
   return (
     <React.Fragment>
       <Head>
-        <title>{`${course.course_name} - Tulsa Public Schools`}</title>
+        <title>{`${name} - Tulsa Public Schools`}</title>
         <meta
           name="description"
           content={truncate(course.course_description, { length: 155 })}
@@ -54,13 +54,13 @@ export default function Course({ course }) {
             Go Back
           </Button>
         </Grid>
-        {renderSection('name', course_name)}
-        {renderSection('description', course_description)}
+        {renderSection('course name', name)}
+        {renderSection('description', description)}
         {renderSection('prerequisites', pre_req_note)}
-        {renderSection('credit_types', course_credit_type_name)}
+        {renderSection('credit_types', credit_types)}
         {renderSection('course_number', course_number)}
         {renderSection('credit_hours', courses_credit_hours)}
-        {renderSection('department', course_department_name)}
+        {renderSection('department', department)}
       </Stack>
     </React.Fragment>
   )

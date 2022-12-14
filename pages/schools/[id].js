@@ -13,11 +13,11 @@ import { schoolShape } from '/lib/prop-types'
 import Box from '@mui/material/Box'
 import CourseCard from '/components/card'
 import { useMediaQuery } from '@mui/material'
+import { schoolFindById } from '/lib/models'
 
 export default function School({ school, courses }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const router = useRouter()
-  const { school_name, school_id } = school
 
   const renderSection = (title, attr) => {
     const displayedVal = isArray(attr) ? attr.join(', ') : attr
@@ -37,10 +37,10 @@ export default function School({ school, courses }) {
   return (
     <React.Fragment>
       <Head>
-        <title>{`${school.school_name} - Tulsa Public Schools`}</title>
+        <title>{`${school.name} - Tulsa Public Schools`}</title>
         <meta
           name="description"
-          content={truncate(school.school_name, { length: 155 })}
+          content={truncate(school.name, { length: 155 })}
         />
         <link rel="icon" href="/images/tps-logo-color.svg" />
       </Head>
@@ -50,8 +50,8 @@ export default function School({ school, courses }) {
             Go Back
           </Button>
         </Grid>
-        {renderSection('name', school_name)}
-        {renderSection('school_id', school_id)}
+        {renderSection('name', school.name)}
+        {renderSection('school_number', school.school_number)}
       </Stack>
 
       <Box sx={{ marginRight: '0px' }}>
@@ -75,7 +75,7 @@ export default function School({ school, courses }) {
 }
 
 export async function getStaticPaths() {
-  const schoolIds = schools.map((s) => s.school_id)
+  const schoolIds = schools.map((s) => s.school_number)
 
   const paths = schoolIds.map((id) => ({
     params: { id: `${id}` },
@@ -88,8 +88,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const school = schools.find((s) => s.school_id === params.id)
-  const course_ids = school.course_ids
+  const school = schoolFindById(params.id)
+  debugger
+  const course_ids = school.course_numbers
   const courses = allCourses.filter((c) => course_ids.includes(c.course_number))
 
   return {
