@@ -4,7 +4,10 @@ import Box from '@mui/material/Box'
 import Pagination from '@mui/material/Pagination'
 import {
   DataGrid,
-  GridToolbar,
+  GridToolbarContainer,
+  GridToolbarColumnsButton,
+  GridToolbarDensitySelector,
+  GridToolbarExport,
   gridPageCountSelector,
   gridPageSelector,
   useGridApiContext,
@@ -26,6 +29,16 @@ function CustomPagination() {
   )
 }
 
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarColumnsButton />
+      <GridToolbarDensitySelector />
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
+
 export default function DataGridTable({ getRowId, rows, columns, pageSize }) {
   return (
     <Box sx={{ height: 600, width: '100%' }}>
@@ -37,7 +50,7 @@ export default function DataGridTable({ getRowId, rows, columns, pageSize }) {
         rowsPerPageOptions={[pageSize]}
         disableSelectionOnClick
         components={{
-          Toolbar: GridToolbar,
+          Toolbar: CustomToolbar,
           Pagination: CustomPagination,
         }}
       />
