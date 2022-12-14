@@ -9,7 +9,6 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import GridViewIcon from '@mui/icons-material/GridView'
 import TableChartIcon from '@mui/icons-material/TableChart'
-import Box from '@mui/material/Box'
 import CourseCard from '/components/card'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'
@@ -29,7 +28,6 @@ import {
   useGridApiContext,
   useGridSelector,
 } from '@mui/x-data-grid'
-import Link from 'next/link'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -244,7 +242,6 @@ export default function Courses({ courses, departments, schools }) {
           )
         </Fab>
       )}
-      </Box>
     </>
   )
 }
