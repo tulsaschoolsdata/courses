@@ -1,4 +1,4 @@
-#! /bin/env ruby
+#! /usr/bin/env ruby
 # frozen_string_literal: true
 
 require 'bundler/inline'
@@ -6,9 +6,9 @@ gemfile do
   source 'https://rubygems.org'
 
   gem 'activesupport', '~> 7.0'
-  gem 'dotenv', "~> 2.8"
+  gem 'dotenv', '~> 2.8'
 
-  #ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
+  # ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
   gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git',
                       ref: '07a029e'
 end
@@ -19,75 +19,118 @@ require_relative 'lib/power_school'
 # ---
 # ---
 
-course_catalog = []
+def fetch_all(path:, **options)
+  pagesize = 500
+  last_page = nil
 
-page_size = 500
-page_count = (PowerSchool.powerquery(path: 'course.catalog', page: 1, pagesize: 1,
-                                     count: true).count / page_size.to_f).ceil
-(1..page_count).each do |page|
-  course_catalog += PowerSchool.powerquery(path: 'course.catalog', page: page, pagesize: page_size).records
+  (1..).each_with_object([]) do |page, complete_recordset|
+    result = PowerSchool.powerquery path: path, page: page, pagesize: pagesize, count: (page == 1), **options
+    raise StandardError, %(no "#{path}" records available) unless result.records
+
+    last_page = (result.count / pagesize.to_f).ceil if result.count
+    raise StandardError, %(unable to determine page count for "#{path}") unless last_page.positive?
+
+    complete_recordset.push(*result.records)
+    break complete_recordset if page == last_page
+  end
+end
+
+def shape_sanitizer(value)
+  case value
+
+  when String
+    case value
+    when %r{^[0-9]+$} then value.gsub(%r{.}, '9')
+    else 'xxx'
+    end
+
+  when Numeric then 999
+  when Array then value.first(3).map { |entry| shape_sanitizer entry }
+  when Hash then value.transform_values { |entry| shape_sanitizer entry }
+
+  else value
+  end
 end
 
 # ---
+# ---
 
-schools = {}
-school_categories = {}
+schools = fetch_all(path: 'schools.all', matching: { 'schools.state_excludefromreporting': 0 },
+                    only: %w[schools.school_number schools.name schools.schoolcategorycodesetid])
+          .to_h do |school|
+            [
+              school['school_number'],
+              {
+                school_number: school['school_number'],
+                name: school['name'],
+                category: school['schoolcategorycodesetid'],
+                course_numbers: []
+              }
+            ]
+          end
 
-courses = {}
-course_departments = {}
-course_credit_types = {}
+courses = fetch_all(path: 'course_catalog',
+                    body: { course_number_matcher: '^[0-9]+$',
+                            course_name_exclusions: '\b(attendance|homeroom|self|monitoring)\b' })
+          .to_h do |course|
+            [
+              course['course_number'],
+              {
+                course_number: course['course_number'],
+                courses_dcid: course['courses_dcid'].to_i,
+                name: course['name'],
+                department: course['department'],
+                credit_types: course['credit_types'].to_s.lines(chomp: true).uniq,
+                description: course['description'].to_s.delete("\r"),
+                credit_hours: course['credit_hours']&.to_f,
+                is_vocational: (course['is_vocational'] == '1'),
+                school_numbers: course['school_numbers'].to_s.lines(chomp: true).uniq,
+                is_core: (course['is_core'] == '1'),
+                instruction_level: course['instruction_level'],
+                alt_course_number: course['alt_course_number'].to_s,
+                pre_requisites: course['pre_requisites']
+              }
+            ]
+          end
 
-course_catalog.each do |record|
-  # Note the "school_id" is actually the school *number*.
-  #
-  school_key = record['school_id']
-  course_key = record['course_number']
+credit_types = fetch_all(path: 'codeset.all', matching: { 'codeset.codetype': 'Credit Types' })
+               .to_h { |codeset| [codeset['code'], { code: codeset['code'], name: codeset['displayvalue'], course_numbers: [] }] }
 
-  schools[school_key] ||= {
-    school_id: record['school_id'],
-    school_name: record['school_name']
-  }
+school_categories = fetch_all(path: 'codeset.all', matching: { 'codeset.codetype': 'School Category' })
+                    .to_h { |codeset| [codeset['codesetid'], { code: codeset['codesetid'], name: codeset['description'], school_numbers: [] }] }
 
-  courses[course_key] ||= {
-    course_number: record['course_number'],
-    courses_dcid: record['courses_dcid'].to_i,
-    course_name: record['course_name'],
-    alt_course_number: record['alt_course_number'],
-    course_description: record['course_description']&.delete("\r"),
-    courses_credit_hours: record['courses_credit_hours']&.to_f,
-    pre_req_note: record['pre_req_note']
-  }
+# ---
 
-  # ---
+schools.each do |school_number, school|
+  category = school_categories[school[:category]]
+  next unless category
 
-  schools[school_key][:course_ids] ||= []
-  schools[school_key][:course_ids] << course_key
-
-  school_categories[record['school_category']] ||= school_categories.length + 1
-  schools[school_key][:school_category] ||= school_categories[record['school_category']]
-
-  # ---
-
-  courses[course_key][:school_ids] ||= []
-  courses[course_key][:school_ids] << school_key
-
-  course_department = record['course_department']
-  course_departments[course_department] ||= course_departments.length + 1
-  courses[course_key][:course_department] ||= course_departments[course_department]
-
-  course_credit_type = record['course_credit_type']&.upcase&.split(',')&.to_set
-  course_credit_types[course_credit_type] ||= course_credit_types.length + 1
-  courses[course_key][:course_credit_type] ||= course_credit_types[course_credit_type]
+  category[:school_numbers] << school_number
 end
 
-school_categories = school_categories.invert
-course_departments = course_departments.invert
-course_credit_types = course_credit_types.invert
+courses.each do |course_number, course|
+  course[:school_numbers].each do |school_number|
+    school = schools[school_number]
+    next unless school
+
+    school[:course_numbers] << course_number
+  end
+
+  course[:credit_types].each do |code|
+    credit_type = credit_types[code]
+    next unless credit_type
+
+    credit_type[:course_numbers] << course_number
+  end
+end
 
 # ---
 # ---
 
-json_build = { schools: schools, school_categories: school_categories,
-               courses: courses, course_departments: course_departments, course_credit_types: course_credit_types }
+%w[schools courses credit_types school_categories].each do |dataset_name|
+  dataset = eval dataset_name
+  dataset_shape = Hash[*dataset.first.map { |kv| shape_sanitizer kv }]
 
-File.write "#{__dir__}/../catalog.json", json_build.to_json, mode: 'w'
+  File.write "#{__dir__}/../#{dataset_name}.json", "#{dataset.to_json}\n", mode: 'w'
+  File.write "#{__dir__}/../#{dataset_name}.shape.json", "#{dataset_shape.to_json}\n", mode: 'w'
+end
