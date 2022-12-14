@@ -19,15 +19,6 @@ import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import Box from '@mui/material/Box'
-import Pagination from '@mui/material/Pagination'
-import {
-  DataGrid,
-  GridToolbar,
-  gridPageCountSelector,
-  gridPageSelector,
-  useGridApiContext,
-  useGridSelector,
-} from '@mui/x-data-grid'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
