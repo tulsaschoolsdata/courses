@@ -99,35 +99,24 @@ credit_types = fetch_all(path: 'codeset.all', matching: { 'codeset.codetype': 'C
 school_categories = fetch_all(path: 'codeset.all', matching: { 'codeset.codetype': 'School Category' })
                     .to_h { |codeset| [codeset['codesetid'], { code: codeset['codesetid'], name: codeset['description'], school_numbers: [] }] }
 
+instruction_levels = fetch_all(path: 'codeset.all', matching: { 'codeset.codetype': 'Instruction Level' })
+                     .to_h { |codeset| [codeset['code'], { code: codeset['code'], name: codeset['displayvalue'], course_numbers: [] }] }
+
 # ---
 
-schools.each do |school_number, school|
-  category = school_categories[school[:category]]
-  next unless category
-
-  category[:school_numbers] << school_number
-end
+schools.each { |school_number, school| school_categories.dig(school[:category], :school_numbers)&.push school_number }
 
 courses.each do |course_number, course|
-  course[:school_numbers].each do |school_number|
-    school = schools[school_number]
-    next unless school
+  course[:credit_types].each { |code| credit_types.dig(code, :course_numbers)&.push course_number }
+  course[:school_numbers].each { |school_number| schools.dig(school_number, :course_numbers)&.push course_number }
 
-    school[:course_numbers] << course_number
-  end
-
-  course[:credit_types].each do |code|
-    credit_type = credit_types[code]
-    next unless credit_type
-
-    credit_type[:course_numbers] << course_number
-  end
+  instruction_levels.dig(course[:instruction_level], :course_numbers)&.push course_number
 end
 
 # ---
 # ---
 
-%w[schools courses credit_types school_categories].each do |dataset_name|
+%w[schools courses credit_types school_categories instruction_levels].each do |dataset_name|
   dataset = eval dataset_name
   dataset_shape = Hash[*dataset.first.map { |kv| shape_sanitizer kv }]
 
