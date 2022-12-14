@@ -112,7 +112,7 @@ export default function Layout({ children, window }) {
             {drawer}
           </Drawer>
         </Box>
-        <Box component="main" sx={{ p: 3, width: "100%" }}>
+        <Box component="main" sx={{ p: 3, width: '100%' }}>
           <PageContainer>{children}</PageContainer>
           <Footer />
         </Box>
