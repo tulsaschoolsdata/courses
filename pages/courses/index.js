@@ -19,6 +19,7 @@ import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import Box from '@mui/material/Box'
+import { isArray } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -52,6 +53,14 @@ export default function Courses({ courses, departments, schools }) {
     localStorage.removeItem('courseCatalogFilters')
   }
 
+  const creditTypesToString = (credit_types) => {
+    if (isArray(credit_types) && credit_types.length > 0) {
+      return credit_types.join(',')
+    } else {
+      return ''
+    }
+  }
+
   const columns = [
     {
       field: 'course_number',
@@ -66,27 +75,12 @@ export default function Courses({ courses, departments, schools }) {
       headerName: 'Course #',
       width: 70,
     },
-    { field: 'department', headerName: 'Department', width: 130 },
     { field: 'name', headerName: 'Course Name', width: 230 },
     {
-      field: 'course_credit_type_name',
+      field: 'credit_types',
       headerName: 'Credit Type',
+      valueGetter: (params) => creditTypesToString(params.row.credit_types),
       width: 200,
-      renderCell: (cellValues) => {
-        if (cellValues.row.course_credit_type_name) {
-          return cellValues.row.course_credit_type_name.map(
-            (creditTypeName) => (
-              <Chip
-                key={creditTypeName}
-                label={creditTypeName}
-                sx={{ mr: 0.5 }}
-              />
-            )
-          )
-        } else {
-          return null
-        }
-      },
     },
     {
       field: 'credit_hours',
