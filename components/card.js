@@ -11,7 +11,7 @@ import { truncate } from 'lodash'
 export default function CourseCard({ course }) {
   const {
     department,
-    course_description,
+    description,
     name,
     course_number,
   } = course
@@ -73,8 +73,8 @@ export default function CourseCard({ course }) {
           <Chip label={department} sx={{ marginBottom: 1 }} />
         )}
         <Typography>
-          {course_description
-            ? truncate(course_description, {
+          {description
+            ? truncate(description, {
                 length: 100,
               })
             : 'No description available.'}

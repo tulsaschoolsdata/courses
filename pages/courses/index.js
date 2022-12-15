@@ -119,7 +119,7 @@ export default function Courses({ courses, departments, schools }) {
 
     if (filters.search) {
       const options = {
-        keys: ['course_name', 'course_department_name', 'course_description'],
+        keys: ['name', 'department', 'description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
