@@ -239,7 +239,7 @@ export default function Courses({ courses, departments, schools }) {
 
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(PropTypes.string.isRequired),
+  departments: PropTypes.arrayOf(PropTypes.string),
   schools: PropTypes.array.isRequired,
 }
 
