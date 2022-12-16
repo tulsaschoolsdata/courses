@@ -85,7 +85,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const course = courses.find((c) => c.course_number === params.id)
-  const schools =  schoolsWhereCourseNumber(course.course_number)
+  const schools = schoolsWhereCourseNumber(course.course_number)
 
   return {
     props: {
