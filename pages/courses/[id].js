@@ -9,9 +9,9 @@ import { useRouter } from 'next/router'
 import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
-import { courses } from '/lib/models'
+import { courses, schoolsWhereCourseNumber } from '/lib/models'
 
-export default function Course({ course }) {
+export default function Course({ course, schools }) {
   const router = useRouter()
   const {
     courses_credit_hours,
@@ -61,6 +61,10 @@ export default function Course({ course }) {
         {renderSection('course_number', course_number)}
         {renderSection('credit_hours', courses_credit_hours)}
         {renderSection('department', department)}
+        {renderSection(
+          'schools',
+          schools.map((school) => school.name)
+        )}
       </Stack>
     </React.Fragment>
   )
@@ -81,10 +85,20 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const course = courses.find((c) => c.course_number === params.id)
+  const schoolsWithCourseNumbers = schoolsWhereCourseNumber(
+    course.course_number
+  )
+  const schools = schoolsWithCourseNumbers.map((school) => {
+    // Remove course_numbers because they aren't needed in this context
+    // TODO: why is course.course_number needed in the array?
+    school.course_numbers = [course.course_number]
+    return school
+  })
 
   return {
     props: {
       course,
+      schools,
     },
   }
 }

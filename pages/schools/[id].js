@@ -89,7 +89,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const school = schoolFindById(params.id)
-  debugger
   const course_ids = school.course_numbers
   const courses = allCourses.filter((c) => course_ids.includes(c.course_number))
 

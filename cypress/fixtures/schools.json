@@ -3,144 +3,144 @@
     "school_number": "730",
     "name": "ROGERS COLLEGE HIGH",
     "course_numbers": ["39010", "101116", "33701", "39912", "39013"],
-    "category": "1"
+    "category": "35203"
   },
   "537": {
     "school_number": "537",
     "name": "EDISON MIDDLE SCHOOL",
     "course_numbers": ["25313", "23010", "21136", "21043", "24010"],
-    "category": "2"
+    "category": "35201"
   },
   "712": {
     "school_number": "712",
     "name": "EDISON HIGH SCHOOL",
     "course_numbers": ["38159", "33911A", "34071", "33831A", "32311"],
-    "category": "1"
+    "category": "35203"
   },
   "720": {
     "school_number": "720",
     "name": "MCLAIN HIGH SCHOOL",
     "course_numbers": ["111115", "102113", "32181", "112013", "32065"],
-    "category": "1"
+    "category": "35203"
   },
   "558": {
     "school_number": "558",
     "name": "MEMORIAL MIDDLE SCHOOL",
     "course_numbers": ["25436", "25258", "21135", "23041", "21224"],
-    "category": "2"
+    "category": "35201"
   },
   "563": {
     "school_number": "563",
     "name": "MONROE DEMONSTRATION MIDDLE SCHOOL",
     "course_numbers": ["25343", "23020", "25152", "23035", "25146"],
-    "category": "2"
+    "category": "35201"
   },
   "740": {
     "school_number": "740",
     "name": "WEBSTER HIGH SCHOOL",
     "course_numbers": ["32468", "37147", "31416", "35377", "30783"],
-    "category": "1"
+    "category": "35203"
   },
   "163": {
     "school_number": "163",
     "name": "FELICITAS MENDEZ INTERNATIONAL SCHOOL",
     "course_numbers": ["11215", "91053", "11223", "11011", "11855"],
-    "category": "3"
+    "category": "35200"
   },
   "112": {
     "school_number": "112",
     "name": "ZARROW INTL ELEMENTARY",
     "course_numbers": ["11455", "11251", "11474", "13021", "91051"],
-    "category": "3"
+    "category": "35200"
   },
   "735": {
     "school_number": "735",
     "name": "WASHINGTON HIGH SCHOOL",
     "course_numbers": ["34897", "32134", "32326", "37821", "101512"],
-    "category": "1"
+    "category": "35203"
   },
   "578": {
     "school_number": "578",
     "name": "ROGERS COLLEGE MIDDLE SCHOOL",
     "course_numbers": ["24514", "25327", "21231", "25972", "23025"],
-    "category": "2"
+    "category": "35201"
   },
   "710": {
     "school_number": "710",
     "name": "EAST CENTRAL HIGH SCHOOL",
     "course_numbers": ["30444", "30344", "38165", "30274", "37144"],
-    "category": "1"
+    "category": "35203"
   },
   "518": {
     "school_number": "518",
     "name": "CENTRAL MIDDLE SCHOOL",
     "course_numbers": ["25246", "46511", "25236", "23035", "28925"],
-    "category": "2"
+    "category": "35201"
   },
   "715": {
     "school_number": "715",
     "name": "HALE HIGH SCHOOL",
     "course_numbers": ["38179", "33644", "38868", "30153", "30717"],
-    "category": "1"
+    "category": "35203"
   },
   "573": {
     "school_number": "573",
     "name": "THOREAU DEMONSTRATION ACADEMY",
     "course_numbers": ["24110", "25436", "25960", "21235", "25456"],
-    "category": "2"
+    "category": "35201"
   },
   "645": {
     "school_number": "645",
     "name": "VIRTUAL HIGH SCHOOL",
     "course_numbers": ["34699", "28930", "31414", "31416", "34831"],
-    "category": "1"
+    "category": "35203"
   },
   "532": {
     "school_number": "532",
     "name": "EAST CENTRAL MIDDLE SCHOOL",
     "course_numbers": ["21041", "21035", "23015", "22025", "21133"],
-    "category": "2"
+    "category": "35201"
   },
   "577": {
     "school_number": "577",
     "name": "TULSA MET MS",
     "course_numbers": ["25245", "24315", "24898", "25148", "24896"],
-    "category": "4"
+    "category": "0"
   },
   "194": {
     "school_number": "194",
     "name": "GREENWOOD LEADERSHIP ACADEMY",
     "course_numbers": ["13080", "91011", "13020", "11854", "13010"],
-    "category": "3"
+    "category": "35200"
   },
   "705": {
     "school_number": "705",
     "name": "CENTRAL HIGH SCHOOL",
     "course_numbers": ["32152", "30570", "30361", "102112", "32361"],
-    "category": "1"
+    "category": "35203"
   },
   "725": {
     "school_number": "725",
     "name": "MEMORIAL HIGH SCHOOL",
     "course_numbers": ["112073", "37731", "30188", "34677", "30831"],
-    "category": "1"
+    "category": "35203"
   },
   "530": {
     "school_number": "530",
     "name": "WEBSTER MIDDLE SCHOOL",
     "course_numbers": ["25310", "25248", "25227", "25237", "25481"],
-    "category": "2"
+    "category": "35201"
   },
   "515": {
     "school_number": "515",
     "name": "CARVER MIDDLE SCHOOL",
     "course_numbers": ["25546", "44025", "45121", "42010", "42035"],
-    "category": "2"
+    "category": "35201"
   },
   "542": {
     "school_number": "542",
     "name": "HALE MIDDLE SCHOOL",
     "course_numbers": ["25247", "25245", "23030", "21233", "24035"],
-    "category": "2"
+    "category": "35201"
   }
 }
