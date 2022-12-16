@@ -85,15 +85,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const course = courses.find((c) => c.course_number === params.id)
-  const schoolsWithCourseNumbers = schoolsWhereCourseNumber(
-    course.course_number
-  )
-  const schools = schoolsWithCourseNumbers.map((school) => {
-    // Remove course_numbers because they aren't needed in this context
-    // TODO: why is course.course_number needed in the array?
-    school.course_numbers = [course.course_number]
-    return school
-  })
+  const schools = schoolsWhereCourseNumber(course.course_number)
 
   return {
     props: {
