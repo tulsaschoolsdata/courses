@@ -34,4 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-cypress/videos
+cypress/videos/*.mp4
+cypress/screenshots/*
+.cache

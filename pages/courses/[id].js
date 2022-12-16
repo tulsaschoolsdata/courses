@@ -6,21 +6,21 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
 import { useRouter } from 'next/router'
-import catalog from './../../data/catalog.json'
 import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
+import { courses, schoolsWhereCourseNumber } from '/lib/models'
 
-export default function Course({ course }) {
+export default function Course({ course, schools }) {
   const router = useRouter()
   const {
     courses_credit_hours,
-    course_credit_type_name,
-    course_name,
+    credit_types,
+    name,
     course_number,
-    course_description,
+    description,
     pre_req_note,
-    course_department_name,
+    department,
   } = course
 
   const renderSection = (title, attr) => {
@@ -41,7 +41,7 @@ export default function Course({ course }) {
   return (
     <React.Fragment>
       <Head>
-        <title>{`${course.course_name} - Tulsa Public Schools`}</title>
+        <title>{`${name} - Tulsa Public Schools`}</title>
         <meta
           name="description"
           content={truncate(course.course_description, { length: 155 })}
@@ -54,25 +54,21 @@ export default function Course({ course }) {
             Go Back
           </Button>
         </Grid>
-        {renderSection('name', course_name)}
-        {renderSection('description', course_description)}
+        {renderSection('course name', name)}
+        {renderSection('description', description)}
         {renderSection('prerequisites', pre_req_note)}
-        {renderSection('credit_types', course_credit_type_name)}
+        {renderSection('credit_types', credit_types)}
         {renderSection('course_number', course_number)}
         {renderSection('credit_hours', courses_credit_hours)}
-        {renderSection('department', course_department_name)}
+        {renderSection('department', department)}
+        {renderSection(
+          'schools',
+          schools.map((school) => school.name)
+        )}
       </Stack>
     </React.Fragment>
   )
 }
-
-const courseDepartments = catalog['course_departments']
-const creditTypes = catalog['course_credit_types']
-const courses = Object.values(catalog['courses']).map((course) => ({
-  ...course,
-  course_department_name: courseDepartments[course['course_department']],
-  course_credit_type_name: creditTypes[course['course_credit_type']],
-}))
 
 export async function getStaticPaths() {
   const courseNumbers = courses.map((c) => c.course_number)
@@ -89,10 +85,20 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const course = courses.find((c) => c.course_number === params.id)
+  const schoolsWithCourseNumbers = schoolsWhereCourseNumber(
+    course.course_number
+  )
+  const schools = schoolsWithCourseNumbers.map((school) => {
+    // Remove course_numbers because they aren't needed in this context
+    // TODO: why is course.course_number needed in the array?
+    school.course_numbers = [course.course_number]
+    return school
+  })
 
   return {
     props: {
       course,
+      schools,
     },
   }
 }

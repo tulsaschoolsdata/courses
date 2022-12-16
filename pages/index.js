@@ -1,176 +1,54 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Box from '@mui/material/Box'
-import CourseCard from '../components/card'
-import catalog from './../data/catalog.json'
-import Drawer from '@mui/material/Drawer'
-import Fab from '@mui/material/Fab'
-import FilterListIcon from '@mui/icons-material/FilterList'
-import Filters from '../lib/filters'
-import Fuse from 'fuse.js'
-import PropTypes from 'prop-types'
-import { courseShape, schoolShape } from '../lib/prop-types'
-import { groupBy, sortBy } from 'lodash'
-import { useMediaQuery } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Link from 'next/link'
 
-export default function Courses({ courses, departments, schools }) {
-  const largeScreen = useMediaQuery('(min-width:600px)')
-  const [filters, setFilters] = useState({
-    departments: [],
-    schools: [],
-    search: '',
-  })
-
-  const [filteredCourses, setFilteredCourses] = useState(courses)
-  const [filtersOpen, setFiltersOpen] = useState(false)
-
-  const handleChange = (attribute, val) => {
-    const newFilters = { ...filters, [attribute]: val }
-    setFilters(newFilters)
-    localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
-  }
-
-  const clearFilters = () => {
-    setFilters({
-      departments: [],
-      schools: [],
-      search: '',
-    })
-    localStorage.removeItem('courseCatalogFilters')
-  }
-
-  useEffect(() => {
-    const existingFilters = localStorage.getItem('courseCatalogFilters')
-    if (existingFilters) {
-      setFilters(JSON.parse(existingFilters))
-    }
-  }, [])
-
-  useEffect(() => {
-    let output = courses
-
-    if (filters.departments?.length > 0) {
-      output = output.filter((course) =>
-        filters.departments.includes(course.course_department_name)
-      )
-    }
-
-    if (filters.schools?.length > 0) {
-      output = output.filter(
-        (course) =>
-          course.school_ids.filter((id) => filters.schools.includes(id))
-            .length > 0
-      )
-    }
-
-    if (filters.search) {
-      const options = {
-        keys: ['course_name', 'course_department_name', 'course_description'],
-      }
-      const fuse = new Fuse(output, options)
-      const searchResults = fuse.search(filters.search)
-      output = searchResults.map((result) => result.item)
-    }
-
-    setFilteredCourses(output)
-  }, [filters])
-
+export default function HomePage({}) {
   return (
-    <Box>
-      {filtersOpen && (
-        <Drawer
-          hideBackdrop
-          open={filtersOpen}
-          sx={{
-            'flexShrink': 0,
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: largeScreen ? '45%' : '100%',
-            },
-          }}
-          variant="persistent"
-          anchor="right"
+    <Box sx={{ height: 600, width: '100%' }}>
+      <Stack>
+        <Typography variant="h1" color="inherit" noWrap>
+          Course Catalog
+        </Typography>
+
+        <Typography variant="body" color="inherit">
+          The Course of Study (COS) is a document that identifies the District’s
+          standards-based courses that meet or exceed the state and the district
+          graduation requirements. It reflects the body of courses available to
+          all high schools, as well as courses that are unique to individual
+          sites. During the fall semester of each year, schools have an
+          opportunity to propose new courses for inclusion in the subsequent
+          Course of Study. The Course of Study, in addition to defining
+          individual course offerings, sets the grade levels at which the
+          courses should be taught as well as enrollment pre-requisites.
+          Year-long courses are offered for 1 full Carnegie unit of credit, and
+          semester courses are offered for ½ Carnegie unit. Credit requirements
+          are defined by the state and district graduation requirements.
+          Suggested sequences also appear so that students may differentiate and
+          deepen their learning experiences through enrollment in advanced
+          courses that, in many cases, may lead to the award of college credit
+          upon successful completion of one or more external examinations.
+        </Typography>
+
+        <Button
+          href={'/courses'}
+          component={Link}
+          variant="contained"
+          sx={{ mt: 2, textDecoration: 'none' }}
         >
-          <Filters
-            clearFilters={clearFilters}
-            departments={departments}
-            filters={filters}
-            handleChange={handleChange}
-            setFiltersOpen={setFiltersOpen}
-            schools={schools}
-          />
-        </Drawer>
-      )}
-      <Box>
-        {!filtersOpen && (
-          <Fab
-            sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
-            onClick={() => setFiltersOpen(true)}
-            variant="extended"
-            color="warning"
-          >
-            <FilterListIcon />
-            Filters (
-            {(filters.search ? 1 : 0) +
-              filters.departments.length +
-              filters.schools.length}
-            )
-          </Fab>
-        )}
-        <Box sx={{ marginRight: '0px' }}>
-          {filteredCourses.map((course) => (
-            <Box
-              key={course.course_number}
-              xs={12}
-              sm={6}
-              sx={{
-                p: 1,
-                display: 'inline-block',
-                width: largeScreen ? '50%' : '100%',
-              }}
-            >
-              <CourseCard course={course} />
-            </Box>
-          ))}
-        </Box>
-      </Box>
+          Get Started
+        </Button>
+      </Stack>
     </Box>
   )
 }
 
-Courses.propTypes = {
-  courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(PropTypes.string.isRequired),
-  schools: PropTypes.array.isRequired,
-}
+HomePage.propTypes = {}
 
 export async function getStaticProps() {
-  const courseDepartments = catalog['course_departments']
-  const creditTypes = catalog['course_credit_types']
-  const courses = Object.values(catalog['courses']).map((course) => ({
-    ...course,
-    course_department_name: courseDepartments[course['course_department']],
-    course_credit_type_name: creditTypes[course['course_credit_type']],
-  }))
-  const categories = catalog['school_categories']
-  const schools = Object.entries(
-    groupBy(
-      sortBy(
-        Object.values(catalog['schools']).map((school) => ({
-          ...school,
-          school_category_name: categories[school['school_category']],
-        })),
-        'school_name'
-      ),
-      'school_category_name'
-    )
-  )
-  const departments = sortBy(Object.values(courseDepartments))
-
   return {
-    props: {
-      courses,
-      departments,
-      schools,
-    },
+    props: {},
   }
 }

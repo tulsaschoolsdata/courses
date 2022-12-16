@@ -9,12 +9,7 @@ import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
 
 export default function CourseCard({ course }) {
-  const {
-    course_department_name,
-    course_description,
-    course_name,
-    course_number,
-  } = course
+  const { department, description, name, course_number } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -26,7 +21,7 @@ export default function CourseCard({ course }) {
     setAnchorEl(null)
   }
 
-  const isTruncatedTitle = course_name.length > 30
+  const isTruncatedTitle = name.length > 30
 
   return (
     <Card
@@ -44,7 +39,7 @@ export default function CourseCard({ course }) {
           onMouseEnter={isTruncatedTitle ? handlePopoverOpen : null}
           onMouseLeave={isTruncatedTitle ? handlePopoverClose : null}
         >
-          {truncate(course_name, { length: 30 })}
+          {truncate(name, { length: 30 })}
         </Typography>
         {isTruncatedTitle && (
           <Popover
@@ -66,20 +61,18 @@ export default function CourseCard({ course }) {
               horizontal: 'left',
             }}
           >
-            <Typography sx={{ p: 1 }}>{course_name}</Typography>
+            <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
-        {course_department_name && (
-          <Chip label={course_department_name} sx={{ marginBottom: 1 }} />
-        )}
+        {department && <Chip label={department} sx={{ marginBottom: 1 }} />}
         <Typography>
-          {course_description
-            ? truncate(course_description, {
+          {description
+            ? truncate(description, {
                 length: 100,
               })
             : 'No description available.'}
         </Typography>
-        <Link sx={{ position: 'fixed' }} href={`/course/${course_number}`}>
+        <Link sx={{ position: 'fixed' }} href={`/courses/${course_number}`}>
           Read More
         </Link>
       </CardContent>

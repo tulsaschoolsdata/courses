@@ -4,21 +4,19 @@ import PropTypes from 'prop-types'
 
 export default function PageContainer({ children }) {
   return (
-      <main>
-        <Container
-          maxWidth="md"
-          sx={{
-            bgcolor: 'background.paper',
-            pt: '6em',
-            pb: 2
-          }}
-        >
-          {children}
-        </Container>
-      </main>
+    <Container
+      maxWidth="md"
+      sx={{
+        bgcolor: 'background.paper',
+        pt: '6em',
+        pb: 2,
+      }}
+    >
+      {children}
+    </Container>
   )
 }
 
 PageContainer.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
 }
