@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography'
 import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import SchoolCard from '/components/schoolCard'
-import { useMediaQuery } from '@mui/material'
 import Grid from '@mui/material/Grid'
 
 export default function Schools({ schools }) {
