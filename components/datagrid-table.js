@@ -13,6 +13,7 @@ import {
   useGridApiContext,
   useGridSelector,
 } from '@mui/x-data-grid'
+import { useWindowSize } from '/lib/utils'
 
 function CustomPagination() {
   const apiRef = useGridApiContext()
@@ -40,8 +41,9 @@ function CustomToolbar() {
 }
 
 export default function DataGridTable({ getRowId, rows, columns, pageSize }) {
+  const windowSize = useWindowSize()
   return (
-    <Box sx={{ height: 600, width: '100%' }}>
+    <Box sx={{ height: windowSize.height - 200, width: '100%' }}>
       <DataGrid
         getRowId={getRowId}
         rows={rows}

@@ -7,6 +7,8 @@ import Popover from '@mui/material/Popover'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 
 export default function CourseCard({ course }) {
   const { department, description, name, course_number } = course
@@ -72,9 +74,11 @@ export default function CourseCard({ course }) {
               })
             : 'No description available.'}
         </Typography>
-        <Link sx={{ position: 'fixed' }} href={`/courses/${course_number}`}>
-          Read More
-        </Link>
+        <Box>
+          <Button component={Link} href={`/courses/${course_number}`}>
+            View Course Information
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   )

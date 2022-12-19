@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
-import Footer from '/components/footer'
 import IconButton from '@mui/material/IconButton'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -20,9 +19,14 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function Layout({ children, window }) {
-  const theme = createTheme()
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  })
   const drawerWidth = 240
   const navItems = [
     ['Home', '/'],
@@ -48,10 +52,12 @@ export default function Layout({ children, window }) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText>
-                <Link href={item[1]}>{item[0]}</Link>
-              </ListItemText>
+            <ListItemButton
+              sx={{ textAlign: 'center' }}
+              component={Link}
+              href={item[1]}
+            >
+              <ListItemText>{item[0]}</ListItemText>
             </ListItemButton>
           </ListItem>
         ))}
@@ -62,6 +68,9 @@ export default function Layout({ children, window }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <link rel="icon" href="/images/tps-logo-color.svg" />
+      </Head>
       <Box sx={{ display: 'flex' }}>
         <AppBar component="nav">
           <Toolbar>
@@ -85,8 +94,8 @@ export default function Layout({ children, window }) {
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  <Link href={item[1]}>{item[0]}</Link>
+                <Button key={item} component={Link} href={item[1]}>
+                  {item[0]}
                 </Button>
               ))}
             </Box>
@@ -112,9 +121,8 @@ export default function Layout({ children, window }) {
             {drawer}
           </Drawer>
         </Box>
-        <Box component="main" sx={{ p: 3, width: '100%' }}>
+        <Box component="main" sx={{ width: '100%' }}>
           <PageContainer>{children}</PageContainer>
-          <Footer />
         </Box>
       </Box>
     </ThemeProvider>
