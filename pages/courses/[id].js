@@ -82,11 +82,13 @@ export default function Course({ course, schools }) {
 
         {renderChips()}
 
-        <Typography variant="body">
-          {description}
-        </Typography>
+        <Typography variant="body">{description}</Typography>
 
-        <Typography component="div" variant="h6" sx={{ fontWeight: 'bold', pt: 4 }}>
+        <Typography
+          component="div"
+          variant="h6"
+          sx={{ fontWeight: 'bold', pt: 4 }}
+        >
           Schools
         </Typography>
 
