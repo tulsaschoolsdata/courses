@@ -19,7 +19,7 @@ export default function School({ school, courses }) {
         />
       </Head>
 
-      <Typography variant="h1">{school.name}</Typography>
+      <Typography component="h1" variant="h4" sx={{pb: 4}}>{school.name}</Typography>
 
       <Grid container spacing={2}>
         {courses.map((course) => (

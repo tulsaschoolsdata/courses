@@ -8,10 +8,13 @@ import Head from 'next/head'
 import { truncate } from 'lodash'
 import { courses, schoolsWhereCourseNumber } from '/lib/models'
 import Link from 'next/link'
+import SchoolCard from '/components/schoolCard'
+import Grid from '@mui/material/Grid'
+import Chip from '@mui/material/Chip'
 
 export default function Course({ course, schools }) {
   const {
-    courses_credit_hours,
+    credit_hours,
     credit_types,
     name,
     course_number,
@@ -20,52 +23,76 @@ export default function Course({ course, schools }) {
     department,
   } = course
 
-  const renderSection = (title, attr) => {
-    const displayedVal = isArray(attr) ? attr.join(', ') : attr
+  const creditTypeChips = (creditTypes) => {
+    return (
+      <>
+        {creditTypes.map((creditType) => (
+          <Grid item>
+            <Chip key={creditType} label={`Credit Type: ${creditType}`} />
+          </Grid>
+        ))}
+      </>
+    )
+  }
 
-    if (attr) {
-      return (
-        <React.Fragment>
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {startCase(title)}
-          </Typography>
-          <Typography variant="subtitle1">{displayedVal}</Typography>
-        </React.Fragment>
-      )
-    }
+  const renderChips = () => {
+    return (
+      <Grid container spacing={1} sx={{ pb: 2 }}>
+        <Grid item>
+          <Chip label={`Course #: ${course_number}`} />
+        </Grid>
+        {creditTypeChips(credit_types)}
+        <Grid item>
+          <Chip label={`Department: ${department}`} />
+        </Grid>
+        <Grid item>
+          <Chip label={`Credit Hours: ${credit_hours}`} />
+        </Grid>
+      </Grid>
+    )
+  }
+
+  const renderSchoolCards = (schools) => {
+    return (
+      <Grid container spacing={2}>
+        {schools.map((school) => (
+          <Grid key={school.school_number} item xs={12} sm={6}>
+            <SchoolCard school={school} />
+          </Grid>
+        ))}
+      </Grid>
+    )
   }
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>{`${name} - Tulsa Public Schools`}</title>
         <meta
           name="description"
-          content={truncate(course.course_description, { length: 155 })}
+          content={truncate(description, { length: 155 })}
         />
         <link rel="icon" href="/images/tps-logo-color.svg" />
       </Head>
-      <Stack spacing={1}>
-        <Typography variant="h1">{name}</Typography>
-        {renderSection('prerequisites', pre_req_note)}
-        {renderSection('credit_types', credit_types)}
-        {renderSection('course_number', course_number)}
-        {renderSection('credit_hours', courses_credit_hours)}
-        {renderSection('department', department)}
-        {renderSection('description', description)}
-        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+
+      <Stack spacing={2}>
+        <Typography component="h1" variant="h4">
+          {name}
+        </Typography>
+
+        {renderChips()}
+
+        <Typography variant="body">
+          {description}
+        </Typography>
+
+        <Typography component="div" variant="h6" sx={{ fontWeight: 'bold', pt: 4 }}>
           Schools
         </Typography>
-        {schools.map((school) => (
-          <Link
-            key={school.school_number}
-            href={`/schools/${school.school_number}`}
-          >
-            {school.name}
-          </Link>
-        ))}
+
+        {renderSchoolCards(schools)}
       </Stack>
-    </React.Fragment>
+    </>
   )
 }
 
