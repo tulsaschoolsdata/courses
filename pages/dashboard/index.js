@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
-import Link from 'next/link'
 import DataGridTable from '../../components/datagrid-table'
-import Grid from '@mui/material/Grid'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
-import GridViewIcon from '@mui/icons-material/GridView'
-import TableChartIcon from '@mui/icons-material/TableChart'
-import CourseCard from '/components/courseCard'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'
 import FilterListIcon from '@mui/icons-material/FilterList'
@@ -22,11 +15,9 @@ import {
   schoolNumbersToNames,
 } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
-import { isArray } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
-  const [tabOpen, setTabOpen] = useState('table')
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],

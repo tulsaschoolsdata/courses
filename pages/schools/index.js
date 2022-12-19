@@ -8,7 +8,6 @@ import { useMediaQuery } from '@mui/material'
 import Grid from '@mui/material/Grid'
 
 export default function Schools({ schools }) {
-  const largeScreen = useMediaQuery('(min-width:600px)')
   return (
     <>
       <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>

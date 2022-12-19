@@ -95,7 +95,7 @@ export default function Course({ course, schools }) {
         </Typography>
 
         {renderChips()}
-        {renderPreReqNote()}
+        {renderPreReqNote(pre_req_note)}
 
         <Typography variant="body1">{description}</Typography>
 

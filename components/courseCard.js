@@ -7,7 +7,6 @@ import Popover from '@mui/material/Popover'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
-import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 
