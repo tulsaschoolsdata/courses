@@ -79,11 +79,6 @@ export default function Courses({ courses, departments, schools }) {
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
     }
-
-    const preferredView = localStorage.getItem('preferredView')
-    if (preferredView) {
-      setTabOpen(preferredView)
-    }
   }, [])
 
   useEffect(() => {
