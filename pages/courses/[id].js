@@ -25,8 +25,8 @@ export default function Course({ course, schools }) {
     return (
       <>
         {creditTypes.map((creditType) => (
-          <Grid item>
-            <Chip key={creditType} label={`Credit Type: ${creditType}`} />
+          <Grid item key={creditType}>
+            <Chip label={`Credit Type: ${creditType}`} />
           </Grid>
         ))}
       </>
