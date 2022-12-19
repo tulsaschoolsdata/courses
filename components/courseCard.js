@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 
 export default function CourseCard({ course }) {
   const { department, description, name, course_number } = course
@@ -24,6 +25,19 @@ export default function CourseCard({ course }) {
   }
 
   const isTruncatedTitle = name.length > 30
+
+  const creditTypeChips = () => {
+    const creditTypes = course.credit_types
+    return (
+      <>
+        {creditTypes.map((creditType) => (
+          <Grid item key={creditType}>
+            <Chip label={`Credit Type: ${creditType}`} />
+          </Grid>
+        ))}
+      </>
+    )
+  }
 
   return (
     <Card
@@ -66,19 +80,24 @@ export default function CourseCard({ course }) {
             <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
-        {department && <Chip label={department} sx={{ marginBottom: 1 }} />}
-        <Typography>
+
+        <Grid container spacing={0.5} sx={{ height: 100 }}>
+          <Grid item>
+            {department && <Chip label={`Department: ${department}`} />}
+          </Grid>
+          {creditTypeChips()}
+        </Grid>
+
+        <Typography sx={{ mt: 3, mb: 3 }}>
           {description
             ? truncate(description, {
                 length: 100,
               })
             : 'No description available.'}
         </Typography>
-        <Box>
-          <Button component={Link} href={`/courses/${course_number}`}>
-            View Course Information
-          </Button>
-        </Box>
+        <Button component={Link} href={`/courses/${course_number}`}>
+          View Course Information
+        </Button>
       </CardContent>
     </Card>
   )
