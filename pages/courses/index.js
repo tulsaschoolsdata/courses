@@ -17,7 +17,6 @@ import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
-import Box from '@mui/material/Box'
 import { isArray } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
@@ -173,8 +172,8 @@ export default function Courses({ courses, departments, schools }) {
         <>
           <Grid container spacing={2}>
             {filteredCourses.map((course) => (
-              <Grid item xs={12} sm={6}>
-                <CourseCard key={course.course_number} course={course} />
+              <Grid key={course.course_number} item xs={12} sm={6}>
+                <CourseCard course={course} />
               </Grid>
             ))}
           </Grid>

@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
-import Footer from '/components/footer'
 import IconButton from '@mui/material/IconButton'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -23,8 +22,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 export default function Layout({ children, window }) {
-  const theme = createTheme()
-  const darkTheme = createTheme({
+  const theme = createTheme({
     palette: {
       mode: 'dark',
     },
@@ -68,7 +66,7 @@ export default function Layout({ children, window }) {
   )
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
         <link rel="icon" href="/images/tps-logo-color.svg" />

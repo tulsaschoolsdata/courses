@@ -13,18 +13,6 @@ import Box from '@mui/material/Box'
 export default function schoolCard({ school }) {
   const { school_number, name, school_category_name } = school
 
-  const [anchorEl, setAnchorEl] = useState(null)
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null)
-  }
-
-  const isTruncatedTitle = name.length > 30
-
   return (
     <Card
       sx={{
@@ -35,41 +23,12 @@ export default function schoolCard({ school }) {
       }}
     >
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography
-          gutterBottom
-          variant="h6"
-          onMouseEnter={isTruncatedTitle ? handlePopoverOpen : null}
-          onMouseLeave={isTruncatedTitle ? handlePopoverClose : null}
-        >
+        <Typography gutterBottom variant="h6">
           {truncate(name, { length: 30 })}
         </Typography>
-        {isTruncatedTitle && (
-          <Popover
-            disableScrollLock
-            sx={{
-              pointerEvents: 'none',
-              width: '100%',
-            }}
-            open={Boolean(anchorEl)}
-            anchorEl={anchorEl}
-            onClose={handlePopoverClose}
-            disableRestoreFocus
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-          >
-            <Typography sx={{ p: 1 }}>{name}</Typography>
-          </Popover>
-        )}
         {school_category_name && (
           <Chip label={school_category_name} sx={{ marginBottom: 1 }} />
         )}
-
         <Box>
           <Button component={Link} href={`/schools/${school_number}`}>
             View Courses

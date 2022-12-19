@@ -1,21 +1,14 @@
 import React from 'react'
-import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { startCase } from 'lodash'
-import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
 import { schools, courses as allCourses } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
-import Box from '@mui/material/Box'
 import CourseCard from '/components/courseCard'
-import { useMediaQuery } from '@mui/material'
 import { schoolFindById } from '/lib/models'
 
 export default function School({ school, courses }) {
-  const largeScreen = useMediaQuery('(min-width:600px)')
 
   return (
     <>
@@ -31,8 +24,8 @@ export default function School({ school, courses }) {
 
       <Grid container spacing={2}>
         {courses.map((course) => (
-          <Grid item xs={12} sm={6}>
-            <CourseCard key={course.course_number} course={course} />
+          <Grid key={course.course_number} item xs={12} sm={6}>
+            <CourseCard course={course} />
           </Grid>
         ))}
       </Grid>

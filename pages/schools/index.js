@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
-import Link from 'next/link'
 import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import SchoolCard from '/components/schoolCard'
 import Box from '@mui/material/Box'
 import { useMediaQuery } from '@mui/material'
+import Grid from '@mui/material/Grid'
 
 export default function Schools({ schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -16,22 +16,13 @@ export default function Schools({ schools }) {
         Schools
       </Typography>
 
-      <>
+      <Grid container spacing={2}>
         {schools.map((school) => (
-          <Box
-            key={school.school_number}
-            xs={12}
-            sm={6}
-            sx={{
-              p: 1,
-              display: 'inline-block',
-              width: largeScreen ? '50%' : '100%',
-            }}
-          >
+          <Grid key={school.school_number} item xs={12} sm={6}>
             <SchoolCard school={school} />
-          </Box>
+          </Grid>
         ))}
-      </>
+      </Grid>
     </>
   )
 }

@@ -1,11 +1,8 @@
 import React from 'react'
-import Button from '@mui/material/Button'
-import Grid from '@mui/material/Grid'
 import { courseShape } from '../../lib/prop-types'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { startCase } from 'lodash'
-import { useRouter } from 'next/router'
 import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
@@ -13,7 +10,6 @@ import { courses, schoolsWhereCourseNumber } from '/lib/models'
 import Link from 'next/link'
 
 export default function Course({ course, schools }) {
-  const router = useRouter()
   const {
     courses_credit_hours,
     credit_types,
