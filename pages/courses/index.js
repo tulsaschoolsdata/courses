@@ -44,6 +44,7 @@ export default function Courses({ courses, departments, schools }) {
 
   const clearFilters = () => {
     setFilters({
+      creditType: null,
       departments: [],
       schools: [],
       search: '',
