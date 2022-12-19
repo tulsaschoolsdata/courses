@@ -2,15 +2,13 @@ import React from 'react'
 import { courseShape } from '../../lib/prop-types'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { startCase } from 'lodash'
-import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
 import { courses, schoolsWhereCourseNumber } from '/lib/models'
-import Link from 'next/link'
 import SchoolCard from '/components/schoolCard'
 import Grid from '@mui/material/Grid'
 import Chip from '@mui/material/Chip'
+import Alert from '@mui/material/Alert'
 
 export default function Course({ course, schools }) {
   const {
@@ -32,6 +30,16 @@ export default function Course({ course, schools }) {
           </Grid>
         ))}
       </>
+    )
+  }
+
+  const renderPreReqNote = (pre_req_note) => {
+    return (
+      pre_req_note && (
+        <Alert severity="warning">
+          Prerequisite Note: {pre_req_note}
+        </Alert>
+      )
     )
   }
 
@@ -81,6 +89,7 @@ export default function Course({ course, schools }) {
         </Typography>
 
         {renderChips()}
+        {renderPreReqNote()}
 
         <Typography variant="body">{description}</Typography>
 
