@@ -28,7 +28,7 @@ export default function Layout({ children, window }) {
     palette: {
       mode: 'dark',
     },
-  });
+  })
   const drawerWidth = 240
   const navItems = [
     ['Home', '/'],
@@ -54,10 +54,12 @@ export default function Layout({ children, window }) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} component={Link} href={item[1]}>
-              <ListItemText>
-                {item[0]}
-              </ListItemText>
+            <ListItemButton
+              sx={{ textAlign: 'center' }}
+              component={Link}
+              href={item[1]}
+            >
+              <ListItemText>{item[0]}</ListItemText>
             </ListItemButton>
           </ListItem>
         ))}

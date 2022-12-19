@@ -9,9 +9,7 @@ export default function HomePage({}) {
   return (
     <Box sx={{ height: 600, width: '100%' }}>
       <Stack>
-        <Typography variant="h1">
-          Course Catalog
-        </Typography>
+        <Typography variant="h1">Course Catalog</Typography>
 
         <Typography variant="body">
           The Course of Study (COS) is a document that identifies the District’s
