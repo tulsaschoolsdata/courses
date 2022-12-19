@@ -9,7 +9,6 @@ import CourseCard from '/components/courseCard'
 import { schoolFindById } from '/lib/models'
 
 export default function School({ school, courses }) {
-
   return (
     <>
       <Head>
