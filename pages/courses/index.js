@@ -8,7 +8,7 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import GridViewIcon from '@mui/icons-material/GridView'
 import TableChartIcon from '@mui/icons-material/TableChart'
-import CourseCard from '/components/card'
+import CourseCard from '/components/courseCard'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'
 import FilterListIcon from '@mui/icons-material/FilterList'
@@ -162,30 +162,23 @@ export default function Courses({ courses, departments, schools }) {
           </Tabs>
         </Grid>
       </Grid>
-      {tabOpen === 'table' ? (
+      {tabOpen === 'DataGrid' ? (
         <DataGridTable
           getRowId={(row) => row.course_number}
           rows={filteredCourses}
           columns={columns}
-          pageSize={10}
+          pageSize={20}
         />
       ) : (
-        <Box sx={{ marginRight: '0px' }}>
-          {filteredCourses.map((course) => (
-            <Box
-              key={course.course_number}
-              xs={12}
-              sm={6}
-              sx={{
-                p: 1,
-                display: 'inline-block',
-                width: largeScreen ? '50%' : '100%',
-              }}
-            >
-              <CourseCard course={course} />
-            </Box>
-          ))}
-        </Box>
+        <>
+          <Grid container spacing={2}>
+            {filteredCourses.map((course) => (
+              <Grid item xs={12} sm={6}>
+                <CourseCard key={course.course_number} course={course} />
+              </Grid>
+            ))}
+          </Grid>
+        </>
       )}
       {filtersOpen && (
         <Drawer

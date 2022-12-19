@@ -10,6 +10,7 @@ import { isArray } from 'lodash'
 import Head from 'next/head'
 import { truncate } from 'lodash'
 import { courses, schoolsWhereCourseNumber } from '/lib/models'
+import Link from 'next/link'
 
 export default function Course({ course, schools }) {
   const router = useRouter()
@@ -49,22 +50,24 @@ export default function Course({ course, schools }) {
         <link rel="icon" href="/images/tps-logo-color.svg" />
       </Head>
       <Stack spacing={1}>
-        <Grid item xs={2}>
-          <Button variant="contained" onClick={() => router.back()}>
-            Go Back
-          </Button>
-        </Grid>
-        {renderSection('course name', name)}
-        {renderSection('description', description)}
+        <Typography variant="h1">{name}</Typography>
         {renderSection('prerequisites', pre_req_note)}
         {renderSection('credit_types', credit_types)}
         {renderSection('course_number', course_number)}
         {renderSection('credit_hours', courses_credit_hours)}
         {renderSection('department', department)}
-        {renderSection(
-          'schools',
-          schools.map((school) => school.name)
-        )}
+        {renderSection('description', description)}
+        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          Schools
+        </Typography>
+        {schools.map((school) => (
+          <Link
+            key={school.school_number}
+            href={`/schools/${school.school_number}`}
+          >
+            {school.name}
+          </Link>
+        ))}
       </Stack>
     </React.Fragment>
   )

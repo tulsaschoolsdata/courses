@@ -9,11 +9,11 @@ export default function HomePage({}) {
   return (
     <Box sx={{ height: 600, width: '100%' }}>
       <Stack>
-        <Typography variant="h1" color="inherit" noWrap>
+        <Typography variant="h1">
           Course Catalog
         </Typography>
 
-        <Typography variant="body" color="inherit">
+        <Typography variant="body">
           The Course of Study (COS) is a document that identifies the District’s
           standards-based courses that meet or exceed the state and the district
           graduation requirements. It reflects the body of courses available to

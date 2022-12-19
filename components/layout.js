@@ -20,9 +20,15 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function Layout({ children, window }) {
   const theme = createTheme()
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
   const drawerWidth = 240
   const navItems = [
     ['Home', '/'],
@@ -48,9 +54,9 @@ export default function Layout({ children, window }) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: 'center' }} component={Link} href={item[1]}>
               <ListItemText>
-                <Link href={item[1]}>{item[0]}</Link>
+                {item[0]}
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -60,8 +66,11 @@ export default function Layout({ children, window }) {
   )
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Head>
+        <link rel="icon" href="/images/tps-logo-color.svg" />
+      </Head>
       <Box sx={{ display: 'flex' }}>
         <AppBar component="nav">
           <Toolbar>
@@ -85,8 +94,8 @@ export default function Layout({ children, window }) {
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  <Link href={item[1]}>{item[0]}</Link>
+                <Button key={item} component={Link} href={item[1]}>
+                  {item[0]}
                 </Button>
               ))}
             </Box>
@@ -112,9 +121,8 @@ export default function Layout({ children, window }) {
             {drawer}
           </Drawer>
         </Box>
-        <Box component="main" sx={{ p: 3, width: '100%' }}>
+        <Box component="main" sx={{ width: '100%' }}>
           <PageContainer>{children}</PageContainer>
-          <Footer />
         </Box>
       </Box>
     </ThemeProvider>

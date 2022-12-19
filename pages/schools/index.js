@@ -4,38 +4,34 @@ import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
-import DataGridTable from '/components/datagrid-table'
+import SchoolCard from '/components/schoolCard'
+import Box from '@mui/material/Box'
+import { useMediaQuery } from '@mui/material'
 
 export default function Schools({ schools }) {
-  const columns = [
-    {
-      field: 'school_number',
-      renderCell: (cellValues) => {
-        return (
-          <Link href={`/schools/${cellValues.row.school_number}`}>
-            {cellValues.row.school_number}
-          </Link>
-        )
-      },
-      headerName: 'id',
-      width: 70,
-    },
-    { field: 'school_category_name', headerName: 'Category', width: 60 },
-    { field: 'name', headerName: 'School', width: 430 },
-  ]
-
+  const largeScreen = useMediaQuery('(min-width:600px)')
   return (
     <>
       <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
         Schools
       </Typography>
 
-      <DataGridTable
-        getRowId={(row) => row.school_number}
-        rows={schools}
-        columns={columns}
-        pageSize={100}
-      />
+      <>
+        {schools.map((school) => (
+          <Box
+            key={school.school_number}
+            xs={12}
+            sm={6}
+            sx={{
+              p: 1,
+              display: 'inline-block',
+              width: largeScreen ? '50%' : '100%',
+            }}
+          >
+            <SchoolCard school={school} />
+          </Box>
+        ))}
+      </>
     </>
   )
 }
