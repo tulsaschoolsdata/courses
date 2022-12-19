@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
+import Link from 'next/link'
+import DataGridTable from '../../components/datagrid-table'
 import Grid from '@mui/material/Grid'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import GridViewIcon from '@mui/icons-material/GridView'
+import TableChartIcon from '@mui/icons-material/TableChart'
 import CourseCard from '/components/courseCard'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'
@@ -9,11 +15,18 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import Filters from '/lib/filters'
 import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
-import { courses, departments, schoolsGroupByCategory } from '/lib/models'
+import {
+  courses,
+  departments,
+  schoolsGroupByCategory,
+  schoolNumbersToNames,
+} from '/lib/models'
 import { courseShape } from '/lib/prop-types'
+import { isArray } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
+  const [tabOpen, setTabOpen] = useState('table')
   const [filters, setFilters] = useState({
     departments: [],
     schools: [],
@@ -38,10 +51,47 @@ export default function Courses({ courses, departments, schools }) {
     localStorage.removeItem('courseCatalogFilters')
   }
 
+  const columns = [
+    {
+      field: 'course_number',
+      type: 'number',
+      headerName: 'Course #',
+      width: 70,
+    },
+    { field: 'alt_course_number', headerName: 'Alt Course #', width: 70 },
+    { field: 'name', headerName: 'Course Name', width: 230 },
+    { field: 'department', headerName: 'department', width: 230 },
+    {
+      field: 'credit_types',
+      headerName: 'Credit Type',
+      valueGetter: (params) => String(params.row.credit_types),
+      width: 200,
+    },
+    {
+      field: 'credit_hours',
+      type: 'number',
+      headerName: 'Credit Hours',
+    },
+    { field: 'pre_req_note', headerName: 'Pre Req', width: 230 },
+    { field: 'description', headerName: 'Description', width: 230 },
+    {
+      field: 'schools',
+      headerName: 'Schools',
+      valueGetter: (params) =>
+        String(schoolNumbersToNames(params.row.school_numbers)),
+      width: 530,
+    },
+  ]
+
   useEffect(() => {
     const existingFilters = localStorage.getItem('courseCatalogFilters')
     if (existingFilters) {
       setFilters(JSON.parse(existingFilters))
+    }
+
+    const preferredView = localStorage.getItem('preferredView')
+    if (preferredView) {
+      setTabOpen(preferredView)
     }
   }, [])
 
@@ -80,13 +130,12 @@ export default function Courses({ courses, departments, schools }) {
         Courses
       </Typography>
 
-      <Grid container spacing={2}>
-        {filteredCourses.map((course) => (
-          <Grid key={course.course_number} item xs={12} sm={6}>
-            <CourseCard course={course} />
-          </Grid>
-        ))}
-      </Grid>
+      <DataGridTable
+        getRowId={(row) => row.course_number}
+        rows={filteredCourses}
+        columns={columns}
+        pageSize={20}
+      />
 
       {filtersOpen && (
         <Drawer
@@ -112,7 +161,6 @@ export default function Courses({ courses, departments, schools }) {
           />
         </Drawer>
       )}
-
       {!filtersOpen && (
         <Fab
           sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
