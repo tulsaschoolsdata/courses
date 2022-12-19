@@ -41,16 +41,24 @@ export default function Course({ course, schools }) {
     )
   }
 
+  const departmentChip = (department) => {
+    return (
+      department && (
+        <Grid item>
+          <Chip label={`Department: ${department}`} />
+        </Grid>
+      )
+    )
+  }
+
   const renderChips = () => {
     return (
       <Grid container spacing={1} sx={{ pb: 2 }}>
         <Grid item>
           <Chip label={`Course #: ${course_number}`} />
         </Grid>
+        {departmentChip(department)}
         {creditTypeChips(credit_types)}
-        <Grid item>
-          <Chip label={`Department: ${department}`} />
-        </Grid>
         <Grid item>
           <Chip label={`Credit Hours: ${credit_hours}`} />
         </Grid>
@@ -89,7 +97,7 @@ export default function Course({ course, schools }) {
         {renderChips()}
         {renderPreReqNote()}
 
-        <Typography variant="body">{description}</Typography>
+        <Typography variant="body1">{description}</Typography>
 
         <Typography
           component="div"
