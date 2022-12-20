@@ -17,6 +17,7 @@ export default function CourseCard({ course }) {
     name,
     course_number,
     instruction_level_name,
+    credit_hours
   } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -47,7 +48,7 @@ export default function CourseCard({ course }) {
   return (
     <Card
       sx={{
-        minHeight: 200,
+        minHeight: 330,
         width: '100%',
       }}
     >
@@ -84,15 +85,25 @@ export default function CourseCard({ course }) {
           </Popover>
         )}
 
-        <Grid container spacing={0.5} sx={{ height: 100 }}>
-          <Grid item>
-            {instruction_level_name && (
+        <Grid container direction="row" rowSpacing={1} spacing={1}>
+          {instruction_level_name && (
+            <Grid item>
               <Chip label={`Level: ${instruction_level_name}`} />
-            )}
-          </Grid>
-          <Grid item>
-            {department && <Chip label={`Department: ${department}`} />}
-          </Grid>
+            </Grid>
+          )}
+
+          {department && (
+            <Grid item>
+              <Chip label={`Department: ${department}`} />
+            </Grid>
+          )}
+
+          {credit_hours !== 0 && (
+            <Grid item>
+              <Chip label={`Credit Hours: ${credit_hours}`} />
+            </Grid>
+          )}
+
           {creditTypeChips()}
         </Grid>
 
