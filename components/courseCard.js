@@ -43,11 +43,9 @@ export default function CourseCard({ course }) {
       sx={{
         minHeight: 200,
         width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
       }}
     >
-      <CardContent sx={{ flexGrow: 1 }}>
+      <CardContent>
         <Typography
           gutterBottom
           variant="h6"
@@ -94,6 +92,7 @@ export default function CourseCard({ course }) {
               })
             : 'No description available.'}
         </Typography>
+
         <Button component={Link} href={`/courses/${course_number}`}>
           View Course Information
         </Button>
