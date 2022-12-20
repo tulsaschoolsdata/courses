@@ -17,7 +17,7 @@ export default function CourseCard({ course }) {
     name,
     course_number,
     instruction_level_name,
-    credit_hours
+    credit_hours,
   } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
