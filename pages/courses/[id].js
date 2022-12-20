@@ -33,7 +33,7 @@ export default function Course({ course, schools }) {
     )
   }
 
-  const renderPreReqNote = (pre_req_note) => {
+  const renderPreReqNote = () => {
     return (
       pre_req_note && (
         <Alert severity="warning">Prerequisite Note: {pre_req_note}</Alert>
