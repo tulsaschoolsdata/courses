@@ -15,6 +15,7 @@ import { courseShape } from '/lib/prop-types'
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
+    creditType: null,
     departments: [],
     schools: [],
     search: '',
@@ -31,6 +32,7 @@ export default function Courses({ courses, departments, schools }) {
 
   const clearFilters = () => {
     setFilters({
+      creditType: null,
       departments: [],
       schools: [],
       search: '',
@@ -47,6 +49,12 @@ export default function Courses({ courses, departments, schools }) {
 
   useEffect(() => {
     let output = courses
+
+    if (filters.creditType) {
+      output = output.filter((course) =>
+        course.credit_types.includes(filters.creditType)
+      )
+    }
 
     if (filters.departments?.length > 0) {
       output = output.filter((course) =>
@@ -124,7 +132,8 @@ export default function Courses({ courses, departments, schools }) {
           Filters (
           {(filters.search ? 1 : 0) +
             filters.departments.length +
-            filters.schools.length}
+            filters.schools.length +
+            (filters.creditType ? 1 : 0)}
           )
         </Fab>
       )}

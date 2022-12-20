@@ -18,19 +18,19 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@formkit/auto-animate": "^1.0.0-beta.5",
-    "@mui/icons-material": "^5.10.16",
-    "@mui/material": "^5.10.17",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.0",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
-    "@mui/x-data-grid": "^5.17.14",
+    "@mui/x-data-grid": "^5.17.16",
     "fuse.js": "^6.6.2",
     "lodash": "^4.17.21",
-    "next": "13.0.6",
+    "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "cypress": "^12.0.2",
+    "cypress": "^12.1.0",
     "eslint-plugin-unused-imports": "^2.0.0"
   }
 }
