@@ -51,6 +51,7 @@ export default function Courses({ courses, departments, schools }) {
     },
     { field: 'alt_course_number', headerName: 'Alt Course #', width: 70 },
     { field: 'name', headerName: 'Course Name', width: 230 },
+    { field: 'instruction_level_name', headerName: 'Level', width: 170 },
     { field: 'department', headerName: 'department', width: 230 },
     {
       field: 'credit_types',

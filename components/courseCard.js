@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 
 export default function CourseCard({ course }) {
-  const { department, description, name, course_number } = course
+  const { department, description, name, course_number, instruction_level_name } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -79,6 +79,9 @@ export default function CourseCard({ course }) {
         )}
 
         <Grid container spacing={0.5} sx={{ height: 100 }}>
+          <Grid item>
+            {instruction_level_name && <Chip label={`Level: ${instruction_level_name}`} />}
+          </Grid>
           <Grid item>
             {department && <Chip label={`Department: ${department}`} />}
           </Grid>
