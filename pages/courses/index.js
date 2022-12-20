@@ -105,7 +105,7 @@ export default function Courses({ courses, departments, schools }) {
     let output = courses
 
     if (filters.creditType) {
-      output = output.filter((course) => 
+      output = output.filter((course) =>
         course.credit_types.includes(filters.creditType)
       )
     }
@@ -222,7 +222,7 @@ export default function Courses({ courses, departments, schools }) {
           Filters (
           {(filters.search ? 1 : 0) +
             filters.departments.length +
-            filters.schools.length + 
+            filters.schools.length +
             (filters.creditType ? 1 : 0)}
           )
         </Fab>
