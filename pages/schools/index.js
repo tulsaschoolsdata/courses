@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Typography from '@mui/material/Typography'
 import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import SchoolCard from '/components/schoolCard'

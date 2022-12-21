@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import CourseCard from '/components/courseCard'
 import Drawer from '@mui/material/Drawer'
