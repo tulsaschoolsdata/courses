@@ -7,6 +7,7 @@ import { schools, courses as allCourses } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import CourseCard from '/components/courseCard'
 import { schoolFindById } from '/lib/models'
+import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 
 export default function School({ school, courses }) {
   return (
@@ -19,9 +20,11 @@ export default function School({ school, courses }) {
         />
       </Head>
 
-      <Typography component="h1" variant="h4" sx={{ pb: 4 }}>
+      <Typography component="h1" variant="h3" sx={{ pb: 4 }}>
         {school.name}
       </Typography>
+
+      <HeaderWithRecordCount title="Courses" records={courses} />
 
       <Grid container spacing={2}>
         {courses.map((course) => (
