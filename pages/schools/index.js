@@ -5,13 +5,12 @@ import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import SchoolCard from '/components/schoolCard'
 import Grid from '@mui/material/Grid'
+import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 
 export default function Schools({ schools }) {
   return (
     <>
-      <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
-        {`${schools.length} Schools`}
-      </Typography>
+      <HeaderWithRecordCount title="Schools" records={schools} />
 
       <Grid container spacing={2}>
         {schools.map((school) => (

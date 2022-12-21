@@ -12,6 +12,7 @@ import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import { isNull } from 'lodash'
+import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -99,9 +100,7 @@ export default function Courses({ courses, departments, schools }) {
 
   return (
     <>
-      <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
-        {`${filteredCourses.length} Courses`}
-      </Typography>
+      <HeaderWithRecordCount title="Courses" records={courses} />
 
       <Grid container spacing={2}>
         {filteredCourses.map((course) => (
