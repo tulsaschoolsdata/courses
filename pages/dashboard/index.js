@@ -86,9 +86,7 @@ export default function Courses({ courses, departments, schools }) {
     let output = courses
 
     if (!isNull(filters.is_core)) {
-      output = output.filter((course) => 
-        course.is_core === filters.is_core
-      )
+      output = output.filter((course) => course.is_core === filters.is_core)
     }
 
     if (filters.creditType) {
@@ -121,8 +119,8 @@ export default function Courses({ courses, departments, schools }) {
     }
 
     if (!isNull(filters.is_vocational)) {
-      output = output.filter((course) => 
-        course.is_vocational === filters.is_vocational
+      output = output.filter(
+        (course) => course.is_vocational === filters.is_vocational
       )
     }
 
