@@ -20,7 +20,7 @@ export default function CourseCard({ course }) {
     credit_hours,
     credit_types,
     is_vocational,
-    is_core
+    is_core,
   } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
