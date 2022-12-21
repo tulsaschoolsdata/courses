@@ -11,12 +11,15 @@ import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
+import { isNull } from 'lodash'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
     creditType: null,
     departments: [],
+    is_core: null,
+    is_vocational: null,
     schools: [],
     search: '',
   })
@@ -34,6 +37,8 @@ export default function Courses({ courses, departments, schools }) {
     setFilters({
       creditType: null,
       departments: [],
+      is_core: null,
+      is_vocational: null,
       schools: [],
       search: '',
     })
@@ -49,6 +54,10 @@ export default function Courses({ courses, departments, schools }) {
 
   useEffect(() => {
     let output = courses
+
+    if (!isNull(filters.is_core)) {
+      output = output.filter((course) => course.is_core === filters.is_core)
+    }
 
     if (filters.creditType) {
       output = output.filter((course) =>
@@ -77,6 +86,12 @@ export default function Courses({ courses, departments, schools }) {
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
       output = searchResults.map((result) => result.item)
+    }
+
+    if (!isNull(filters.is_vocational)) {
+      output = output.filter(
+        (course) => course.is_vocational === filters.is_vocational
+      )
     }
 
     setFilteredCourses(output)
