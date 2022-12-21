@@ -175,7 +175,10 @@ export default function Courses({ courses, departments, schools }) {
           Filters (
           {(filters.search ? 1 : 0) +
             filters.departments.length +
-            filters.schools.length}
+            filters.schools.length +
+            (filters.creditType ? 1 : 0) +
+            (!isNull(filters.is_core) ? 1 : 0) +
+            (!isNull(filters.is_vocational) ? 1 : 0)}
           )
         </Fab>
       )}
