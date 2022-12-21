@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 
-export default function HeaderWithRecordCount({title, records}) {
+export default function HeaderWithRecordCount({ title, records }) {
   return (
     <Grid
       container
