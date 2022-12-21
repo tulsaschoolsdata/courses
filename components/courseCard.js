@@ -7,11 +7,21 @@ import Popover from '@mui/material/Popover'
 import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
-import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 
 export default function CourseCard({ course }) {
-  const { department, description, name, course_number } = course
+  const {
+    department,
+    description,
+    name,
+    course_number,
+    instruction_level_name,
+    credit_hours,
+    credit_types,
+    is_vocational,
+    is_core,
+  } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -25,16 +35,26 @@ export default function CourseCard({ course }) {
 
   const isTruncatedTitle = name.length > 30
 
+  const creditTypeChips = () => {
+    return (
+      <>
+        {credit_types.map((creditType) => (
+          <Grid item key={creditType}>
+            <Chip label={`Credit Type: ${creditType}`} />
+          </Grid>
+        ))}
+      </>
+    )
+  }
+
   return (
     <Card
       sx={{
-        minHeight: 200,
+        minHeight: 330,
         width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
       }}
     >
-      <CardContent sx={{ flexGrow: 1 }}>
+      <CardContent>
         <Typography
           gutterBottom
           variant="h6"
@@ -66,19 +86,52 @@ export default function CourseCard({ course }) {
             <Typography sx={{ p: 1 }}>{name}</Typography>
           </Popover>
         )}
-        {department && <Chip label={department} sx={{ marginBottom: 1 }} />}
-        <Typography>
+
+        <Grid container direction="row" rowSpacing={1} spacing={1}>
+          {is_vocational && (
+            <Grid item>
+              <Chip label={`Vocational`} />
+            </Grid>
+          )}
+
+          {is_core && (
+            <Grid item>
+              <Chip label={`Core`} />
+            </Grid>
+          )}
+
+          {instruction_level_name && (
+            <Grid item>
+              <Chip label={`Level: ${instruction_level_name}`} />
+            </Grid>
+          )}
+
+          {department && (
+            <Grid item>
+              <Chip label={`Department: ${department}`} />
+            </Grid>
+          )}
+
+          {credit_hours !== 0 && (
+            <Grid item>
+              <Chip label={`Credit Hours: ${credit_hours}`} />
+            </Grid>
+          )}
+
+          {creditTypeChips()}
+        </Grid>
+
+        <Typography sx={{ mt: 3, mb: 3 }}>
           {description
             ? truncate(description, {
                 length: 100,
               })
             : 'No description available.'}
         </Typography>
-        <Box>
-          <Button component={Link} href={`/courses/${course_number}`}>
-            View Course Information
-          </Button>
-        </Box>
+
+        <Button component={Link} href={`/courses/${course_number}`}>
+          View Course Information
+        </Button>
       </CardContent>
     </Card>
   )
