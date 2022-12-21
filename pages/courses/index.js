@@ -100,7 +100,7 @@ export default function Courses({ courses, departments, schools }) {
 
   return (
     <>
-      <HeaderWithRecordCount title="Courses" records={courses} />
+      <HeaderWithRecordCount title="Courses" records={filteredCourses} />
 
       <Grid container spacing={2}>
         {filteredCourses.map((course) => (
