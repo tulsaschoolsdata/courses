@@ -10,7 +10,7 @@ export default function Schools({ schools }) {
   return (
     <>
       <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
-        Schools
+        {`${schools.length} Schools`}
       </Typography>
 
       <Grid container spacing={2}>

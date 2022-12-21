@@ -23,6 +23,10 @@ export default function School({ school, courses }) {
         {school.name}
       </Typography>
 
+      <Typography component="h2" variant="h4" sx={{ pb: 4 }}>
+        {`${courses.length} Courses`}
+      </Typography>
+
       <Grid container spacing={2}>
         {courses.map((course) => (
           <Grid key={course.course_number} item xs={12} sm={6}>

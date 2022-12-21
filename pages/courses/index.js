@@ -100,7 +100,7 @@ export default function Courses({ courses, departments, schools }) {
   return (
     <>
       <Typography variant="h4" color="inherit" sx={{ pb: 2 }}>
-        Courses
+        {`${filteredCourses.length} Courses`}
       </Typography>
 
       <Grid container spacing={2}>
