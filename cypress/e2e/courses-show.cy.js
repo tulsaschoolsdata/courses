@@ -30,4 +30,10 @@ describe('courses show page', () => {
   it('displays schools where the course is offered', () => {
     cy.get('body').last().should('contain.text', 'EAST CENTRAL HIGH SCHOOL')
   })
+
+  it('displays a warning about pre requisites', () => {
+    cy.get('body')
+      .last()
+      .should('contain.text', 'Prerequisite Note: Analog Electronics')
+  })
 })

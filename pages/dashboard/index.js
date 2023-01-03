@@ -71,7 +71,7 @@ export default function Courses({ courses, departments, schools }) {
       type: 'number',
       headerName: 'Credit Hours',
     },
-    { field: 'pre_req_note', headerName: 'Pre Req', width: 230 },
+    { field: 'pre_requisites', headerName: 'Pre Req', width: 230 },
     { field: 'description', headerName: 'Description', width: 230 },
     {
       field: 'schools',

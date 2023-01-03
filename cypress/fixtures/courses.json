@@ -371,7 +371,7 @@
     "is_core": false,
     "instruction_level": "0571",
     "alt_course_number": "8711",
-    "pre_requisites": null
+    "pre_requisites": "Analog Electronics"
   },
   "39010": {
     "course_number": "39010",
