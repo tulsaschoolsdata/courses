@@ -17,7 +17,7 @@ export default function Course({ course, schools }) {
     name,
     course_number,
     description,
-    pre_req_note,
+    pre_requisites,
     department,
   } = course
 
@@ -35,8 +35,8 @@ export default function Course({ course, schools }) {
 
   const renderPreReqNote = () => {
     return (
-      pre_req_note && (
-        <Alert severity="warning">Prerequisite Note: {pre_req_note}</Alert>
+      pre_requisites && (
+        <Alert severity="warning">Prerequisite Note: {pre_requisites}</Alert>
       )
     )
   }
