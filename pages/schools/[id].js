@@ -16,7 +16,7 @@ export default function School({ school, courses }) {
         <title>{`${school.name} Courses - Tulsa Public Schools`}</title>
         <meta
           name="description"
-          content={truncate(school.name, { length: 155 })}
+          content={truncate(`Course Catalog for ${school.name} in Tulsa, Oklahoma`, { length: 155 })}
         />
       </Head>
 

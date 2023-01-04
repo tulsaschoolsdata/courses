@@ -19,7 +19,6 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
-import Head from 'next/head'
 
 export default function Layout({ children, window }) {
   const theme = createTheme({
@@ -68,9 +67,6 @@ export default function Layout({ children, window }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Head>
-        <link rel="icon" href="/images/tps-logo-color.svg" />
-      </Head>
       <Box sx={{ display: 'flex' }}>
         <AppBar component="nav">
           <Toolbar>

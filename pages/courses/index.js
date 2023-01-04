@@ -12,6 +12,7 @@ import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import { isNull } from 'lodash'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
+import Head from 'next/head'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -97,8 +98,18 @@ export default function Courses({ courses, departments, schools }) {
     setFilteredCourses(output)
   }, [filters, courses])
 
+  const MetaTags = () => (
+    <Head>
+      <title>Courses offered by Tulsa Public Schools</title>
+      <meta
+        name="description"
+        content="A listing of courses offered by Tulsa Public Schools"
+      />
+    </Head>
+  )
   return (
     <>
+      <MetaTags />
       <HeaderWithRecordCount title="Courses" records={filteredCourses} />
 
       <Grid container spacing={2}>
