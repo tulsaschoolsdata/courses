@@ -35,42 +35,6 @@ export default function CourseCard({ course }) {
 
   const isTruncatedTitle = name.length > 30
 
-  const CardHeader = () => {
-    return (
-      <Typography
-        variant="h6"
-        onMouseEnter={isTruncatedTitle ? handlePopoverOpen : null}
-        onMouseLeave={isTruncatedTitle ? handlePopoverClose : null}
-      >
-        {truncate(name, { length: 30 })}
-
-        {isTruncatedTitle && (
-          <Popover
-            disableScrollLock
-            sx={{
-              pointerEvents: 'none',
-              width: '100%',
-            }}
-            open={Boolean(anchorEl)}
-            anchorEl={anchorEl}
-            onClose={handlePopoverClose}
-            disableRestoreFocus
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-          >
-            <Typography sx={{ p: 1 }}>{name}</Typography>
-          </Popover>
-        )}
-      </Typography>
-    )
-  }
-
   const CreditTypeChips = () => {
     return (
       <>
@@ -132,7 +96,37 @@ export default function CourseCard({ course }) {
           alignItems="stretch"
         >
           <Grid item xs={12}>
-            <CardHeader />
+            <Typography
+              variant="h6"
+              onMouseEnter={isTruncatedTitle ? handlePopoverOpen : null}
+              onMouseLeave={isTruncatedTitle ? handlePopoverClose : null}
+            >
+              {truncate(name, { length: 30 })}
+
+              {isTruncatedTitle && (
+                <Popover
+                  disableScrollLock
+                  sx={{
+                    pointerEvents: 'none',
+                    width: '100%',
+                  }}
+                  open={Boolean(anchorEl)}
+                  anchorEl={anchorEl}
+                  onClose={handlePopoverClose}
+                  disableRestoreFocus
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                >
+                  <Typography sx={{ p: 1 }}>{name}</Typography>
+                </Popover>
+              )}
+            </Typography>
           </Grid>
 
           <Grid item xs={12}>
