@@ -4,7 +4,7 @@ import { schools } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
 import SchoolCard from '/components/schoolCard'
 import Grid from '@mui/material/Grid'
-import Head from 'next/Head'
+import Head from 'next/head'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 
 export default function Schools({ schools }) {
