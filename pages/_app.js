@@ -8,8 +8,12 @@ export default function CourseCatalog({ Component, pageProps }) {
       <Layout>
         <Head>
           <title>Course Catalog - Tulsa Public Schools</title>
-          <meta name="description" content="Created by the TPS Dev Team" />
-          <link rel="icon" href="/images/tps-logo-color.svg" />
+          <meta name="description" content="Course Catalog for Tulsa Public Schools" />
+          <link
+            rel="icon"
+            href="/images/tps-logo-color.svg"
+            type="image/svg+xml"
+          />
         </Head>
         <Component {...pageProps} />
       </Layout>

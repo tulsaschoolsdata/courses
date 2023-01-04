@@ -4,40 +4,52 @@ import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
 import Button from '@mui/material/Button'
 import Link from 'next/link'
-import PropTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import { truncate } from 'lodash'
-import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
+import { schoolShape } from '/lib/prop-types'
 
-export default function schoolCard({ school }) {
+export default function SchoolCard({ school }) {
   const { school_number, name, school_category_name } = school
 
   return (
-    <Card
-      sx={{
-        minHeight: 200,
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h6">
-          {truncate(name, { length: 30 })}
-        </Typography>
-        {school_category_name && (
-          <Chip label={school_category_name} sx={{ marginBottom: 1 }} />
-        )}
-        <Box>
-          <Button component={Link} href={`/schools/${school_number}`}>
-            View Courses
-          </Button>
-        </Box>
+    <Card sx={{ minHeight: 200 }} >
+      <CardContent>
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="space-around"
+          alignItems="stretch"
+        >
+          <Grid item xs={12}>
+            <Typography gutterBottom variant="h6">
+              {truncate(name, { length: 28 })}
+            </Typography>
+          </Grid>
+
+          {school_category_name && (
+            <Grid item xs={12}>
+              <Chip label={school_category_name} sx={{ marginBottom: 1 }} />
+            </Grid>
+          )}
+
+          <Grid item xs={12}>
+            <Button
+              component={Link}
+              href={`/schools/${school_number}`}
+              variant="outlined"
+              sx={{ width: '100%' }}
+            >
+              View Courses
+            </Button>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   )
 }
 
-schoolCard.propTypes = {
-  school: PropTypes.object.isRequired,
+SchoolCard.propTypes = {
+  school: schoolShape,
 }
