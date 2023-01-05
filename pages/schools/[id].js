@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Head from 'next/head'
@@ -8,8 +8,98 @@ import { schoolShape } from '/lib/prop-types'
 import CourseCard from '/components/courseCard'
 import { schoolFindById } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
+import FilterListIcon from '@mui/icons-material/FilterList'
+import Fab from '@mui/material/Fab'
+import Filters from '/lib/filters'
+import Drawer from '@mui/material/Drawer'
+import { useMediaQuery } from '@mui/material'
+import { isNull } from 'lodash'
+import Fuse from 'fuse.js'
 
 export default function School({ school, courses }) {
+  const largeScreen = useMediaQuery('(min-width:600px)')
+  const [filters, setFilters] = useState({
+    creditType: null,
+    departments: [],
+    is_core: null,
+    is_vocational: null,
+    schools: [],
+    search: '',
+  })
+
+  const [filteredCourses, setFilteredCourses] = useState(courses)
+  const [filtersOpen, setFiltersOpen] = useState(false)
+
+  const handleChange = (attribute, val) => {
+    const newFilters = { ...filters, [attribute]: val }
+    setFilters(newFilters)
+    localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      creditType: null,
+      departments: [],
+      is_core: null,
+      is_vocational: null,
+      schools: [],
+      search: '',
+    })
+    localStorage.removeItem('courseCatalogFilters')
+  }
+
+  useEffect(() => {
+    const existingFilters = localStorage.getItem('courseCatalogFilters')
+    if (existingFilters) {
+      setFilters(JSON.parse(existingFilters))
+    }
+  }, [])
+
+  useEffect(() => {
+    let output = courses
+
+    if (!isNull(filters.is_core)) {
+      output = output.filter((course) => course.is_core === filters.is_core)
+    }
+
+    if (filters.creditType) {
+      output = output.filter((course) =>
+        course.credit_types.includes(filters.creditType)
+      )
+    }
+
+    if (filters.departments?.length > 0) {
+      output = output.filter((course) =>
+        filters.departments.includes(course.course_department_name)
+      )
+    }
+
+    if (filters.schools?.length > 0) {
+      output = output.filter(
+        (course) =>
+          course.school_numbers.filter((id) => filters.schools.includes(id))
+            .length > 0
+      )
+    }
+
+    if (filters.search) {
+      const options = {
+        keys: ['name', 'department', 'description'],
+      }
+      const fuse = new Fuse(output, options)
+      const searchResults = fuse.search(filters.search)
+      output = searchResults.map((result) => result.item)
+    }
+
+    if (!isNull(filters.is_vocational)) {
+      output = output.filter(
+        (course) => course.is_vocational === filters.is_vocational
+      )
+    }
+
+    setFilteredCourses(output)
+  }, [filters, courses])
+
   return (
     <>
       <Head>
@@ -27,12 +117,55 @@ export default function School({ school, courses }) {
       <HeaderWithRecordCount title="Courses" records={courses} />
 
       <Grid container spacing={2}>
-        {courses.map((course) => (
+        {filteredCourses.map((course) => (
           <Grid key={course.course_number} item xs={12} sm={6}>
             <CourseCard course={course} />
           </Grid>
         ))}
       </Grid>
+
+      {filtersOpen && (
+        <Drawer
+          hideBackdrop
+          open={filtersOpen}
+          sx={{
+            'flexShrink': 0,
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: largeScreen ? '45%' : '100%',
+            },
+          }}
+          variant="persistent"
+          anchor="right"
+        >
+          <Filters
+            clearFilters={clearFilters}
+            filters={filters}
+            handleChange={handleChange}
+            setFiltersOpen={setFiltersOpen}
+            hideSchools={true}
+          />
+        </Drawer>
+      )}
+
+      {!filtersOpen && (
+        <Fab
+          sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
+          onClick={() => setFiltersOpen(true)}
+          variant="extended"
+          color="warning"
+        >
+          <FilterListIcon />
+          Filters (
+          {(filters.search ? 1 : 0) +
+            filters.departments.length +
+            filters.schools.length +
+            (filters.creditType ? 1 : 0) +
+            (!isNull(filters.is_core) ? 1 : 0) +
+            (!isNull(filters.is_vocational) ? 1 : 0)}
+          )
+        </Fab>
+      )}
     </>
   )
 }
