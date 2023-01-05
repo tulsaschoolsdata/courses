@@ -19,8 +19,8 @@ export default function CourseCard({ course }) {
     instruction_level_name,
     credit_hours,
     credit_types,
-    is_vocational,
-    is_core,
+    // is_vocational,
+    // is_core,
   } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -50,7 +50,7 @@ export default function CourseCard({ course }) {
   const CourseMetaChips = () => {
     return (
       <Grid container direction="row" rowSpacing={1} spacing={1}>
-        {is_vocational && (
+        {/* {is_vocational && (
           <Grid item>
             <Chip label={`Vocational`} />
           </Grid>
@@ -60,7 +60,7 @@ export default function CourseCard({ course }) {
           <Grid item>
             <Chip label={`Core`} />
           </Grid>
-        )}
+        )} */}
 
         {instruction_level_name && (
           <Grid item>
