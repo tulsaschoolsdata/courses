@@ -10,7 +10,6 @@ import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
-import { isNull } from 'lodash'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 
