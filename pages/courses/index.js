@@ -12,6 +12,8 @@ import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
+import { FixedSizeList as List } from 'react-window'
+import AutoSizer from 'react-virtualized-auto-sizer'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
@@ -24,6 +26,7 @@ export default function Courses({ courses, departments, schools }) {
 
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [height, setHeight] = useState(0)
 
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
@@ -49,6 +52,8 @@ export default function Courses({ courses, departments, schools }) {
   }, [])
 
   useEffect(() => {
+    handleWindowResize()
+
     let output = courses
 
     if (filters.creditType != '') {
@@ -77,6 +82,17 @@ export default function Courses({ courses, departments, schools }) {
     setFilteredCourses(output)
   }, [filters, courses])
 
+  const handleWindowResize = () => {
+    setHeight(window.innerHeight - 200)
+  }
+
+  useEffect(() => {
+    // https://stackoverflow.com/a/68509243
+    window.addEventListener('resize', handleWindowResize)
+    // unsubscribe from the event on component unmount
+    return () => window.removeEventListener('resize', handleWindowResize)
+  }, [])
+
   const MetaTags = () => (
     <Head>
       <title>Courses offered by Tulsa Public Schools</title>
@@ -92,18 +108,31 @@ export default function Courses({ courses, departments, schools }) {
     filters.schools.length +
     (filters.creditType ? 1 : 0)
 
+  const Row = ({ index, style }) => (
+    <div style={{...style}} >
+      <CourseCard course={filteredCourses[index]} />
+    </div>
+  )
+
   return (
     <>
       <MetaTags />
       <HeaderWithRecordCount title="Courses" records={filteredCourses} />
-
-      <Grid container spacing={2}>
-        {filteredCourses.map((course) => (
-          <Grid key={course.course_number} item xs={12} sm={6}>
-            <CourseCard course={course} />
-          </Grid>
-        ))}
-      </Grid>
+      <div style={{ height: height }}>
+        <AutoSizer>
+          {({ height, width }) => (
+            <List
+              className="List"
+              height={height}
+              itemCount={filteredCourses.length}
+              itemSize={450}
+              width={width}
+            >
+              {Row}
+            </List>
+          )}
+        </AutoSizer>
+      </div>
 
       {filtersOpen && (
         <Drawer

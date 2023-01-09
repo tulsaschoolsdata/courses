@@ -86,7 +86,7 @@ export default function CourseCard({ course }) {
   }
 
   return (
-    <Card sx={{ minHeight: 200 }}>
+    <Card sx={{ height: 400, m: 2 }}>
       <CardContent>
         <Grid
           container
@@ -137,7 +137,7 @@ export default function CourseCard({ course }) {
             <Typography>
               {description
                 ? truncate(description, {
-                    length: 100,
+                    length: 200,
                   })
                 : 'No description available.'}
             </Typography>
