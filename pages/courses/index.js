@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import Grid from '@mui/material/Grid'
 import CourseCard from '/components/courseCard'
 import Drawer from '@mui/material/Drawer'
 import Fab from '@mui/material/Fab'

@@ -19,7 +19,6 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
-import AutoSizer from 'react-virtualized-auto-sizer'
 
 export default function Layout({ children, window }) {
   const theme = createTheme({
