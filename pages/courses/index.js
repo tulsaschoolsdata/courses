@@ -86,6 +86,12 @@ export default function Courses({ courses, departments, schools }) {
       />
     </Head>
   )
+
+  const filterCount =
+    (filters.search != '' ? 1 : 0) +
+    filters.schools.length +
+    (filters.creditType ? 1 : 0)
+
   return (
     <>
       <MetaTags />
@@ -132,12 +138,7 @@ export default function Courses({ courses, departments, schools }) {
           color="warning"
         >
           <FilterListIcon />
-          Filters (
-          {(filters.search ? 1 : 0) +
-            filters.departments.length +
-            filters.schools.length +
-            (filters.creditType ? 1 : 0)}
-          )
+          Filters ({filterCount})
         </Fab>
       )}
     </>
