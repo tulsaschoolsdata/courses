@@ -13,7 +13,6 @@ import Fab from '@mui/material/Fab'
 import Filters from '/lib/filters'
 import Drawer from '@mui/material/Drawer'
 import { useMediaQuery } from '@mui/material'
-import { isNull } from 'lodash'
 import Fuse from 'fuse.js'
 
 export default function School({ school, courses }) {
