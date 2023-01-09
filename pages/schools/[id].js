@@ -13,16 +13,12 @@ import Fab from '@mui/material/Fab'
 import Filters from '/lib/filters'
 import Drawer from '@mui/material/Drawer'
 import { useMediaQuery } from '@mui/material'
-import { isNull } from 'lodash'
 import Fuse from 'fuse.js'
 
 export default function School({ school, courses }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
-    creditType: null,
-    departments: [],
-    is_core: null,
-    is_vocational: null,
+    creditType: '',
     schools: [],
     search: '',
   })
@@ -38,10 +34,7 @@ export default function School({ school, courses }) {
 
   const clearFilters = () => {
     setFilters({
-      creditType: null,
-      departments: [],
-      is_core: null,
-      is_vocational: null,
+      creditType: '',
       schools: [],
       search: '',
     })
@@ -58,19 +51,9 @@ export default function School({ school, courses }) {
   useEffect(() => {
     let output = courses
 
-    if (!isNull(filters.is_core)) {
-      output = output.filter((course) => course.is_core === filters.is_core)
-    }
-
-    if (filters.creditType) {
+    if (filters.creditType != '') {
       output = output.filter((course) =>
         course.credit_types.includes(filters.creditType)
-      )
-    }
-
-    if (filters.departments?.length > 0) {
-      output = output.filter((course) =>
-        filters.departments.includes(course.course_department_name)
       )
     }
 
@@ -82,7 +65,7 @@ export default function School({ school, courses }) {
       )
     }
 
-    if (filters.search) {
+    if (filters.search != '') {
       const options = {
         keys: ['name', 'department', 'description'],
       }
@@ -91,14 +74,13 @@ export default function School({ school, courses }) {
       output = searchResults.map((result) => result.item)
     }
 
-    if (!isNull(filters.is_vocational)) {
-      output = output.filter(
-        (course) => course.is_vocational === filters.is_vocational
-      )
-    }
-
     setFilteredCourses(output)
   }, [filters, courses])
+
+  const filterCount =
+    (filters.search != '' ? 1 : 0) +
+    filters.schools.length +
+    (filters.creditType ? 1 : 0)
 
   return (
     <>
@@ -106,7 +88,10 @@ export default function School({ school, courses }) {
         <title>{`${school.name} Courses - Tulsa Public Schools`}</title>
         <meta
           name="description"
-          content={truncate(`Course Catalog for ${school.name} in Tulsa, Oklahoma`, { length: 155 })}
+          content={truncate(
+            `Course Catalog for ${school.name} in Tulsa, Oklahoma`,
+            { length: 155 }
+          )}
         />
       </Head>
 
@@ -156,14 +141,7 @@ export default function School({ school, courses }) {
           color="warning"
         >
           <FilterListIcon />
-          Filters (
-          {(filters.search ? 1 : 0) +
-            filters.departments.length +
-            filters.schools.length +
-            (filters.creditType ? 1 : 0) +
-            (!isNull(filters.is_core) ? 1 : 0) +
-            (!isNull(filters.is_vocational) ? 1 : 0)}
-          )
+          Filters ({filterCount})
         </Fab>
       )}
     </>

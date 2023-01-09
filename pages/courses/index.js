@@ -10,17 +10,14 @@ import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
 import { courses, departments, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
-import { isNull } from 'lodash'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 
 export default function Courses({ courses, departments, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
   const [filters, setFilters] = useState({
-    creditType: null,
+    creditType: '',
     departments: [],
-    is_core: null,
-    is_vocational: null,
     schools: [],
     search: '',
   })
@@ -36,10 +33,8 @@ export default function Courses({ courses, departments, schools }) {
 
   const clearFilters = () => {
     setFilters({
-      creditType: null,
+      creditType: '',
       departments: [],
-      is_core: null,
-      is_vocational: null,
       schools: [],
       search: '',
     })
@@ -56,19 +51,9 @@ export default function Courses({ courses, departments, schools }) {
   useEffect(() => {
     let output = courses
 
-    if (!isNull(filters.is_core)) {
-      output = output.filter((course) => course.is_core === filters.is_core)
-    }
-
-    if (filters.creditType) {
+    if (filters.creditType != '') {
       output = output.filter((course) =>
         course.credit_types.includes(filters.creditType)
-      )
-    }
-
-    if (filters.departments?.length > 0) {
-      output = output.filter((course) =>
-        filters.departments.includes(course.course_department_name)
       )
     }
 
@@ -80,19 +65,13 @@ export default function Courses({ courses, departments, schools }) {
       )
     }
 
-    if (filters.search) {
+    if (filters.search != '') {
       const options = {
         keys: ['name', 'department', 'description'],
       }
       const fuse = new Fuse(output, options)
       const searchResults = fuse.search(filters.search)
       output = searchResults.map((result) => result.item)
-    }
-
-    if (!isNull(filters.is_vocational)) {
-      output = output.filter(
-        (course) => course.is_vocational === filters.is_vocational
-      )
     }
 
     setFilteredCourses(output)
@@ -107,6 +86,12 @@ export default function Courses({ courses, departments, schools }) {
       />
     </Head>
   )
+
+  const filterCount =
+    (filters.search != '' ? 1 : 0) +
+    filters.schools.length +
+    (filters.creditType ? 1 : 0)
+
   return (
     <>
       <MetaTags />
@@ -153,14 +138,7 @@ export default function Courses({ courses, departments, schools }) {
           color="warning"
         >
           <FilterListIcon />
-          Filters (
-          {(filters.search ? 1 : 0) +
-            filters.departments.length +
-            filters.schools.length +
-            (filters.creditType ? 1 : 0) +
-            (!isNull(filters.is_core) ? 1 : 0) +
-            (!isNull(filters.is_vocational) ? 1 : 0)}
-          )
+          Filters ({filterCount})
         </Fab>
       )}
     </>
