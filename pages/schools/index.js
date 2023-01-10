@@ -21,7 +21,7 @@ export default function Schools({ schools }) {
   return (
     <>
       <MetaTags />
-      <HeaderWithRecordCount title="Schools" records={schools} />
+      <HeaderWithRecordCount title="Schools" records={schools.length} />
 
       <Grid container spacing={2}>
         {schools.map((school) => (

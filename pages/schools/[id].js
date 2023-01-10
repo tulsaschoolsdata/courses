@@ -99,7 +99,7 @@ export default function School({ school, courses }) {
         {school.name}
       </Typography>
 
-      <HeaderWithRecordCount title="Courses" records={courses} />
+      <HeaderWithRecordCount title="Courses" records={courses.length} />
 
       <Grid container spacing={2}>
         {filteredCourses.map((course) => (

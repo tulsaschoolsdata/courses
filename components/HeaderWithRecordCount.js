@@ -13,7 +13,7 @@ export default function HeaderWithRecordCount({ title, records }) {
         {title}
       </Typography>
       <Typography variant="h6" component="span">
-        {`${records.length} records`}
+        {`${records} records`}
       </Typography>
     </Grid>
   )

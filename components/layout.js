@@ -29,6 +29,7 @@ export default function Layout({ children, window }) {
   const drawerWidth = 240
   const navItems = [
     ['Home', '/'],
+    ['Search', '/search'],
     ['Courses', '/courses'],
     ['Schools', '/schools'],
     ['Map', 'https://findaschool.tulsaschools.org'],

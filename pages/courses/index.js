@@ -22,65 +22,6 @@ import {
 export default function Courses({ courses, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
 
-  const [filteredCourses, setFilteredCourses] = useState(courses)
-  const [filtersOpen, setFiltersOpen] = useState(false)
-
-  const handleChange = (attribute, val) => {
-    const newFilters = { ...filters, [attribute]: val }
-    setFilters(newFilters)
-  }
-
-  const clearFilters = () => {
-    setFilters({
-      creditType: '',
-      schools: [],
-      search: '',
-    })
-  }
-
-  const [filters, setFilters] = useQueryParams({
-    schools: withDefault(ArrayParam, []),
-    search: withDefault(StringParam, ''),
-    creditType: withDefault(StringParam, ''),
-  })
-
-  const [filterCount, setFilterCount] = useState(0)
-
-  useEffect(() => {
-    let output = courses
-
-    setFilterCount(
-      (filters.search != '' ? 1 : 0) +
-        filters.schools.length +
-        (filters.creditType ? 1 : 0)
-    )
-
-    if (filters.creditType != '') {
-      output = output.filter((course) =>
-        course.credit_types.includes(filters.creditType)
-      )
-    }
-
-    if (filters.schools?.length > 0) {
-      output = output.filter(
-        (course) =>
-          course.school_numbers.filter((id) => filters.schools.includes(id))
-            .length > 0
-      )
-    }
-
-    if (filters.search != '') {
-      const options = {
-        keys: ['name', 'department', 'description'],
-      }
-      const fuse = new Fuse(output, options)
-      const searchResults = fuse.search(filters.search)
-      output = searchResults.map((result) => result.item)
-    }
-
-    setFilteredCourses(output)
-  }, [filters, courses])
-
   const MetaTags = () => (
     <Head>
       <title>Courses offered by Tulsa Public Schools</title>
@@ -94,51 +35,15 @@ export default function Courses({ courses, schools }) {
   return (
     <>
       <MetaTags />
-      <HeaderWithRecordCount title="Courses" records={filteredCourses} />
+      <HeaderWithRecordCount title="Courses" records={courses.length} />
 
       <Grid container spacing={2}>
-        {filteredCourses.map((course) => (
+        {courses.map((course) => (
           <Grid key={course.course_number} item xs={12} sm={6}>
             <CourseCard course={course} />
           </Grid>
         ))}
       </Grid>
-
-      {filtersOpen && (
-        <Drawer
-          hideBackdrop
-          open={filtersOpen}
-          sx={{
-            'flexShrink': 0,
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: largeScreen ? '45%' : '100%',
-            },
-          }}
-          variant="persistent"
-          anchor="right"
-        >
-          <Filters
-            clearFilters={clearFilters}
-            filters={filters}
-            handleChange={handleChange}
-            setFiltersOpen={setFiltersOpen}
-            schools={schools}
-          />
-        </Drawer>
-      )}
-
-      {!filtersOpen && (
-        <Fab
-          sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
-          onClick={() => setFiltersOpen(true)}
-          variant="extended"
-          color="warning"
-        >
-          <FilterListIcon />
-          Filters ({filterCount})
-        </Fab>
-      )}
     </>
   )
 }
