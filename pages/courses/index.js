@@ -8,19 +8,19 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import Filters from '/lib/filters'
 import Fuse from 'fuse.js'
 import { useMediaQuery } from '@mui/material'
-import { courses, departments, schoolsGroupByCategory } from '/lib/models'
+import { courses, schoolsGroupByCategory } from '/lib/models'
 import { courseShape } from '/lib/prop-types'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
+import {
+  useQueryParams,
+  ArrayParam,
+  StringParam,
+  withDefault,
+} from 'use-query-params'
 
-export default function Courses({ courses, departments, schools }) {
+export default function Courses({ courses, schools }) {
   const largeScreen = useMediaQuery('(min-width:600px)')
-  const [filters, setFilters] = useState({
-    creditType: '',
-    departments: [],
-    schools: [],
-    search: '',
-  })
 
   const [filteredCourses, setFilteredCourses] = useState(courses)
   const [filtersOpen, setFiltersOpen] = useState(false)
@@ -28,28 +28,32 @@ export default function Courses({ courses, departments, schools }) {
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
-    localStorage.setItem('courseCatalogFilters', JSON.stringify(newFilters))
   }
 
   const clearFilters = () => {
     setFilters({
       creditType: '',
-      departments: [],
       schools: [],
       search: '',
     })
-    localStorage.removeItem('courseCatalogFilters')
   }
 
-  useEffect(() => {
-    const existingFilters = localStorage.getItem('courseCatalogFilters')
-    if (existingFilters) {
-      setFilters(JSON.parse(existingFilters))
-    }
-  }, [])
+  const [filters, setFilters] = useQueryParams({
+    schools: withDefault(ArrayParam, []),
+    search: withDefault(StringParam, ''),
+    creditType: withDefault(StringParam, ''),
+  })
+
+  const [filterCount, setFilterCount] = useState(0)
 
   useEffect(() => {
     let output = courses
+
+    setFilterCount(
+      (filters.search != '' ? 1 : 0) +
+        filters.schools.length +
+        (filters.creditType ? 1 : 0)
+    )
 
     if (filters.creditType != '') {
       output = output.filter((course) =>
@@ -87,11 +91,6 @@ export default function Courses({ courses, departments, schools }) {
     </Head>
   )
 
-  const filterCount =
-    (filters.search != '' ? 1 : 0) +
-    filters.schools.length +
-    (filters.creditType ? 1 : 0)
-
   return (
     <>
       <MetaTags />
@@ -121,7 +120,6 @@ export default function Courses({ courses, departments, schools }) {
         >
           <Filters
             clearFilters={clearFilters}
-            departments={departments}
             filters={filters}
             handleChange={handleChange}
             setFiltersOpen={setFiltersOpen}
@@ -147,7 +145,6 @@ export default function Courses({ courses, departments, schools }) {
 
 Courses.propTypes = {
   courses: PropTypes.arrayOf(courseShape),
-  departments: PropTypes.arrayOf(PropTypes.string),
   schools: PropTypes.array.isRequired,
 }
 
@@ -157,7 +154,6 @@ export async function getStaticProps() {
   return {
     props: {
       courses,
-      departments,
       schools,
     },
   }

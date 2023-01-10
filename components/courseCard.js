@@ -129,9 +129,9 @@ export default function CourseCard({ course }) {
             </Typography>
           </Grid>
 
-          <Grid item xs={12}>
-            <CourseMetaChips />
-          </Grid>
+          {/* <Grid item xs={12}> */}
+          {/*   <CourseMetaChips /> */}
+          {/* </Grid> */}
 
           <Grid item xs={12}>
             <Typography>
