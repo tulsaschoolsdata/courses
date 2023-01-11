@@ -42,7 +42,12 @@ export default function SearchResults() {
 
   if (filters.search != '') {
     const options = {
-      keys: ['name', 'description'],
+      keys: [
+        { name: 'name', weight: 75 },
+        { name: 'description', weight: 5 },
+      ],
+      useExtendedSearch: true,
+      threshold: 0.2
     }
     const fuse = new Fuse(searchResults, options)
     const fuseResults = fuse.search(filters.search)

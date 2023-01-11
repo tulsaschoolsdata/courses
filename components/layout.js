@@ -27,7 +27,7 @@ export default function Layout({ children, window }) {
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? 'dark' : 'dark',
         },
       }),
     [prefersDarkMode]
