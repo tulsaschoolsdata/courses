@@ -47,7 +47,7 @@ export default function SearchResults() {
         { name: 'description', weight: 5 },
       ],
       useExtendedSearch: true,
-      threshold: 0.2
+      threshold: 0.2,
     }
     const fuse = new Fuse(searchResults, options)
     const fuseResults = fuse.search(filters.search)
