@@ -69,7 +69,7 @@ export default function SearchResults({ courses }) {
   return (
     <>
       <MetaTags />
-      <HeaderWithRecordCount title="Search" records={results.length} />
+      <HeaderWithRecordCount title="Search Results" records={results.length} />
 
       <Grid container spacing={2}>
         {results.map((course) => (
