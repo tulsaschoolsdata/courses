@@ -12,7 +12,7 @@ import {
   withDefault,
 } from 'use-query-params'
 
-export default function SearchResults() {
+export default function SearchResults({courses}) {
   const [filters, _] = useQueryParams({
     schools: withDefault(ArrayParam, []),
     search: withDefault(StringParam, ''),
@@ -24,7 +24,7 @@ export default function SearchResults() {
     filters.creditType !== '' ||
     filters.schools.length > 0
 
-  let searchResults = hasFilters ? allCourses : []
+  let searchResults = hasFilters ? courses : []
 
   if (filters.creditType != '') {
     searchResults = searchResults.filter((course) =>
@@ -82,8 +82,19 @@ export default function SearchResults() {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
   return {
-    props: {},
+    paths: [],
+    fallback: true,
+  }
+}
+
+export async function getStaticProps() {
+  const courses = allCourses
+
+  return {
+    props: {
+      courses,
+    },
   }
 }
