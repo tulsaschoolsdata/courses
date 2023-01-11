@@ -12,7 +12,7 @@ import {
   withDefault,
 } from 'use-query-params'
 
-export default function SearchResults({ courses }) {
+export default function SearchResults({courses}) {
   const [filters, _] = useQueryParams({
     schools: withDefault(ArrayParam, []),
     search: withDefault(StringParam, ''),
@@ -80,13 +80,6 @@ export default function SearchResults({ courses }) {
       </Grid>
     </>
   )
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
-  }
 }
 
 export async function getStaticProps() {
