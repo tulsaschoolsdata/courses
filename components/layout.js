@@ -27,7 +27,7 @@ export default function Layout({ children, window }) {
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'dark',
+          mode: prefersDarkMode ? 'dark' : 'light',
         },
       }),
     [prefersDarkMode]
@@ -97,7 +97,7 @@ export default function Layout({ children, window }) {
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} component={Link} href={item[1]}>
+                <Button key={item[0]} component={Link} href={item[1]} variant="outline">
                   {item[0]}
                 </Button>
               ))}
