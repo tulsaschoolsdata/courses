@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
@@ -6,7 +6,6 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import ListSubheader from '@mui/material/ListSubheader'
 import MenuItem from '@mui/material/MenuItem'
-import PropTypes from 'prop-types'
 import Select from '@mui/material/Select'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
@@ -18,16 +17,8 @@ import {
 } from '/lib/models'
 import Link from 'next/link'
 
-import {
-  useQueryParams,
-  ArrayParam,
-  StringParam,
-  withDefault,
-} from 'use-query-params'
-
 export default function Search() {
   const [search, setSearch] = useState('')
-  const [timer, setTimer] = useState(null)
 
   const [filters, setFilters] = useState({
     schools: [],
@@ -66,6 +57,14 @@ export default function Search() {
     }
 
     handleChange('schools', output)
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      creditType: '',
+      search: '',
+      schools: [],
+    })
   }
 
   const renderMenuOptionsForCategory = (category) => {
@@ -157,7 +156,11 @@ export default function Search() {
       <Button
         href={{
           pathname: '/search/results',
-          query: { search: search, creditType: filters.creditType, schools: filters.schools },
+          query: {
+            search: search,
+            creditType: filters.creditType,
+            schools: filters.schools,
+          },
         }}
         variant="outlined"
         component={Link}
@@ -171,12 +174,3 @@ export default function Search() {
     </Stack>
   )
 }
-
-// Search.propTypes = {
-//   clearFilters: PropTypes.func.isRequired,
-//   filters: PropTypes.object.isRequired,
-//   // handleChange: PropTypes.func.isRequired,
-//   setFiltersOpen: PropTypes.func.isRequired,
-//   schools: PropTypes.array,
-//   hideSchools: PropTypes.bool,
-// }

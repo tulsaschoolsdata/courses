@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import Grid from '@mui/material/Grid'
 import CourseCard from '/components/courseCard'
-import Drawer from '@mui/material/Drawer'
-import Fab from '@mui/material/Fab'
-import FilterListIcon from '@mui/icons-material/FilterList'
-import Filters from '/lib/filters'
 import Fuse from 'fuse.js'
-import { useMediaQuery } from '@mui/material'
-import { courses as allCourses, schoolsGroupByCategory } from '/lib/models'
-import { courseShape } from '/lib/prop-types'
+import { courses as allCourses } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import {
@@ -20,30 +13,11 @@ import {
 } from 'use-query-params'
 
 export default function SearchResults() {
-  const largeScreen = useMediaQuery('(min-width:600px)')
-  const schools = Object.entries(schoolsGroupByCategory)
-
-  const [filteredCourses, setFilteredCourses] = useState([])
-  const [filtersOpen, setFiltersOpen] = useState(false)
-
-  const [filters, setFilters] = useQueryParams({
+  const [filters, _] = useQueryParams({
     schools: withDefault(ArrayParam, []),
     search: withDefault(StringParam, ''),
     creditType: withDefault(StringParam, ''),
   })
-
-  const handleChange = (attribute, val) => {
-    const newFilters = { ...filters, [attribute]: val }
-    setFilters(newFilters)
-  }
-
-  // const clearFilters = () => {
-  //   setFilters({
-  //     creditType: '',
-  //     schools: [],
-  //     search: '',
-  //   })
-  // }
 
   const hasFilters =
     filters.search !== '' ||
@@ -99,36 +73,9 @@ export default function SearchResults() {
           </Grid>
         ))}
       </Grid>
-
-      {filtersOpen && (
-        <Drawer
-          hideBackdrop
-          open={filtersOpen}
-          sx={{
-            'flexShrink': 0,
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: largeScreen ? '45%' : '100%',
-            },
-          }}
-          variant="persistent"
-          anchor="right"
-        >
-          <Filters
-            filters={filters}
-            handleChange={handleChange}
-            setFiltersOpen={setFiltersOpen}
-            schools={schools}
-          />
-        </Drawer>
-      )}
     </>
   )
 }
-
-// SearchResults.propTypes = {
-//   courses: PropTypes.arrayOf(courseShape),
-// }
 
 export async function getStaticProps() {
   return {
