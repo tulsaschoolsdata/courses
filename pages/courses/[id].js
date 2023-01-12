@@ -89,7 +89,7 @@ export default function Course({ course, schools }) {
         <link rel="icon" href="/images/tps-logo-color.svg" />
       </Head>
 
-      <Stack spacing={2}>
+      <Stack spacing={2} data-test="showCourse">
         <Typography component="h1" variant="h4">
           {name}
         </Typography>

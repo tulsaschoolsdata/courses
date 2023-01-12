@@ -4,16 +4,17 @@ describe('courses index page', () => {
   })
 
   it('renders a list of courses', () => {
-    cy.get('body').last().should('contain.text', 'ART')
-    cy.get('body').last().should('contain.text', 'MUSIC')
-    cy.get('body').last().should('contain.text', 'MATH')
+    const allCourses = cy.getBySel('allCourses').last()
+    allCourses.should('contain.text', 'ART')
+    allCourses.should('contain.text', 'MUSIC')
+    allCourses.should('contain.text', 'MATH')
   })
 
   it('displays course title', () => {
-    cy.get('body').last().should('contain.text', 'DIGITAL ELECTRONICS')
+    cy.getBySel('allCourses').last().should('contain.text', 'DIGITAL ELECTRONICS')
   })
 
   it('displays course description', () => {
-    cy.get('body').last().should('contain.text', 'Test Description')
+    cy.getBySel('allCourses').last().should('contain.text', 'Test Description')
   })
 })

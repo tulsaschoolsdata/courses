@@ -76,7 +76,7 @@ export default function SearchResults({ courses }) {
         records={searchResults.length}
       />
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} data-test="searchResults">
         {searchResults.map((course) => (
           <Grid key={course.course_number} item xs={12} sm={6}>
             <CourseCard course={course} />

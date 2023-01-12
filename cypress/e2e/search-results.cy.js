@@ -3,7 +3,7 @@ describe('search results page', () => {
     cy.visit('/search/results?search=elec')
   })
 
-  it('shows the schools name', () => {
-    cy.get('body').last().should('contain.text', 'DIGITAL ELECTRONICS')
+  it('finds matching courses for queries', () => {
+    cy.getBySel('searchResults').last().should('contain.text', 'DIGITAL ELECTRONICS')
   })
 })

@@ -4,8 +4,9 @@ describe('schools index page', () => {
   })
 
   it('renders a list of TPS schools', () => {
-    cy.get('body').last().should('contain.text', 'CARVER')
-    cy.get('body').last().should('contain.text', 'EAST CENTRAL')
-    cy.get('body').last().should('contain.text', 'EDISON')
+    const allSchools = cy.getBySel("allSchools").last()
+    allSchools.should('contain.text', 'CARVER')
+    allSchools.should('contain.text', 'EAST CENTRAL')
+    allSchools.should('contain.text', 'EDISON')
   })
 })
