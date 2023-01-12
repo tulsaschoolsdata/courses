@@ -7,14 +7,13 @@ import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import {
   useQueryParams,
-  ArrayParam,
   StringParam,
   withDefault,
 } from 'use-query-params'
 
 export default function SearchResults({ courses }) {
   const [filters, _] = useQueryParams({
-    schools: withDefault(ArrayParam, []),
+    schools: withDefault(StringParam, ''),
     search: withDefault(StringParam, ''),
     creditType: withDefault(StringParam, ''),
   })
@@ -61,7 +60,7 @@ export default function SearchResults({ courses }) {
       output = fuseResults.map((result) => result.item)
     }
     setSearchResults(output)
-  }, [filters.search])
+  }, [filters, courses])
 
   const MetaTags = () => (
     <Head>
