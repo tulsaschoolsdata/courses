@@ -133,12 +133,14 @@ export default function Courses({ courses, departments, schools }) {
         Courses
       </Typography>
 
-      <DataGridTable
-        getRowId={(row) => row.course_number}
-        rows={filteredCourses}
-        columns={columns}
-        pageSize={20}
-      />
+      <div data-test="dataTable">
+        <DataGridTable
+          getRowId={(row) => row.course_number}
+          rows={filteredCourses}
+          columns={columns}
+          pageSize={20}
+        />
+      </div>
 
       {filtersOpen && (
         <Drawer

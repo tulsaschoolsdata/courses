@@ -12,23 +12,30 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import PageContainer from '/components/page-container'
 import PropTypes from 'prop-types'
-import { React, useState } from 'react'
+import { React, useState, useMemo } from 'react'
 import SchoolIcon from '@mui/icons-material/School'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export default function Layout({ children, window }) {
-  const theme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  })
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode]
+  )
   const drawerWidth = 240
   const navItems = [
     ['Home', '/'],
+    ['Search', '/search'],
     ['Courses', '/courses'],
     ['Schools', '/schools'],
     ['Map', 'https://findaschool.tulsaschools.org'],
@@ -90,7 +97,12 @@ export default function Layout({ children, window }) {
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} component={Link} href={item[1]}>
+                <Button
+                  key={item[0]}
+                  component={Link}
+                  href={item[1]}
+                  variant="outline"
+                >
                   {item[0]}
                 </Button>
               ))}
