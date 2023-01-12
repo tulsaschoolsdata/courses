@@ -5,11 +5,7 @@ import Fuse from 'fuse.js'
 import { courses as allCourses } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
-import {
-  useQueryParams,
-  StringParam,
-  withDefault,
-} from 'use-query-params'
+import { useQueryParams, StringParam, withDefault } from 'use-query-params'
 
 export default function SearchResults({ courses }) {
   const [filters, _] = useQueryParams({
