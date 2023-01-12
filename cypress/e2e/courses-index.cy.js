@@ -11,7 +11,9 @@ describe('courses index page', () => {
   })
 
   it('displays course title', () => {
-    cy.getBySel('allCourses').last().should('contain.text', 'DIGITAL ELECTRONICS')
+    cy.getBySel('allCourses')
+      .last()
+      .should('contain.text', 'DIGITAL ELECTRONICS')
   })
 
   it('displays course description', () => {

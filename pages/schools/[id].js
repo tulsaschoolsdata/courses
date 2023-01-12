@@ -95,7 +95,12 @@ export default function School({ school, courses }) {
         />
       </Head>
 
-      <Typography component="h1" variant="h3" sx={{ pb: 4 }} data-test="showSchoolName">
+      <Typography
+        component="h1"
+        variant="h3"
+        sx={{ pb: 4 }}
+        data-test="showSchoolName"
+      >
         {school.name}
       </Typography>
 

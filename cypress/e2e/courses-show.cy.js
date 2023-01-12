@@ -4,7 +4,9 @@ describe('courses show page', () => {
   })
 
   it('displays course title', () => {
-    cy.getBySel('showCourse').last().should('contain.text', 'DIGITAL ELECTRONICS')
+    cy.getBySel('showCourse')
+      .last()
+      .should('contain.text', 'DIGITAL ELECTRONICS')
   })
 
   it('displays course #', () => {
@@ -28,7 +30,9 @@ describe('courses show page', () => {
   })
 
   it('displays schools where the course is offered', () => {
-    cy.getBySel('showCourse').last().should('contain.text', 'EAST CENTRAL HIGH SCHOOL')
+    cy.getBySel('showCourse')
+      .last()
+      .should('contain.text', 'EAST CENTRAL HIGH SCHOOL')
   })
 
   it('displays a warning about pre requisites', () => {

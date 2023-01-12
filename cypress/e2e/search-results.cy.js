@@ -4,6 +4,8 @@ describe('search results page', () => {
   })
 
   it('finds matching courses for queries', () => {
-    cy.getBySel('searchResults').last().should('contain.text', 'DIGITAL ELECTRONICS')
+    cy.getBySel('searchResults')
+      .last()
+      .should('contain.text', 'DIGITAL ELECTRONICS')
   })
 })
