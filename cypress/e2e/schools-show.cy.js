@@ -8,7 +8,7 @@ describe('schools show page', () => {
 
   it('shows the schools name', () => {
     showSchoolName().should('contain.text', 'EDISON HIGH SCHOOL')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 
   it('shows a list of courses including DRAMA', () => {

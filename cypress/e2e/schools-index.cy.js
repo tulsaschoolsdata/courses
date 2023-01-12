@@ -9,6 +9,6 @@ describe('schools index page', () => {
     allSchools().should('contain.text', 'CARVER')
     allSchools().should('contain.text', 'EAST CENTRAL')
     allSchools().should('contain.text', 'EDISON')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 })

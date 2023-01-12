@@ -1,4 +1,4 @@
-const dataTable = () =>  cy.getBySel('dataTable').last()
+const dataTable = () => cy.getBySel('dataTable').last()
 
 describe('dashboard index page', () => {
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('dashboard index page', () => {
     dataTable().should('contain.text', 'ART')
     dataTable().should('contain.text', 'ADVANCED LANG ARTS')
     dataTable().should('contain.text', 'ADVANCED READING')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 
   it('displays the instruction level for each course', () => {

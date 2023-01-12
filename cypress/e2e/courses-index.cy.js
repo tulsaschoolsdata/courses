@@ -9,7 +9,7 @@ describe('courses index page', () => {
     allCourses().should('contain.text', 'ART')
     allCourses().should('contain.text', 'MUSIC')
     allCourses().should('contain.text', 'MATH')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 
   it('displays course title', () => {

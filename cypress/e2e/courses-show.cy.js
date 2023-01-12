@@ -7,7 +7,7 @@ describe('courses show page', () => {
 
   it('displays course title', () => {
     showCourse().should('contain.text', 'DIGITAL ELECTRONICS')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 
   it('displays course #', () => {

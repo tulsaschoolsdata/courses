@@ -7,6 +7,6 @@ describe('home page for the app', () => {
 
   it('Describes what the app is used for', () => {
     homePage().should('contain.text', 'individual course offerings')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 })

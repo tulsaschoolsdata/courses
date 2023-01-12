@@ -7,6 +7,6 @@ describe('search results page', () => {
 
   it('finds matching courses for queries', () => {
     searchResults().should('contain.text', 'DIGITAL ELECTRONICS')
-    cy.screenshot({capture: 'viewport'})
+    cy.screenshot({ capture: 'viewport' })
   })
 })
