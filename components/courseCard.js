@@ -10,11 +10,7 @@ import Grid from '@mui/material/Grid'
 import { courseShape } from '/lib/prop-types'
 
 export default function CourseCard({ course }) {
-  const {
-    description,
-    name,
-    course_number,
-  } = course
+  const { description, name, course_number } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 

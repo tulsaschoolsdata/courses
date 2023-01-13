@@ -25,7 +25,7 @@ export default function Search() {
     schools: [],
     search: '',
     creditType: '',
-    courseNumbers: ''
+    courseNumbers: '',
   })
 
   const schoolCategories = {
@@ -175,7 +175,7 @@ export default function Search() {
             search: search,
             creditType: filters.creditType,
             schools: filters.schools,
-            courseNumbers: filters.courseNumbers
+            courseNumbers: filters.courseNumbers,
           },
         }}
         variant="outlined"
