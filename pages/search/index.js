@@ -16,7 +16,6 @@ import {
   schoolFindById,
 } from '/lib/models'
 import Link from 'next/link'
-import TextareaAutosize from '@mui/base/TextareaAutosize'
 
 export default function Search() {
   const [search, setSearch] = useState('')
@@ -156,15 +155,21 @@ export default function Search() {
         </Select>
       </FormControl>
       <FormControl>
-        <TextareaAutosize
-          minRows={3}
-          maxRows={10}
+        <TextField
+          rows={4}
+          multiline
+          label="Course number(s)"
           aria-label="A list of course number(s)"
-          placeholder="Course number(s)"
+          placeholder=""
           defaultValue=""
           style={{ width: '100%' }}
           onChange={(val) =>
-            handleChange('courseNumbers', val.target.value.split(/\s+|,|\|/))
+            handleChange(
+              'courseNumbers',
+              val.target.value
+                .split(/\s+|,|\|/)
+                .filter((val) => val.match(/\d+/))
+            )
           }
         />
       </FormControl>
