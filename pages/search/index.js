@@ -96,11 +96,11 @@ export default function Search() {
   }
 
   return (
-    <Stack spacing={2} sx={{ p: 2, paddingTop: '6em' }}>
+    <Stack spacing={2} sx={{ p: 2, pt: 2 }} data-test="searchForm">
       <Typography variant="h6">Search</Typography>
       <TextField
         id="search"
-        label="Search for a name or description"
+        label="Course name or description"
         variant="outlined"
         value={search}
         onChange={(val) => setSearch(val.target.value)}
