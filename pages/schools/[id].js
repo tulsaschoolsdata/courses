@@ -95,13 +95,18 @@ export default function School({ school, courses }) {
         />
       </Head>
 
-      <Typography component="h1" variant="h3" sx={{ pb: 4 }}>
+      <Typography
+        component="h1"
+        variant="h3"
+        sx={{ pb: 4 }}
+        data-test="showSchoolName"
+      >
         {school.name}
       </Typography>
 
-      <HeaderWithRecordCount title="Courses" records={courses} />
+      <HeaderWithRecordCount title="Courses" records={courses.length} />
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} data-test="showSchoolCourses">
         {filteredCourses.map((course) => (
           <Grid key={course.course_number} item xs={12} sm={6}>
             <CourseCard course={course} />
