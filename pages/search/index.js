@@ -19,6 +19,7 @@ import Link from 'next/link'
 
 export default function Search() {
   const [search, setSearch] = useState('')
+  const [courseNumbersStr, setCourseNumbersStr] = useState('')
 
   const [filters, setFilters] = useState({
     schools: [],
@@ -59,13 +60,21 @@ export default function Search() {
 
     handleChange('schools', output)
   }
-
+  const handleCourseNumbersChange = (courseNumbersStr) => {
+    const courseNumbers = courseNumbersStr
+      .split(/\s+|,|\|/)
+      .filter((val) => val.match(/\d+/))
+    setCourseNumbersStr(courseNumbersStr)
+    handleChange('courseNumbers', courseNumbers)
+  }
   const clearFilters = () => {
     setFilters({
       creditType: '',
       search: '',
       schools: [],
+      courseNumbers: [],
     })
+    setCourseNumbersStr('')
   }
 
   const renderMenuOptionsForCategory = (category) => {
@@ -102,8 +111,8 @@ export default function Search() {
         id="search"
         label="Course name or description"
         variant="outlined"
-        value={search}
-        onChange={(val) => setSearch(val.target.value)}
+        value={filters.search}
+        onChange={(val) => handleChange('search', val.target.value)}
       />
       {
         <FormControl fullWidth>
@@ -134,7 +143,7 @@ export default function Search() {
         <Select
           sx={{ maxHeight: 500 }}
           label="Select credit type"
-          // value={filters.creditType}
+          value={filters.creditType}
           renderValue={(selected) => (
             <Chip
               key={selected}
@@ -161,16 +170,9 @@ export default function Search() {
           label="Course number(s)"
           aria-label="A list of course number(s)"
           placeholder=""
-          defaultValue=""
+          value={courseNumbersStr}
           style={{ width: '100%' }}
-          onChange={(val) =>
-            handleChange(
-              'courseNumbers',
-              val.target.value
-                .split(/\s+|,|\|/)
-                .filter((val) => val.match(/\d+/))
-            )
-          }
+          onChange={(val) => handleCourseNumbersChange(val.target.value)}
         />
       </FormControl>
       <Button
