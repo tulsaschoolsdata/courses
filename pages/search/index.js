@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
@@ -16,15 +16,28 @@ import {
   schoolFindById,
 } from '/lib/models'
 import Link from 'next/link'
+import {
+  useQueryParams,
+  StringParam,
+  ArrayParam,
+  withDefault,
+} from 'use-query-params'
 
 export default function Search() {
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
+
+  const [queryParams, setQueryParams] = useQueryParams({
+    schools: withDefault(ArrayParam, []),
+    search: withDefault(StringParam, ''),
+    creditType: withDefault(StringParam, ''),
+    courseNumbers: withDefault(ArrayParam, []),
+  })
 
   const [filters, setFilters] = useState({
     schools: [],
     search: '',
     creditType: '',
-    courseNumbers: '',
+    courseNumbers: [],
   })
 
   const schoolCategories = {
@@ -39,6 +52,7 @@ export default function Search() {
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
+    setQueryParams(newFilters)
   }
 
   const isChecked = (filterType, val) => {
@@ -66,13 +80,26 @@ export default function Search() {
     setCourseNumbersStr(courseNumbersStr)
     handleChange('courseNumbers', courseNumbers)
   }
+
+  useEffect(() => {
+    setFilters(queryParams)
+  }, [])
+
   const clearFilters = () => {
-    setFilters({
+    const blankFilters = {
       creditType: '',
       search: '',
       schools: [],
       courseNumbers: [],
-    })
+    }
+    const nullFilters = {
+      creditType: null,
+      search: null,
+      schools: null,
+      courseNumbers: null,
+    }
+    setFilters(blankFilters)
+    setQueryParams(nullFilters)
     setCourseNumbersStr('')
   }
 
