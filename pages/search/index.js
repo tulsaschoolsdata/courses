@@ -18,7 +18,6 @@ import {
 import Link from 'next/link'
 
 export default function Search() {
-  const [search, setSearch] = useState('')
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
 
   const [filters, setFilters] = useState({
@@ -179,7 +178,7 @@ export default function Search() {
         href={{
           pathname: '/search/results',
           query: {
-            search: search,
+            search: filters.search,
             creditType: filters.creditType,
             schools: filters.schools,
             courseNumbers: filters.courseNumbers,
