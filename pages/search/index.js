@@ -16,15 +16,28 @@ import {
   schoolFindById,
 } from '/lib/models'
 import Link from 'next/link'
+import {
+  useQueryParams,
+  StringParam,
+  ArrayParam,
+  withDefault,
+} from 'use-query-params'
 
 export default function Search() {
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
 
+  const [queryParams, setQueryParams] = useQueryParams({
+    schools: withDefault(ArrayParam, []),
+    search: withDefault(StringParam, ''),
+    creditType: withDefault(StringParam, ''),
+    courseNumbers: withDefault(ArrayParam, []),
+  })
+
   const [filters, setFilters] = useState({
-    schools: [],
-    search: '',
-    creditType: '',
-    courseNumbers: '',
+    schools: queryParams.schools || [],
+    search: queryParams.search || '',
+    creditType: queryParams.creditType || '',
+    courseNumbers: queryParams.courseNumbers || [],
   })
 
   const schoolCategories = {
@@ -39,6 +52,7 @@ export default function Search() {
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
+    setQueryParams(newFilters)
   }
 
   const isChecked = (filterType, val) => {
@@ -66,13 +80,22 @@ export default function Search() {
     setCourseNumbersStr(courseNumbersStr)
     handleChange('courseNumbers', courseNumbers)
   }
+
   const clearFilters = () => {
-    setFilters({
+    const blankFilters = {
       creditType: '',
       search: '',
       schools: [],
       courseNumbers: [],
-    })
+    }
+    const nullFilters = {
+      creditType: null,
+      search: null,
+      schools: null,
+      courseNumbers: null,
+    }
+    setFilters(blankFilters)
+    setQueryParams(nullFilters)
     setCourseNumbersStr('')
   }
 
@@ -188,7 +211,7 @@ export default function Search() {
         component={Link}
         sx={{ mt: 2, textDecoration: 'none' }}
       >
-        Search
+        Submit
       </Button>
       <Button variant="outlined" onClick={() => clearFilters()}>
         Clear Filters
