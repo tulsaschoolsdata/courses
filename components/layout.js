@@ -36,7 +36,7 @@ export default function Layout({ children, window }) {
     [prefersDarkMode]
   )
   const router = useRouter()
-  
+
   const drawerWidth = 240
 
   const includeQuery = () => {
@@ -50,7 +50,7 @@ export default function Layout({ children, window }) {
       {
         pathname: '/search',
         query: includeQuery(),
-      }
+      },
     ],
     ['Courses', '/courses'],
     ['Schools', '/schools'],
