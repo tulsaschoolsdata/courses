@@ -74,7 +74,7 @@ export default function SearchResults({ courses }) {
       output = fuseResults.map((result) => result.item)
     }
     setSearchResults(output)
-  }, [query])
+  }, [query, courses]) // cannot include filters or queryParams in dependency array; infinite errors
 
   const MetaTags = () => (
     <Head>
