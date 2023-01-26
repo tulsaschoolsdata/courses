@@ -21,7 +21,12 @@ export default function SearchResults({ courses }) {
   })
 
   const [searchResults, setSearchResults] = useState([])
-  const filters = queryParams
+  const filters = {
+    schools: queryParams.schools || [],
+    search: queryParams.search || '',
+    creditType: queryParams.creditType || '',
+    courseNumbers: queryParams.courseNumbers || [],
+  }
 
   useEffect(() => {
     const hasFilters =
@@ -70,7 +75,7 @@ export default function SearchResults({ courses }) {
       output = fuseResults.map((result) => result.item)
     }
     setSearchResults(output)
-  }, [filters, courses])
+  }, [courses])
 
   const MetaTags = () => (
     <Head>

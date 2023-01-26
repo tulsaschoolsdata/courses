@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
@@ -34,10 +34,10 @@ export default function Search() {
   })
 
   const [filters, setFilters] = useState({
-    schools: [],
-    search: '',
-    creditType: '',
-    courseNumbers: [],
+    schools: queryParams.schools || [],
+    search: queryParams.search || '',
+    creditType: queryParams.creditType || '',
+    courseNumbers: queryParams.courseNumbers || [],
   })
 
   const schoolCategories = {
@@ -80,10 +80,6 @@ export default function Search() {
     setCourseNumbersStr(courseNumbersStr)
     handleChange('courseNumbers', courseNumbers)
   }
-
-  useEffect(() => {
-    setFilters(queryParams)
-  }, [])
 
   const clearFilters = () => {
     const blankFilters = {
