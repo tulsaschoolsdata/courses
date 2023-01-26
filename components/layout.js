@@ -39,13 +39,17 @@ export default function Layout({ children, window }) {
   
   const drawerWidth = 240
 
+  const includeQuery = () => {
+    return router.asPath.includes('courses') ? '' : router.query
+  }
+
   const navItems = [
     ['Home', '/'],
     [
       'Search',
       {
         pathname: '/search',
-        query: router.query,
+        query: includeQuery(),
       }
     ],
     ['Courses', '/courses'],
@@ -148,7 +152,7 @@ export default function Layout({ children, window }) {
             sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
             href={{
               pathname: '/search',
-              query: router.query,
+              query: includeQuery(),
             }}
             variant="extended"
             color="primary"
