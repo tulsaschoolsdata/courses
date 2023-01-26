@@ -215,7 +215,7 @@ export default function Search() {
         component={Link}
         sx={{ mt: 2, textDecoration: 'none' }}
       >
-        Search
+        Submit
       </Button>
       <Button variant="outlined" onClick={() => clearFilters()}>
         Clear Filters

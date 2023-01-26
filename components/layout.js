@@ -20,6 +20,9 @@ import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
 import Link from 'next/link'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { useRouter } from 'next/router'
+import { Fab } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
 export default function Layout({ children, window }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -32,10 +35,19 @@ export default function Layout({ children, window }) {
       }),
     [prefersDarkMode]
   )
+  const router = useRouter()
+  
   const drawerWidth = 240
+
   const navItems = [
     ['Home', '/'],
-    ['Search', '/search'],
+    [
+      'Search',
+      {
+        pathname: '/search',
+        query: router.query,
+      }
+    ],
     ['Courses', '/courses'],
     ['Schools', '/schools'],
     ['Map', 'https://findaschool.tulsaschools.org'],
@@ -131,6 +143,18 @@ export default function Layout({ children, window }) {
         </Box>
         <Box component="main" sx={{ width: '100%' }}>
           <PageContainer>{children}</PageContainer>
+          <Fab
+            component={Link}
+            sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
+            href={{
+              pathname: '/search',
+              query: router.query,
+            }}
+            variant="extended"
+            color="primary"
+          >
+            <SearchIcon />
+          </Fab>
         </Box>
       </Box>
     </ThemeProvider>
