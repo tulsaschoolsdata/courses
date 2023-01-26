@@ -11,22 +11,21 @@ import {
   ArrayParam,
   withDefault,
 } from 'use-query-params'
+import { useRouter } from 'next/router'
 
 export default function SearchResults({ courses }) {
   const [queryParams, _] = useQueryParams({
-    schools: withDefault(ArrayParam, ''),
+    schools: withDefault(ArrayParam, []),
     search: withDefault(StringParam, ''),
     creditType: withDefault(StringParam, ''),
-    courseNumbers: withDefault(ArrayParam, ''),
+    courseNumbers: withDefault(ArrayParam, []),
   })
 
   const [searchResults, setSearchResults] = useState([])
-  const filters = {
-    schools: queryParams.schools || [],
-    search: queryParams.search || '',
-    creditType: queryParams.creditType || '',
-    courseNumbers: queryParams.courseNumbers || [],
-  }
+  const filters = queryParams
+
+  const router = useRouter()
+  const query = router.query
 
   useEffect(() => {
     const hasFilters =
@@ -75,7 +74,7 @@ export default function SearchResults({ courses }) {
       output = fuseResults.map((result) => result.item)
     }
     setSearchResults(output)
-  }, [courses])
+  }, [query])
 
   const MetaTags = () => (
     <Head>
