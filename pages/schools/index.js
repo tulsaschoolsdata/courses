@@ -21,9 +21,9 @@ export default function Schools({ schools }) {
   return (
     <>
       <MetaTags />
-      <HeaderWithRecordCount title="Schools" records={schools} />
+      <HeaderWithRecordCount title="Schools" records={schools.length} />
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} data-test="allSchools">
         {schools.map((school) => (
           <Grid key={school.school_number} item xs={12} sm={6}>
             <SchoolCard school={school} />

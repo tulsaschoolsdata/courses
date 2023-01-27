@@ -8,12 +8,13 @@ export default function HeaderWithRecordCount({ title, records }) {
       sx={{ mb: 2 }}
       justifyContent="space-between"
       alignItems="flex-end"
+      data-test="recordCount"
     >
       <Typography variant="h4" color="inherit">
         {title}
       </Typography>
       <Typography variant="h6" component="span">
-        {`${records.length} records`}
+        {`${records} records`}
       </Typography>
     </Grid>
   )

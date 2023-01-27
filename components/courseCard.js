@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import Chip from '@mui/material/Chip'
 import Link from 'next/link'
 import Popover from '@mui/material/Popover'
 import Typography from '@mui/material/Typography'
@@ -11,17 +10,7 @@ import Grid from '@mui/material/Grid'
 import { courseShape } from '/lib/prop-types'
 
 export default function CourseCard({ course }) {
-  const {
-    department,
-    description,
-    name,
-    course_number,
-    instruction_level_name,
-    credit_hours,
-    credit_types,
-    // is_vocational,
-    // is_core,
-  } = course
+  const { description, name, course_number } = course
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -34,56 +23,6 @@ export default function CourseCard({ course }) {
   }
 
   const isTruncatedTitle = name.length > 30
-
-  const CreditTypeChips = () => {
-    return (
-      <>
-        {credit_types.map((creditType) => (
-          <Grid item key={creditType}>
-            <Chip label={`Credit Type: ${creditType}`} />
-          </Grid>
-        ))}
-      </>
-    )
-  }
-
-  const CourseMetaChips = () => {
-    return (
-      <Grid container direction="row" rowSpacing={1} spacing={1}>
-        {/* {is_vocational && (
-          <Grid item>
-            <Chip label={`Vocational`} />
-          </Grid>
-        )}
-
-        {is_core && (
-          <Grid item>
-            <Chip label={`Core`} />
-          </Grid>
-        )} */}
-
-        {instruction_level_name && (
-          <Grid item>
-            <Chip label={`Level: ${instruction_level_name}`} />
-          </Grid>
-        )}
-
-        {department && (
-          <Grid item>
-            <Chip label={`Department: ${department}`} />
-          </Grid>
-        )}
-
-        {credit_hours !== 0 && (
-          <Grid item>
-            <Chip label={`Credit Hours: ${credit_hours}`} />
-          </Grid>
-        )}
-
-        <CreditTypeChips />
-      </Grid>
-    )
-  }
 
   return (
     <Card sx={{ minHeight: 200 }}>
@@ -127,10 +66,6 @@ export default function CourseCard({ course }) {
                 </Popover>
               )}
             </Typography>
-          </Grid>
-
-          <Grid item xs={12}>
-            <CourseMetaChips />
           </Grid>
 
           <Grid item xs={12}>

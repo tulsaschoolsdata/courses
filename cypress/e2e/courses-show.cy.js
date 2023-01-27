@@ -1,39 +1,40 @@
+const showCourse = () => cy.getBySel('showCourse').last()
+
 describe('courses show page', () => {
   beforeEach(() => {
     cy.visit('/courses/30274')
   })
 
   it('displays course title', () => {
-    cy.get('body').last().should('contain.text', 'DIGITAL ELECTRONICS')
+    showCourse().should('contain.text', 'DIGITAL ELECTRONICS')
+    cy.screenshot({ capture: 'viewport' })
   })
 
   it('displays course #', () => {
-    cy.get('body').last().should('contain.text', 'Course #: 30274')
+    showCourse().should('contain.text', 'Course #: 30274')
   })
 
   it('displays department', () => {
-    cy.get('body').last().should('contain.text', 'CTE: STEM')
+    showCourse().should('contain.text', 'CTE: STEM')
   })
 
   it('displays credit type', () => {
-    cy.get('body').last().should('contain.text', 'Credit Type: ELEC')
+    showCourse().should('contain.text', 'Credit Type: ELEC')
   })
 
   it('displays credit hours', () => {
-    cy.get('body').last().should('contain.text', 'Credit Hours: 1')
+    showCourse().should('contain.text', 'Credit Hours: 1')
   })
 
   it('displays course description', () => {
-    cy.get('body').last().should('contain.text', 'Test Description')
+    showCourse().should('contain.text', 'Test Description')
   })
 
   it('displays schools where the course is offered', () => {
-    cy.get('body').last().should('contain.text', 'EAST CENTRAL HIGH SCHOOL')
+    showCourse().should('contain.text', 'EAST CENTRAL HIGH SCHOOL')
   })
 
   it('displays a warning about pre requisites', () => {
-    cy.get('body')
-      .last()
-      .should('contain.text', 'Prerequisite Note: Analog Electronics')
+    showCourse().should('contain.text', 'Prerequisite Note: Analog Electronics')
   })
 })
