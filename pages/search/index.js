@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
 import FormControl from '@mui/material/FormControl'
+import Grid from '@mui/material/Grid'
 import InputLabel from '@mui/material/InputLabel'
 import ListSubheader from '@mui/material/ListSubheader'
 import MenuItem from '@mui/material/MenuItem'
@@ -25,6 +26,8 @@ import {
 
 export default function Search() {
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
+  const [showSchoolSelector, setShowSchoolSelector] = useState(false)
+  const [showCreditTypeSelector, setShowCreditTypeSelector] = useState(false)
 
   const [queryParams, setQueryParams] = useQueryParams({
     schools: withDefault(ArrayParam, []),
@@ -73,12 +76,22 @@ export default function Search() {
 
     handleChange('schools', output)
   }
+
+  const handleSchoolChangeAndClose = (schoolId) => {
+    handleSchoolChange(schoolId)
+    setShowSchoolSelector(false)
+  }
+
   const handleCourseNumbersChange = (courseNumbersStr) => {
     const courseNumbers = courseNumbersStr
       .split(/\s+|,|\|/)
       .filter((val) => val.match(/\d+/))
     setCourseNumbersStr(courseNumbersStr)
     handleChange('courseNumbers', courseNumbers)
+  }
+
+  const handleCreditTypeChangeAndClose = (creditType) => {
+    handleChange('creditType', creditType)
   }
 
   const clearFilters = () => {
@@ -111,7 +124,7 @@ export default function Search() {
           <MenuItem
             key={school.name}
             value={school.school_number}
-            onClick={(_) => handleSchoolChange(school.school_number)}
+            onClick={(_) => handleSchoolChangeAndClose(school.school_number)}
           >
             <Checkbox checked={isChecked('schools', school.school_number)} />
             {school.name}
@@ -140,8 +153,11 @@ export default function Search() {
         <FormControl fullWidth>
           <InputLabel>Select school(s)</InputLabel>
           <Select
-            sx={{ maxHeight: 500 }}
+            sx={{ maxHeight: 500, position: 'relative' }}
             multiple
+            open={showSchoolSelector}
+            onOpen={() => setShowSchoolSelector(true)}
+            onClose={() => setShowSchoolSelector(false)}
             label="Select school(s)"
             value={filters.schools}
             renderValue={(selected) =>
@@ -154,6 +170,25 @@ export default function Search() {
               ))
             }
           >
+            <Grid container component={ListSubheader} justifyContent="flex-end">
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  handleChange('schools', [])
+                }}
+                sx={{ mr: 1 }}
+              >
+                Clear
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  setShowSchoolSelector(false)
+                }}
+              >
+                Close
+              </Button>
+            </Grid>
             {Object.entries(schoolCategories)
               .filter((category) => ['Middle', 'High'].includes(category[1]))
               .map((category) => renderMenuOptionsForCategory(category))}
@@ -164,6 +199,9 @@ export default function Search() {
         <InputLabel>Select credit type</InputLabel>
         <Select
           sx={{ maxHeight: 500 }}
+          open={showCreditTypeSelector}
+          onOpen={() => setShowCreditTypeSelector(true)}
+          onClose={() => setShowCreditTypeSelector(false)}
           label="Select credit type"
           value={filters.creditType}
           renderValue={(selected) => (
@@ -174,11 +212,30 @@ export default function Search() {
             />
           )}
         >
+          <Grid container component={ListSubheader} justifyContent="flex-end">
+            <Button
+              variant="outlined"
+              onClick={() => {
+                handleChange('creditType', '')
+              }}
+              sx={{ mr: 1 }}
+            >
+              Clear
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setShowCreditTypeSelector(false)
+              }}
+            >
+              Close
+            </Button>
+          </Grid>
           {creditTypes.map((creditType) => (
             <MenuItem
               key={creditType[0]}
               value={creditType[0]}
-              onClick={(_) => handleChange('creditType', creditType[0])}
+              onClick={(_) => handleCreditTypeChangeAndClose(creditType[0])}
             >
               {creditType[1].name} ({creditType[0]})
             </MenuItem>
@@ -207,7 +264,7 @@ export default function Search() {
             courseNumbers: filters.courseNumbers,
           },
         }}
-        variant="outlined"
+        variant="contained"
         component={Link}
         sx={{ mt: 2, textDecoration: 'none' }}
       >
