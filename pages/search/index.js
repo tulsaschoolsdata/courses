@@ -172,7 +172,7 @@ export default function Search() {
           >
             <Grid container component={ListSubheader} justifyContent="flex-end">
               <Button
-                variant='outlined'
+                variant="outlined"
                 onClick={() => {
                   handleChange('schools', [])
                 }}
@@ -181,7 +181,7 @@ export default function Search() {
                 Clear
               </Button>
               <Button
-                variant='contained'
+                variant="contained"
                 onClick={() => {
                   setShowSchoolSelector(false)
                 }}
@@ -214,7 +214,7 @@ export default function Search() {
         >
           <Grid container component={ListSubheader} justifyContent="flex-end">
             <Button
-              variant='outlined'
+              variant="outlined"
               onClick={() => {
                 handleChange('creditType', '')
               }}
@@ -223,7 +223,7 @@ export default function Search() {
               Clear
             </Button>
             <Button
-              variant='contained'
+              variant="contained"
               onClick={() => {
                 setShowCreditTypeSelector(false)
               }}
