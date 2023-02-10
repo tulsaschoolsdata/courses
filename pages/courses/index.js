@@ -26,12 +26,12 @@ export default function Courses({ allCourses }) {
 
   const fetchData = () => {
     const increaseTotalSlice = scrollPosition + perPage
-    if (increaseTotalSlice > allCourses.length) {
+    if (increaseTotalSlice >= allCourses.length) {
       setHasMore(false)
     } else {
       setScrollPosition(increaseTotalSlice)
     }
-    setCourses(allCourses.slice(0, increaseTotalSlice))
+    setCourses(() => allCourses.slice(0, increaseTotalSlice))
   }
 
   return (
