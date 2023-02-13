@@ -1,13 +1,12 @@
 import React from 'react'
-import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import Head from 'next/head'
 import { truncate } from 'lodash'
 import { schools, courses as allCourses } from '/lib/models'
 import { schoolShape } from '/lib/prop-types'
-import CourseCard from '/components/courseCard'
 import { schoolFindById } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
+import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
 
 export default function School({ school, courses }) {
   return (
@@ -34,13 +33,7 @@ export default function School({ school, courses }) {
 
       <HeaderWithRecordCount title="Courses" records={courses.length} />
 
-      <Grid container spacing={2} data-test="showSchoolCourses">
-        {courses.map((course) => (
-          <Grid key={course.course_number} item xs={12} sm={6}>
-            <CourseCard course={course} />
-          </Grid>
-        ))}
-      </Grid>
+      <InfiniteScrollCourses courses={courses} TestId="showSchoolCourses" />
     </React.Fragment>
   )
 }

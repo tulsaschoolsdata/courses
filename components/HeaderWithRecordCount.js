@@ -13,9 +13,14 @@ export default function HeaderWithRecordCount({ title, records }) {
       <Typography variant="h4" color="inherit">
         {title}
       </Typography>
-      <Typography variant="h6" component="span">
-        {`${records} records`}
-      </Typography>
+
+      {records > 0 ? (
+        <Typography variant="h6" component="span">
+          {`${records} records`}
+        </Typography>
+      ) : (
+        <></>
+      )}
     </Grid>
   )
 }
