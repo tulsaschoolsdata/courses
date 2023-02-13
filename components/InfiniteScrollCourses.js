@@ -5,7 +5,7 @@ import CourseCard from '/components/courseCard'
 import { courseShape } from '/lib/prop-types'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-export default function InfiniteScrollCourses({ courses, testId }) {
+export default function InfiniteScrollCourses({ courses }) {
   const perPage = 100
   const [coursesSlice, setCourses] = useState(courses.slice(0, perPage))
   const [scrollPosition, setScrollPosition] = useState(perPage)
@@ -24,9 +24,9 @@ export default function InfiniteScrollCourses({ courses, testId }) {
   const totalCoursesLessThanPerPage = perPage >= courses.length ? true : false
 
   const CoursesGrid = () => (
-    <Grid container spacing={2} data-test={testId}>
+    <Grid container spacing={2}>
       {coursesSlice.map((course) => (
-        <Grid key={`${testId}-${course.course_number}`} item xs={12} sm={6}>
+        <Grid key={course.course_number} item xs={12} sm={6}>
           <CourseCard course={course} />
         </Grid>
       ))}
@@ -54,6 +54,4 @@ export default function InfiniteScrollCourses({ courses, testId }) {
 
 InfiniteScrollCourses.propTypes = {
   courses: PropTypes.arrayOf(courseShape).isRequired,
-  perPage: PropTypes.number,
-  testId: PropTypes.string.isRequired,
 }

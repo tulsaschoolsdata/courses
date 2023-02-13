@@ -33,7 +33,9 @@ export default function School({ school, courses }) {
 
       <HeaderWithRecordCount title="Courses" records={courses.length} />
 
-      <InfiniteScrollCourses courses={courses} TestId="showSchoolCourses" />
+      <div data-test="showSchoolCourses">
+        <InfiniteScrollCourses courses={courses} />
+      </div>
     </React.Fragment>
   )
 }

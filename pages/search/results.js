@@ -92,11 +92,13 @@ export default function SearchResults({ courses }) {
         title="Search Results"
         records={searchResults.length}
       />
-      {searchResults.length > 0 ? (
-        <InfiniteScrollCourses courses={searchResults} TestId="searchResults" />
-      ) : (
-        <></>
-      )}
+      <div data-test="searchResults">
+        {searchResults.length > 0 ? (
+          <InfiniteScrollCourses courses={searchResults} />
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   )
 }

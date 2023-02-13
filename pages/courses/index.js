@@ -37,7 +37,9 @@ export default function Courses({ allCourses }) {
     <>
       <MetaTags />
       <HeaderWithRecordCount title="Courses" records={allCourses.length} />
-      <InfiniteScrollCourses courses={allCourses} TestId="allCourses" />
+      <div data-test="allCourses">
+        <InfiniteScrollCourses courses={allCourses} />
+      </div>
     </>
   )
 }
