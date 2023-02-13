@@ -6,7 +6,6 @@ import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
 
-
 export default function Courses({ allCourses }) {
   const MetaTags = () => (
     <Head>
