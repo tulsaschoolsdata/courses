@@ -6,7 +6,7 @@ jobs:
     container: cypress/browsers:node18.12.0-chrome106-ff106
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Copy catalog fixture data for schools
         uses: canastro/copy-file-action@ae66602ce7d214dbd2e298c1db67a81388755a0a
@@ -46,13 +46,13 @@ jobs:
           wait-on: 'http://localhost:3000'
           config: baseUrl=http://localhost:3000
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-videos
