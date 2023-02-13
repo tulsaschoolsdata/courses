@@ -71,7 +71,8 @@ schools = fetch_all(path: 'schools.all', matching: { 'schools.state_excludefromr
           end
 
 courses = fetch_all(path: 'course_catalog',
-                    body: { course_number_matcher: '^[0-9]+$',
+                    body: { catalog_name_matcher: '^Site based$',
+                            course_number_matcher: '^[0-9]+$',
                             course_name_exclusions: '\b(attendance|homeroom|self|monitoring)\b' })
           .to_h do |course|
             [
