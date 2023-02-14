@@ -23,6 +23,7 @@ import {
   ArrayParam,
   withDefault,
 } from 'use-query-params'
+import NextLinkBehavior from '/components/NextLinkBehavior'
 
 export default function Search() {
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
@@ -255,17 +256,19 @@ export default function Search() {
         />
       </FormControl>
       <Button
-        href={{
-          pathname: '/search/results',
-          query: {
-            search: filters.search,
-            creditType: filters.creditType,
-            schools: filters.schools,
-            courseNumbers: filters.courseNumbers,
+        nextlink={{
+          href: {
+            pathname: '/search/results',
+            query: {
+              search: filters.search,
+              creditType: filters.creditType,
+              schools: filters.schools,
+              courseNumbers: filters.courseNumbers,
+            },
           },
         }}
         variant="contained"
-        component={Link}
+        component={NextLinkBehavior}
         sx={{ mt: 2, textDecoration: 'none' }}
       >
         Submit
