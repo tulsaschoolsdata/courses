@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import PageContainer from '/components/page-container'
 import PropTypes from 'prop-types'
-import { React, useState, useMemo } from 'react'
+import { React, useState, useMemo, useEffect } from 'react'
 import SchoolIcon from '@mui/icons-material/School'
 import { ThemeProvider } from '@mui/material/styles'
 import Toolbar from '@mui/material/Toolbar'
@@ -23,6 +23,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import { useRouter } from 'next/router'
 import { Fab } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
+import ReactGA from 'react-ga4'
 
 export default function Layout({ children, window }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -86,6 +87,10 @@ export default function Layout({ children, window }) {
       </List>
     </Box>
   )
+
+  useEffect(() => {
+    ReactGA.initialize([{ trackingId: 'G-XMHHPPT0J3' }])
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
