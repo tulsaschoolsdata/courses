@@ -18,7 +18,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { createTheme } from '@mui/material/styles'
-import Link from 'next/link'
+import NextLinkBehavior from '/components/NextLinkBehavior'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useRouter } from 'next/router'
 import { Fab } from '@mui/material'
@@ -76,8 +76,8 @@ export default function Layout({ children, window }) {
           <ListItem key={item[0]} disablePadding>
             <ListItemButton
               sx={{ textAlign: 'center' }}
-              component={Link}
-              href={item[1]}
+              component={NextLinkBehavior}
+              nextlink={{ href: item[1] }}
             >
               <ListItemText>{item[0]}</ListItemText>
             </ListItemButton>
@@ -115,8 +115,8 @@ export default function Layout({ children, window }) {
               {navItems.map((item) => (
                 <Button
                   key={item[0]}
-                  component={Link}
-                  href={item[1]}
+                  component={NextLinkBehavior}
+                  nextlink={{ href: item[1] }}
                   variant="outline"
                 >
                   {item[0]}
@@ -148,11 +148,13 @@ export default function Layout({ children, window }) {
         <Box component="main" sx={{ width: '100%' }}>
           <PageContainer>{children}</PageContainer>
           <Fab
-            component={Link}
+            component={NextLinkBehavior}
             sx={{ position: 'fixed', bottom: '2%', right: '2%' }}
-            href={{
-              pathname: '/search',
-              query: includeQuery(),
+            nextlink={{
+              href: {
+                pathname: '/search',
+                query: includeQuery(),
+              },
             }}
             variant="extended"
             color="primary"
