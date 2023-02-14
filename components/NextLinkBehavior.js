@@ -7,8 +7,3 @@ const NextLinkBehavior = React.forwardRef((props, ref) => (
 ))
 
 export default NextLinkBehavior
-
-
-
-
-
