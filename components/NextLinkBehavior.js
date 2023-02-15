@@ -6,6 +6,7 @@ const NextLinkBehavior = React.forwardRef((props, ref) => (
   <Link ref={ref} {...props} {...props.nextlink} role={undefined} />
 ))
 
+NextLinkBehavior.displayName = "NextLinkBehavior"
 export default NextLinkBehavior
 
 
