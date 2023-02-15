@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid'
 import CourseCard from '/components/courseCard'
 import { courseShape } from '/lib/prop-types'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { Fab } from '@mui/material'
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
 
 export default function InfiniteScrollCourses({ courses }) {
   const perPage = 100
@@ -33,6 +35,19 @@ export default function InfiniteScrollCourses({ courses }) {
     </Grid>
   )
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto',
+    })
+  }
+
+  const FabScrollToTop = () => (
+    <Fab variant="extended" color="primary" onClick={scrollToTop}>
+      <ArrowCircleUpIcon sx={{mr: 1}}/> Scroll To Top
+    </Fab>
+  )
+
   const Scroller = () => (
     <InfiniteScroll
       dataLength={coursesSlice.length}
@@ -41,7 +56,7 @@ export default function InfiniteScrollCourses({ courses }) {
       loader={<h4>Loading...</h4>}
       endMessage={
         <p style={{ textAlign: 'center' }}>
-          <b>Yay! You have seen it all</b>
+          <FabScrollToTop />
         </p>
       }
     >
