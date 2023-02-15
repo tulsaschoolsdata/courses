@@ -44,7 +44,7 @@ export default function InfiniteScrollCourses({ courses }) {
 
   const FabScrollToTop = () => (
     <Fab variant="extended" color="primary" onClick={scrollToTop}>
-      <ArrowCircleUpIcon sx={{mr: 1}}/> Scroll To Top
+      <ArrowCircleUpIcon sx={{ mr: 1 }} /> Scroll To Top
     </Fab>
   )
 
