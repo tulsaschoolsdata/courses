@@ -1,6 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import Grid from '@mui/material/Grid'
-import CourseCard from '/components/courseCard'
 import Fuse from 'fuse.js'
 import { courses as allCourses } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
@@ -12,6 +10,7 @@ import {
   withDefault,
 } from 'use-query-params'
 import { useRouter } from 'next/router'
+import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
 
 export default function SearchResults({ courses }) {
   const [queryParams, _] = useQueryParams({
@@ -93,14 +92,13 @@ export default function SearchResults({ courses }) {
         title="Search Results"
         records={searchResults.length}
       />
-
-      <Grid container spacing={2} data-test="searchResults">
-        {searchResults.map((course) => (
-          <Grid key={course.course_number} item xs={12} sm={6}>
-            <CourseCard course={course} />
-          </Grid>
-        ))}
-      </Grid>
+      <div data-test="searchResults">
+        {searchResults.length > 0 ? (
+          <InfiniteScrollCourses courses={searchResults} />
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
@@ -7,10 +6,10 @@ import Link from 'next/link'
 
 export default function HomePage({}) {
   return (
-    <Box sx={{ height: 600, width: '100%' }}>
       <Stack>
-        <Typography variant="h1">Course Catalog</Typography>
-
+        <Typography component="h1" variant="h3" sx={{ pb: 4 }}>
+          Course Catalog
+        </Typography>
         <Typography variant="body">
           The Course of Study (COS) is a document that identifies the District’s
           standards-based courses that meet or exceed the state and the district
@@ -39,7 +38,6 @@ export default function HomePage({}) {
           Get Started
         </Button>
       </Stack>
-    </Box>
   )
 }
 
