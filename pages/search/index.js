@@ -139,14 +139,9 @@ export default function Search() {
     return match[1].code
   }
 
-  const handleFormKeypress = (e) => {
-    if (e.key === 'Enter') {
-      submitForm()
-    }
-  }
-
   const router = useRouter()
-  const submitForm = () => {
+  const submitForm = (event) => {
+    event.preventDefault()
     const route = {
       pathname: '/search/results',
       query: {
@@ -160,7 +155,7 @@ export default function Search() {
   }
 
   return (
-    <form onKeyDown={handleFormKeypress}>
+    <form onSubmit={submitForm}>
       <Stack spacing={2} sx={{ p: 2, pt: 2 }} data-test="searchForm">
         <Typography variant="h6">Search</Typography>
         <TextField
@@ -279,7 +274,7 @@ export default function Search() {
             onChange={(val) => handleCourseNumbersChange(val.target.value)}
           />
         </FormControl>
-        <Button onClick={submitForm} variant="contained" sx={{ mt: 2 }}>
+        <Button type="submit" variant="contained" sx={{ mt: 2 }}>
           Submit
         </Button>
         <Button variant="outlined" onClick={() => clearFilters()}>
