@@ -3,63 +3,75 @@ import Fuse from 'fuse.js'
 import { courses as allCourses } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
-import {
-  useQueryParams,
-  StringParam,
-  ArrayParam,
-  withDefault,
-} from 'use-query-params'
 import { useRouter } from 'next/router'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
+import { isNull, isArray, isString } from 'lodash'
 
 export default function SearchResults({ courses }) {
-  const [queryParams, _] = useQueryParams({
-    schools: withDefault(ArrayParam, []),
-    search: withDefault(StringParam, ''),
-    creditType: withDefault(StringParam, ''),
-    courseNumbers: withDefault(ArrayParam, []),
-  })
-
   const [searchResults, setSearchResults] = useState([])
-  const filters = queryParams
 
   const router = useRouter()
-  const query = router.query
+  const queryParams = router.query
 
   useEffect(() => {
-    const hasFilters =
-      filters.search !== '' ||
-      filters.creditType !== '' ||
-      filters.schools.length > 0 ||
-      filters.courseNumbers.length > 0
+    const filtersSearch =
+      isString(queryParams.search) && queryParams.search.length > 0
+        ? queryParams.search
+        : null
+
+    const filtersCreditType =
+      isString(queryParams.creditType) && queryParams.creditType.length > 0
+        ? queryParams.creditType
+        : null
+
+    const filtersSchools =
+      isArray(queryParams.schools) ||
+      (isString(queryParams.schools) && queryParams.schools.length > 0)
+        ? queryParams.schools
+        : null
+
+    const filtersCourseNumbers =
+      isArray(queryParams.courseNumbers) ||
+      (isString(queryParams.courseNumbers) &&
+        queryParams.courseNumbers.length > 0)
+        ? queryParams.courseNumbers
+        : null
 
     let output = []
 
+    const hasFilters =
+      [
+        filtersSearch,
+        filtersSchools,
+        filtersCreditType,
+        filtersCourseNumbers,
+      ].filter((n) => n).length > 0
+
     if (hasFilters) {
-      output = courses
+      output = [...courses]
     }
 
-    if (filters.courseNumbers?.length > 0) {
+    if (!isNull(filtersCourseNumbers)) {
       output = output.filter((course) =>
-        filters.courseNumbers.includes(course.course_number)
+        filtersCourseNumbers.includes(course.course_number)
       )
     }
 
-    if (filters.creditType != '') {
+    if (!isNull(filtersCreditType)) {
       output = output.filter((course) =>
-        course.credit_types.includes(filters.creditType)
+        course.credit_types.includes(filtersCreditType)
       )
     }
 
-    if (filters.schools?.length > 0) {
+    if (!isNull(filtersSchools)) {
       output = output.filter(
         (course) =>
-          course.school_numbers.filter((id) => filters.schools.includes(id))
+          course.school_numbers.filter((id) => filtersSchools.includes(id))
             .length > 0
       )
     }
 
-    if (filters.search != '') {
+    if (!isNull(filtersSearch)) {
       const options = {
         keys: [
           { name: 'name', weight: 75 },
@@ -69,18 +81,20 @@ export default function SearchResults({ courses }) {
         threshold: 0.2,
       }
       const fuse = new Fuse(output, options)
-      const fuseResults = fuse.search(filters.search)
+      const fuseResults = fuse.search(filtersSearch)
       output = fuseResults.map((result) => result.item)
     }
-    setSearchResults(output)
-  }, [query, courses]) // cannot include filters or queryParams in dependency array; infinite errors
+
+    const results = output
+    setSearchResults(results)
+  }, [queryParams, courses])
 
   const MetaTags = () => (
     <Head>
-      <title>Courses offered by Tulsa Public Schools</title>
+      <title>Search Results for Courses Offered by Tulsa Public Schools</title>
       <meta
         name="description"
-        content="A listing of courses offered by Tulsa Public Schools"
+        content="Custom search results for courses offered by Tulsa Public Schools"
       />
     </Head>
   )
