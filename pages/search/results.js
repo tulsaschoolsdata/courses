@@ -18,11 +18,15 @@ const MetaTags = () => (
   </Head>
 )
 
+const courseNumbersToArray = (courseNumbers) => (
+  courseNumbers?.split(/\s+|,|\|/).filter((val) => val.match(/\d+/))
+)
+
 const queryParamsToFilters = (queryParams, courses) => {
   const filtersSearch = coerceIntoString(queryParams.search)
   const filtersCreditType = coerceIntoString(queryParams.creditType)
   const filtersSchools = coerceIntoArray(queryParams.schools)
-  const filtersCourseNumbers = coerceIntoArray(queryParams.courseNumbers)
+  const filtersCourseNumbers = coerceIntoArray(courseNumbersToArray(queryParams.courseNumbers))
 
   let output = []
 
