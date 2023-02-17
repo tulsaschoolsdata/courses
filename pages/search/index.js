@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
@@ -16,31 +16,21 @@ import {
   schoolsWhereCategoryCode,
   schoolFindById,
 } from '/lib/models'
-import {
-  useQueryParams,
-  StringParam,
-  ArrayParam,
-  withDefault,
-} from 'use-query-params'
 import { useRouter } from 'next/router'
+import { coerceIntoArray, coerceIntoString } from '/lib/utils'
 
 export default function Search() {
   const [courseNumbersStr, setCourseNumbersStr] = useState('')
   const [showSchoolSelector, setShowSchoolSelector] = useState(false)
   const [showCreditTypeSelector, setShowCreditTypeSelector] = useState(false)
-
-  const [queryParams, setQueryParams] = useQueryParams({
-    schools: withDefault(ArrayParam, []),
-    search: withDefault(StringParam, ''),
-    creditType: withDefault(StringParam, ''),
-    courseNumbers: withDefault(ArrayParam, []),
-  })
+  const router = useRouter()
+  const queryParams = router.query
 
   const [filters, setFilters] = useState({
-    schools: queryParams.schools || [],
-    search: queryParams.search || '',
-    creditType: queryParams.creditType || '',
-    courseNumbers: queryParams.courseNumbers || [],
+    schools: [],
+    search: '',
+    creditType: '',
+    courseNumbers: [],
   })
 
   const schoolCategories = {
@@ -55,7 +45,11 @@ export default function Search() {
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
-    setQueryParams(newFilters)
+    const route = {
+      pathname: '/search',
+      query: newFilters,
+    }
+    router.push(route)
   }
 
   const isChecked = (filterType, val) => {
@@ -139,7 +133,6 @@ export default function Search() {
     return match[1].code
   }
 
-  const router = useRouter()
   const submitForm = (event) => {
     event.preventDefault()
     const route = {
@@ -153,6 +146,15 @@ export default function Search() {
     }
     router.push(route)
   }
+
+  useEffect(() => {
+    setFilters({
+      schools: coerceIntoArray(queryParams.schools),
+      search: coerceIntoString(queryParams.search),
+      creditType: coerceIntoString(queryParams.creditType),
+      courseNumbers: coerceIntoArray(queryParams.courseNumbers),
+    })
+  }, [queryParams])
 
   return (
     <form onSubmit={submitForm}>

@@ -5,7 +5,8 @@ import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
-import { isEmpty, isArray, isString } from 'lodash'
+import { isEmpty } from 'lodash'
+import { coerceIntoArray, coerceIntoString } from '/lib/utils'
 
 const MetaTags = () => (
   <Head>
@@ -16,14 +17,6 @@ const MetaTags = () => (
     />
   </Head>
 )
-
-const coerceIntoString = (param) => {
-  return (isString(param) && param.length > 0) ? param : ''
-}
-
-const coerceIntoArray = (param) => {
-  return (isString(param) ? [param] : param) || []
-}
 
 const queryParamsToFilters = (queryParams, courses) => {
   const filtersSearch = coerceIntoString(queryParams.search)

@@ -19,18 +19,15 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "5.11",
     "@mui/material": "^5.11.8",
-    "@mui/x-data-grid": "^5.17.23",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "fuse.js": "^6.6.2",
     "lodash": "^4.17.21",
     "next": "13.1.6",
-    "next-query-params": "^4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-ga4": "^2.0.0",
-    "react-infinite-scroll-component": "^6.1.0",
-    "use-query-params": "^2.2.0"
+    "react-infinite-scroll-component": "^6.1.0"
   },
   "devDependencies": {
     "cypress": "^12.5.1",
