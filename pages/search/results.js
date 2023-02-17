@@ -5,7 +5,82 @@ import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
-import { isNull, isArray, isString } from 'lodash'
+import { isEmpty, isArray, isString } from 'lodash'
+
+const MetaTags = () => (
+  <Head>
+    <title>Search Results for Courses Offered by Tulsa Public Schools</title>
+    <meta
+      name="description"
+      content="Custom search results for courses offered by Tulsa Public Schools"
+    />
+  </Head>
+)
+
+const coerceIntoString = (param) => {
+  return (isString(param) && param.length > 0) ? param : ''
+}
+
+const coerceIntoArray = (param) => {
+  return (isString(param) ? [param] : param) || []
+}
+
+const queryParamsToFilters = (queryParams, courses) => {
+  const filtersSearch = coerceIntoString(queryParams.search)
+  const filtersCreditType = coerceIntoString(queryParams.creditType)
+  const filtersSchools = coerceIntoArray(queryParams.schools)
+  const filtersCourseNumbers = coerceIntoArray(queryParams.courseNumbers)
+
+  let output = []
+
+  const hasFilters =
+    [
+      filtersSearch,
+      filtersSchools,
+      filtersCreditType,
+      filtersCourseNumbers,
+    ].filter((n) => n.length > 0).length > 0
+
+  if (hasFilters) {
+    output = courses
+  }
+
+  if (!isEmpty(filtersCourseNumbers)) {
+    output = output.filter((course) =>
+      filtersCourseNumbers.includes(course.course_number)
+    )
+  }
+
+  if (!isEmpty(filtersCreditType)) {
+    output = output.filter((course) =>
+      course.credit_types.includes(filtersCreditType)
+    )
+  }
+
+  if (!isEmpty(filtersSchools)) {
+    output = output.filter(
+      (course) =>
+        course.school_numbers.filter((id) => filtersSchools.includes(id))
+          .length > 0
+    )
+  }
+
+  if (!isEmpty(filtersSearch)) {
+    const options = {
+      keys: [
+        { name: 'name', weight: 75 },
+        { name: 'description', weight: 5 },
+      ],
+      useExtendedSearch: true,
+      threshold: 0.2,
+    }
+    const fuse = new Fuse(output, options)
+    const fuseResults = fuse.search(filtersSearch)
+    output = fuseResults.map((result) => result.item)
+  }
+
+  return output
+}
 
 export default function SearchResults({ courses }) {
   const [searchResults, setSearchResults] = useState([])
@@ -14,90 +89,8 @@ export default function SearchResults({ courses }) {
   const queryParams = router.query
 
   useEffect(() => {
-    const filtersSearch =
-      isString(queryParams.search) && queryParams.search.length > 0
-        ? queryParams.search
-        : null
-
-    const filtersCreditType =
-      isString(queryParams.creditType) && queryParams.creditType.length > 0
-        ? queryParams.creditType
-        : null
-
-    const filtersSchools =
-      isArray(queryParams.schools) ||
-      (isString(queryParams.schools) && queryParams.schools.length > 0)
-        ? queryParams.schools
-        : null
-
-    const filtersCourseNumbers =
-      isArray(queryParams.courseNumbers) ||
-      (isString(queryParams.courseNumbers) &&
-        queryParams.courseNumbers.length > 0)
-        ? queryParams.courseNumbers
-        : null
-
-    let output = []
-
-    const hasFilters =
-      [
-        filtersSearch,
-        filtersSchools,
-        filtersCreditType,
-        filtersCourseNumbers,
-      ].filter((n) => n).length > 0
-
-    if (hasFilters) {
-      output = [...courses]
-    }
-
-    if (!isNull(filtersCourseNumbers)) {
-      output = output.filter((course) =>
-        filtersCourseNumbers.includes(course.course_number)
-      )
-    }
-
-    if (!isNull(filtersCreditType)) {
-      output = output.filter((course) =>
-        course.credit_types.includes(filtersCreditType)
-      )
-    }
-
-    if (!isNull(filtersSchools)) {
-      output = output.filter(
-        (course) =>
-          course.school_numbers.filter((id) => filtersSchools.includes(id))
-            .length > 0
-      )
-    }
-
-    if (!isNull(filtersSearch)) {
-      const options = {
-        keys: [
-          { name: 'name', weight: 75 },
-          { name: 'description', weight: 5 },
-        ],
-        useExtendedSearch: true,
-        threshold: 0.2,
-      }
-      const fuse = new Fuse(output, options)
-      const fuseResults = fuse.search(filtersSearch)
-      output = fuseResults.map((result) => result.item)
-    }
-
-    const results = output
-    setSearchResults(results)
+    setSearchResults(queryParamsToFilters(queryParams, courses))
   }, [queryParams, courses])
-
-  const MetaTags = () => (
-    <Head>
-      <title>Search Results for Courses Offered by Tulsa Public Schools</title>
-      <meta
-        name="description"
-        content="Custom search results for courses offered by Tulsa Public Schools"
-      />
-    </Head>
-  )
 
   return (
     <>
