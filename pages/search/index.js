@@ -85,7 +85,7 @@ export default function Search() {
     setFilters(defaultFilters)
     const route = {
       pathname: '/search',
-      query: defaultFilters
+      query: defaultFilters,
     }
     router.replace(route)
   }

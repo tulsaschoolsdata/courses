@@ -13,7 +13,7 @@ export default function SchoolCard({ school }) {
   const { school_number, name, school_category_name } = school
 
   return (
-    <Card sx={{ minHeight: 200 }} >
+    <Card sx={{ minHeight: 200 }}>
       <CardContent>
         <Grid
           container

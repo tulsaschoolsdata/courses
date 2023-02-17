@@ -3,10 +3,7 @@ import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
-import {
-  courses as allCourses,
-  searchByQueryParams,
-} from '/lib/models'
+import { courses as allCourses, searchByQueryParams } from '/lib/models'
 
 const MetaTags = () => (
   <Head>
@@ -17,7 +14,6 @@ const MetaTags = () => (
     />
   </Head>
 )
-
 
 export default function SearchResults({ courses }) {
   const [searchResults, setSearchResults] = useState([])
