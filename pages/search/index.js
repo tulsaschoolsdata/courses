@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
 import Chip from '@mui/material/Chip'
@@ -16,32 +16,23 @@ import {
   schoolsWhereCategoryCode,
   schoolFindById,
 } from '/lib/models'
-import {
-  useQueryParams,
-  StringParam,
-  ArrayParam,
-  withDefault,
-} from 'use-query-params'
 import { useRouter } from 'next/router'
+import { coerceIntoArray, coerceIntoString } from '/lib/utils'
 
 export default function Search() {
-  const [courseNumbersStr, setCourseNumbersStr] = useState('')
   const [showSchoolSelector, setShowSchoolSelector] = useState(false)
   const [showCreditTypeSelector, setShowCreditTypeSelector] = useState(false)
+  const router = useRouter()
+  const queryParams = router.query
 
-  const [queryParams, setQueryParams] = useQueryParams({
-    schools: withDefault(ArrayParam, []),
-    search: withDefault(StringParam, ''),
-    creditType: withDefault(StringParam, ''),
-    courseNumbers: withDefault(ArrayParam, []),
-  })
+  const defaultFilters = {
+    schools: [],
+    search: '',
+    creditType: '',
+    courseNumbers: '',
+  }
 
-  const [filters, setFilters] = useState({
-    schools: queryParams.schools || [],
-    search: queryParams.search || '',
-    creditType: queryParams.creditType || '',
-    courseNumbers: queryParams.courseNumbers || [],
-  })
+  const [filters, setFilters] = useState(defaultFilters)
 
   const schoolCategories = {
     73700: 'Early Childhood',
@@ -55,7 +46,11 @@ export default function Search() {
   const handleChange = (attribute, val) => {
     const newFilters = { ...filters, [attribute]: val }
     setFilters(newFilters)
-    setQueryParams(newFilters)
+    const route = {
+      pathname: '/search',
+      query: newFilters,
+    }
+    router.push(route)
   }
 
   const isChecked = (filterType, val) => {
@@ -82,34 +77,17 @@ export default function Search() {
     setShowSchoolSelector(false)
   }
 
-  const handleCourseNumbersChange = (courseNumbersStr) => {
-    const courseNumbers = courseNumbersStr
-      .split(/\s+|,|\|/)
-      .filter((val) => val.match(/\d+/))
-    setCourseNumbersStr(courseNumbersStr)
-    handleChange('courseNumbers', courseNumbers)
-  }
-
   const handleCreditTypeChangeAndClose = (creditType) => {
     handleChange('creditType', creditType)
   }
 
   const clearFilters = () => {
-    const blankFilters = {
-      creditType: '',
-      search: '',
-      schools: [],
-      courseNumbers: [],
+    setFilters(defaultFilters)
+    const route = {
+      pathname: '/search',
+      query: defaultFilters,
     }
-    const nullFilters = {
-      creditType: null,
-      search: null,
-      schools: null,
-      courseNumbers: null,
-    }
-    setFilters(blankFilters)
-    setQueryParams(nullFilters)
-    setCourseNumbersStr('')
+    router.replace(route)
   }
 
   const renderMenuOptionsForCategory = (category) => {
@@ -139,7 +117,6 @@ export default function Search() {
     return match[1].code
   }
 
-  const router = useRouter()
   const submitForm = (event) => {
     event.preventDefault()
     const route = {
@@ -153,6 +130,15 @@ export default function Search() {
     }
     router.push(route)
   }
+
+  useEffect(() => {
+    setFilters({
+      schools: coerceIntoArray(queryParams.schools),
+      search: coerceIntoString(queryParams.search),
+      creditType: coerceIntoString(queryParams.creditType),
+      courseNumbers: coerceIntoString(queryParams.courseNumbers),
+    })
+  }, [queryParams])
 
   return (
     <form onSubmit={submitForm}>
@@ -269,9 +255,9 @@ export default function Search() {
             label="Course number(s)"
             aria-label="A list of course number(s)"
             placeholder=""
-            value={courseNumbersStr}
+            value={filters.courseNumbers}
             style={{ width: '100%' }}
-            onChange={(val) => handleCourseNumbersChange(val.target.value)}
+            onChange={(val) => handleChange('courseNumbers', val.target.value)}
           />
         </FormControl>
         <Button type="submit" variant="contained" sx={{ mt: 2 }}>

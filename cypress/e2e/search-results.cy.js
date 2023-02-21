@@ -13,8 +13,13 @@ describe('search results', () => {
     searchResults().should('contain.text', 'CHORUS')
   })
 
+  it('accepts a single courseNumber as a query param', () => {
+    cy.visit('/search/results?courseNumbers=30444')
+    searchResults().should('contain.text', 'CAREER EXP')
+  })
+
   it('accepts courseNumbers as a query param', () => {
-    cy.visit('/search/results?courseNumbers=30444&courseNumbers=30274')
+    cy.visit('/search/results?courseNumbers=30444%2C30274')
     searchResults().should('contain.text', 'CAREER EXP')
     searchResults().should('contain.text', 'DIGITAL')
   })
