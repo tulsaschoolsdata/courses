@@ -81,11 +81,20 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          REACT_APP_LAST_UPDATED: ${{ steps.date.outputs.date }}
+
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
+        env:
+          REACT_APP_LAST_UPDATED: ${{ steps.date.outputs.date }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
