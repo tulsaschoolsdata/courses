@@ -44,7 +44,7 @@ Courses.propTypes = {
 
 export async function getStaticProps() {
   const allCourses = courses
-  const lastUpdated = process.env.REACT_APP_LAST_UPDATED
+  const lastUpdated = process.env.REACT_APP_LAST_UPDATED || null
 
   return {
     props: {
