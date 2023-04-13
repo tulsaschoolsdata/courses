@@ -8,7 +8,7 @@ import { schoolFindById } from '/lib/models'
 import HeaderWithRecordCount from '/components/HeaderWithRecordCount'
 import InfiniteScrollCourses from '/components/InfiniteScrollCourses'
 
-export default function School({ school, courses }) {
+export default function School({ school, courses, lastUpdated }) {
   return (
     <React.Fragment>
       <Head>
@@ -32,6 +32,15 @@ export default function School({ school, courses }) {
       </Typography>
 
       <HeaderWithRecordCount title="Courses" records={courses.length} />
+      {lastUpdated && (
+        <Typography
+          variant="subtitle1"
+          align="right"
+          sx={{ color: '#4f4d4d', width: '100%' }}
+        >
+          {`Last Updated: ${lastUpdated}`}
+        </Typography>
+      )}
 
       <div data-test="showSchoolCourses">
         <InfiniteScrollCourses courses={courses} />
@@ -57,11 +66,13 @@ export async function getStaticProps({ params }) {
   const school = schoolFindById(params.schools)
   const course_ids = school.course_numbers
   const courses = allCourses.filter((c) => course_ids.includes(c.course_number))
+  const lastUpdated = process.env.REACT_APP_LAST_UPDATED || null
 
   return {
     props: {
       school,
       courses,
+      lastUpdated,
     },
   }
 }
