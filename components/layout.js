@@ -34,7 +34,7 @@ export default function Layout({ children, window }) {
           mode: prefersDarkMode ? 'dark' : 'light',
         },
       }),
-    [prefersDarkMode]
+    [prefersDarkMode],
   )
   const router = useRouter()
 
