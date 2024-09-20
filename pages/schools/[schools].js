@@ -17,7 +17,7 @@ export default function School({ school, courses, lastUpdated }) {
           name="description"
           content={truncate(
             `Course Catalog for ${school.name} in Tulsa, Oklahoma`,
-            { length: 155 }
+            { length: 155 },
           )}
         />
       </Head>

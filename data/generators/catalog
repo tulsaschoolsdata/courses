@@ -9,9 +9,9 @@ gemfile do
   gem 'activesupport', '~> 7.0'
   gem 'dotenv', '~> 2.8'
 
-  # ref: '07a029e' == branch: 'nlc/failed-connection-nameerror'
+  # ref: '47172ce' == branch: 'main'
   gem 'ps_utilities', git: 'https://github.com/tulsaschoolsdata/ps_utilities.git',
-                      ref: '07a029e'
+                      ref: '47172ce'
 end
 
 Dotenv.load(*Dir["#{__dir__}/.env*"])
